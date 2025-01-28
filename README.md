@@ -19,3 +19,6 @@ contact
 resume
 achievements/certifications
 footer
+
+process...
+1. Initialize a nextjs project.
