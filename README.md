@@ -3,8 +3,9 @@ My website portifolia
 
 what will my portifolio have...
 
-dark mode toggle
-responsive
+dark mode toggle        ✅
+responsive              ✅
+transparent backgrounds ✅
 interactive animations
 three.js
 
