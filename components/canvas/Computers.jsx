@@ -30,7 +30,7 @@ function Computers({ isMobile }) {
         dampingFactor={0.05}
         enablePan={false}
         autoRotateSpeed={4}
-        autoRotate={isMobile && true}
+        autoRotate={true}
         makeDefault
       />
       <ComputerModel
