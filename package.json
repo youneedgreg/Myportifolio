@@ -1,7 +1,13 @@
 {
-  "name": "3dportifolio",
+  "name": "3d-portfolio",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Gregory Temwa",
+    "email": "gregorytemwa77607@gmail.com",
+    "github": "@Gregory-Temwa-1",
+    "linkedin": "https://www.linkedin.com/in/gregorytemwa77607"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,25 +15,29 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@react-three/drei": "^9.121.4",
-    "@react-three/fiber": "^8.17.14",
-    "@react-three/postprocessing": "^2.19.1",
-    "framer-motion": "^12.0.6",
-    "next": "^14.2.23",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-icons": "^5.4.0",
-    "react-simple-typewriter": "^5.0.1",
-    "three": "^0.172.0"
+    "@emailjs/browser": "^3.11.0",
+    "@react-three/drei": "^9.80.0",
+    "@react-three/fiber": "^8.11.1",
+    "@svgr/webpack": "^8.1.0",
+    "@vercel/analytics": "^1.0.2",
+    "dompurify": "^3.1.6",
+    "eslint": "8.49.0",
+    "eslint-config-next": "13.4.19",
+    "framer-motion": "^10.15.0",
+    "gltfjsx": "^6.2.13",
+    "maath": "^0.7.0",
+    "next": "^15.1.6",
+    "next-themes": "^0.2.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-parallax-tilt": "^1.7.154",
+    "react-type-animation": "^3.1.0",
+    "react-vertical-timeline-component": "^3.6.0",
+    "three": "^0.155.0"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.2",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "autoprefixer": "^10.4.15",
+    "postcss": "^8.4.29",
+    "tailwindcss": "^3.3.3"
   }
 }
