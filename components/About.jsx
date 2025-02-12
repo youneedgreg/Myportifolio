@@ -28,27 +28,27 @@ function About() {
         className="mt-4 dark:text-ctnSecondaryDark text-gray-300 text-[17px] w-full leading-[30px] flex flex-col justify-between gap-6"
       >
         <div>
-          Hello! I&apos;m Gregory Temwa, a passionate web developer and problem
-          solver. Currently, I&apos;m the Tech Team Lead at GDSC MVJCE, and
-          I&apos;m pursuing a B.E. degree in Computer Science and Engineering at
-          MVJ College Of Engineering in Bengaluru, India, with an expected
-          graduation year of 2025. I&apos;m a software developer with experience
-          in TypeScript, TailwindCSS, and JavaScript. I specialize in frameworks
+          Hello! I&apos;m Gregory Temwa, a passionate software engineering student and freelance
+          developer. Currently, I&apos;m a freelancer developer at multiple firms at Nairobi Kenya, and
+          I&apos;m pursuing a B.E. degree in Software Engineering at
+          United States International University (USIU) in Nairobi, Kenya, with an expected
+          graduation year of 2026. I&apos;m a software developer with experience technologies such as 
+          in TypeScript, Mongo, Postgress, TailwindCSS, and JavaScript. I specialize in frameworks
           such as React, Node.js, Next.js, React-Three-Fiber, and Three.js. My
           knowledge extends to fundamental data structures and algorithms,
-          making me well-versed in frontend web development.
+          making me well-versed in both full-stack web and software development.
           <br className="sm:block hidden" />
           Let&apos;s collaborate to bring your ideas to life!
         </div>
         <div className="w-fit break-words">
           <Link
-            href="mailto:gregorytemwa77607@gmail.com"
+            href="mailto:gregorytemwa1212@gmail.com"
             target="_blank"
             rel="noreferrer"
             className="hover:text-primary w-full transition-all duration-100 ease-in flex md:items-center gap-2 md:flex-row flex-wrap word-break hover:-translate-y-2"
           >
             <EmailIcon className="w-[30px] h-[30px]" />
-            gregorytemwa77607@gmail.com
+            gregorytemwa1212@gmail.com
           </Link>
         </div>
         <div className="flex gap-5 items-center">

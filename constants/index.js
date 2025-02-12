@@ -501,17 +501,17 @@ const socials = [
   {
     id: "github",
     icon: <GithubIcon />,
-    link: "https://github.com/Gregory-Temwa-1",
+    link: "https://github.com/youneedgreg",
   },
   {
     id: "linkedin",
     icon: <LinkedInIcon />,
-    link: "https://www.linkedin.com/in/gregorytemwa77607",
+    link: "https://www.linkedin.com/in/youneedgreg",
   },
   {
     id: "x",
     icon: <XIcon />,
-    link: "https://twitter.com/Gregory_1_Temwa",
+    link: "https://twitter.com/youneedgreg",
   },
   {
     id: "instagram",
