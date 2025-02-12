@@ -220,19 +220,19 @@ const technologies = {
 };
 
 const experiences = [
-  // {
-  //   title: "Full Stack Developer",
-  //   company_name: "Tech Lead at GDSC MVJCE",
-  //   icon: "/assets/company/gdsc-logo.svg",
-  //   iconBg: "#E6DEDD",
-  //   date: "July 2023 - Present",
-  //   points: [
-  //     "Currently serving as the Tech Lead of GDSC, responsible for guiding technical aspects, fostering collaboration, and contributing to strategic decisions.",
-  //     "Led induction programs, ensured new member alignment with GDSC's mission, and provided technical mentorship.",
-  //     "Developed GDSC MVJCE website, enhancing the organization's online visibility.",
-  //     "Spearheaded promotional campaigns, actively engaged with the GDSC community, and played a key role in planning and executing events.",
-  //   ],
-  // },
+  {
+    title: "Freelancer",
+    company_name: "Working on Projects as a freelancer",
+    icon: "/assets/company/gdsc-logo.svg",
+    iconBg: "#E6DEDD",
+    date: "September 2024 - Present",
+    points: [
+      "Currently serving as the Tech Lead of GDSC, responsible for guiding technical aspects, fostering collaboration, and contributing to strategic decisions.",
+      "Led induction programs, ensured new member alignment with GDSC's mission, and provided technical mentorship.",
+      "Developed GDSC MVJCE website, enhancing the organization's online visibility.",
+      "Spearheaded promotional campaigns, actively engaged with the GDSC community, and played a key role in planning and executing events.",
+    ],
+  },
   {
     title: "Frontend Developer Intern",
     company_name: "Intern at Curowell Healthcare Private Ltd",
