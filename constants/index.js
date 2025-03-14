@@ -284,9 +284,9 @@ const testimonials = [
 
 const projects = [
   {
-    name: "QuickEdit: AI-Powered Image & Video Editor",
+    name: "CHATI : An Ai powered mental health companion with games and productivity-wellness applications",
     description:
-      "QuickEdit is an AI-powered online image and video editor built using the Cloudinary AI API. It offers robust features for both images and videos, with user-friendly authentication and a tiered credit system. Enhance your media editing experience with cutting-edge AI tools!",
+      "A compassionate AI-powered chatbot designed to support users facing mental health challenges. It provides empathetic conversations, mood tracking, and a Games Corner with interactive activities to help users cope with distress.",
     tags: [
       {
         name: "typescript",
@@ -305,14 +305,14 @@ const projects = [
         color: "orange-text-gradient",
       },
       {
-        name: "cloudinary",
-        color: "yellow-text-gradient",
+        name: "neonconsole",
+        color: "green-text-gradient",
       },
     ],
     image:
-      "https://res.cloudinary.com/dqiqi75hm/image/upload/v1734187202/quickedit/dp6y8s8dstqfpq7svmj5.png",
-    source_code_link: "https://github.com/Gregory-Temwa-1/QuickEdit",
-    deployed_link: "https://quick-edit-app.vercel.app",
+      "/image.png",
+    source_code_link: "https://github.com/youneedgreg/chati",
+    deployed_link: "https://github.com/youneedgreg/chati",
   },
   {
     name: "FigPro",

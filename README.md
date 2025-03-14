@@ -111,3 +111,4 @@ process...
 1. Initialize a nextjs project.
 2. Create a 3d background
 3 Create a navbar
+![alt text](image.png)

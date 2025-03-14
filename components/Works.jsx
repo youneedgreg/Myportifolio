@@ -110,6 +110,7 @@ function Works() {
           descriptions and links to code repositories and live demos. They
           demonstrate my ability to handle complex challenges, adapt to
           different technologies, and oversee projects from start to finish.
+          Press on the rocket to go to app, and github logo to go to repo link.
         </motion.p>
       </div>
 
