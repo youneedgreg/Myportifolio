@@ -284,7 +284,7 @@ const testimonials = [
 
 const projects = [
   {
-    name: "CHATI : An Ai powered mental health companion with games and productivity-wellness applications",
+    name: "CHATI",
     description:
       "A compassionate AI-powered chatbot designed to support users facing mental health challenges. It provides empathetic conversations, mood tracking, and a Games Corner with interactive activities to help users cope with distress.",
     tags: [

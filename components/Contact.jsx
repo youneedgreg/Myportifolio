@@ -46,7 +46,7 @@ function Contact() {
           from_name: DOMPurify.sanitize(form.name),
           to_name: "Gregory Temwa",
           from_email: DOMPurify.sanitize(form.email),
-          to_email: "gregorytemwa77607@gmail.com",
+          to_email: "gregorytemwa1212@gmail.com",
           message: DOMPurify.sanitize(form.message),
         },
         process.env.NEXT_PUBLIC_EMAILJS_KEY
@@ -97,7 +97,7 @@ function Contact() {
             value={form.name}
             onChange={handleChange}
             required
-            placeholder="What is your good name?"
+            placeholder="What is your name?"
             className="bg-bgPrimaryDark py-4 px-6 placeholder:text-ctnSecondaryDark rounded-lg outline-none border-none font-medium text-ctnPrimaryDark  placeholder:text-sm md:placeholder:text-lg h-fit placeholder:break-words break-words"
           />
         </label>
