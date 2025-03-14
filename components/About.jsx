@@ -64,7 +64,7 @@ function About() {
           ))}
         </div>
         <Link
-          href="document/Gregory_Temwa_Resume.pdf"
+          href="document/Gregory Temwa.pdf"
           target="_blank"
           rel="noreferrer"
           className="w-fit"
