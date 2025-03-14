@@ -286,7 +286,7 @@ const projects = [
   {
     name: "CHATI",
     description:
-      "A compassionate AI-powered chatbot designed to support users facing mental health challenges. It provides empathetic conversations, mood tracking, and a Games Corner with interactive activities to help users cope with distress.",
+      "A compassionate AI-powered chatbot designed to support users facing mental health challenges. It provides empathetic conversations, journal, mood tracking, and a Games Corner with interactive activities to help users cope with distress.",
     tags: [
       {
         name: "typescript",
@@ -315,9 +315,9 @@ const projects = [
     deployed_link: "https://github.com/youneedgreg/chati",
   },
   {
-    name: "FigPro",
+    name: "Mtaamall",
     description:
-      "FigPro is a web-based collaborative design tool similar to Figma, built using Next.js, TypeScript, Tailwind CSS, and LiveBlocks API, Fabric.js. With FigPro, teams can seamlessly collaborate on designing interfaces in real-time with a plethora of features.",
+      "MtaaMall is an online platform designed to connect businesses with potential customers. Hosted on Vercel, it offers businesses the opportunity to reach a broader audience and enhance their online presence..",
     tags: [
       {
         name: "typescript",
@@ -332,48 +332,14 @@ const projects = [
         color: "pink-text-gradient",
       },
       {
-        name: "fabricjs",
-        color: "orange-text-gradient",
-      },
-      {
-        name: "liveblocks",
-        color: "yellow-text-gradient",
+        name: "shadcnui",
+        color: "black-text-gradient",
       },
     ],
-    image: "/assets/projects/fig-pro.png",
+    image: "/mtaamall.png",
     source_code_link: "https://github.com/Gregory-Temwa-1/FigPro",
     deployed_link: "https://fig-pro-github.vercel.app",
   },
-  // {
-  //   name: "GDSC Website",
-  //   description:
-  //     "Welcome to the official repository for the GDSC MVJCE Website, built with Next.js, Styled Components, and Prisma! This website serves as the central hub for all things tech-related at GDSC MVJCE. From insightful blog posts to incredible community projects, and from exciting tech events to getting to know our team, you'll find it all here.",
-  //   tags: [
-  //     {
-  //       name: "next.js",
-  //       color: "blue-text-gradient",
-  //     },
-  //     {
-  //       name: "styled-components",
-  //       color: "green-text-gradient",
-  //     },
-  //     {
-  //       name: "three.js",
-  //       color: "pink-text-gradient",
-  //     },
-  //     {
-  //       name: "prisma",
-  //       color: "orange-text-gradient",
-  //     },
-  //     {
-  //       name: "framer-motion",
-  //       color: "yellow-text-gradient",
-  //     },
-  //   ],
-  //   image: "/assets/projects/gdsc-website.png",
-  //   source_code_link: "https://github.com/GDSC-MVJCE/gdscmvjce-website.git",
-  //   deployed_link: "https://gdscmvjce.vercel.app/",
-  // },
   {
     name: "Facility Management System",
     description:
