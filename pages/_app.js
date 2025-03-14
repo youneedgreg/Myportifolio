@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }) {
 	const description =
 		"Hello! I'm Gregory Temwa, a passionate software developer and problem solver. Welcome to my portfolio";
 	const avatar =
-		"@/public/assets/avatar.png";
+		"./assets/avatar.png";
 	const url = "https://gregory-temwa-myportfolio.vercel.app/";
 
 	return (
