@@ -317,7 +317,7 @@ const projects = [
   {
     name: "Mtaamall",
     description:
-      "MtaaMall is an online platform designed to connect businesses with potential customers. Hosted on Vercel, it offers businesses the opportunity to reach a broader audience and enhance their online presence..",
+      "MtaaMall is an online platform designed to connect businesses with potential customers. Has two sites,client side and business side, it offers businesses the opportunity to reach a broader audience and enhance their online presence..",
     tags: [
       {
         name: "typescript",
@@ -337,8 +337,8 @@ const projects = [
       },
     ],
     image: "/mtaamall.png",
-    source_code_link: "https://github.com/Gregory-Temwa-1/FigPro",
-    deployed_link: "https://fig-pro-github.vercel.app",
+    source_code_link: "https://github.com/youneedgreg/Mtaamall-biz-production",
+    deployed_link: "https://business-mtaamall.vercel.app/",
   },
   {
     name: "Facility Management System",
