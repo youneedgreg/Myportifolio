@@ -15,7 +15,7 @@ const navLinks = [
     title: "About",
   },
   {
-    id: "work",
+    id: "Experience",
     title: "Work",
   },
   {
