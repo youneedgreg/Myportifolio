@@ -343,14 +343,14 @@ const projects = [
   {
     name: "Facility Management System",
     description:
-      "The Facility Management System is a comprehensive management solution developed using the MERN (MongoDB, Express.js, React, Node.js) stack. It allows users to book time slots in facilities and provides role-based access control for various functionalities.",
+      "The Facility Management System is a comprehensive management solution developed using the MERN (MongoDB, Express.js, React, Node.js) stack. It allows users to book rooms slots in facilities, pay, print pdf and provides role-based access control for various functionalities.",
     tags: [
       {
         name: "typescript",
         color: "blue-text-gradient",
       },
       {
-        name: "react",
+        name: "react printtopdf",
         color: "green-text-gradient",
       },
       {
@@ -366,11 +366,11 @@ const projects = [
         color: "yellow-text-gradient",
       },
     ],
-    image: "/assets/projects/facility-manager.png",
+    image: "/image-1.png",
     source_code_link:
-      "https://github.com/Gregory-Temwa-1/Facility-Management-System",
+      "https://github.com/youneedgreg/Motel_management",
     deployed_link:
-      "https://github.com/Gregory-Temwa-1/Facility-Management-System?tab=readme-ov-file#demo",
+      "https://sevendaysholidaysinn.vercel.app/welcome",
   },
   // {
   //   name: "Netflix Clone",
