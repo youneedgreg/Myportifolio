@@ -222,37 +222,29 @@ const technologies = {
 const experiences = [
   {
     title: "Freelancer",
-    company_name: "Working on Projects as a freelancer",
+    company_name: "Working with different clients as a freelancer",
     icon: "/assets/company/gdsc-logo.svg",
     iconBg: "#E6DEDD",
     date: "September 2024 - Present",
     points: [
-      "still on edits",
+      "Developed and launched responsive websites for diverse clients, enhancing user engagement and achieving a 20% increase in site traffic.",
+      "Collaborated with cross-functional teams to design and implement e-commerce solutions, resulting in a 15% boost in online sales.",
+      "Optimized website performance, reducing load times by 30%, leading to improved user retention and satisfaction.",
+      "Provided technical support and training to clients, ensuring seamless website maintenance and updates.",
     ],
   },
   {
-    title: "Freelancer",
-    company_name: "Working on Projects as a freelancer",
+    title: "Junior Software Developer",
+    company_name: "Mtaamall",
     icon: "/assets/company/gdsc-logo.svg",
     iconBg: "#E6DEDD",
-    date: "September 2024 - Present",
+    date: "May 2024 - Present,",
     points: [
-      "still on edits",
+      "Developed and launched a Minimum Viable Product (MVP) for Mtaamall, a Nairobi-based startup, facilitating their entry into the market.",
+      "Collaborated with cross-functional teams to design and implement new features, enhancing user experience and engagement",
+      "Provided ongoing technical support and project management, ensuring timely delivery and maintenance of software solutions.",
     ],
   },
-  // {
-  //   title: "Frontend Developer",
-  //   company_name: "Tech team member at GDSC MVJCE",
-  //   icon: "/assets/company/gdsc-logo.svg",
-  //   iconBg: "#E6DEDD",
-  //   date: "February 2022 - July 2023",
-  //   points: [
-  //     "Successfully planned and executed induction programs, providing new members with crucial information about the organization's goals and values.",
-  //     "Demonstrated web development expertise by conducting CSS workshops, equipping participants with practical web design and styling skills.",
-  //     "Played a crucial role in promoting GDSC events and actively collaborated with cross-functional teams to deliver high-quality projects, fostering teamwork and innovation.",
-  //     "Actively engaged with the GDSC community, assisted in workshops, and contributed to planning and managing GDSC events, ensuring their success and growth.",
-  //   ],
-  // },
 ];
 
 const testimonials = [
@@ -341,9 +333,9 @@ const projects = [
     deployed_link: "https://business-mtaamall.vercel.app/",
   },
   {
-    name: "Facility Management System",
+    name: "Motel Management System",
     description:
-      "The Facility Management System is a comprehensive management solution developed using the MERN (MongoDB, Express.js, React, Node.js) stack. It allows users to book rooms slots in facilities, pay, print pdf and provides role-based access control for various functionalities.",
+      "A motel_management system to manage guests in a motel and rooms. And allow management to print to pdf and see users and their status. Use 123456 as userid and 12345678 as password to check out.",
     tags: [
       {
         name: "typescript",
@@ -372,76 +364,6 @@ const projects = [
     deployed_link:
       "https://sevendaysholidaysinn.vercel.app/welcome",
   },
-  // {
-  //   name: "Netflix Clone",
-  //   description:
-  //     "Netflix-Clone is a fully responsive web application that replicates the popular streaming platform Netflix. It is built using Next.js, Prisma, React, NextAuth.js, Tailwind CSS, MongoDB and TypeScript. This project aims to showcase the implementation of these technologies to create a feature-rich clone of Netflix.",
-  //   tags: [
-  //     {
-  //       name: "next.js",
-  //       color: "blue-text-gradient",
-  //     },
-  //     {
-  //       name: "typescript",
-  //       color: "green-text-gradient",
-  //     },
-  //     {
-  //       name: "tailwindcss",
-  //       color: "pink-text-gradient",
-  //     },
-  //     {
-  //       name: "mongodb",
-  //       color: "orange-text-gradient",
-  //     },
-  //   ],
-  //   image: "/assets/projects/netflix-clone.png",
-  //   source_code_link: "https://github.com/Gregory-Temwa-1/Netflix-Clone.git",
-  //   deployed_link: "https://netflix-clone12345.vercel.app",
-  // },
-  // {
-  //   name: "Van-Life",
-  //   description:
-  //     "VanLife is a user-friendly website built with React that simplifies van searches. It is a web app used to browse different types of vans. It allows users to log in and offers convenient tag-based filtering for easy browsing.",
-  //   tags: [
-  //     {
-  //       name: "react",
-  //       color: "blue-text-gradient",
-  //     },
-  //     {
-  //       name: "mirage.js",
-  //       color: "green-text-gradient",
-  //     },
-  //     {
-  //       name: "firebase-firestore",
-  //       color: "pink-text-gradient",
-  //     },
-  //   ],
-  //   image: "/assets/projects/vanlife.png",
-  //   source_code_link: "https://github.com/Gregory-Temwa-1/Van-Life.git",
-  //   deployed_link: "https://myvanlife.netlify.app",
-  // },
-  // {
-  // 	name: "Spooky-Run",
-  // 	description:
-  // 		"Spooky Run is a web based 2D arcade style game that allows players to play as a lost dog finding its way back home through a spooky forest. The game is built using vanilla JavaScript and utilizes HTML5 and the 'canvas' element to render graphics and handle user input.",
-  // 	tags: [
-  // 		{
-  // 			name: "html5",
-  // 			color: "blue-text-gradient"
-  // 		},
-  // 		{
-  // 			name: "css3",
-  // 			color: "green-text-gradient"
-  // 		},
-  // 		{
-  // 			name: "javascript",
-  // 			color: "pink-text-gradient"
-  // 		}
-  // 	],
-  // 	image: "/assets/projects/spooky-run.png",
-  // 	source_code_link: "https://github.com/Gregory-Temwa-1/Spooky-Run.git",
-  // 	deployed_link: "https://gregory-temwa-1.github.io/Spooky-Run"
-  // }
 ];
 
 const socials = [
