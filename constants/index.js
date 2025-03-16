@@ -221,8 +221,8 @@ const technologies = {
 
 const experiences = [
   {
-    title: "Freelancer",
-    company_name: "Working with different clients as a freelancer",
+    title: "Web Developer.",
+    company_name: "Webtech solutions limited",
     icon: "/assets/company/gdsc-logo.svg",
     iconBg: "#E6DEDD",
     date: "September 2024 - Present",
@@ -307,9 +307,9 @@ const projects = [
     deployed_link: "https://github.com/youneedgreg/chati",
   },
   {
-    name: "Mtaamall",
+    name: "2DAY",
     description:
-      "MtaaMall is an online platform designed to connect businesses with potential customers. Has two sites,client side and business side, it offers businesses the opportunity to reach a broader audience and enhance their online presence..",
+      "2day is a habit tracker and productivity app featuring reminders, to-do lists, notes and a dashboard that displays streaks to show this. The app can be used to build and quit habits as well as be productive with newere upcoming features..",
     tags: [
       {
         name: "typescript",
@@ -328,9 +328,9 @@ const projects = [
         color: "black-text-gradient",
       },
     ],
-    image: "/mtaamall.png",
-    source_code_link: "https://github.com/youneedgreg/Mtaamall-biz-production",
-    deployed_link: "https://business-mtaamall.vercel.app/",
+    image: "/2day.png",
+    source_code_link: "https://github.com/youneedgreg/2day",
+    deployed_link: "https://2dayy.vercel.app/",
   },
   {
     name: "Motel Management System",
