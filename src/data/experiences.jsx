@@ -1,8 +1,8 @@
 export const WORK_EXPERIENCES = [
     {
-        company: "Padtech Industries Corporation",
-        title: "Frontend Developer",
-        duration: "Sep 2022 - Mar 2025",
+        company: "Webtech Solutions Limited.",
+        title: "Full Stack Developer",
+        duration: "Mar 2024 - Jan 2025",
         description: [
             "Below are the projects I've designed and developed during my stay at the company.",
         ],

@@ -2,8 +2,8 @@ import Blogs from "@/components/blog/Blogs";
 import { getBlogPosts } from "@/lib/blog";
 
 export const metadata = {
-    title: "Notes - greg de Orayom",
-    description: "Software Engineer & UI/UX designer",
+    title: "Notes - Gregory Temwa",
+    description: "Software Engineer",
 };
 
 export default function BlogPage() {
