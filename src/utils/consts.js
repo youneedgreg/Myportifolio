@@ -2,7 +2,7 @@ export const author = {
     handle: "@kingdeorayom",
 };
 
-export const projectURL = "https://serking.dev";
+export const projectURL = "https://greg.dev";
 
 export const NAVIGATION_LINKS = [
     { path: "/", label: "home" },

@@ -4,7 +4,7 @@ import { MdArrowDownward } from "react-icons/md";
 const DownloadCV = () => {
     const handleClick = () => {
         window.open(
-            `${window?.location?.origin}/Serking-de-Orayom-CV.pdf`,
+            `${window?.location?.origin}/resume.pdf`,
             "_blank"
         );
     };

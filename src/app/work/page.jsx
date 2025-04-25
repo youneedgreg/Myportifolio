@@ -4,8 +4,8 @@ import Experiences from "@/components/work/Experiences";
 import Stack from "@/components/work/Stack";
 
 export const metadata = {
-    title: "Work - Serking de Orayom",
-    description: "Software Engineer & UI/UX designer",
+    title: "Work - Gregory Temwa Odete",
+    description: "Software Engineer",
 };
 
 export default function WorkPage() {

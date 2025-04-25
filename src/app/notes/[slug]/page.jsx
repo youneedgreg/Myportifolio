@@ -18,8 +18,8 @@ export async function generateMetadata({ params }) {
         image,
     } = post.metadata;
     let ogImage = image
-        ? `https://serking.vercel.app${image}`
-        : `https://serking.vercel.app/og?title=${title}`;
+        ? `https://greg.vercel.app${image}`
+        : `https://greg.vercel.app/og?title=${title}`;
 
     return {
         title,
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }) {
             description,
             type: "article",
             publishedTime,
-            url: `https://serking.vercel.app/blog/${post.slug}`,
+            url: `https://greg.vercel.app/blog/${post.slug}`,
             images: [
                 {
                     url: ogImage,
@@ -98,12 +98,12 @@ export default function Blog({ params }) {
                         dateModified: post.metadata.publishedAt,
                         description: post.metadata.summary,
                         image: post.metadata.image
-                            ? `https://serking.vercel.app${post.metadata.image}`
-                            : `https://serking.vercel.app/og?title=${post.metadata.title}`,
-                        url: `https://serking.vercel.app/blog/${post.slug}`,
+                            ? `https://greg.vercel.app${post.metadata.image}`
+                            : `https://greg.vercel.app/og?title=${post.metadata.title}`,
+                        url: `https://greg.vercel.app/blog/${post.slug}`,
                         author: {
                             "@type": "Person",
-                            name: "Serking de Orayom",
+                            name: "greg de Orayom",
                         },
                     }),
                 }}

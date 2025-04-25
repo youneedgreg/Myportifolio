@@ -3,7 +3,7 @@ import Entries from "@/components/guestbook/Entries";
 import Notice from "@/components/guestbook/Notice";
 
 export const metadata = {
-    title: "Guestbook - Serking de Orayom",
+    title: "Guestbook - greg de Orayom",
     description: "Software Engineer & UI/UX designer",
 };
 
