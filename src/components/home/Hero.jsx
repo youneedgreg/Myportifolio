@@ -5,6 +5,9 @@ const Hero = () => {
         <section className="flex flex-col space-y-8">
             <Avatar className="h-16 w-16" />
             <div className="flex flex-col space-y-6">
+            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+                    Full portiolio coming soon! Stay tuned.
+                </h2>
                 <h1 className="text-3xl font-bold tracking-tighter md:text-4xl">
                     Hi, I&apos;m Gregory&mdash;software engineer.
                 </h1>
