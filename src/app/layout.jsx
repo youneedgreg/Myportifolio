@@ -1,11 +1,9 @@
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
-import SessionProvider from "@/providers/session";
 import { TanstackProvider } from "@/providers/tanstack-provider";
 import { ThemeProvider } from "@/providers/theme";
 import "@/styles/globals.css";
 import { cn } from "@/utils/cn";
-import { getServerSession } from "next-auth";
 import { Geist } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -16,12 +14,10 @@ const geistSans = Geist({
 
 export const metadata = {
     title: "Gregory Temwa",
-    description: "Software Engineers",
+    description: "Software Engineer",
 };
 
-export default async function RootLayout({ children }) {
-    const session = await getServerSession();
-
+export default function RootLayout({ children }) {
     return (
         <html lang="en" suppressHydrationWarning>
             <body
@@ -36,11 +32,9 @@ export default async function RootLayout({ children }) {
                         defaultTheme="system"
                         enableSystem
                     >
-                        <SessionProvider session={session}>
-                            <Header />
-                            <main className="grow pb-20">{children}</main>
-                            <Footer />
-                        </SessionProvider>
+                        <Header />
+                        <main className="grow pb-20">{children}</main>
+                        <Footer />
                     </ThemeProvider>
                 </TanstackProvider>
                 <Analytics />
