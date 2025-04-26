@@ -18,7 +18,7 @@ const Hero = () => {
                         React,
                     </span>{" "}
                     <span className="border-b border-dashed border-neutral-400 dark:border-neutral-500">
-                        Vue{" "}
+                        Java{" "}
                     </span>
                     and{" "}
                     <span className="border-b border-dashed border-neutral-400 dark:border-neutral-500">
