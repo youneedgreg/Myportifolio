@@ -1,4 +1,7 @@
 import autopromoph from "../../public/images/projects/auto-promo-ph.png";
+import sevendaysinn from "../../public/images/projects/sevendaysinn.png";
+import adminseven from 	"../../public/images/projects/adminseven.png";
+import superafrica from "../../public/images/projects/superafrica.png";
 import saliksik from "../../public/images/projects/saliksik.png";
 import smpt from "../../public/images/projects/smpt.png";
 import adselle_shop from "../../public/images/projects/adselle-shop.png";
@@ -7,11 +10,8 @@ import timco_ph from "../../public/images/projects/timco-ph.png";
 import clafootwear from "../../public/images/projects/cla-footwear.png";
 import propertygo_rental from "../../public/images/projects/propertygo-rental.png";
 import transpopad_rental from "../../public/images/projects/transpopad-rental.png";
-import yellowpad_ecommerce from "../../public/images/projects/yellowpad-ecommerce.png";
-import jobhost_consult from "../../public/images/projects/jobhost-consult.png";
 import spare_ph from "../../public/images/projects/spare-ph.png";
 import buysellee_mobile from "../../public/images/projects/buysellee-mobile.png";
-import jobhost_mobile from "../../public/images/projects/jobhost-mobile.png";
 import yellowpad_mobile from "../../public/images/projects/yellowpad-mobile.png";
 import transpopad_mobile from "../../public/images/projects/transpopad-mobile.png";
 import propertygo_mobile from "../../public/images/projects/propertygo-mobile.png";
@@ -19,30 +19,30 @@ import adselle_mobile from "../../public/images/projects/adselle-mobile.png";
 
 const PROJECTS = [
     {
-        title: "Jobhost Consult",
+        title: "Seven Days Inn",
         company: "padtech",
         type: "Web",
         category: "Company",
-        image: jobhost_consult,
-        webUrl: "https://consult.jobhost.biz/",
+        image: sevendaysinn,
+        webUrl: "https://sevendaysinn.co.ke/",
+        date: "2024",
+    },
+    {
+        title: "Seven Days Inn Admin",
+        company: "padtech",
+        type: "Web",
+        category: "Company",
+        image: adminseven,
+        webUrl: "https://admin.sevendaysinn.co.ke/",
         date: "2025",
     },
     {
-        title: "Yellowpad Ecommerce",
+        title: "Super Africa Safaris",
         company: "padtech",
         type: "Web",
         category: "Company",
-        image: yellowpad_ecommerce,
-        webUrl: "https://padtechcorp.ph.adselle.shop/",
-        date: "2025",
-    },
-    {
-        title: "Transpopad Rental",
-        company: "padtech",
-        type: "Web",
-        category: "Company",
-        image: transpopad_rental,
-        webUrl: "https://rent.transpopad.com/",
+        image: superafrica,
+        webUrl: "https://superafricasafaris.com/",
         date: "2025",
     },
     {
@@ -95,17 +95,6 @@ const PROJECTS = [
         androidUrl:
             "https://play.google.com/store/apps/details?id=com.adselle.yellowpad",
         iosUrl: "https://apps.apple.com/gb/app/yellowpad-business-services/id6466572081?platform=iphone",
-        date: "2025",
-    },
-    {
-        title: "Jobhost",
-        company: "padtech",
-        type: "Mobile",
-        category: "Company",
-        image: jobhost_mobile,
-        androidUrl:
-            "https://play.google.com/store/apps/details?id=com.adselle.jobhost",
-        iosUrl: "https://apps.apple.com/gb/app/jobhost-job-search-made-easy/id6466620831?platform=iphone",
         date: "2025",
     },
     {
