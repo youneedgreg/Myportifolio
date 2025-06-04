@@ -9,8 +9,8 @@ const Personal = () => {
                 </h2>
                 <p>
                     When I'm not at work, I immerse myself in my favorite
-                    activities: reading books, listening to music, playing video
-                    games, binge-watching movies, TV shows, and anime, or
+                    activities: learning online courses, reading books, listening to music,
+                    playing video games, binge-watching movies, TV shows, or
                     enjoying quality time with friends and family.
                 </p>
             </div>
