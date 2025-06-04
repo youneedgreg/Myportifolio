@@ -11,27 +11,14 @@ const Career = () => {
                 opened its doors to me.{" "}
             </p>
             <p>
-                Picture a younger version of me huddled in a local computer
-                shop&apos;s{" "}
-                <Link
-                    href="https://en.wikipedia.org/wiki/Pisonet"
-                    target="_blank"
-                    className="hovered-link italic"
-                >
-                    pisonet
-                </Link>
-                , learning the ropes by tinkering with PCs and doing a bit of
+                Picture a younger version of me huddled outside my neighbors house
+                trying to connect to the internet because of curiousity
+                , learning the ropes by exploring the internet doing
                 "digital mischief" by exploring the Windows system and sometimes
-                actually causing trouble to the pisonet's owner. That&apos;s
-                after playing{" "}
-                <Link
-                    href="https://en.wikipedia.org/wiki/Grand_Theft_Auto:_Vice_City"
-                    target="_blank"
-                    className="hovered-link"
-                >
-                    Grand Theft Auto: Vice City
-                </Link>
-                , when my piso credits are low.
+                actually causing trouble to the neighbor&apos;s kids to my parents.
+                That&apos;s
+                after seeing my brother super interested in technology and computers.
+                I was like "what is this all about?"
             </p>
             <p>
                 It was a wild introduction to computing technology. Years passed
@@ -42,9 +29,9 @@ const Career = () => {
             </p>
             <p>
                 It was then that I realized what career I wanted to pursue and
-                so I took BS Information Technology in college.
+                so I took BS in Software Engineering in university.
             </p>
-            <p>Now, I am into software development.</p>
+            <p>Now, I am into software engineering and machine learning.</p>
         </section>
     );
 };
