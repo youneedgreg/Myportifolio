@@ -104,28 +104,6 @@ const RECOMMENDATIONS = [
             },
         ],
     },
-    {
-        section: "Recreation",
-        content: [
-            {
-                title: "Nintendo Switch",
-                // description:
-                //     "A Nintendo fan boy since I was a little kid, started on Game Boy Color, Game Boy Advance SP, moved up to DS, 3DS, and now the Switch. I chose the Lite as my personal gaming device so I can play while lying down whenever I get tired sitting for hours in front of the computer. Play, if you're a gamer. Make time to change pace.",
-                description:
-                    "I chose the Switch as my personal gaming device so I can play while lying down whenever I get tired sitting for hours in front of the computer. Play, if you're a gamer. Make time to change pace.",
-            },
-            {
-                title: "Chess",
-                description:
-                    "I play chess to relax and unwind. I play online and with friends. A good game of chess every now and then is a must-have for me.",
-            },
-            {
-                title: "Acoustic Guitar",
-                description:
-                    "A good way to relax while playing some Neil Young, Jim Croce and James Taylor songs.",
-            },
-        ],
-    },
 ];
 
 export default RECOMMENDATIONS;
