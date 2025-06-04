@@ -8,7 +8,7 @@ const Education = () => {
     return (
         <section className="flex flex-col space-y-6">
             <h2 className="text-xl font-semibold tracking-tighter">
-                Where I studied
+                Where I am studying
             </h2>
 
             <p>
