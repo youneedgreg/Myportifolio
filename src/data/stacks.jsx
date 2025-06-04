@@ -2,13 +2,16 @@ import {
     SiAdobephotoshop,
     SiAndroidstudio,
     SiApache,
+    SiAmazonwebservices,
     SiBootstrap,
+    SiDocker,
     SiExpo,
     SiExpress,
     SiFigma,
     SiFirebase,
     SiGit,
     SiGithub,
+    SiJenkins,
     SiJavascript,
     SiLaravel,
     SiMongodb,
@@ -21,13 +24,16 @@ import {
     SiPhp,
     SiPostgresql,
     SiPostman,
+    SiPython,
     SiReact,
     SiRender,
     SiTailwindcss,
     SiTypescript,
+    SiUbuntu,
     SiVercel,
     SiYarn,
 } from "react-icons/si";
+import { FaJava } from "react-icons/fa";
 
 // import { SiJavascript, SiTypescript } from "react-icons/si";
 
@@ -39,6 +45,14 @@ const STACKS = [
     {
         name: "TypeScript",
         icon: <SiTypescript size={28} color="#3178C6" />,
+    },
+    {
+        name: "Python",
+        icon: <SiPython size={28} color="#3776AB" />,
+    },
+    {
+        name: "Java",
+        icon: <FaJava size={28} color="#007396" />,
     },
     {
         name: "React",
@@ -122,8 +136,20 @@ const STACKS = [
         icon: <SiFigma size={28} color="#EA4C1D" />,
     },
     {
-        name: "Adobe Photoshop",
-        icon: <SiAdobephotoshop size={28} color="#001D34" />,
+        name: "Docker",
+        icon: <SiDocker size={28} color="#2496ED" />,
+    },
+    {
+        name: "Jenkins",
+        icon: <SiJenkins size={28} color="#D24939" />,
+    },
+    {
+        name: "AWS",
+        icon: <SiAmazonwebservices size={28} color="#232F3E" />,
+    },
+    {
+        name: "Ubuntu",
+        icon: <SiUbuntu size={28} color="#E95420" />,
     },
     {
         name: "Vercel",
