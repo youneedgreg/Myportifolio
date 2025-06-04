@@ -3,11 +3,6 @@ const RECOMMENDATIONS = [
         section: "Workstation",
         content: [
             {
-                title: "AMD Ryzen™ 5 2600, NVIDIA GTX 1650 Super, 16 GB RAM powered Desktop Computer",
-                description:
-                    "I mostly do web and mobile app development so this is kinda overkill.",
-            },
-            {
                 title: 'ASUS 24" 144Hz IPS Monitor',
                 description:
                     "My primary display. I use this for coding and gaming a lot.",
@@ -18,14 +13,14 @@ const RECOMMENDATIONS = [
                     "A second display (or even third) is a must-have for every developer. I cannot imagine myself working on a single display anymore.",
             },
             {
-                title: "ASUS X515JP Laptop",
+                title: "HP probook 450 core i9 11thgen Laptop",
                 description:
                     "An entry-level laptop that offers performance enough to demo projects when meeting with a client. It also gets the job done when presenting web-based projects.",
             },
             {
                 title: "Apple iPad (6th Generation)",
                 description:
-                    "Enough to run iOS apps I develop. I only use React Native for iOS development anyway.",
+                    "Enough to run iOS apps I develop. I only use React Native for iOS development for now anyway.",
             },
             {
                 title: "AULA F75: Premium Gasket Mechanical Keyboard",
@@ -71,6 +66,17 @@ const RECOMMENDATIONS = [
                 description:
                     "Free, interactive, and is the easiest way to explore and manipulate your MongoDB data.",
             },
+            {
+                title: "Apache Netbeans",
+                description:
+                    "I use this to create my Java applications because of its great GUI.",
+            },
+            {
+                title: "Anaconda",
+                description:
+                    "I use this for my python applications.",
+            },
+            
             {
                 title: "GitHub Desktop",
                 description:
