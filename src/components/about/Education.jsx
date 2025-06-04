@@ -2,7 +2,7 @@ import Link from "next/link";
 import Card from "../ui/Card";
 import Image from "next/image";
 import { FiArrowUpRight } from "react-icons/fi";
-import uphsl from "../../../public/images/education/uphsl.png";
+import usiu from "../../../public/images/education/usiu.png";
 
 const Education = () => {
     return (
@@ -12,23 +12,23 @@ const Education = () => {
             </h2>
 
             <p>
-                I earned my bachelor&apos;s degree in Information Technology at
+                I am currently pursuing my bachelor&apos;s degree in Software Engineering at
                 the{" "}
                 <Link
-                    href="https://www.uphsl.edu.ph/"
+                    href="https://www.usiu.ac.ke/"
                     title="Visit site"
                     target="_blank"
                     className="font-medium hover:underline"
                 >
-                    University of Perpetual Help System Laguna
+                    United States International University
                 </Link>{" "}
-                with an academic honor of distinction: <em>Magna Cum Laude</em>.
+                projecting an academic honor of distinction: <em>Magna Cum Laude</em>.
             </p>
 
             <div className="my-2 flex w-full flex-col space-y-4 space-x-0 sm:flex-row sm:space-y-0 sm:space-x-4">
                 <div className="group flex w-full">
                     <Link
-                        href="https://www.uphsl.edu.ph/"
+                        href="https://www.usiu.ac.ke/"
                         className="w-full"
                         target="_blank"
                     >
@@ -36,25 +36,21 @@ const Education = () => {
                             <div className="flex items-center space-x-3">
                                 <div>
                                     <Image
-                                        src={uphsl}
+                                        src={usiu}
                                         className="h-12 w-12 rounded-lg object-contain"
                                         alt="University of Perpetual Help System Laguna"
                                     />
                                 </div>
                                 <div className="flex flex-col">
                                     <p className="line-clamp-1 text-sm font-bold text-neutral-900 dark:text-neutral-100">
-                                        University of Perpetual Help System
-                                        Laguna
+                                        United States International University.
                                     </p>
                                     <p className="text-xs text-neutral-900 dark:text-neutral-100">
-                                        BS Information Technology
+                                        BS Software Engineering
                                     </p>
-                                    <em className="text-xs text-neutral-900 dark:text-neutral-100">
-                                        Magna cum laude
-                                    </em>
                                     <p className="text-xs text-neutral-900 dark:text-neutral-100">
-                                        {/* 2018 - 2022 */}
-                                        Class of 2022
+                                        {/* 2023 - 2027 */}
+                                        Class of 2027
                                     </p>
                                 </div>
                             </div>
