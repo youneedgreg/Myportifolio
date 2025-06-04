@@ -2,8 +2,8 @@ import Tabs from "@/components/about/Tabs";
 import Introduction from "@/components/about/Introduction";
 
 export const metadata = {
-    title: "About - greg de Orayom",
-    description: "Software Engineer & UI/UX designer",
+    title: "About - Gregory Odete",
+    description: "Software Engineer & Machine Learning Engineer",
 };
 
 export default function AboutPage() {

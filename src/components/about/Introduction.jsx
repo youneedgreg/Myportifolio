@@ -6,15 +6,15 @@ const Introduction = () => {
     return (
         <section className="flex flex-col space-y-6">
             <h1 className="text-3xl font-bold tracking-tighter md:text-4xl">
-                Hi, I&apos;m greg&mdash;software engineer.
+                Hi, I&apos;m Greg&mdash;software engineer.
             </h1>
             <div className="grid gap-y-10 py-10 md:grid-cols-2 md:gap-y-0">
                 <div className="flex items-center md:order-first">
                     <div className="flex flex-col space-y-6">
                         <p>
-                            I'm a software engineer from the Philippines
+                            I'm a software engineer from the Kenya
                             specializing in building responsive, functional, and
-                            user-focused applications for web and mobile.
+                            user-focused applications for web, desktop and mobile.
                         </p>
                         <p>
                             Check my projects and work history to see what I've
@@ -27,7 +27,7 @@ const Introduction = () => {
                     <Image
                         className="h-60 w-60 rotate-2 rounded-2xl dark:border dark:border-white/10"
                         src={greg}
-                        alt="greg de Orayom"
+                        alt="Gregory Odete"
                     />
                 </div>
             </div>
