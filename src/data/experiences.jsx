@@ -17,6 +17,19 @@ export const WORK_EXPERIENCES = [
         companyKey: "padtech",
     },
     {
+        company: "Mtaamall",
+        title: "Full Stack Developer",
+        duration: "Jul 2024 - Dec 2024",
+        description: [
+            "Mtaamall is a startup in Nairobi Kenya. Worked as a software engineer to create the MVP and is still working with them for projects and management..",
+            "Developed and launched a Minimum Viable Product(MVP) for Mtaamall, a Nairobi-based startup, facilitating their entry into the market using the MERN stack.",
+            "Worked on the backend using Node.js and Express.js, and the frontend using React.js and Tailwind CSS.",
+            "Collaborated with cross-functional teams to design and implement new features, enhancing user experience and engagement.",
+        ],
+        bulletPoints: [],
+        companyKey: null,
+    },
+    {
         company: "Freelancing",
         title: "Full-Stack Developer",
         duration: "2023 - present",
@@ -26,16 +39,6 @@ export const WORK_EXPERIENCES = [
         ],
         bulletPoints: [],
         companyKey: "freelance",
-    },
-    {
-        company: "Sociov Technologies, Inc.",
-        title: "Frontend Developer",
-        duration: "2021 (Internship)",
-        description: [
-            "During my internship, I worked on the company's official website using React.js and Tailwind CSS, which was my first hands-on experience with React.",
-        ],
-        bulletPoints: [],
-        companyKey: null,
     },
 ];
 
