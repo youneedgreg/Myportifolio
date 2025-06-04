@@ -1,8 +1,6 @@
-import autopromoph from "../../public/images/projects/auto-promo-ph.png";
 import sevendaysinn from "../../public/images/projects/sevendaysinn.png";
 import adminseven from "../../public/images/projects/adminseven.png";
 import superafrica from "../../public/images/projects/superafrica.png";
-import saliksik from "../../public/images/projects/saliksik.png";
 import smpt from "../../public/images/projects/smpt.png";
 import timco_ph from "../../public/images/projects/timco-ph.png";
 import clafootwear from "../../public/images/projects/cla-footwear.png";
@@ -62,25 +60,6 @@ const PROJECTS = [
         image: smpt,
         webUrl: "https://sophiamiranda.vercel.app/",
         date: "2024",
-    },
-    {
-        title: "Auto Promo PH",
-        company: "freelance",
-        type: "Web",
-        category: "Freelance",
-        image: autopromoph,
-        webUrl: "https://auto-promo-ph.vercel.app/",
-        date: "2023",
-    },
-    // === University Projects ===
-    {
-        title: "SALIKSIK: UPHSL Research Repository",
-        company: "freelance",
-        type: "Web",
-        category: "University",
-        image: saliksik,
-        webUrl: "https://www.saliksikuphsl.org/",
-        date: "2022",
     },
 ];
 
