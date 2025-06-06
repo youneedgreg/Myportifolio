@@ -1,5 +1,3 @@
-import { Container } from "@/components/layout/Container";
-
 export const metadata = {
     title: "Personal Projects | Gregory Temwa",
     description: "A collection of my personal projects and side endeavors.",
@@ -7,7 +5,7 @@ export const metadata = {
 
 export default function ProjectsPage() {
     return (
-        <Container className="mt-16 sm:mt-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-16 sm:mt-20">
             <header className="max-w-2xl">
                 <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
                     Personal Projects
@@ -17,7 +15,6 @@ export default function ProjectsPage() {
                 </p>
             </header>
             <div className="mt-16 sm:mt-20">
-                {/* Project cards will go here */}
                 <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                     {/* Example project card - you can add more */}
                     <div className="group relative flex flex-col overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-800">
@@ -39,6 +36,6 @@ export default function ProjectsPage() {
                     </div>
                 </div>
             </div>
-        </Container>
+        </div>
     );
 } 
