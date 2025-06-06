@@ -6,6 +6,8 @@ import "@/styles/globals.css";
 import { cn } from "@/utils/cn";
 import { Geist } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import CursorTrail from "@/components/effects/CursorTrail";
+import SmoothScroll from "@/components/effects/SmoothScroll";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -32,6 +34,8 @@ export default function RootLayout({ children }) {
                         defaultTheme="system"
                         enableSystem
                     >
+                        <CursorTrail />
+                        <SmoothScroll />
                         <Header />
                         <main className="grow pb-20">{children}</main>
                         <Footer />
