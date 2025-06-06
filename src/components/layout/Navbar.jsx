@@ -1,3 +1,5 @@
+"use client";
+
 import { NAVIGATION_LINKS } from "@/utils/consts";
 import Link from "next/link";
 
