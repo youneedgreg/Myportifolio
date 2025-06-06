@@ -1,9 +1,22 @@
-export const metadata = {
-    title: "Personal Projects | Gregory Temwa",
-    description: "A collection of my personal projects and side endeavors.",
-};
+"use client";
+
+import { useState } from 'react';
+import ImageModal from "@/components/ui/ImageModal";
 
 export default function ProjectsPage() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [currentImageUrl, setCurrentImageUrl] = useState('');
+
+    const handleImageClick = (imageUrl) => {
+        setCurrentImageUrl(imageUrl);
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+        setCurrentImageUrl('');
+    };
+
     return (
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-16 sm:mt-20">
             <header className="max-w-2xl">
@@ -17,13 +30,14 @@ export default function ProjectsPage() {
             <div className="mt-16 sm:mt-20">
                 <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
                     {/* 2Day Project Card */}
-                    <div className="group relative flex flex-col overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-800">
+                    <div className="group relative flex flex-col overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-800 transition-transform transform hover:scale-[1.02] hover:shadow-xl duration-300 ease-in-out">
                         <img
                             src="/2day-dashboard.png"
                             alt="2Day Dashboard Screenshot"
                             width={500}
                             height={300}
-                            className="w-full object-cover rounded-t-lg"
+                            className="w-full object-cover rounded-t-lg cursor-pointer"
+                            onClick={() => handleImageClick('/2day-dashboard.png')}
                         />
                         <div className="flex flex-1 flex-col justify-between p-6">
                             <div className="flex-1">
@@ -84,6 +98,13 @@ export default function ProjectsPage() {
                     </div>
                 </div>
             </div>
+            {/* Image Modal */}
+            <ImageModal
+                src={currentImageUrl}
+                alt="Full screen project screenshot"
+                isOpen={isModalOpen}
+                onClose={handleCloseModal}
+            />
         </div>
     );
 } 
