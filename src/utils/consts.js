@@ -10,5 +10,6 @@ export const NAVIGATION_LINKS = [
     { path: "/about", label: "about" },
     // { path: "/activity", label: "activity" },
     { path: "/notes", label: "notes" },
+    { path: "/projects", label: "projects" },
     // { path: "/guestbook", label: "guestbook" },
 ];
