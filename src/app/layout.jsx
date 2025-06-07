@@ -6,8 +6,10 @@ import "@/styles/globals.css";
 import { cn } from "@/utils/cn";
 import { Geist } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
-import CursorTrail from "@/components/effects/CursorTrail";
-import SmoothScroll from "@/components/effects/SmoothScroll";
+import dynamic from 'next/dynamic';
+
+const CursorTrail = dynamic(() => import("@/components/effects/CursorTrail"), { ssr: false });
+const SmoothScroll = dynamic(() => import("@/components/effects/SmoothScroll"), { ssr: false });
 
 const geistSans = Geist({
     variable: "--font-geist-sans",

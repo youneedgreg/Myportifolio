@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    reactStrictMode: true,
     images: {
         remotePatterns: [
             {
@@ -8,8 +9,9 @@ const nextConfig = {
         ],
     },
     compiler: {
-        removeConsole: false,
+        removeConsole: process.env.NODE_ENV === 'production',
     },
+    output: 'standalone',
 };
 
 export default nextConfig;
