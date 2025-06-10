@@ -7,7 +7,7 @@ export const useGetEntries = () => {
         queryFn: actions.getEntries,
     });
     return {
-        entries: data,
+        entries: Array.isArray(data) ? data : [],
         isGetEntriesLoading: isLoading,
         isGetEntriesError: error,
         refetch,
