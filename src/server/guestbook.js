@@ -1,11 +1,16 @@
-import dbConnect from "@/lib/mongodb";
-import GuestbookEntry from "@/models/GuestbookEntry";
+import { supabase } from "@/lib/supabase";
 
 export const getEntries = async () => {
     try {
-        await dbConnect();
-        const entries = await GuestbookEntry.find({}).sort({ createdAt: -1 });
-        return JSON.parse(JSON.stringify(entries));
+        const { data, error } = await supabase
+            .from("guestbook")
+            .select("*")
+            .order("createdAt", { ascending: false });
+
+        if (error) {
+            throw error;
+        }
+        return data;
     } catch (error) {
         throw error;
     }
@@ -13,10 +18,18 @@ export const getEntries = async () => {
 
 export const addEntry = async ({ payload, form }) => {
     try {
-        await dbConnect();
-        const newEntry = await GuestbookEntry.create(payload);
+        const { data, error } = await supabase
+            .from("guestbook")
+            .insert([
+                { name: payload.name, email: payload.email, message: payload.message },
+            ]);
+
+        if (error) {
+            throw error;
+        }
+
         form?.reset();
-        return JSON.parse(JSON.stringify(newEntry));
+        return data;
     } catch (error) {
         throw error;
     }
