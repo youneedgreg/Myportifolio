@@ -1,8 +1,8 @@
 import SignInButton from "./SignInButton";
 
 import { FcGoogle } from "react-icons/fc";
-// import { FaFacebook } from "react-icons/fa";
-// import { FaXTwitter } from "react-icons/fa6";
+import { FaFacebook } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa6";
 
 const SocialSignIn = () => {
@@ -12,16 +12,16 @@ const SocialSignIn = () => {
             provider: "google",
             label: "Sign in with Google",
         },
-        // {
-        //     icon: <FaFacebook size={18} color="#1877F2" />,
-        //     provider: "facebook",
-        //     label: "Sign in with Facebook",
-        // },
-        // {
-        //     icon: <FaXTwitter size={18} />,
-        //     provider: "twitter",
-        //     label: "Sign in with X (Twitter)",
-        // },
+        {
+            icon: <FaFacebook size={18} color="#1877F2" />,
+            provider: "facebook",
+            label: "Sign in with Facebook",
+        },
+        {
+            icon: <FaXTwitter size={18} />,
+            provider: "twitter",
+            label: "Sign in with X (Twitter)",
+        },
         {
             icon: <FaGithub size={18} />,
             provider: "github",

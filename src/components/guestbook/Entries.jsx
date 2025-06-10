@@ -1,30 +1,30 @@
-// "use client";
+"use client";
 
-// import { useGetEntries } from "@/hooks/guestbook";
-// import Loading from "../ui/Loading";
-// import Message from "./Message";
+import { useGetEntries } from "@/hooks/guestbook";
+import Loading from "../ui/Loading";
+import Message from "./Message";
 
-// const Entries = () => {
-//     const { entries, isGetEntriesLoading, isGetEntriesError } = useGetEntries();
+const Entries = () => {
+    const { entries, isGetEntriesLoading, isGetEntriesError } = useGetEntries();
 
-//     if (isGetEntriesLoading) return <Loading />;
-//     if (isGetEntriesError)
-//         return (
-//             <p className="text-sm">
-//                 Oops! An error occurred while getting the guestbook entries.
-//                 Please try again later.
-//             </p>
-//         );
+    if (isGetEntriesLoading) return <Loading />;
+    if (isGetEntriesError)
+        return (
+            <p className="text-sm">
+                Oops! An error occurred while getting the guestbook entries.
+                Please try again later.
+            </p>
+        );
 
-//     if (entries.length === 0) return null;
+    if (entries.length === 0) return null;
 
-//     return (
-//         <div className="space-y-4">
-//             {entries.map((entry) => (
-//                 <Message key={entry._id} entry={entry} />
-//             ))}
-//         </div>
-//     );
-// };
+    return (
+        <div className="space-y-4">
+            {entries.map((entry) => (
+                <Message key={entry._id} entry={entry} />
+            ))}
+        </div>
+    );
+};
 
-// export default Entries;
+export default Entries;
