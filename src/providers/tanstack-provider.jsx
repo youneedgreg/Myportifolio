@@ -6,7 +6,7 @@ import { useState } from "react";
 export const TanstackProvider = ({ children }) => {
     const [queryClient] = useState(() => new QueryClient());
     return (
-        <QueryClientProvider client={queryClient} data-oid="p2.ag:x">
+        <QueryClientProvider client={queryClient}>
             {children}
         </QueryClientProvider>
     );

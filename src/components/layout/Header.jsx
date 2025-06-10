@@ -11,20 +11,14 @@ const Header = () => {
     const isAvatarShown = pathname !== "/";
 
     return (
-        <header
-            className="mb-12 flex items-center justify-between tracking-tight sm:mb-14"
-            data-oid="m9fsy4v"
-        >
-            <div className="flex flex-1 justify-start" data-oid="97d42ed">
-                {isAvatarShown ? <Avatar data-oid="oflddbp" /> : null}
+        <header className="mb-12 flex items-center justify-between tracking-tight sm:mb-14">
+            <div className="flex flex-1 justify-start">
+                {isAvatarShown ? <Avatar /> : null}
             </div>
-            <Navbar pathname={pathname} data-oid="1uixbm0" />
-            <div
-                className="flex flex-1 justify-end gap-x-2.5"
-                data-oid="ye6b926"
-            >
-                <MenuToggler data-oid="9zh1xpt" />
-                <ThemeToggler data-oid="za62fc6" />
+            <Navbar pathname={pathname} />
+            <div className="flex flex-1 justify-end gap-x-2.5">
+                <MenuToggler />
+                <ThemeToggler />
             </div>
         </header>
     );

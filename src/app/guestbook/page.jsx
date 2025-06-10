@@ -22,7 +22,7 @@
 import React from "react";
 
 function page() {
-    return <div data-oid="huhm_3m">page</div>;
+    return <div data-oid="kq6qtyz">page</div>;
 }
 
 export default page;

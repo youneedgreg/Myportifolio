@@ -25,13 +25,8 @@ class ErrorBoundary extends React.Component {
     render() {
         if (this.state.hasError) {
             return (
-                <div
-                    className="px-4 py-3 border border-red-700 bg-red-200 rounded-sm p-1 text-sm flex items-center text-red-900 mb-8"
-                    data-oid="60lhuib"
-                >
-                    <div className="w-full callout" data-oid="yspa34e">
-                        {this.props.fallback}
-                    </div>
+                <div className="px-4 py-3 border border-red-700 bg-red-200 rounded-sm p-1 text-sm flex items-center text-red-900 mb-8">
+                    <div className="w-full callout">{this.props.fallback}</div>
                 </div>
             );
         }
@@ -57,12 +52,11 @@ export function LiveCode({ example }) {
         };
     } else if (example === "stylex") {
         return (
-            <Suspense fallback={null} data-oid=".56fz3y">
+            <Suspense fallback={null}>
                 <ErrorBoundary
                     fallback={
                         "Oops, there was an error loading the CodeSandbox"
                     }
-                    data-oid="96n.l7u"
                 >
                     <Sandpack
                         theme="auto"
@@ -87,7 +81,6 @@ export function LiveCode({ example }) {
                                 "vite-plugin-stylex-dev": "latest",
                             },
                         }}
-                        data-oid="t4pugmw"
                     />
                 </ErrorBoundary>
             </Suspense>
@@ -95,17 +88,11 @@ export function LiveCode({ example }) {
     }
 
     return (
-        <Suspense fallback={null} data-oid="32rqk6s">
+        <Suspense fallback={null}>
             <ErrorBoundary
                 fallback={"Oops, there was an error loading the CodeSandbox."}
-                data-oid="v0x-yb."
             >
-                <Sandpack
-                    theme="auto"
-                    template="static"
-                    files={files}
-                    data-oid="17kh74q"
-                />
+                <Sandpack theme="auto" template="static" files={files} />
             </ErrorBoundary>
         </Suspense>
     );

@@ -4,10 +4,10 @@ import Social from "@/components/home/Social";
 
 export default function HomePage() {
     return (
-        <div className="flex flex-col space-y-6" data-oid="ub0p6vy">
-            <Hero data-oid="mfr97vi" />
+        <div className="flex flex-col space-y-6" data-oid="nhj8c:m">
+            <Hero data-oid="h2s6al5" />
             {/* <Projects /> */}
-            <Social data-oid="2nz7m_c" />
+            <Social data-oid="09prdwn" />
         </div>
     );
 }

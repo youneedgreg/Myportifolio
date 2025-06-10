@@ -6,16 +6,13 @@ import CopyToClipboard from "../ui/CopyToClipboard";
 
 const Social = () => {
     return (
-        <section
-            className="flex flex-col space-y-6 scroll-animate"
-            data-oid="l8r-50r"
-        >
-            <p className="text-lg" data-oid="tg7xl:2">
+        <section className="flex flex-col space-y-6 scroll-animate">
+            <p className="text-lg">
                 If you're looking to collaborate on a project, hire a developer,
                 or just say hello, feel free to reach out using the contact
                 options below.
             </p>
-            <div className="flex flex-wrap" data-oid="10pj:ic">
+            <div className="flex flex-wrap">
                 {SOCIALS.map((item, index) => {
                     return (
                         <div
@@ -24,48 +21,27 @@ const Social = () => {
                             style={{
                                 animationDelay: `${index * 100}ms`,
                             }}
-                            data-oid="9u128m:"
                         >
                             <Link
                                 href={item.url}
                                 target="_blank"
                                 className="w-full"
-                                data-oid="_s2-ecr"
                             >
-                                <Card
-                                    className="transition-all duration-300 hover:shadow-lg dark:hover:shadow-neutral-800/50"
-                                    data-oid="2_k8y7t"
-                                >
-                                    <div
-                                        className="flex items-center space-x-3"
-                                        data-oid="l3z4l2f"
-                                    >
-                                        <div
-                                            className="transform transition-transform duration-300 group-hover:scale-110"
-                                            data-oid="x5_weeo"
-                                        >
+                                <Card className="transition-all duration-300 hover:shadow-lg dark:hover:shadow-neutral-800/50">
+                                    <div className="flex items-center space-x-3">
+                                        <div className="transform transition-transform duration-300 group-hover:scale-110">
                                             {item.icon}
                                         </div>
-                                        <div
-                                            className="flex flex-col"
-                                            data-oid="msm6auk"
-                                        >
-                                            <p
-                                                className="line-clamp-1 text-sm text-neutral-900 dark:text-neutral-100"
-                                                data-oid="lspk4ts"
-                                            >
+                                        <div className="flex flex-col">
+                                            <p className="line-clamp-1 text-sm text-neutral-900 dark:text-neutral-100">
                                                 {item.description}
                                             </p>
                                         </div>
                                     </div>
-                                    <div
-                                        className="transform text-neutral-700 transition-all duration-300 group-hover:-rotate-12 group-hover:translate-x-1 dark:text-neutral-300"
-                                        data-oid="n-0d7wl"
-                                    >
+                                    <div className="transform text-neutral-700 transition-all duration-300 group-hover:-rotate-12 group-hover:translate-x-1 dark:text-neutral-300">
                                         <FiArrowUpRight
                                             size={16}
                                             className="ms-2"
-                                            data-oid="a.s5tfm"
                                         />
                                     </div>
                                 </Card>
@@ -74,8 +50,8 @@ const Social = () => {
                     );
                 })}
             </div>
-            <div className="scroll-animate" data-oid="ly8t6z7">
-                <CopyToClipboard data-oid="zcpmv1s" />
+            <div className="scroll-animate">
+                <CopyToClipboard />
             </div>
         </section>
     );

@@ -85,7 +85,7 @@ export default function Blog({ params }) {
     }
 
     return (
-        <section data-oid=".kh795t">
+        <section data-oid="d7q0rxe">
             <script
                 type="application/ld+json"
                 suppressHydrationWarning
@@ -107,42 +107,42 @@ export default function Blog({ params }) {
                         },
                     }),
                 }}
-                data-oid="t3xe0kg"
+                data-oid="ildkhl-"
             />
 
-            <div className="mb-8" data-oid="2zo-gfc">
-                <BackButton data-oid="pmgeeas" />
+            <div className="mb-8" data-oid=":6ordvz">
+                <BackButton data-oid="q9gwtzj" />
             </div>
             <h1
                 className="title max-w-[650px] text-2xl font-medium tracking-tighter"
-                data-oid="w1mkrgr"
+                data-oid="u_i_uja"
             >
                 {post.metadata.title}
             </h1>
             <div
                 className="mt-2 mb-8 flex max-w-[650px] items-center justify-between text-sm"
-                data-oid="8axw69d"
+                data-oid="djug7r."
             >
                 <Suspense
-                    fallback={<p className="h-5" data-oid="4j5:4.s" />}
-                    data-oid="9i:af8a"
+                    fallback={<p className="h-5" data-oid="7o4u.qa" />}
+                    data-oid="gx6j1he"
                 >
                     <p
                         className="text-sm text-neutral-600 dark:text-neutral-300"
-                        data-oid=".6cxma2"
+                        data-oid="kh10n4y"
                     >
                         {formatDate(post.metadata.publishedAt)}
                     </p>
                 </Suspense>
                 {/* <Suspense fallback={<p className="h-5" />}>
-             <Views slug={post.slug} />
+          <Views slug={post.slug} />
           </Suspense> */}
             </div>
             <article
                 className="prose prose-quoteless prose-neutral dark:prose-invert space-y-5"
-                data-oid="nt:54c3"
+                data-oid="ibp0x2."
             >
-                <CustomMDX source={post.content} data-oid="7oblrpg" />
+                <CustomMDX source={post.content} data-oid="8c5oqha" />
             </article>
         </section>
     );

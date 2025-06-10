@@ -23,10 +23,7 @@ const CursorTrail = () => {
     }, []);
 
     return (
-        <div
-            className="pointer-events-none fixed inset-0 z-50"
-            data-oid=".yqa8-l"
-        >
+        <div className="pointer-events-none fixed inset-0 z-50">
             {trail.map((point, index) => (
                 <div
                     key={index}
@@ -37,7 +34,6 @@ const CursorTrail = () => {
                         transform: `scale(${1 - index / trail.length})`,
                         opacity: 1 - index / trail.length,
                     }}
-                    data-oid="4ecipsv"
                 />
             ))}
         </div>

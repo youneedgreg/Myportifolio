@@ -2,7 +2,7 @@
 
 const Tabs = ({ tags, selectedTag, onTagClick }) => {
     return (
-        <div className="flex flex-wrap" data-oid="rgifzxa">
+        <div className="flex flex-wrap">
             {tags.map((tag) => (
                 <div
                     key={tag}
@@ -16,12 +16,8 @@ const Tabs = ({ tags, selectedTag, onTagClick }) => {
                             onTagClick(tag);
                         }
                     }}
-                    data-oid="47n5-m8"
                 >
-                    <label
-                        className="cursor-pointer text-sm capitalize"
-                        data-oid="1t9v1ox"
-                    >
+                    <label className="cursor-pointer text-sm capitalize">
                         {tag}
                     </label>
                 </div>

@@ -15,33 +15,19 @@ const SOCIALS = [
         description: "Instagram",
         url: "https://instagram.com/youneedgreg",
         text: "Gregory Temwa Odete",
-        icon: (
-            <FaInstagram
-                size={20}
-                color="#1877F2"
-                className=""
-                data-oid="khy_itx"
-            />
-        ),
+        icon: <FaInstagram size={20} color="#1877F2" className="" />,
     },
     {
         description: "LinkedIn",
         url: "https://www.linkedin.com/in/youneedgreg/",
         text: "Gregory Temwa Odete",
-        icon: (
-            <FaLinkedin
-                size={20}
-                color="#0077b5"
-                className=""
-                data-oid="fhbbf_l"
-            />
-        ),
+        icon: <FaLinkedin size={20} color="#0077b5" className="" />,
     },
     {
         description: "GitHub",
         url: "https://github.com/youneedgreg",
         text: "@youneedgreg",
-        icon: <FaGithub size={20} className="" data-oid="o:dzxjx" />,
+        icon: <FaGithub size={20} className="" />,
     },
 ];
 
