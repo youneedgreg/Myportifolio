@@ -6,6 +6,7 @@ import "@/styles/globals.css";
 import { cn } from "@/utils/cn";
 import { Geist } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import SessionProvider from "@/providers/session";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -34,11 +35,13 @@ export default function RootLayout({ children }) {
                         enableSystem
                         data-oid="fynm.oc"
                     >
-                        <Header data-oid="toyuxkz" />
-                        <main className="grow pb-20" data-oid="82g:two">
-                            {children}
-                        </main>
-                        <Footer data-oid="j.4uier" />
+                        <SessionProvider>
+                            <Header data-oid="toyuxkz" />
+                            <main className="grow pb-20" data-oid="82g:two">
+                                {children}
+                            </main>
+                            <Footer data-oid="j.4uier" />
+                        </SessionProvider>
                     </ThemeProvider>
                 </TanstackProvider>
                 <Analytics data-oid="nn4to51" />
