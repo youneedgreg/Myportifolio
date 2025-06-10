@@ -1,9 +1,11 @@
-import axiosInterceptor from "@/utils/axios";
+import dbConnect from "@/lib/mongodb";
+import GuestbookEntry from "@/models/GuestbookEntry";
 
 export const getEntries = async () => {
     try {
-        const response = await axiosInterceptor.get("/guestbook");
-        return response.data;
+        await dbConnect();
+        const entries = await GuestbookEntry.find({}).sort({ createdAt: -1 });
+        return JSON.parse(JSON.stringify(entries));
     } catch (error) {
         throw error;
     }
@@ -11,9 +13,10 @@ export const getEntries = async () => {
 
 export const addEntry = async ({ payload, form }) => {
     try {
-        const response = await axiosInterceptor.post("/guestbook", payload);
+        await dbConnect();
+        const newEntry = await GuestbookEntry.create(payload);
         form?.reset();
-        return response.data;
+        return JSON.parse(JSON.stringify(newEntry));
     } catch (error) {
         throw error;
     }
