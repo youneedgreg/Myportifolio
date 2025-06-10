@@ -13,8 +13,11 @@ const ThemeToggler = () => {
 
     if (!mounted)
         return (
-            <div className="flex animate-pulse space-x-4">
-                <div className="h-4 w-4 rounded-full bg-slate-200 dark:bg-slate-900"></div>
+            <div className="flex animate-pulse space-x-4" data-oid="cccizyp">
+                <div
+                    className="h-4 w-4 rounded-full bg-slate-200 dark:bg-slate-900"
+                    data-oid="ue8p-nw"
+                ></div>
             </div>
         );
 
@@ -25,8 +28,12 @@ const ThemeToggler = () => {
                 type="button"
                 aria-label="Switch to dark theme"
                 className="group cursor-pointer rounded-full border border-gray-200 bg-white px-3 py-2 shadow shadow-zinc-800/5 backdrop-blur-sm"
+                data-oid="v7bgymc"
             >
-                <MdOutlineLightMode className="h-6 w-6 fill-amber-500" />
+                <MdOutlineLightMode
+                    className="h-6 w-6 fill-amber-500"
+                    data-oid="eq_l810"
+                />
             </button>
         );
     }
@@ -38,8 +45,12 @@ const ThemeToggler = () => {
                 type="button"
                 aria-label="Switch to light theme"
                 className="group cursor-pointer rounded-full border border-neutral-700 bg-white px-3 py-2 shadow shadow-zinc-800/5 backdrop-blur-sm dark:bg-neutral-800"
+                data-oid="kx.oy4c"
             >
-                <MdOutlineDarkMode className="h-6 w-6 fill-green-500" />
+                <MdOutlineDarkMode
+                    className="h-6 w-6 fill-green-500"
+                    data-oid="pzcxa48"
+                />
             </button>
         );
     }

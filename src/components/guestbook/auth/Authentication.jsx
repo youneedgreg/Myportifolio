@@ -5,7 +5,11 @@ import SocialSignIn from "./SocialSignIn";
 
 const Authentication = () => {
     const { data: session } = useSession();
-    return session?.user ? <Form /> : <SocialSignIn />;
+    return session?.user ? (
+        <Form data-oid="x4snnjt" />
+    ) : (
+        <SocialSignIn data-oid="qi9dpvd" />
+    );
 };
 
 export default Authentication;

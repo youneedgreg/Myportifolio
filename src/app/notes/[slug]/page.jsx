@@ -85,7 +85,7 @@ export default function Blog({ params }) {
     }
 
     return (
-        <section>
+        <section data-oid=".kh795t">
             <script
                 type="application/ld+json"
                 suppressHydrationWarning
@@ -107,25 +107,42 @@ export default function Blog({ params }) {
                         },
                     }),
                 }}
+                data-oid="t3xe0kg"
             />
-            <div className="mb-8">
-                <BackButton />
+
+            <div className="mb-8" data-oid="2zo-gfc">
+                <BackButton data-oid="pmgeeas" />
             </div>
-            <h1 className="title max-w-[650px] text-2xl font-medium tracking-tighter">
+            <h1
+                className="title max-w-[650px] text-2xl font-medium tracking-tighter"
+                data-oid="w1mkrgr"
+            >
                 {post.metadata.title}
             </h1>
-            <div className="mt-2 mb-8 flex max-w-[650px] items-center justify-between text-sm">
-                <Suspense fallback={<p className="h-5" />}>
-                    <p className="text-sm text-neutral-600 dark:text-neutral-300">
+            <div
+                className="mt-2 mb-8 flex max-w-[650px] items-center justify-between text-sm"
+                data-oid="8axw69d"
+            >
+                <Suspense
+                    fallback={<p className="h-5" data-oid="4j5:4.s" />}
+                    data-oid="9i:af8a"
+                >
+                    <p
+                        className="text-sm text-neutral-600 dark:text-neutral-300"
+                        data-oid=".6cxma2"
+                    >
                         {formatDate(post.metadata.publishedAt)}
                     </p>
                 </Suspense>
                 {/* <Suspense fallback={<p className="h-5" />}>
-                    <Views slug={post.slug} />
-                </Suspense> */}
+             <Views slug={post.slug} />
+          </Suspense> */}
             </div>
-            <article className="prose prose-quoteless prose-neutral dark:prose-invert space-y-5">
-                <CustomMDX source={post.content} />
+            <article
+                className="prose prose-quoteless prose-neutral dark:prose-invert space-y-5"
+                data-oid="nt:54c3"
+            >
+                <CustomMDX source={post.content} data-oid="7oblrpg" />
             </article>
         </section>
     );

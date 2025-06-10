@@ -8,7 +8,10 @@ const Navbar = ({ pathname }) => {
         (item) => item.path !== "/"
     );
     return (
-        <nav className="group hidden flex-row items-center justify-center space-x-6 rounded-full border border-gray-200 bg-white/90 px-5 py-2 text-center text-sm text-zinc-800 shadow-lg shadow-zinc-800/5 backdrop-blur sm:flex dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-50 dark:ring-white/10">
+        <nav
+            className="group hidden flex-row items-center justify-center space-x-6 rounded-full border border-gray-200 bg-white/90 px-5 py-2 text-center text-sm text-zinc-800 shadow-lg shadow-zinc-800/5 backdrop-blur sm:flex dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-50 dark:ring-white/10"
+            data-oid="nghvx0q"
+        >
             {FILTERED_NAVIGATION_LINKS.map((item) => {
                 const isSelected = item.path === pathname;
                 return (
@@ -20,6 +23,7 @@ const Navbar = ({ pathname }) => {
                                 ? "text-blue-800 hover:opacity-100 dark:text-white"
                                 : ""
                         } `}
+                        data-oid=".qhg-.u"
                     >
                         {item.label}
                     </Link>

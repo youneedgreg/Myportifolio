@@ -10,21 +10,24 @@ export const metadata = {
 
 export default function WorkPage() {
     return (
-        <div className="flex flex-col space-y-6">
-            <section className="flex flex-col space-y-6">
-                <h1 className="text-2xl font-semibold tracking-tighter">
+        <div className="flex flex-col space-y-6" data-oid="jt:5se:">
+            <section className="flex flex-col space-y-6" data-oid="han6dn-">
+                <h1
+                    className="text-2xl font-semibold tracking-tighter"
+                    data-oid="p5jomdx"
+                >
                     My work experiences
                 </h1>
-                <p>
+                <p data-oid="9hgo4i0">
                     I&apos;m looking for a full-time role where I can
                     collaborate with a team, contribute to impactful projects,
                     and continue growing as a developer.
                 </p>
-                <DownloadCV />
+                <DownloadCV data-oid="sjakyjf" />
             </section>
-            <Separator />
-            <Experiences />
-            <Stack />
+            <Separator data-oid="yluhi0f" />
+            <Experiences data-oid="tcf9ka9" />
+            <Stack data-oid="pdtduvw" />
         </div>
     );
 }

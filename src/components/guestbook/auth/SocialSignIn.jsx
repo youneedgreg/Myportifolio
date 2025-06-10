@@ -8,7 +8,7 @@ import { FaGithub } from "react-icons/fa6";
 const SocialSignIn = () => {
     const SIGN_IN_OPTIONS = [
         {
-            icon: <FcGoogle size={18} />,
+            icon: <FcGoogle size={18} data-oid="jk19bwo" />,
             provider: "google",
             label: "Sign in with Google",
         },
@@ -23,20 +23,21 @@ const SocialSignIn = () => {
         //     label: "Sign in with X (Twitter)",
         // },
         {
-            icon: <FaGithub size={18} />,
+            icon: <FaGithub size={18} data-oid="_alg471" />,
             provider: "github",
             label: "Sign in with GitHub",
         },
     ];
 
     return (
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2" data-oid="y5zmwy:">
             {SIGN_IN_OPTIONS.map((item, index) => (
                 <SignInButton
                     key={index}
                     provider={item.provider}
                     icon={() => item.icon}
                     label={item.label}
+                    data-oid="v1fivx3"
                 />
             ))}
         </div>

@@ -7,6 +7,7 @@ const Badge = ({ className, label }) => {
                 "focus:ring-ring inline-flex items-center rounded-full border border-neutral-100 px-2.5 py-0.5 text-xs font-semibold transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-hidden dark:border-neutral-800",
                 className
             )}
+            data-oid="gtu35w7"
         >
             {label}
         </div>

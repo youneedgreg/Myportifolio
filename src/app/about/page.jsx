@@ -8,9 +8,9 @@ export const metadata = {
 
 export default function AboutPage() {
     return (
-        <div className="flex flex-col space-y-6">
-            <Introduction />
-            <Tabs />
+        <div className="flex flex-col space-y-6" data-oid="-ml-uvl">
+            <Introduction data-oid="-aquim0" />
+            <Tabs data-oid="_-lgvqz" />
         </div>
     );
 }

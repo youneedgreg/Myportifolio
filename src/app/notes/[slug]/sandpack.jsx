@@ -9,6 +9,7 @@ export function SandpackCSS() {
             <style
                 dangerouslySetInnerHTML={{ __html: getSandpackCssText() }}
                 id="sandpack"
+                data-oid="xew1z2_"
             />
         );
     });

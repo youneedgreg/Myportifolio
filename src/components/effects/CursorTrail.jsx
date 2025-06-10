@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 const CursorTrail = () => {
     const [trail, setTrail] = useState([]);
@@ -18,12 +18,15 @@ const CursorTrail = () => {
             });
         };
 
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
+        window.addEventListener("mousemove", handleMouseMove);
+        return () => window.removeEventListener("mousemove", handleMouseMove);
     }, []);
 
     return (
-        <div className="pointer-events-none fixed inset-0 z-50">
+        <div
+            className="pointer-events-none fixed inset-0 z-50"
+            data-oid=".yqa8-l"
+        >
             {trail.map((point, index) => (
                 <div
                     key={index}
@@ -34,10 +37,11 @@ const CursorTrail = () => {
                         transform: `scale(${1 - index / trail.length})`,
                         opacity: 1 - index / trail.length,
                     }}
+                    data-oid="4ecipsv"
                 />
             ))}
         </div>
     );
 };
 
-export default CursorTrail; 
+export default CursorTrail;

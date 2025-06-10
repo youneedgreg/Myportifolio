@@ -18,20 +18,28 @@ const TweetContent = async ({ id, components, onError }) => {
 
     if (!tweet) {
         const NotFound = components?.TweetNotFound || TweetNotFound;
-        return <NotFound error={error} />;
+        return <NotFound error={error} data-oid="lh.3o:h" />;
     }
 
-    return <EmbeddedTweet tweet={tweet} components={components} />;
+    return (
+        <EmbeddedTweet
+            tweet={tweet}
+            components={components}
+            data-oid="dvlc2qt"
+        />
+    );
 };
 
-export const ReactTweet = (props) => <TweetContent {...props} />;
+export const ReactTweet = (props) => (
+    <TweetContent {...props} data-oid="479gxju" />
+);
 
 export async function TweetComponent({ id }) {
     return (
-        <div className="tweet my-6">
-            <div className={`flex justify-center`}>
+        <div className="tweet my-6" data-oid="4poz4ah">
+            <div className={`flex justify-center`} data-oid="a4hi_42">
                 {/* <Suspense fallback={<TweetSkeleton />}> */}
-                <ReactTweet id={id} />
+                <ReactTweet id={id} data-oid="a8bhow9" />
                 {/* </Suspense> */}
             </div>
         </div>

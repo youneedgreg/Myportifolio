@@ -18,9 +18,12 @@ const BackButton = () => {
         <div
             onClick={handleBack}
             className="flex w-fit cursor-pointer items-center space-x-1 hover:underline"
+            data-oid="ndn61ie"
         >
-            <FaChevronLeft size={10} />
-            <span className="text-xs">Back</span>
+            <FaChevronLeft size={10} data-oid="7wqhq5a" />
+            <span className="text-xs" data-oid="xg9x9us">
+                Back
+            </span>
         </div>
     );
 };

@@ -5,7 +5,7 @@ import greg from "../../../public/images/me/greg.png";
 
 const Avatar = ({ className }) => {
     return (
-        <Link href="/" className="w-fit hover:opacity-90">
+        <Link href="/" className="w-fit hover:opacity-90" data-oid="dkx8ncg">
             <Image
                 className={cn(
                     "h-10 w-10 rounded-full dark:border dark:border-white/10",
@@ -15,6 +15,7 @@ const Avatar = ({ className }) => {
                 alt="Gregory Temwa Odete"
                 width={512}
                 height={512}
+                data-oid="0iwj09d"
             />
         </Link>
     );

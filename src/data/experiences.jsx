@@ -6,6 +6,7 @@ export const WORK_EXPERIENCES = [
         description: [
             "Below are the projects I've designed and developed during my stay at the company.",
         ],
+
         bulletPoints: [
             "Led the development of responsive and scalable user interfaces using **Next.js**, **React Native**, and **Tailwind CSS** for both web and mobile platforms.",
             "Handled **UI/UX design tasks**, helping create simple but effective, user-friendly, and modern-looking apps and websites.",
@@ -14,6 +15,7 @@ export const WORK_EXPERIENCES = [
             "Helped **upgrade old code** by moving legacy components and systems to newer frameworks and tools.",
             "Built and used **Laravel APIs** to handle data and business logic for frontend features.",
         ],
+
         companyKey: "padtech",
     },
     {
@@ -26,6 +28,7 @@ export const WORK_EXPERIENCES = [
             "Worked on the backend using Node.js and Express.js, and the frontend using React.js and Tailwind CSS.",
             "Collaborated with cross-functional teams to design and implement new features, enhancing user experience and engagement.",
         ],
+
         bulletPoints: [],
         companyKey: null,
     },
@@ -37,6 +40,7 @@ export const WORK_EXPERIENCES = [
             "I occasionally take on freelance projects.",
             "Below are some of my freelance works.",
         ],
+
         bulletPoints: [],
         companyKey: "freelance",
     },

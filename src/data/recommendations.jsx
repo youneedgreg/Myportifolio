@@ -73,10 +73,9 @@ const RECOMMENDATIONS = [
             },
             {
                 title: "Anaconda",
-                description:
-                    "I use this for my python applications.",
+                description: "I use this for my python applications.",
             },
-            
+
             {
                 title: "GitHub Desktop",
                 description:
