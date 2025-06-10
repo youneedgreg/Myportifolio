@@ -9,7 +9,6 @@ import { cn } from "@/utils/cn";
 import { Geist } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import dynamic from "next/dynamic";
-import SmoothScrollWrapper from "@/components/SmoothScrollWrapper";
 
 const CursorTrail = dynamic(() => import("@/components/effects/CursorTrail"), {
     ssr: false,
@@ -43,7 +42,7 @@ export default function RootLayout({ children }) {
                         data-oid="b4c61sy"
                     >
                         <CursorTrail data-oid="-r2ncdy" />
-                        <SmoothScrollWrapper data-oid="r-d2_nb" />
+
                         <Header data-oid="btkdq39" />
                         <main className="grow pb-20" data-oid="6:3tbwb">
                             {children}
