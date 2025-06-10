@@ -103,7 +103,7 @@ export default function Blog({ params }) {
                         url: `https://greg.vercel.app/blog/${post.slug}`,
                         author: {
                             "@type": "Person",
-                            name: "greg de Orayom",
+                            name: "Gregory Odete",
                         },
                     }),
                 }}
