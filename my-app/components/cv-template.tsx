@@ -130,15 +130,75 @@ export function CVTemplate() {
               Professional Experience
             </h2>
 
+            <hr style={{ border: "none", borderTop: "1px solid #e2e8f0", margin: "1rem 0" }} />
+            <hr style={{ border: "none", borderTop: "1px solid #e2e8f0", margin: "1rem 0" }} />
+
             <div className="space-y-6">
-              {/* Job 1 */}
+              <div>
+
+            <div>
+                <div className="flex justify-between items-start mb-2">
+                  <div>
+                    <h3 style={{ fontSize: "1.125rem", fontWeight: "600", color: "#1e293b" }}>
+                      Software Engineering Intern
+                    </h3>
+                    <p style={{ color: "#f59e0b", fontWeight: "500" }}>Ivy Community</p>
+                  </div>
+                  <span style={{ fontSize: "0.875rem", color: "#64748b" }}>Jul 2025 - Sept 2025</span>
+                </div>
+                <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem", color: "#1e293b" }} className="space-y-1">
+                  <li>Gained hands-on experience in software development practices</li>
+                  <li>Contributed to community-focused software projects</li>
+                  <li>Developed organizational and time management skills</li>
+                  <li>Collaborated with development teams on various initiatives</li>
+                </ul>
+              </div>
+
+              <hr style={{ border: "none", borderTop: "1px solid #e2e8f0", margin: "1rem 0" }} />
+
+              <div>
+                <div className="flex justify-between items-start mb-2">
+                  <div>
+                    <h3 style={{ fontSize: "1.125rem", fontWeight: "600", color: "#1e293b" }}>2D Image Annotator</h3>
+                    <p style={{ color: "#f59e0b", fontWeight: "500" }}>DigiTalanta</p>
+                  </div>
+                  <span style={{ fontSize: "0.875rem", color: "#64748b" }}>Apr 2025 - Jul 2025</span>
+                </div>
+                <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem", color: "#1e293b" }} className="space-y-1">
+                  <li>Conducted 2D image annotation for AI training datasets</li>
+                  <li>Ensured precise labeling and categorization of visual data</li>
+                  <li>Maintained quality standards for machine learning model training</li>
+                  <li>Collaborated with AI development teams on data preparation</li>
+                </ul>
+              </div>
+
+              <hr style={{ border: "none", borderTop: "1px solid #e2e8f0", margin: "1rem 0" }} />
+
+            
+                <div className="flex justify-between items-start mb-2">
+                  <div>
+                    <h3 style={{ fontSize: "1.125rem", fontWeight: "600", color: "#1e293b" }}>3D Image Annotator</h3>
+                    <p style={{ color: "#f59e0b", fontWeight: "500" }}>Cloudinary</p>
+                  </div>
+                  <span style={{ fontSize: "0.875rem", color: "#64748b" }}>sept 2025 - Nov 2025</span>
+                </div>
+                <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem", color: "#1e293b" }} className="space-y-1">
+                  <li>Performed 3D image annotation for artificial intelligence systems</li>
+                  <li>Maintained high attention to detail and contextual accuracy in data processing</li>
+                  <li>Adhered to strict data confidentiality and quality standards</li>
+                  <li>Contributed to AI dataset development for machine learning applications</li>
+                </ul>
+              </div>
+
+              <hr style={{ border: "none", borderTop: "1px solid #e2e8f0", margin: "1rem 0" }} />
+
               <div>
                 <div className="flex justify-between items-start mb-2">
                   <div>
                     <h3 style={{ fontSize: "1.125rem", fontWeight: "600", color: "#1e293b" }}>Software Developer</h3>
                     <p style={{ color: "#f59e0b", fontWeight: "500" }}>Webtech Solutions Limited</p>
                   </div>
-                  <span style={{ fontSize: "0.875rem", color: "#64748b" }}>Mar 2024 - Jan 2025</span>
+                  <span style={{ fontSize: "0.875rem", color: "#64748b" }}>Mar 2024 - Mar 2025</span>
                 </div>
                 <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem", color: "#1e293b" }} className="space-y-1">
                   <li>Developed and launched responsive websites for diverse clients, enhancing user engagement</li>
@@ -170,61 +230,15 @@ export function CVTemplate() {
               <hr style={{ border: "none", borderTop: "1px solid #e2e8f0", margin: "1rem 0" }} />
 
               {/* Job 3 */}
-              <div>
-                <div className="flex justify-between items-start mb-2">
-                  <div>
-                    <h3 style={{ fontSize: "1.125rem", fontWeight: "600", color: "#1e293b" }}>3D Image Annotator</h3>
-                    <p style={{ color: "#f59e0b", fontWeight: "500" }}>Cloudinary</p>
-                  </div>
-                  <span style={{ fontSize: "0.875rem", color: "#64748b" }}>2023 - 2024</span>
-                </div>
-                <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem", color: "#1e293b" }} className="space-y-1">
-                  <li>Performed 3D image annotation for artificial intelligence systems</li>
-                  <li>Maintained high attention to detail and contextual accuracy in data processing</li>
-                  <li>Adhered to strict data confidentiality and quality standards</li>
-                  <li>Contributed to AI dataset development for machine learning applications</li>
-                </ul>
-              </div>
+              
 
               <hr style={{ border: "none", borderTop: "1px solid #e2e8f0", margin: "1rem 0" }} />
 
               {/* Job 4 */}
-              <div>
-                <div className="flex justify-between items-start mb-2">
-                  <div>
-                    <h3 style={{ fontSize: "1.125rem", fontWeight: "600", color: "#1e293b" }}>2D Image Annotator</h3>
-                    <p style={{ color: "#f59e0b", fontWeight: "500" }}>DigitalAnta</p>
-                  </div>
-                  <span style={{ fontSize: "0.875rem", color: "#64748b" }}>2023</span>
-                </div>
-                <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem", color: "#1e293b" }} className="space-y-1">
-                  <li>Conducted 2D image annotation for AI training datasets</li>
-                  <li>Ensured precise labeling and categorization of visual data</li>
-                  <li>Maintained quality standards for machine learning model training</li>
-                  <li>Collaborated with AI development teams on data preparation</li>
-                </ul>
-              </div>
-
-              <hr style={{ border: "none", borderTop: "1px solid #e2e8f0", margin: "1rem 0" }} />
+              
 
               {/* Job 5 */}
-              <div>
-                <div className="flex justify-between items-start mb-2">
-                  <div>
-                    <h3 style={{ fontSize: "1.125rem", fontWeight: "600", color: "#1e293b" }}>
-                      Software Engineering Intern
-                    </h3>
-                    <p style={{ color: "#f59e0b", fontWeight: "500" }}>Ivy Community</p>
-                  </div>
-                  <span style={{ fontSize: "0.875rem", color: "#64748b" }}>2023</span>
-                </div>
-                <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem", color: "#1e293b" }} className="space-y-1">
-                  <li>Gained hands-on experience in software development practices</li>
-                  <li>Contributed to community-focused software projects</li>
-                  <li>Developed organizational and time management skills</li>
-                  <li>Collaborated with development teams on various initiatives</li>
-                </ul>
-              </div>
+              
 
               <hr style={{ border: "none", borderTop: "1px solid #e2e8f0", margin: "1rem 0" }} />
 
