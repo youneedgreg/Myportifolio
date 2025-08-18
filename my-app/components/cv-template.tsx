@@ -4,54 +4,13 @@ import { Mail, Phone, MapPin, Linkedin, Globe, Github, Download } from "lucide-r
 import { useRef } from "react"
 
 export function CVTemplate() {
-  const cvRef = useRef<HTMLDivElement>(null)
-
-  const downloadPDF = async () => {
-    if (!cvRef.current) return
-
-    try {
-      const html2canvas = (await import("html2canvas")).default
-      const jsPDF = (await import("jspdf")).default
-
-      const canvas = await html2canvas(cvRef.current, {
-        scale: 2,
-        useCORS: true,
-        allowTaint: true,
-        backgroundColor: "#ffffff",
-        height: cvRef.current.scrollHeight,
-        windowHeight: cvRef.current.scrollHeight,
-        ignoreElements: (element) => {
-          return element.classList?.contains("skip-pdf") || false
-        },
-      })
-
-      const imgData = canvas.toDataURL("image/png")
-      const pdf = new jsPDF("p", "mm", "a4")
-      const pdfWidth = pdf.internal.pageSize.getWidth()
-      const pdfHeight = (canvas.height * pdfWidth) / canvas.width
-      let heightLeft = pdfHeight
-      let position = 0
-
-      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight)
-      heightLeft -= pdf.internal.pageSize.getHeight()
-
-      while (heightLeft > 0) {
-        position = heightLeft - pdfHeight
-        pdf.addPage()
-        pdf.addImage(imgData, "PNG", 0, position, pdfWidth, pdfHeight)
-        heightLeft -= pdf.internal.pageSize.getHeight()
-      }
-
-      pdf.save("Gregory_Temwa_CV.pdf")
-    } catch (error) {
-      console.error("Error generating PDF:", error)
-      alert("Error generating PDF. Please try again.")
-    }
-  }
+  const downloadPDF = () => {
+    window.print();
+  };
 
   return (
     <div className="max-w-4xl mx-auto p-8 bg-gray-50">
-      <div className="flex justify-end mb-6">
+      <div className="flex justify-end mb-6 no-print">
         <Button
           onClick={downloadPDF}
           className="flex items-center gap-2 bg-cyan-600 text-white hover:bg-cyan-700"
@@ -62,7 +21,6 @@ export function CVTemplate() {
       </div>
 
       <div
-        ref={cvRef}
         className="bg-white p-8"
       >
         {/* Header Section */}
