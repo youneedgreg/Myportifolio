@@ -17,7 +17,7 @@ export default function ContactForm() {
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!form.name || !form.email || !form.message) {
-      toast({ title: "Missing fields", description: "Please fill out all fields." })
+      toast("Missing fields", { description: "Please fill out all fields." })
       return
     }
     setLoading(true)
@@ -29,10 +29,10 @@ export default function ContactForm() {
       })
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || "Failed to send")
-      toast({ title: "Message sent", description: "Thanks for reaching out! I’ll get back to you soon." })
+      toast("Message sent", { description: "Thanks for reaching out! I’ll get back to you soon." })
       setForm({ name: "", email: "", message: "" })
     } catch (err: any) {
-      toast({ title: "Something went wrong", description: err.message || "Please try again." })
+      toast("Something went wrong", { description: err.message || "Please try again." })
     } finally {
       setLoading(false)
     }
