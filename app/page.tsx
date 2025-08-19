@@ -84,7 +84,7 @@ export default function Page() {
           <footer className="border-t">
             <div className="container px-4 md:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
               <p className="text-sm text-muted-foreground">
-                © {new Date().getFullYear()} Gregory Temwa. All rights reserved.
+                © 2023 Gregory Temwa. All rights reserved.
               </p>
               <div className="flex items-center gap-4 text-sm text-muted-foreground">
                 <a className="hover:underline" href="#projects">
