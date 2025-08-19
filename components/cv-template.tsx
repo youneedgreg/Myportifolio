@@ -1,7 +1,6 @@
 "use client"
 import { Button } from "@/components/ui/button"
 import { Mail, Phone, MapPin, Linkedin, Globe, Github, Download } from "lucide-react"
-import { useRef } from "react"
 
 export function CVTemplate() {
   const downloadPDF = () => {

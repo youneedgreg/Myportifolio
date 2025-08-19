@@ -31,8 +31,12 @@ export default function ContactForm() {
       if (!res.ok) throw new Error(data.error || "Failed to send")
       toast("Message sent", { description: "Thanks for reaching out! I’ll get back to you soon." })
       setForm({ name: "", email: "", message: "" })
-    } catch (err: any) {
-      toast("Something went wrong", { description: err.message || "Please try again." })
+    } catch (err: unknown) {
+      let message = "Please try again.";
+      if (err instanceof Error) {
+        message = err.message;
+      }
+      toast("Something went wrong", { description: message });
     } finally {
       setLoading(false)
     }
@@ -48,10 +52,10 @@ export default function ContactForm() {
         className="mx-auto max-w-2xl glass dark:glass-dark rounded-3xl p-8 md:p-12 shadow-2xl"
       >
         <h2 className="text-2xl font-semibold tracking-tight bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-          Let's build something amazing
+          Let&apos;s build something amazing
         </h2>
         <p className="mt-2 text-foreground/60">
-          Based in Nairobi, Kenya. Tell me about your project, and I'll get back to you soon!
+          Based in Nairobi, Kenya. Tell me about your project, and I&apos;ll get back to you soon!
         </p>
         <form onSubmit={onSubmit} className="mt-8 space-y-6">
           <div className="grid gap-6 sm:grid-cols-2">
