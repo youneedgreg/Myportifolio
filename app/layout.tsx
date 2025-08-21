@@ -6,6 +6,7 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://gregorytemwa.vercel.app'),
   title: {
     default: "Gregory Temwa – Software Engineer",
     template: "%s | Gregory Temwa",
