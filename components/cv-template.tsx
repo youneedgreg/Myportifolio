@@ -27,7 +27,7 @@ export function CVTemplate() {
           <h1 className="text-4xl font-bold text-cyan-600 mb-2">
             Gregory Temwa
           </h1>
-          <p className="text-xl text-gray-500 mb-4">Software Engineer</p>
+          <p className="text-xl text-gray-500 mb-4">Software Engineer And Data Annotator</p>
 
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm text-gray-800">
             <a href="mailto:gregorytemwa1212@gmail.com" className="flex items-center gap-1 hover:text-cyan-600">
@@ -48,7 +48,7 @@ export function CVTemplate() {
             </a>
             <a href="https://gregorytemwa.vercel.app" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-cyan-600">
               <Globe className="w-4 h-4" />
-              <span>gregorytemwa.vercel.app</span>
+              <span>https://gregorytemwa.vercel.app/</span>
             </a>
             <a href="https://github.com/youneedgreg" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-cyan-600">
               <Github className="w-4 h-4" />

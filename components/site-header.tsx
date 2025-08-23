@@ -26,6 +26,9 @@ export default function SiteHeader() {
           <a className="hover:underline underline-offset-4" href="#contact">
             Contact
           </a>
+          <Link className="hover:underline underline-offset-4" href="/cv">
+            CV
+          </Link>
         </nav>
         <div className="flex items-center gap-2">
           <Button asChild variant="ghost" size="icon" aria-label="GitHub">
