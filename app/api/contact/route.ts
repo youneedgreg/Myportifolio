@@ -1,14 +1,8 @@
 import { NextResponse } from "next/server"
 
-type Body = {
-  name?: string
-  email?: string
-  message?: string
-}
-
 export async function POST(req: Request) {
   try {
-    const body = (await req.json()) as Body
+    const body: { name?: string; email?: string; message?: string } = await req.json()
     const name = (body.name || "").trim()
     const email = (body.email || "").trim()
     const message = (body.message || "").trim()
