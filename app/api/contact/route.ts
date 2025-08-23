@@ -19,7 +19,7 @@ export async function POST(req: Request) {
     console.log("Contact form submission:", { name, email, message })
 
     return NextResponse.json({ ok: true })
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json({ error: "Invalid request body." }, { status: 400 })
   }
 }
