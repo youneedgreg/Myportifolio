@@ -20,6 +20,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ ok: true })
   } catch (_error) {
+    console.error("API Error:", _error); // Use _error here
     return NextResponse.json({ error: "Invalid request body." }, { status: 400 })
   }
 }
