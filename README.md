@@ -1,3 +1,3 @@
-cv template
 guest book
 certificates
+cv download
