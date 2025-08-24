@@ -1,4 +1,7 @@
 import { NextResponse } from "next/server"
+import { Resend } from "resend"
+
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(req: Request) {
   try {
@@ -14,9 +17,12 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Invalid email." }, { status: 400 })
     }
 
-    // In a real app, send an email or store to DB here.
-    // For demo, we just echo back the payload.
-    console.log("Contact form submission:", { name, email, message })
+    await resend.emails.send({
+      from: "onboarding@resend.dev",
+      to: "gregorytemwa1212@gmail.com",
+      subject: "New contact form submission",
+      html: `<p>Name: ${name}</p><p>Email: ${email}</p><p>Message: ${message}</p>`,
+    })
 
     return NextResponse.json({ ok: true })
   } catch (_error) {
