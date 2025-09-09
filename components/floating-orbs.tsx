@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, Transition } from "framer-motion"
 import { useEffect, useState } from "react"
 
 interface Orb {
@@ -16,12 +16,7 @@ interface Orb {
     y: number[]
     scale: number[]
   }
-  transition: {
-    duration: number
-    repeat: number
-    repeatType: "reverse" | "loop" | "mirror"
-    ease: string
-  }
+  transition: Transition
 }
 
 export default function FloatingOrbs() {
