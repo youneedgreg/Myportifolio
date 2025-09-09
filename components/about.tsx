@@ -21,7 +21,7 @@ export default function About() {
           >
             <div className="relative">
               <Image
-                src="/placeholder.svg?height=160&width=160&text=Gregory+Temwa"
+                src="/potrait.jpg"
                 alt="Gregory Temwa headshot"
                 width={160}
                 height={160}
