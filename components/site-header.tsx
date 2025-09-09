@@ -2,8 +2,10 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import ThemeToggle from "@/components/theme-toggle"
+import dynamic from "next/dynamic"
 import { Github, Linkedin } from "lucide-react"
+
+const ThemeToggle = dynamic(() => import("@/components/theme-toggle"), { ssr: false })
 
 export default function SiteHeader() {
   return (

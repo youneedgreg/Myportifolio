@@ -3,9 +3,11 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import AnimatedText from "./animated-text"
+import dynamic from "next/dynamic"
 import { motion } from "framer-motion"
 import FloatingOrbs from "./floating-orbs"
+
+const AnimatedText = dynamic(() => import("./animated-text"), { ssr: false })
 
 export default function Hero() {
   return (
