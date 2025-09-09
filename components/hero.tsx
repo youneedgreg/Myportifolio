@@ -83,7 +83,7 @@ export default function Hero() {
         >
           <div className="relative glass dark:glass-dark rounded-3xl p-2 shadow-2xl">
             <Image
-              src="/placeholder.svg?height=600&width=800&text=Gregory+Temwa+Workspace"
+              src="/hero picture.png"
               alt="Gregory Temwa's development workspace with multiple monitors showing code"
               width={800}
               height={600}
