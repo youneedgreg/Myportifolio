@@ -3,11 +3,32 @@
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 
+interface Orb {
+  id: number
+  style: {
+    width: number
+    height: number
+    left: string
+    top: string
+  }
+  animate: {
+    x: number[]
+    y: number[]
+    scale: number[]
+  }
+  transition: {
+    duration: number
+    repeat: number
+    repeatType: "reverse" | "loop" | "mirror"
+    ease: string
+  }
+}
+
 export default function FloatingOrbs() {
-  const [orbs, setOrbs] = useState<any[]>([])
+  const [orbs, setOrbs] = useState<Orb[]>([])
 
   useEffect(() => {
-    const newOrbs = Array.from({ length: 6 }).map((_, i) => ({
+    const newOrbs: Orb[] = Array.from({ length: 6 }).map((_, i) => ({
       id: i,
       style: {
         width: Math.random() * 100 + 50,
