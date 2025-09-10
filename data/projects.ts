@@ -3,7 +3,7 @@ export const projects = [
       title: "Chati AI",
       description: "An AI chatbot for feelings and emotional support, built with modern web technologies.",
       image: "/placeholder.svg?height=400&width=600&text=Chati+AI+Chatbot",
-      tags: ["React", "AI", "Node.js", "Vercel"],
+      tags: ["React", "AI", "Node.js", "Vercel", "TypeScript"],
       href: "https://chati-ai.vercel.app/",
     },
     {
@@ -39,7 +39,7 @@ export const projects = [
       title: "Mtaamall MVP",
       description: "Developed the Minimum Viable Product for Mtaamall startup using the MERN stack.",
       image: "/placeholder.svg?height=400&width=600&text=Mtaamall+Startup+MVP",
-      tags: ["MERN Stack", "Startup", "MVP", "E-commerce"],
+      tags: ["MERN Stack", "Startup", "MVP", "E-commerce", "JavaScript"],
       href: "https://github.com/youneedgreg",
     },
     {
@@ -47,7 +47,7 @@ export const projects = [
       description:
         "Responsive websites developed for diverse clients at Webtech Solutions with enhanced user engagement.",
       image: "/placeholder.svg?height=400&width=600&text=Client+Websites+Portfolio",
-      tags: ["React", "Responsive Design", "SEO", "Performance"],
+      tags: ["React", "Responsive Design", "SEO", "Performance", "JavaScript"],
       href: "https://github.com/youneedgreg",
     },
     {
@@ -58,4 +58,3 @@ export const projects = [
       href: "https://github.com/youneedgreg",
     },
   ]
-  

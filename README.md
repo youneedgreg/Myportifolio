@@ -8,7 +8,7 @@ I am based in Nairobi, Kenya, and I am always open to new opportunities and coll
 
 ## Skills
 
-*   **Languages:** JavaScript, Python, TypeScript
+*   **Languages:** JavaScript, Python, TypeScript, Java
 *   **Frontend:** React, Next.js, HTML, CSS, Tailwind CSS
 *   **Backend:** Node.js, Express.js, Python, Flask
 *   **Databases:** MongoDB, PostgreSQL, MySQL

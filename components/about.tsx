@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { motion } from "framer-motion"
+import { Badge } from "@/components/ui/badge"
 
 export default function About() {
   return (
@@ -45,6 +46,13 @@ export default function About() {
               a Full Stack Developer at Mtaamall startup, where I developed MVPs and enhanced user engagement through
               innovative web solutions.
             </p>
+            <div className="flex flex-wrap gap-2">
+              <h3 className="text-lg font-semibold tracking-tight w-full">Languages</h3>
+              <Badge>JavaScript</Badge>
+              <Badge>Python</Badge>
+              <Badge>TypeScript</Badge>
+              <Badge>Java</Badge>
+            </div>
           </div>
         </div>
       </motion.div>
