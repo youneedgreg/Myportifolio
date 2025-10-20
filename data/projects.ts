@@ -1,5 +1,12 @@
 export const projects = [
     {
+      title: "Save-It",
+      description: "A comprehensive personal finance management system designed to empower users to track, manage, and gain valuable insights into their financial health.",
+      image: "/assets/saveitphoto.png",
+      tags: ["Next.js", "TypeScript", "Tailwind CSS", "Lucide React", "Recharts"],
+      href: "https://savee-it.vercel.app/",
+    },
+    {
       title: "Chati AI",
       description: "An AI chatbot for feelings and emotional support, built with modern web technologies.",
       image: "/placeholder.svg?height=400&width=600&text=Chati+AI+Chatbot",

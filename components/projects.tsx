@@ -3,29 +3,7 @@
 import { motion } from "framer-motion"
 import ProjectCard from "./project-card"
 
-const projects = [
-  {
-    title: "Save-It",
-    description: "A comprehensive personal finance management system designed to empower users to track, manage, and gain valuable insights into their financial health.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Lucide React", "Recharts"],
-    href: "https://example.com",
-  },
-  {
-    title: "E‑commerce Storefront",
-    description: "Server components, edge caching, and smooth product browsing with rich micro‑interactions.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["Next.js", "Tailwind", "Prisma"],
-    href: "https://example.com",
-  },
-  {
-    title: "Design System",
-    description: "Accessible, themeable component library with tokens and docs built with MDX.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["Storybook", "Radix", "MDX"],
-    href: "https://example.com",
-  },
-]
+import { projects } from "@/data/projects"
 
 export default function Projects() {
   return (
