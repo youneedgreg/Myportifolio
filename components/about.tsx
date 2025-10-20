@@ -53,6 +53,15 @@ export default function About() {
               <Badge>TypeScript</Badge>
               <Badge>Java</Badge>
             </div>
+            <div className="flex flex-wrap gap-2">
+              <h3 className="text-lg font-semibold tracking-tight w-full">Frameworks & Tools</h3>
+              <Badge>React</Badge>
+              <Badge>Node.js</Badge>
+              <Badge>MySQL</Badge>
+              <Badge>PWA</Badge>
+              <Badge>Vercel</Badge>
+              <Badge>MERN Stack</Badge>
+            </div>
           </div>
         </div>
       </motion.div>

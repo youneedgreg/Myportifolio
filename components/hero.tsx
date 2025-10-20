@@ -73,6 +73,38 @@ export default function Hero() {
                 <Link href="#projects">View projects</Link>
               </Button>
             </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <Button
+                asChild
+                variant="outline"
+                className="px-6 glass dark:glass-dark border-white/20 hover:bg-white/10 bg-transparent"
+              >
+                <Link href="https://github.com/youneedgreg" target="_blank">
+                  <Image src="/github.svg" alt="GitHub" width={16} height={16} className="mr-2" />
+                  GitHub
+                </Link>
+              </Button>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <Button
+                asChild
+                variant="outline"
+                className="px-6 glass dark:glass-dark border-white/20 hover:bg-white/10 bg-transparent"
+              >
+                <Link href="https://www.linkedin.com/in/gregory-temwa-718339245/" target="_blank">
+                  <Image src="/linkedin.svg" alt="LinkedIn" width={16} height={16} className="mr-2" />
+                  LinkedIn
+                </Link>
+              </Button>
+            </motion.div>
           </div>
         </motion.div>
         <motion.div
