@@ -5,10 +5,10 @@ import ProjectCard from "./project-card"
 
 const projects = [
   {
-    title: "Realtime Dashboard",
-    description: "High‑performance dashboard with streaming data, optimistic UI, and accessible visualizations.",
+    title: "Save-It",
+    description: "A comprehensive personal finance management system designed to empower users to track, manage, and gain valuable insights into their financial health.",
     image: "/placeholder.svg?height=400&width=600",
-    tags: ["Next.js", "TypeScript", "WebSockets", "Recharts"],
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Lucide React", "Recharts"],
     href: "https://example.com",
   },
   {
