@@ -24,7 +24,7 @@ export default function ProjectCard({
   return (
     <Link href={href} className="group focus:outline-none">
       <motion.div whileHover={{ y: -8, scale: 1.02 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-        <Card className="overflow-hidden glass dark:glass-dark border-white/20 shadow-xl group-hover:shadow-2xl transition-all duration-500">
+        <Card className="h-[500px] overflow-hidden glass dark:glass-dark border-white/20 shadow-xl group-hover:shadow-2xl transition-all duration-500 flex flex-col">
           <div className="relative overflow-hidden">
             <motion.div
               whileHover={{ scale: 1.1 }}
@@ -50,8 +50,8 @@ export default function ProjectCard({
               {title}
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-3">
-            <p className="text-sm text-foreground/60">{description}</p>
+          <CardContent className="space-y-3 flex-grow overflow-hidden">
+            <p className="text-sm text-foreground/60 line-clamp-2">{description}</p>
             <div className="flex flex-wrap gap-2">
               {tags.map((t) => (
                 <Badge key={t} variant="secondary" className="text-xs glass dark:glass-dark border-white/20">
