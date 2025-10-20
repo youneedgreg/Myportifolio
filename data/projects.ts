@@ -9,7 +9,7 @@ export const projects = [
     {
       title: "Chati AI",
       description: "An AI chatbot for feelings and emotional support, built with modern web technologies.",
-      image: "/placeholder.svg?height=400&width=600&text=Chati+AI+Chatbot",
+      image: "/assets/chatiphoto.png",
       tags: ["React", "AI", "Node.js", "Vercel", "TypeScript"],
       href: "https://chati-ai.vercel.app/",
     },
