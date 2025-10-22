@@ -19,9 +19,9 @@ export default function SiteHeader() {
           Gregory Temwa
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm">
-          <a className="hover:underline underline-offset-4" href="#about">
+          <Link className="hover:underline underline-offset-4" href="/about">
             About
-          </a>
+          </Link>
           <a className="hover:underline underline-offset-4" href="#projects">
             Projects
           </a>
