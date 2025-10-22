@@ -25,7 +25,7 @@ export default function RandomFact() {
   }, [])
 
   return (
-    <div className="relative h-56 w-full overflow-hidden rounded-xl border bg-muted/30 p-4 flex flex-col items-center justify-center">
+    <div className="relative h-56 w-full overflow-hidden rounded-xl border p-4 flex flex-col items-center justify-center glass dark:glass-dark">
       <p className="text-lg text-center text-muted-foreground mb-4 h-24 overflow-y-auto">
         {loading ? "Loading..." : fact}
       </p>
