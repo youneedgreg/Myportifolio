@@ -5,20 +5,23 @@ export const projects = [
       image: "/assets/saveitphoto.png",
       tags: ["Next.js", "TypeScript", "Tailwind CSS", "Lucide React", "Recharts"],
       href: "https://savee-it.vercel.app/",
+      github: "https://github.com/youneedgreg/Save-it",
     },
     {
       title: "Chati AI",
-      description: "An AI chatbot for feelings and emotional support, built with modern web technologies.",
+      description: "Mental‑health chatbot web app; features AI‑driven supportive conversations, games (puzzles, breathing exercises etc.), mood tracking, journalling and emergency support.",
       image: "/assets/chatiphoto.png",
       tags: ["React", "AI", "Node.js", "Vercel", "TypeScript"],
       href: "https://chati-ai.vercel.app/",
+      github: "https://github.com/youneedgreg/chati",
     },
     {
       title: "2day - Habit Builder",
-      description: "A habit builder and quitter application with productivity tools to help users achieve their goals.",
-      image: "/placeholder.svg?height=400&width=600&text=2day+Habit+Builder",
+      description: "Productivity and habit‑tracking web app built with Next.js and TypeScript; includes habit tracker, to‑do lists, reminders, notes and dashboard",
+      image: "/assets/2dayyphoto.png",
       tags: ["React", "JavaScript", "Productivity", "PWA"],
       href: "https://2dayy.vercel.app/",
+      github: "https://github.com/youneedgreg/2day",
     },
     {
       title: "Motel Management System",
@@ -26,6 +29,7 @@ export const projects = [
       image: "/placeholder.svg?height=400&width=600&text=Motel+Management+System",
       tags: ["React", "Node.js", "MySQL", "Management"],
       href: "https://sevendaysholidaysinn.vercel.app/",
+      github: "https://github.com/youneedgreg",
     },
     {
       title: "Java Restaurant Management",
@@ -33,6 +37,7 @@ export const projects = [
       image: "/placeholder.svg?height=400&width=600&text=Restaurant+Management+Java",
       tags: ["Java", "MySQL", "Desktop App", "Management"],
       href: "https://github.com/youneedgreg",
+      github: "https://github.com/youneedgreg",
     },
     {
       title: "Hate Speech Classifier",
@@ -41,6 +46,7 @@ export const projects = [
       image: "/placeholder.svg?height=400&width=600&text=ML+Hate+Speech+Classifier",
       tags: ["Python", "Machine Learning", "NLP", "Classification"],
       href: "https://github.com/youneedgreg",
+      github: "https://github.com/youneedgreg",
     },
     {
       title: "Mtaamall MVP",
@@ -48,6 +54,7 @@ export const projects = [
       image: "/placeholder.svg?height=400&width=600&text=Mtaamall+Startup+MVP",
       tags: ["MERN Stack", "Startup", "MVP", "E-commerce", "JavaScript"],
       href: "https://github.com/youneedgreg",
+      github: "https://github.com/youneedgreg",
     },
     {
       title: "Webtech Client Websites",
@@ -56,6 +63,7 @@ export const projects = [
       image: "/placeholder.svg?height=400&width=600&text=Client+Websites+Portfolio",
       tags: ["React", "Responsive Design", "SEO", "Performance", "JavaScript"],
       href: "https://github.com/youneedgreg",
+      github: "https://github.com/youneedgreg",
     },
     {
       title: "Chatbot Integration",
@@ -63,5 +71,6 @@ export const projects = [
       image: "/placeholder.svg?height=400&width=600&text=Website+Chatbot+Integration",
       tags: ["Chatbot", "JavaScript", "Integration", "Customer Service"],
       href: "https://github.com/youneedgreg",
+      github: "https://github.com/youneedgreg",
     },
   ]
