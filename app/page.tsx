@@ -3,7 +3,7 @@ import Hero from "@/components/hero"
 import About from "@/components/about"
 import Projects from "@/components/projects"
 import ContactForm from "@/components/contact-form"
-import ClickCounter from "@/components/micro/click-counter"
+import RandomFact from "@/components/micro/random-fact"
 
 export const metadata: Metadata = {
   title: "Gregory Temwa – Software Engineer",
@@ -66,12 +66,12 @@ export default function Page() {
         <Projects />
         <section id="fun" className="container px-4 md:px-6">
           <div className="mx-auto max-w-4xl rounded-xl border bg-card p-6 md:p-8">
-            <h2 className="text-2xl font-semibold tracking-tight">A tiny micro‑interaction</h2>
+            <h2 className="text-2xl font-semibold tracking-tight">Random Fact Generator</h2>
             <p className="mt-1 text-muted-foreground">
-              Click the button and feel the spring. It&apos;s the little moments that make interfaces memorable.
+              Click the button to get a random fact from a public API. It&apos;s the little moments that make interfaces memorable.
             </p>
             <div className="mt-6">
-              <ClickCounter />
+              <RandomFact />
             </div>
           </div>
         </section>
