@@ -70,6 +70,27 @@ export default function AboutClientPage() {
         </section>
 
         <section className="mx-auto mt-12 max-w-4xl">
+          <h2 className="text-xl font-semibold tracking-tight">Education</h2>
+          <ul className="mt-4 grid gap-4 md:grid-cols-2">
+            <li className="rounded-lg border bg-card p-4">
+              🎓 BSc. in Software Engineering, United States International University (USIU)
+            </li>
+          </ul>
+        </section>
+
+        <section className="mx-auto mt-12 max-w-4xl">
+          <h2 className="text-xl font-semibold tracking-tight">Work Experience</h2>
+          <ul className="mt-4 grid gap-4 md:grid-cols-2">
+            <li className="rounded-lg border bg-card p-4">
+              💻 Software Developer at Webtech Solutions Limited
+            </li>
+            <li className="rounded-lg border bg-card p-4">
+              🚀 Full Stack Developer at Mtaamall startup
+            </li>
+          </ul>
+        </section>
+
+        <section className="mx-auto mt-12 max-w-4xl">
           <h2 className="text-xl font-semibold tracking-tight">Highlights</h2>
           <ul className="mt-4 grid gap-4 md:grid-cols-2">
             <li className="rounded-lg border bg-card p-4">
