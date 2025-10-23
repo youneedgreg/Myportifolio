@@ -70,24 +70,45 @@ export default function AboutClientPage() {
         </section>
 
         <section className="mx-auto mt-12 max-w-4xl">
-          <h2 className="text-xl font-semibold tracking-tight">Education</h2>
-          <ul className="mt-4 grid gap-4 md:grid-cols-2">
-            <li className="rounded-lg border bg-card p-4">
-              🎓 BSc. in Software Engineering, United States International University (USIU)
-            </li>
-          </ul>
+          <h2 className="text-2xl font-bold tracking-tight">Work Experience</h2>
+          <div className="mt-6 space-y-8">
+            <div className="relative flex gap-8">
+              <div className="absolute left-0 top-0 flex w-6 justify-center">
+                <div className="w-px bg-border"></div>
+              </div>
+              <div className="relative z-10 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold">Full Stack Developer</h3>
+                <p className="text-sm text-muted-foreground">Mtaamall startup</p>
+                <p className="mt-2 text-sm">Developed and launched the Minimum Viable Product (MVP) for the Mtaamall startup using the MERN stack, contributing to the initial product launch and user acquisition.</p>
+              </div>
+            </div>
+            <div className="relative flex gap-8">
+              <div className="absolute left-0 top-0 flex w-6 justify-center">
+                <div className="w-px bg-border"></div>
+              </div>
+              <div className="relative z-10 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold">Software Developer</h3>
+                <p className="text-sm text-muted-foreground">Webtech Solutions Limited</p>
+                <p className="mt-2 text-sm">Optimized website performance and SEO for diverse clients, and created and integrated AI chatbots into client websites for enhanced user engagement.</p>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section className="mx-auto mt-12 max-w-4xl">
-          <h2 className="text-xl font-semibold tracking-tight">Work Experience</h2>
-          <ul className="mt-4 grid gap-4 md:grid-cols-2">
-            <li className="rounded-lg border bg-card p-4">
-              💻 Software Developer at Webtech Solutions Limited
-            </li>
-            <li className="rounded-lg border bg-card p-4">
-              🚀 Full Stack Developer at Mtaamall startup
-            </li>
-          </ul>
+          <h2 className="text-2xl font-bold tracking-tight">Education</h2>
+          <div className="mt-6 space-y-4">
+            <div className="rounded-lg border bg-card p-4">
+              <h3 className="text-lg font-semibold">BSc. in Software Engineering</h3>
+              <p className="text-sm text-muted-foreground">United States International University (USIU)</p>
+            </div>
+          </div>
         </section>
 
         <section className="mx-auto mt-12 max-w-4xl">
