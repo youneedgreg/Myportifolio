@@ -104,9 +104,18 @@ export default function AboutClientPage() {
         <section className="mx-auto mt-12 max-w-4xl">
           <h2 className="text-2xl font-bold tracking-tight">Education</h2>
           <div className="mt-6 space-y-4">
-            <div className="rounded-lg border bg-card p-4">
-              <h3 className="text-lg font-semibold">BSc. in Software Engineering</h3>
-              <p className="text-sm text-muted-foreground">United States International University (USIU)</p>
+            <div className="rounded-lg border bg-card p-6">
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v11.494m-5.22-6.224l10.44 6.224M2.25 12h19.5M12 2.25c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9z"></path></svg>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold">BSc. in Software Engineering</h3>
+                  <p className="text-lg text-muted-foreground">United States International University (USIU)</p>
+                  <p className="text-sm text-muted-foreground">Expected Graduation: 2025</p>
+                </div>
+              </div>
+
             </div>
           </div>
         </section>
