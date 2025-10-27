@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
-import { TypeAnimation } from 'react-type-animation';
+import { TypeAnimation } from "react-type-animation"
 
 export default function AboutClientPage() {
   return (
@@ -69,9 +69,11 @@ export default function AboutClientPage() {
           </div>
         </section>
 
+        {/* Work Experience */}
         <section className="mx-auto mt-12 max-w-4xl">
           <h2 className="text-2xl font-bold tracking-tight">Work Experience</h2>
           <div className="mt-6 space-y-8">
+            {/* HNG Internship */}
             <div className="relative flex gap-8">
               <div className="absolute left-0 top-0 flex w-6 justify-center">
                 <div className="w-px bg-border"></div>
@@ -80,27 +82,109 @@ export default function AboutClientPage() {
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
               </div>
               <div>
-                <h3 className="text-lg font-semibold">Full Stack Developer</h3>
-                <p className="text-sm text-muted-foreground">Mtaamall startup</p>
-                <p className="mt-2 text-sm">Developed and launched the Minimum Viable Product (MVP) for the Mtaamall startup using the MERN stack, contributing to the initial product launch and user acquisition.</p>
+                <h3 className="text-lg font-semibold">Full Stack Developer Intern</h3>
+                <p className="text-sm text-muted-foreground">HNG Internship • Sep 2025 – Nov 2025</p>
+                <p className="mt-2 text-sm">
+                  Built a multi-framework ticket management system using React, Vue.js, and Twig; implemented auth,
+                  CRUD, dashboards, and responsive design while collaborating via Agile workflows.
+                </p>
               </div>
             </div>
+
+            {/* Momentum Labs */}
             <div className="relative flex gap-8">
-              <div className="absolute left-0 top-0 flex w-6 justify-center">
-                <div className="w-px bg-border"></div>
-              </div>
+              <div className="absolute left-0 top-0 flex w-6 justify-center"><div className="w-px bg-border"></div></div>
               <div className="relative z-10 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground">
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
               </div>
               <div>
-                <h3 className="text-lg font-semibold">Software Developer</h3>
-                <p className="text-sm text-muted-foreground">Webtech Solutions Limited</p>
-                <p className="mt-2 text-sm">Optimized website performance and SEO for diverse clients, and created and integrated AI chatbots into client websites for enhanced user engagement.</p>
+                <h3 className="text-lg font-semibold">Junior Software Engineer Intern</h3>
+                <p className="text-sm text-muted-foreground">Momentum Labs • May 2025 – Aug 2025</p>
+                <p className="mt-2 text-sm">
+                  Contributed to client-facing and internal apps with modular code, API integrations, and DevOps
+                  involvement ensuring production-ready deployments.
+                </p>
+              </div>
+            </div>
+
+            {/* Girwa Foundation */}
+            <div className="relative flex gap-8">
+              <div className="absolute left-0 top-0 flex w-6 justify-center"><div className="w-px bg-border"></div></div>
+              <div className="relative z-10 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold">Junior Software Engineer Intern</h3>
+                <p className="text-sm text-muted-foreground">Girwa Foundation • Feb 2025 – Apr 2025</p>
+                <p className="mt-2 text-sm">
+                  Built mobile-friendly donor-management dashboards, improving transparency and analytics for community programs.
+                </p>
+              </div>
+            </div>
+
+            {/* WebTech Solutions */}
+            <div className="relative flex gap-8">
+              <div className="absolute left-0 top-0 flex w-6 justify-center"><div className="w-px bg-border"></div></div>
+              <div className="relative z-10 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold">Junior Software Developer</h3>
+                <p className="text-sm text-muted-foreground">WebTech Solutions Limited • May 2024 – Jan 2025</p>
+                <p className="mt-2 text-sm">
+                  Collaborated on UI/UX, backend integration, and deployments with Vercel/Railway; optimized SEO and client performance.
+                </p>
+              </div>
+            </div>
+
+            {/* Mtaamall */}
+            <div className="relative flex gap-8">
+              <div className="absolute left-0 top-0 flex w-6 justify-center"><div className="w-px bg-border"></div></div>
+              <div className="relative z-10 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold">Junior Software Engineer Intern</h3>
+                <p className="text-sm text-muted-foreground">Mtaamall Startup • Feb 2024 – Apr 2024</p>
+                <p className="mt-2 text-sm">
+                  Developed marketplace dashboards and real-time interfaces for the MVP, integrating scalable databases and auth systems.
+                </p>
+              </div>
+            </div>
+
+            {/* Somo Africa */}
+            <div className="relative flex gap-8">
+              <div className="absolute left-0 top-0 flex w-6 justify-center"><div className="w-px bg-border"></div></div>
+              <div className="relative z-10 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold">STEM & Coding Instructor</h3>
+                <p className="text-sm text-muted-foreground">Somo Africa • Jun 2023 – Dec 2023</p>
+                <p className="mt-2 text-sm">
+                  Taught students (8–18) coding, robotics, AI & VR; designed interactive lessons that foster creativity and problem-solving.
+                </p>
+              </div>
+            </div>
+
+            {/* Freelance */}
+            <div className="relative flex gap-8">
+              <div className="absolute left-0 top-0 flex w-6 justify-center"><div className="w-px bg-border"></div></div>
+              <div className="relative z-10 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold">Freelance Software Developer</h3>
+                <p className="text-sm text-muted-foreground">Independent • 2023 – Present</p>
+                <p className="mt-2 text-sm">
+                  Delivered full-stack client projects — consulting, prototyping, implementation, and deployment — across websites, e-commerce, and AI-driven apps.
+                </p>
               </div>
             </div>
           </div>
         </section>
 
+        {/* Education */}
         <section className="mx-auto mt-12 max-w-4xl">
           <h2 className="text-2xl font-bold tracking-tight">Education</h2>
           <div className="mt-6 space-y-4">
@@ -112,31 +196,37 @@ export default function AboutClientPage() {
                 <div>
                   <h3 className="text-xl font-bold">BSc. in Software Engineering</h3>
                   <p className="text-lg text-muted-foreground">United States International University (USIU)</p>
-                  <p className="text-sm text-muted-foreground">Expected Graduation: 2025</p>
+                  <p className="text-sm text-muted-foreground">Expected Graduation: 2027</p>
                 </div>
               </div>
-
             </div>
           </div>
         </section>
 
+        {/* Certificates */}
         <section className="mx-auto mt-12 max-w-4xl">
-          <h2 className="text-xl font-semibold tracking-tight">Highlights</h2>
-          <ul className="mt-4 grid gap-4 md:grid-cols-2">
-            <li className="rounded-lg border bg-card p-4">
-              🏆 Award-winning participant in multiple hackathons with innovative solutions.
-            </li>
-            <li className="rounded-lg border bg-card p-4">
-              🚀 Developed and launched MVP for Mtaamall startup using MERN stack.
-            </li>
-            <li className="rounded-lg border bg-card p-4">
-              🤖 Created AI chatbots and integrated them into client websites for enhanced engagement.
-            </li>
-            <li className="rounded-lg border bg-card p-4">
-              📈 Optimized website performance and SEO for diverse clients at Webtech Solutions.
-            </li>
-          </ul>
+          <h2 className="text-2xl font-bold tracking-tight">Certificates</h2>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            <div className="rounded-lg border bg-card p-5">
+              <h3 className="font-semibold">IBM SkillsBuild — AI Fundamentals</h3>
+              <p className="text-sm text-muted-foreground mt-1">Core AI concepts, applications, and ethics.</p>
+            </div>
+            <div className="rounded-lg border bg-card p-5">
+              <h3 className="font-semibold">freeCodeCamp — Front End Development Libraries</h3>
+              <p className="text-sm text-muted-foreground mt-1">React, Redux, and UI component best practices.</p>
+            </div>
+            <div className="rounded-lg border bg-card p-5">
+              <h3 className="font-semibold">freeCodeCamp — Machine Learning with Python</h3>
+              <p className="text-sm text-muted-foreground mt-1">ML pipelines with Python, model training & evaluation.</p>
+            </div>
+            <div className="rounded-lg border bg-card p-5">
+              <h3 className="font-semibold">Coursera — Machine Learning (Andrew Ng)</h3>
+              <p className="text-sm text-muted-foreground mt-1">Supervised/unsupervised learning, regularization, optimization.</p>
+            </div>
+          </div>
         </section>
+
+        {/* Highlights removed as requested */}
       </main>
     </div>
   )
