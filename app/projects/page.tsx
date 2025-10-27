@@ -1,10 +1,20 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import dynamic from 'next/dynamic'
+
+const MotionDiv = dynamic(() => import("framer-motion").then((mod) => mod.motion.div))
 import ProjectCard from '@/components/project-card'
 import { projects } from '@/data/projects'
+import { useState } from 'react'
+import { Button } from '@/components/ui/button'
 
 export default function ProjectsPage() {
+  const [visibleProjects, setVisibleProjects] = useState(6)
+
+  const loadMore = () => {
+    setVisibleProjects((prev) => prev + 6)
+  }
+
   return (
     <div className="min-h-dvh liquid-gradient dark:liquid-gradient-dark relative overflow-hidden">
       {/* Floating background elements */}
@@ -18,10 +28,10 @@ export default function ProjectsPage() {
         Skip to content
       </a>
       <main id="main" className="relative z-10 flex flex-col gap-16 md:gap-24">
-        <section id='projects' className='container px-4 md:px-6'>
+        <section id='projects' className='px-4 md:px-6'>
           <div className='mx-auto max-w-5xl'>
             <div className='mb-8 space-y-4 text-center'>
-              <h1 className='text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl'>
+              <h1 className='text-1xl font-bold tracking-tighter sm:text-2xl md:text-3xl'>
                 My Projects
               </h1>
               <p className='text-muted-foreground md:text-xl'>
@@ -29,8 +39,8 @@ export default function ProjectsPage() {
               </p>
             </div>
             <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
-              {projects.map((p, i) => (
-                <motion.div
+              {projects.slice(0, visibleProjects).map((p, i) => (
+                <MotionDiv
                   key={p.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -38,9 +48,14 @@ export default function ProjectsPage() {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                 >
                   <ProjectCard {...p} />
-                </motion.div>
+                </MotionDiv>
               ))}
             </div>
+            {visibleProjects < projects.length && (
+              <div className="mt-8 text-center">
+                <Button onClick={loadMore}>Load More</Button>
+              </div>
+            )}
           </div>
         </section>
       </main>

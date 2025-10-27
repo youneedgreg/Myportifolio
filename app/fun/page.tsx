@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function FunPage() {
   return (
-    <main className="container px-4 md:px-6 py-10 md:py-16">
+    <main className="px-4 md:px-6 py-10 md:py-16">
       <header className="mx-auto max-w-4xl space-y-2">
         <h1 className="text-4xl font-bold tracking-tight">Playground</h1>
         <p className="text-muted-foreground">

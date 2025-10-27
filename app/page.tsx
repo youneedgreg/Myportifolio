@@ -1,9 +1,11 @@
 import type { Metadata } from "next"
-import Hero from "@/components/hero"
-import About from "@/components/about"
-import Projects from "@/components/projects"
-import ContactForm from "@/components/contact-form"
-import RandomFact from "@/components/micro/random-fact"
+import dynamic from "next/dynamic"
+
+const Hero = dynamic(() => import("@/components/hero"))
+const About = dynamic(() => import("@/components/about"))
+const Projects = dynamic(() => import("@/components/projects"))
+const ContactForm = dynamic(() => import("@/components/contact-form"))
+const RandomFact = dynamic(() => import("@/components/micro/random-fact"))
 
 export const metadata: Metadata = {
   title: "Gregory Temwa – Software Engineer",
@@ -60,7 +62,7 @@ export default function Page() {
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50">
         Skip to content
       </a>
-      <main id="main" className="relative z-10 flex flex-col gap-16 md:gap-24">
+      <main id="main" className="relative z-10 flex flex-col gap-16 md:gap-24 px-4 md:px-6">
         <Hero />
         <About />
         <Projects />
