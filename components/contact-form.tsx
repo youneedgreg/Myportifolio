@@ -43,7 +43,7 @@ export default function ContactForm() {
   }
 
   return (
-    <section id="contact" className="container px-4 md:px-6">
+    <section id="contact" className="px-4 md:px-6">
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}

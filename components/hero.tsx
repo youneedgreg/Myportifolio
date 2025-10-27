@@ -11,7 +11,7 @@ const AnimatedText = dynamic(() => import("./animated-text"), { ssr: false })
 
 export default function Hero() {
   return (
-    <section className="container px-4 md:px-6 pt-10 md:pt-16 relative">
+    <section className="px-4 md:px-6 pt-10 md:pt-16 relative">
       <FloatingOrbs />
       <div className="grid items-center gap-10 md:gap-16 lg:grid-cols-2 relative z-10">
         <motion.div

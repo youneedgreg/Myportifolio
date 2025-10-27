@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge"
 
 export default function About() {
   return (
-    <section id="about" className="container px-4 md:px-6">
+    <section id="about" className="px-4 md:px-6">
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}

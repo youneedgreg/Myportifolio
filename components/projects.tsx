@@ -9,7 +9,7 @@ import Link from "next/link"
 
 export default function Projects() {
   return (
-    <section id="projects" className="container px-4 md:px-6">
+    <section id="projects" className="px-4 md:px-6">
       <div className="mx-auto max-w-5xl">
         <div className="mb-6 flex items-center justify-between">
           <div className="space-y-2">
