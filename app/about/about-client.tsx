@@ -43,7 +43,7 @@ export default function AboutClientPage() {
           <div className="space-y-4 leading-relaxed text-balance">
             <p>
               I&apos;m currently pursuing my BSc. in Software Engineering at United States International University (USIU)
-              while gaining hands-on experience in the tech industry. Over the past 2 years, I&apos;ve worked with
+              while gaining hands-on experience in the tech industry. Over the past 3 years, I&apos;ve worked with
               companies like Webtech Solutions Limited and Mtaamall startup, developing everything from responsive
               websites to AI chatbots.
             </p>

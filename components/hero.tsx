@@ -44,7 +44,7 @@ export default function Hero() {
             />
           </div>
           <p className="max-w-xl text-foreground/60 leading-relaxed">
-            Award-winning Software Engineering student at USIU with 2 years of experience building responsive websites,
+            Award-winning Software Engineering student at USIU with 3 years of experience building responsive websites,
             AI chatbots, and full-stack applications using React, Python, and modern web technologies.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">

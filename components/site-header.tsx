@@ -22,7 +22,7 @@ export default function SiteHeader() {
           <Link className="hover:underline underline-offset-4" href="/about">
             About
           </Link>
-          <a className="hover:underline underline-offset-4" href="#projects">
+          <a className="hover:underline underline-offset-4" href="/projects">
             Projects
           </a>
           <a className="hover:underline underline-offset-4" href="#contact">

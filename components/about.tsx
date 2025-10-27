@@ -37,7 +37,7 @@ export default function About() {
             </h2>
             <p className="text-foreground/70 leading-relaxed">
               I&apos;m Gregory Temwa, a motivated Software Engineering student at United States International University
-              (USIU) with 2 years of working experience. I&apos;m an award-winning participant in multiple hackathons with a
+              (USIU) with 3 years of working experience. I&apos;m an award-winning participant in multiple hackathons with a
               strong foundation in software development, artificial intelligence, machine learning, and web
               technologies.
             </p>

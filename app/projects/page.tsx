@@ -6,26 +6,44 @@ import { projects } from '@/data/projects'
 
 export default function ProjectsPage() {
   return (
-    <section id='projects' className='container px-4 md:px-6'>
-      <div className='mx-auto max-w-5xl'>
-        <div className='mb-6 space-y-2'>
-          <h2 className='text-2xl font-semibold tracking-tight'>All Projects</h2>
-          <p className='text-muted-foreground'>A collection of my work.</p>
-        </div>
-        <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
-          {projects.map((p, i) => (
-            <motion.div
-              key={p.title}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.45, delay: i * 0.06 }}
-            >
-              <ProjectCard {...p} />
-            </motion.div>
-          ))}
-        </div>
+    <div className="min-h-dvh liquid-gradient dark:liquid-gradient-dark relative overflow-hidden">
+      {/* Floating background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-blue-400/20 to-purple-600/20 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+        <div className="absolute top-40 right-10 w-72 h-72 bg-gradient-to-r from-purple-400/20 to-pink-600/20 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-gradient-to-r from-pink-400/20 to-blue-600/20 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
       </div>
-    </section>
+
+      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50">
+        Skip to content
+      </a>
+      <main id="main" className="relative z-10 flex flex-col gap-16 md:gap-24">
+        <section id='projects' className='container px-4 md:px-6'>
+          <div className='mx-auto max-w-5xl'>
+            <div className='mb-8 space-y-4 text-center'>
+              <h1 className='text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl'>
+                My Projects
+              </h1>
+              <p className='text-muted-foreground md:text-xl'>
+                A collection of my work, from web apps to open-source projects.
+              </p>
+            </div>
+            <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+              {projects.map((p, i) => (
+                <motion.div
+                  key={p.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                >
+                  <ProjectCard {...p} />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
   )
 }

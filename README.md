@@ -2,7 +2,7 @@
 
 ## About Me
 
-I am a passionate and results-oriented Software Engineer with 2 years of experience specializing in full-stack development, AI/ML, and modern web technologies. I am an award-winning hackathon participant with a proven ability to build responsive websites, AI chatbots, and full-stack applications.
+I am a passionate and results-oriented Software Engineer with 3 years of experience specializing in full-stack development, AI/ML, and modern web technologies. I am an award-winning hackathon participant with a proven ability to build responsive websites, AI chatbots, and full-stack applications.
 
 I am based in Nairobi, Kenya, and I am always open to new opportunities and collaborations.
 

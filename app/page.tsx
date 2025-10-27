@@ -8,11 +8,11 @@ import RandomFact from "@/components/micro/random-fact"
 export const metadata: Metadata = {
   title: "Gregory Temwa – Software Engineer",
   description:
-    "Software Engineer specializing in full-stack development, AI/ML, and web technologies. Award-winning hackathon participant with 2 years of experience.",
+    "Software Engineer specializing in full-stack development, AI/ML, and web technologies. Award-winning hackathon participant with 3 years of experience.",
   openGraph: {
     title: "Gregory Temwa – Software Engineer",
     description:
-      "Software Engineer specializing in full-stack development, AI/ML, and web technologies. Award-winning hackathon participant with 2 years of experience.",
+      "Software Engineer specializing in full-stack development, AI/ML, and web technologies. Award-winning hackathon participant with 3 years of experience.",
     url: "https://gregorytemwa.vercel.app",
     siteName: "Gregory Temwa Portfolio",
     images: [
