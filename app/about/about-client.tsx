@@ -14,7 +14,7 @@ export default function AboutClientPage() {
         <div className="absolute -bottom-8 left-20 w-72 h-72 bg-gradient-to-r from-pink-400/20 to-blue-600/20 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
       </div>
 
-      <main className="container px-4 md:px-6 py-10 md:py-16">
+      <main className="px-4 md:px-6 py-10 md:py-16">
         <header className="mx-auto max-w-4xl space-y-2">
           <h1 className="text-4xl font-bold tracking-tight">About me</h1>
           <TypeAnimation
