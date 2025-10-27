@@ -9,8 +9,8 @@ const ThemeToggle = dynamic(() => import("@/components/theme-toggle"), { ssr: fa
 
 export default function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 w-full glass dark:glass-dark">
-      <div className="container flex h-14 items-center justify-between px-4 md:px-6">
+    <header className="sticky top-0 z-40 w-full glass dark:glass-dark px-4 md:px-6">
+      <div className="flex h-14 items-center justify-between">
         <Link
           href="/"
           className="font-semibold tracking-tight text-foreground/90 hover:text-foreground transition-colors"
