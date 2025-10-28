@@ -30,27 +30,27 @@ export const projects = [
     title: "Country Currency & Exchange API",
     description:
       "RESTful API combining country and currency data with live exchange rates, GDP estimates, caching, and CRUD operations for analytics.",
-    image: "/placeholder.svg?height=400&width=600&text=Country+Currency+API",
+    image: "/assets/countriesphoto.png",
     tags: ["Node.js", "Express.js", "MySQL", "Axios", "Jimp"],
-    href: "https://tobeadded.com/",
+    href: "https://country-currency-api-production-cf68.up.railway.app/",
     github: "https://github.com/youneedgreg/country-currency-api",
   },
   {
     title: "TicketFlow Multi-Framework",
     description:
       "A multi-framework ticketing app built in React, Vue, and Twig, designed to replicate consistent functionality across different front-end stacks.",
-    image: "/placeholder.svg?height=400&width=600&text=TicketFlow+Multiframework",
+    image: "/assets/ticketphoto.png",
     tags: ["React", "Vue", "PHP", "Twig", "Tailwind CSS"],
-    href: "https://tobeadded.com/",
+    href: "https://ticket-management-multiframework.vercel.app/",
     github: "https://github.com/youneedgreg/ticket-management-multiframework",
   },
   {
     title: "Backend Wizards",
     description:
       "Node.js microservice that performs string analysis, pattern detection, hashing, and storage, demonstrating backend logic and cryptography.",
-    image: "/placeholder.svg?height=400&width=600&text=Backend+Wizards",
+    image: "/assets/2dayyphoto.png",
     tags: ["Node.js", "Express", "MongoDB", "Crypto.js"],
-    href: "https://tobeadded.com/",
+    href: "https://backend-wizards-stage1-production.up.railway.app/",
     github: "https://github.com/youneedgreg/backend-wizards-stage1",
   },
   {
