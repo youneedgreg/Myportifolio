@@ -48,7 +48,7 @@ export const projects = [
     title: "Backend Wizards",
     description:
       "Node.js microservice that performs string analysis, pattern detection, hashing, and storage, demonstrating backend logic and cryptography.",
-    image: "/assets/2dayyphoto.png",
+    image: "/assets/stringphoto.png",
     tags: ["Node.js", "Express", "MongoDB", "Crypto.js"],
     href: "https://backend-wizards-stage1-production.up.railway.app/",
     github: "https://github.com/youneedgreg/backend-wizards-stage1",
