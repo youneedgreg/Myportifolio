@@ -75,9 +75,9 @@ export const projects = [
     title: "MtaaMall MVP",
     description:
       "Full-stack e-commerce marketplace connecting clients and local businesses with real-time dashboards and analytics.",
-    image: "/placeholder.svg?height=400&width=600&text=MtaaMall+MVP",
+    image: "/assets/mtaamallphoto.png",
     tags: ["React", "Node.js", "MongoDB", "JavaScript", "Tailwind CSS"],
-    href: "https://tobeadded.com/",
+    href: "https://business-mtaamall.vercel.app/",
     github: "https://github.com/youneedgreg/Mtaamall-client-production",
   },
   {
