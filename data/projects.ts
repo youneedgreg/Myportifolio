@@ -66,9 +66,9 @@ export const projects = [
     title: "Unilender",
     description:
       "Loan management and investment prototype built with Next.js and Supabase for authentication and secure financial interactions.",
-    image: "/placeholder.svg?height=400&width=600&text=Unilender",
+    image: "/assets/unilenderphoto.png",
     tags: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS"],
-    href: "https://tobeadded.com/",
+    href: "https://unilender.vercel.app/",
     github: "https://github.com/youneedgreg/unilender",
   },
   {
