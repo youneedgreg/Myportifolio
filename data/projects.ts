@@ -57,9 +57,9 @@ export const projects = [
     title: "Compono UI Builder",
     description:
       "Dynamic visual builder for Shadcn UI components with real-time previews and code export for faster UI prototyping.",
-    image: "/placeholder.svg?height=400&width=600&text=Compono+UI+Builder",
+    image: "/assets/componophoto.png",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    href: "https://tobeadded.com/",
+    href: "https://compono.vercel.app/",
     github: "https://github.com/youneedgreg/compono",
   },
   {
