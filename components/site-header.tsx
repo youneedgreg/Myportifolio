@@ -3,7 +3,8 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import dynamic from "next/dynamic"
-import { Github, Linkedin } from "lucide-react"
+import { Github, Linkedin, Search } from "lucide-react"
+import { useCommandPalette } from "@/components/command-palette"
 
 const ThemeToggle = dynamic(() => import("@/components/theme-toggle"), { ssr: false })
 
@@ -15,6 +16,8 @@ const navLinks = [
 ]
 
 export default function SiteHeader() {
+  const { setOpen } = useCommandPalette()
+
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/80 backdrop-blur-lg">
       <div className="flex h-16 items-center justify-between px-4 md:px-6">
@@ -36,6 +39,19 @@ export default function SiteHeader() {
           ))}
         </nav>
         <div className="flex items-center gap-1">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setOpen(true)}
+            aria-label="Open command palette"
+            className="gap-2 text-muted-foreground hover:text-foreground"
+          >
+            <Search className="size-3.5" />
+            <span className="hidden sm:inline">Search</span>
+            <kbd className="hidden rounded border border-border bg-muted px-1.5 py-0.5 font-mono text-[10px] sm:inline">
+              ⌘K
+            </kbd>
+          </Button>
           <Button
             asChild
             variant="ghost"

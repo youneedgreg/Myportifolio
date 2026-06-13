@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
 import SiteHeader from "@/components/site-header"
 import ScrollProgress from "@/components/scroll-progress"
+import { CommandPaletteProvider } from "@/components/command-palette"
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://gregorytemwa.vercel.app'),
@@ -89,12 +90,14 @@ export default function RootLayout({
       <head />
       <body className="font-sans antialiased">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <div className="noise-overlay" aria-hidden="true" />
-          <ScrollProgress />
-          <SiteHeader />
-          {children}
-          <Toaster />
-          <Analytics/>
+          <CommandPaletteProvider>
+            <div className="noise-overlay" aria-hidden="true" />
+            <ScrollProgress />
+            <SiteHeader />
+            {children}
+            <Toaster />
+            <Analytics/>
+          </CommandPaletteProvider>
         </ThemeProvider>
       </body>
     </html>
