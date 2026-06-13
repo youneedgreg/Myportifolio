@@ -4,11 +4,13 @@ import { motion } from "framer-motion"
 import ProjectCard from "./project-card"
 import { ArrowRight } from "lucide-react"
 
-import { projects } from "@/data/projects"
+import { getFeaturedProjects } from "@/data/projects"
 
 import Link from "next/link"
 
 export default function Projects() {
+  const featured = getFeaturedProjects()
+
   return (
     <section id="projects" className="px-4 md:px-6">
       <div className="mx-auto max-w-5xl">
@@ -26,15 +28,15 @@ export default function Projects() {
           </Link>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.slice(0, 3).map((p, i) => (
+          {featured.map((p, i) => (
             <motion.div
-              key={p.title}
+              key={p.slug}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.45, delay: i * 0.06 }}
             >
-              <ProjectCard {...p} />
+              <ProjectCard project={p} />
             </motion.div>
           ))}
         </div>

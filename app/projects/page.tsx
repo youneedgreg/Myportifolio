@@ -41,13 +41,14 @@ export default function ProjectsPage() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.slice(0, visibleProjects).map((p, i) => (
             <MotionDiv
-              key={p.title}
+              key={p.slug}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: (i % 6) * 0.08 }}
+              className={p.size === "large" ? "sm:col-span-2 lg:col-span-1" : undefined}
             >
-              <ProjectCard {...p} />
+              <ProjectCard project={p} />
             </MotionDiv>
           ))}
         </div>
