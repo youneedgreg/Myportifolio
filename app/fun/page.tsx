@@ -18,39 +18,42 @@ export const metadata: Metadata = {
 
 export default function FunPage() {
   return (
-    <main className="px-4 md:px-6 py-10 md:py-16">
-      <header className="mx-auto max-w-4xl space-y-2">
-        <h1 className="text-4xl font-bold tracking-tight">Playground</h1>
-        <p className="text-muted-foreground">
-          Small, memorable interactions that add delight without getting in the way.
-        </p>
-      </header>
+    <main className="px-4 py-16 md:px-6 md:py-24">
+      <div className="mx-auto max-w-4xl space-y-12">
+        <header className="space-y-2">
+          <p className="font-mono text-sm uppercase tracking-widest text-primary">Interactive</p>
+          <h1 className="text-balance text-5xl font-semibold tracking-tighter sm:text-6xl md:text-7xl">Playground</h1>
+          <p className="max-w-2xl text-base text-muted-foreground sm:text-lg">
+            Small, memorable interactions that add delight without getting in the way.
+          </p>
+        </header>
 
-      <section className="mx-auto mt-8 grid max-w-4xl gap-6 md:grid-cols-2">
-        <div className="rounded-xl border bg-card p-6">
-          <h2 className="text-lg font-semibold">Click counter</h2>
-          <p className="text-sm text-muted-foreground">Springy increment and burst animation.</p>
-          <div className="mt-4">
-            <ClickCounter />
+        <section className="grid gap-6 md:grid-cols-2">
+          <div className="surface p-6 md:p-8">
+            <h2 className="text-lg font-semibold tracking-tight">Click counter</h2>
+            <p className="text-sm text-muted-foreground">Springy increment and burst animation.</p>
+            <div className="mt-6">
+              <ClickCounter />
+            </div>
           </div>
-        </div>
 
-        <div className="rounded-xl border bg-card p-6">
-          <h2 className="text-lg font-semibold">Reactions</h2>
-          <p className="text-sm text-muted-foreground">Tap to like with little emoji bursts.</p>
-          <div className="mt-4">
-            <ReactionToggle />
+          <div className="surface p-6 md:p-8">
+            <h2 className="text-lg font-semibold tracking-tight">Reactions</h2>
+            <p className="text-sm text-muted-foreground">Tap to like with little emoji bursts.</p>
+            <div className="mt-6">
+              <ReactionToggle />
+            </div>
           </div>
-        </div>
 
-        <div className="rounded-xl border bg-card p-6 md:col-span-2">
-          <h2 className="text-lg font-semibold">Draggable card</h2>
-          <p className="text-sm text-muted-foreground">Drag around to feel the physics.</p>
-          <div className="mt-4">
-            <DraggableCard />
+          <div className="surface p-6 md:p-8 md:col-span-2">
+            <h2 className="text-lg font-semibold tracking-tight">Draggable card</h2>
+            <p className="text-sm text-muted-foreground">Drag around to feel the physics.</p>
+            <div className="mt-6">
+              <DraggableCard />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
   )
 }

@@ -173,59 +173,6 @@
     background-size: 400% 100%;
     animation: shimmer 1.4s ease infinite;
   }
-
-  /* --- Legacy utilities, still used by components pending Phase 2 migration --- */
-  .glass {
-    @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-xl;
-  }
-
-  .glass-dark {
-    @apply bg-black/10 backdrop-blur-md border border-white/10 shadow-xl;
-  }
-
-  .liquid-gradient {
-    background: linear-gradient(
-      135deg,
-      rgba(99, 102, 241, 0.1) 0%,
-      rgba(168, 85, 247, 0.1) 25%,
-      rgba(236, 72, 153, 0.1) 50%,
-      rgba(59, 130, 246, 0.1) 75%,
-      rgba(16, 185, 129, 0.1) 100%
-    );
-    background-size: 400% 400%;
-    animation: liquidFlow 15s ease-in-out infinite;
-  }
-
-  .liquid-gradient-dark {
-    background: linear-gradient(
-      135deg,
-      rgba(99, 102, 241, 0.2) 0%,
-      rgba(168, 85, 247, 0.2) 25%,
-      rgba(236, 72, 153, 0.2) 50%,
-      rgba(59, 130, 246, 0.2) 75%,
-      rgba(16, 185, 129, 0.2) 100%
-    );
-    background-size: 400% 400%;
-    animation: liquidFlow 15s ease-in-out infinite;
-  }
-
-  .animation-delay-2000 {
-    animation-delay: 2s;
-  }
-
-  .animation-delay-4000 {
-    animation-delay: 4s;
-  }
-}
-
-@keyframes liquidFlow {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
 }
 
 @keyframes float {
@@ -238,19 +185,6 @@
   }
   66% {
     transform: translateY(5px) rotate(-1deg);
-  }
-}
-
-@keyframes blob {
-  0%,
-  100% {
-    transform: translate(0px, 0px) scale(1);
-  }
-  33% {
-    transform: translate(30px, -50px) scale(1.1);
-  }
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
   }
 }
 
@@ -267,6 +201,15 @@
   animation: float 6s ease-in-out infinite;
 }
 
-.animate-blob {
-  animation: blob 7s infinite;
+@media print {
+  .no-print,
+  .noise-overlay,
+  .scroll-progress,
+  header {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+  }
 }

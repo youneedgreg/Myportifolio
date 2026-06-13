@@ -12,55 +12,57 @@ export default function About() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-10% 0px" }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="mx-auto max-w-4xl glass dark:glass-dark rounded-3xl p-8 md:p-12 shadow-2xl"
+        className="surface mx-auto grid max-w-4xl items-start gap-8 p-8 md:grid-cols-[160px_1fr] md:p-12"
       >
-        <div className="grid items-start gap-8 md:grid-cols-[160px_1fr]">
-          <motion.div
-            whileHover={{ scale: 1.05, rotate: 2 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="flex justify-center md:justify-start"
-          >
-            <div className="relative">
-              <Image
-                src="/potrait.jpg"
-                alt="Gregory Temwa headshot"
-                width={160}
-                height={160}
-                className="rounded-full border-2 border-white/20 shadow-lg"
-              />
-              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-400/20 to-purple-600/20"></div>
+        <motion.div
+          whileHover={{ scale: 1.05, rotate: 2 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          className="flex justify-center md:justify-start"
+        >
+          <Image
+            src="/potrait.jpg"
+            alt="Gregory Temwa headshot"
+            width={160}
+            height={160}
+            className="rounded-2xl border border-border object-cover"
+          />
+        </motion.div>
+        <div className="space-y-4">
+          <div className="space-y-2">
+            <p className="font-mono text-sm uppercase tracking-widest text-primary">Who I am</p>
+            <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">About me</h2>
+          </div>
+          <p className="leading-relaxed text-muted-foreground">
+            I&apos;m Gregory Temwa, a motivated Software Engineering student at United States International University
+            (USIU) with 3 years of working experience. I&apos;m an award-winning participant in multiple hackathons with a
+            strong foundation in software development, artificial intelligence, machine learning, and web
+            technologies.
+          </p>
+          <p className="leading-relaxed text-muted-foreground">
+            Currently based in Nairobi, Kenya, I&apos;ve worked as a Software Developer at Webtech Solutions Limited and as
+            a Full Stack Developer at Mtaamall startup, where I developed MVPs and enhanced user engagement through
+            innovative web solutions.
+          </p>
+          <div className="space-y-3 pt-2">
+            <div className="space-y-2">
+              <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Languages</p>
+              <div className="flex flex-wrap gap-2">
+                <Badge>JavaScript</Badge>
+                <Badge>Python</Badge>
+                <Badge>TypeScript</Badge>
+                <Badge>Java</Badge>
+              </div>
             </div>
-          </motion.div>
-          <div className="space-y-4">
-            <h2 className="text-2xl font-semibold tracking-tight bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-              About me
-            </h2>
-            <p className="text-foreground/70 leading-relaxed">
-              I&apos;m Gregory Temwa, a motivated Software Engineering student at United States International University
-              (USIU) with 3 years of working experience. I&apos;m an award-winning participant in multiple hackathons with a
-              strong foundation in software development, artificial intelligence, machine learning, and web
-              technologies.
-            </p>
-            <p className="text-foreground/70 leading-relaxed">
-              Currently based in Nairobi, Kenya, I&apos;ve worked as a Software Developer at Webtech Solutions Limited and as
-              a Full Stack Developer at Mtaamall startup, where I developed MVPs and enhanced user engagement through
-              innovative web solutions.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              <h3 className="text-lg font-semibold tracking-tight w-full">Languages</h3>
-              <Badge>JavaScript</Badge>
-              <Badge>Python</Badge>
-              <Badge>TypeScript</Badge>
-              <Badge>Java</Badge>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              <h3 className="text-lg font-semibold tracking-tight w-full">Frameworks & Tools</h3>
-              <Badge>React</Badge>
-              <Badge>Node.js</Badge>
-              <Badge>MySQL</Badge>
-              <Badge>PWA</Badge>
-              <Badge>Vercel</Badge>
-              <Badge>MERN Stack</Badge>
+            <div className="space-y-2">
+              <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Frameworks &amp; tools</p>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="secondary">React</Badge>
+                <Badge variant="secondary">Node.js</Badge>
+                <Badge variant="secondary">MySQL</Badge>
+                <Badge variant="secondary">PWA</Badge>
+                <Badge variant="secondary">Vercel</Badge>
+                <Badge variant="secondary">MERN Stack</Badge>
+              </div>
             </div>
           </div>
         </div>

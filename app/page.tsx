@@ -1,8 +1,11 @@
 import type { Metadata } from "next"
 import dynamic from "next/dynamic"
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
 
 const Hero = dynamic(() => import("@/components/hero"))
 const About = dynamic(() => import("@/components/about"))
+const ExperienceTimeline = dynamic(() => import("@/components/experience-timeline"))
 const Projects = dynamic(() => import("@/components/projects"))
 const ContactForm = dynamic(() => import("@/components/contact-form"))
 const RandomFact = dynamic(() => import("@/components/micro/random-fact"))
@@ -51,26 +54,38 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="min-h-dvh liquid-gradient dark:liquid-gradient-dark relative overflow-hidden">
-      {/* Floating background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-blue-400/20 to-purple-600/20 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-gradient-to-r from-purple-400/20 to-pink-600/20 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-gradient-to-r from-pink-400/20 to-blue-600/20 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
-      </div>
-
+    <>
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50">
         Skip to content
       </a>
-      <main id="main" className="relative z-10 flex flex-col gap-16 md:gap-24 px-4 md:px-6">
+      <main id="main" className="flex flex-col gap-24 px-4 pb-24 md:gap-32 md:px-6">
         <Hero />
         <About />
+        <section id="experience" className="px-4 md:px-6">
+          <div className="mx-auto max-w-4xl space-y-8">
+            <div className="flex items-end justify-between gap-4">
+              <div className="space-y-2">
+                <p className="font-mono text-sm uppercase tracking-widest text-primary">Career</p>
+                <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">Experience</h2>
+              </div>
+              <Link
+                href="/about#experience"
+                className="inline-flex items-center gap-1.5 whitespace-nowrap font-mono text-sm text-primary transition-colors hover:text-foreground"
+              >
+                Full history
+                <ArrowRight className="size-4" />
+              </Link>
+            </div>
+            <ExperienceTimeline limit={3} />
+          </div>
+        </section>
         <Projects />
-        <section id="fun" className="container px-4 md:px-6">
-          <div className="mx-auto max-w-4xl rounded-xl border bg-card p-6 md:p-8">
-            <h2 className="text-2xl font-semibold tracking-tight">Random Fact Generator</h2>
+        <section id="fun" className="px-4 md:px-6">
+          <div className="surface mx-auto max-w-4xl p-6 md:p-8">
+            <h2 className="text-2xl font-semibold tracking-tight">Random fact generator</h2>
             <p className="mt-1 text-muted-foreground">
-              Click the button to get a random fact from a public API. It&apos;s the little moments that make interfaces memorable.
+              Click the button to get a random fact from a public API. It&apos;s the little moments that make
+              interfaces memorable.
             </p>
             <div className="mt-6">
               <RandomFact />
@@ -78,25 +93,25 @@ export default function Page() {
           </div>
         </section>
         <ContactForm />
-        <footer className="border-t">
-          <div className="container px-4 md:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-muted-foreground">
-              © 2023 Gregory Temwa. All rights reserved.
+        <footer className="border-t border-border">
+          <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 py-8 sm:flex-row">
+            <p className="font-mono text-xs text-muted-foreground">
+              © {new Date().getFullYear()} Gregory Temwa. All rights reserved.
             </p>
-            <div className="flex items-center gap-4 text-sm text-muted-foreground">
-              <a className="hover:underline" href="#projects">
+            <div className="flex items-center gap-6 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+              <a className="transition-colors hover:text-foreground" href="#projects">
                 Projects
               </a>
-              <a className="hover:underline" href="#about">
+              <a className="transition-colors hover:text-foreground" href="#about">
                 About
               </a>
-              <a className="hover:underline" href="#contact">
+              <a className="transition-colors hover:text-foreground" href="#contact">
                 Contact
               </a>
             </div>
           </div>
         </footer>
       </main>
-    </div>
+    </>
   )
 }

@@ -15,7 +15,7 @@ export default function ClickCounter() {
         initial={{ scale: 0.8, opacity: 0.6 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: "spring", stiffness: 400, damping: 16 }}
-        className="text-4xl font-bold tabular-nums bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent"
+        className="text-4xl font-bold tabular-nums text-gradient"
         aria-live="polite"
       >
         {count}
@@ -31,7 +31,6 @@ export default function ClickCounter() {
               setCount((c) => c + 1)
               setBurst((b) => b + 1)
             }}
-            className="glass dark:glass-dark border-white/20 bg-gradient-to-r from-blue-500/20 to-purple-600/20 hover:from-blue-500/30 hover:to-purple-600/30 backdrop-blur-md shadow-lg"
           >
             Click me
           </Button>
@@ -50,7 +49,7 @@ export default function ClickCounter() {
                 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-blue-400 to-purple-600 blur-sm"
+                className="absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary blur-sm"
               />
             ))}
           </AnimatePresence>

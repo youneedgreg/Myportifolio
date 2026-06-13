@@ -32,8 +32,8 @@ export default function ProjectCard({
 
   return (
     <MotionDiv whileHover={{ y: -8, scale: 1.02 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-      <Card className="h-[500px] overflow-hidden glass dark:glass-dark border-white/20 shadow-xl group-hover:shadow-2xl transition-all duration-500 flex flex-col">
-        <div className="relative overflow-hidden">
+      <Card className="surface flex h-[500px] flex-col overflow-hidden p-0 shadow-sm">
+        <div className="group relative overflow-hidden">
           <MotionDiv
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -48,32 +48,27 @@ export default function ProjectCard({
               loading="lazy"
             />
             <MotionDiv
-              className="absolute inset-0 bg-gradient-to-t from-blue-600/40 via-purple-600/20 to-transparent opacity-0 group-hover:opacity-100"
+              className="absolute inset-0 bg-gradient-to-t from-primary/40 via-primary/10 to-transparent opacity-0 transition-opacity duration-400 group-hover:opacity-100"
               initial={false}
-              transition={{ duration: 0.4, ease: "easeOut" }}
             />
           </MotionDiv>
-          <div className="absolute top-4 left-4 z-10 bg-black/50 rounded-full p-2">
+          <div className="absolute top-4 left-4 z-10 rounded-full border border-border bg-background/70 p-2 backdrop-blur-sm">
             <Link href={github} target="_blank" rel="noopener noreferrer">
-              <Github className="h-6 w-6 text-white hover:text-blue-500 transition-colors" />
+              <Github className="h-5 w-5 text-foreground transition-colors hover:text-primary" />
             </Link>
           </div>
-          <div className="absolute top-4 right-4 z-10 bg-black/50 rounded-full p-2">
+          <div className="absolute top-4 right-4 z-10 rounded-full border border-border bg-background/70 p-2 backdrop-blur-sm">
             <Link href={href} target="_blank" rel="noopener noreferrer">
-              <Globe className="h-6 w-6 text-white hover:text-blue-500 transition-colors" />
+              <Globe className="h-5 w-5 text-foreground transition-colors hover:text-primary" />
             </Link>
           </div>
         </div>
-        <CardHeader>
-          <CardTitle className="text-base bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
-            {title}
-          </CardTitle>
+        <CardHeader className="pt-6">
+          <CardTitle className="text-base text-gradient">{title}</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-3 flex-grow overflow-hidden">
+        <CardContent className="flex-grow space-y-3 overflow-hidden pb-6">
           <div>
-            <p className={`text-sm text-foreground/60 ${!isExpanded ? 'line-clamp-2' : ''}`}>
-              {description}
-            </p>
+            <p className={`text-sm text-muted-foreground ${!isExpanded ? "line-clamp-2" : ""}`}>{description}</p>
             {shouldShowReadMore && (
               <button
                 onClick={(e) => {
@@ -81,15 +76,15 @@ export default function ProjectCard({
                   e.stopPropagation()
                   setIsExpanded(!isExpanded)
                 }}
-                className="text-xs text-blue-500 hover:underline mt-1"
+                className="mt-1 font-mono text-xs text-primary hover:underline"
               >
-                {isExpanded ? 'Read Less' : 'Read More'}
+                {isExpanded ? "Read less" : "Read more"}
               </button>
             )}
           </div>
           <div className="flex flex-wrap gap-2">
             {tags.map((t) => (
-              <Badge key={t} variant="secondary" className="text-xs glass dark:glass-dark border-white/20">
+              <Badge key={t} variant="secondary" className="text-xs">
                 {t}
               </Badge>
             ))}

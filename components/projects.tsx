@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import ProjectCard from "./project-card"
+import { ArrowRight } from "lucide-react"
 
 import { projects } from "@/data/projects"
 
@@ -11,13 +12,17 @@ export default function Projects() {
   return (
     <section id="projects" className="px-4 md:px-6">
       <div className="mx-auto max-w-5xl">
-        <div className="mb-6 flex items-center justify-between">
+        <div className="mb-10 flex items-end justify-between gap-4">
           <div className="space-y-2">
-            <h2 className="text-2xl font-semibold tracking-tight">Selected projects</h2>
-            <p className="text-muted-foreground">A few fast, thoughtful builds.</p>
+            <p className="font-mono text-sm uppercase tracking-widest text-primary">Selected work</p>
+            <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">Projects</h2>
           </div>
-          <Link href="/projects" className="text-sm font-medium text-blue-500 hover:underline">
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-1.5 whitespace-nowrap font-mono text-sm text-primary transition-colors hover:text-foreground"
+          >
             View all
+            <ArrowRight className="size-4" />
           </Link>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
