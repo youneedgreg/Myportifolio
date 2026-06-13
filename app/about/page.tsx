@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
+import { Suspense } from "react"
 import AboutClientPage from "./about-client"
+import GithubStats, { GithubStatsSkeleton } from "@/components/github-stats"
 
 export const metadata: Metadata = {
   title: "About — Gregory Temwa",
@@ -15,5 +17,13 @@ export const metadata: Metadata = {
 }
 
 export default function AboutPage() {
-  return <AboutClientPage />
+  return (
+    <AboutClientPage
+      githubStats={
+        <Suspense fallback={<GithubStatsSkeleton />}>
+          <GithubStats />
+        </Suspense>
+      }
+    />
+  )
 }

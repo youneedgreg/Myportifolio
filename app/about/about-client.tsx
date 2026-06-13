@@ -1,5 +1,6 @@
 "use client"
 
+import type { ReactNode } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
@@ -41,7 +42,11 @@ const certificates = [
   },
 ]
 
-export default function AboutClientPage() {
+type AboutClientPageProps = {
+  githubStats?: ReactNode
+}
+
+export default function AboutClientPage({ githubStats }: AboutClientPageProps) {
   return (
     <main className="px-4 py-16 md:px-6 md:py-24">
       <div className="mx-auto max-w-4xl space-y-20 md:space-y-28">
@@ -114,6 +119,16 @@ export default function AboutClientPage() {
           </div>
           <ExperienceTimeline />
         </section>
+
+        {githubStats && (
+          <section className="space-y-8">
+            <div className="space-y-2">
+              <p className="font-mono text-sm uppercase tracking-widest text-primary">On GitHub</p>
+              <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">Open source &amp; activity</h2>
+            </div>
+            {githubStats}
+          </section>
+        )}
 
         <section className="space-y-8">
           <div className="space-y-2">
