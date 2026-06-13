@@ -7,40 +7,55 @@ import { Github, Linkedin } from "lucide-react"
 
 const ThemeToggle = dynamic(() => import("@/components/theme-toggle"), { ssr: false })
 
+const navLinks = [
+  { href: "/about", label: "About" },
+  { href: "/projects", label: "Projects" },
+  { href: "/#contact", label: "Contact" },
+  { href: "/cv", label: "CV" },
+]
+
 export default function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 w-full glass dark:glass-dark px-4 md:px-6">
-      <div className="flex h-14 items-center justify-between">
+    <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/80 backdrop-blur-lg">
+      <div className="flex h-16 items-center justify-between px-4 md:px-6">
         <Link
           href="/"
-          className="font-semibold tracking-tight text-foreground/90 hover:text-foreground transition-colors"
+          className="flex items-center gap-2.5 font-mono text-sm tracking-tight text-foreground transition-colors hover:text-primary"
         >
+          <span className="flex size-8 items-center justify-center rounded-full bg-primary/10 text-xs font-semibold text-primary">
+            GT
+          </span>
           <span className="sr-only">Home</span>
-          Gregory Temwa
+          <span className="hidden sm:inline">Gregory Temwa</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-6 text-sm">
-          <Link className="hover:underline underline-offset-4" href="/about">
-            About
-          </Link>
-          <a className="hover:underline underline-offset-4" href="/projects">
-            Projects
-          </a>
-          <a className="hover:underline underline-offset-4" href="#contact">
-            Contact
-          </a>
-          <Link className="hover:underline underline-offset-4" href="/cv">
-            CV
-          </Link>
+        <nav className="hidden items-center gap-8 font-mono text-xs uppercase tracking-widest text-muted-foreground md:flex">
+          {navLinks.map((link) => (
+            <Link key={link.href} href={link.href} className="transition-colors hover:text-foreground">
+              {link.label}
+            </Link>
+          ))}
         </nav>
-        <div className="flex items-center gap-2">
-          <Button asChild variant="ghost" size="icon" aria-label="GitHub">
+        <div className="flex items-center gap-1">
+          <Button
+            asChild
+            variant="ghost"
+            size="icon"
+            aria-label="GitHub"
+            className="text-muted-foreground hover:text-foreground"
+          >
             <a href="https://github.com/youneedgreg" target="_blank" rel="noreferrer">
-              <Github className="size-5" />
+              <Github className="size-4" />
             </a>
           </Button>
-          <Button asChild variant="ghost" size="icon" aria-label="LinkedIn">
+          <Button
+            asChild
+            variant="ghost"
+            size="icon"
+            aria-label="LinkedIn"
+            className="text-muted-foreground hover:text-foreground"
+          >
             <a href="https://linkedin.com/in/youneedgreg" target="_blank" rel="noreferrer">
-              <Linkedin className="size-5" />
+              <Linkedin className="size-4" />
             </a>
           </Button>
           <ThemeToggle />

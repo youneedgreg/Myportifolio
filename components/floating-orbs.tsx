@@ -1,62 +1,20 @@
 "use client"
 
-import { motion, Transition } from "framer-motion"
-import { useEffect, useState } from "react"
-
-interface Orb {
-  id: number
-  style: {
-    width: number
-    height: number
-    left: string
-    top: string
-  }
-  animate: {
-    x: number[]
-    y: number[]
-    scale: number[]
-  }
-  transition: Transition
-}
+import { motion } from "framer-motion"
 
 export default function FloatingOrbs() {
-  const [orbs, setOrbs] = useState<Orb[]>([])
-
-  useEffect(() => {
-    const newOrbs: Orb[] = Array.from({ length: 6 }).map((_, i) => ({
-      id: i,
-      style: {
-        width: Math.random() * 100 + 50,
-        height: Math.random() * 100 + 50,
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
-      },
-      animate: {
-        x: [0, Math.random() * 100 - 50],
-        y: [0, Math.random() * 100 - 50],
-        scale: [1, 1.2, 1],
-      },
-      transition: {
-        duration: Math.random() * 10 + 10,
-        repeat: Number.POSITIVE_INFINITY,
-        repeatType: "reverse",
-        ease: "easeInOut",
-      },
-    }))
-    setOrbs(newOrbs)
-  }, [])
-
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {orbs.map((orb) => (
-        <motion.div
-          key={orb.id}
-          className="absolute rounded-full bg-gradient-to-r from-blue-400/30 to-purple-600/30 blur-sm"
-          style={orb.style}
-          animate={orb.animate}
-          transition={orb.transition}
-        />
-      ))}
+    <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+      <motion.div
+        className="absolute -top-1/4 right-0 h-[36rem] w-[36rem] rounded-full bg-primary/20 blur-[120px]"
+        animate={{ x: [0, 40, 0], y: [0, -30, 0] }}
+        transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute top-1/3 -left-1/4 h-[30rem] w-[30rem] rounded-full bg-primary/10 blur-[140px]"
+        animate={{ x: [0, -30, 0], y: [0, 40, 0] }}
+        transition={{ duration: 28, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+      />
     </div>
   )
 }
