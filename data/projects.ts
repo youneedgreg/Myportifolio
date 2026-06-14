@@ -305,7 +305,8 @@ export const projects: Project[] = [
         "A TypeScript app for managing bookings, tracking occupancy in real time, and generating automated daily summary reports, built on Prisma ORM.",
       techDetails: "Next.js with TypeScript, Prisma ORM for the booking and occupancy schema, and Tailwind CSS for the admin dashboard.",
       results: "Full write-up and live demo coming soon — check back or follow the GitHub repo for progress.",
-      challenges: "Detailed write-up coming soon.",
+      challenges:
+        "Keeping occupancy state consistent when bookings, check-ins, and check-outs can overlap — modeling room availability so a single Prisma transaction blocks double-booking the same room for overlapping dates, and generating the daily summary correctly across day boundaries.",
     },
   },
   {
@@ -331,7 +332,8 @@ export const projects: Project[] = [
       techDetails:
         "Python with scikit-learn for model training, NLTK for tokenization and cleaning, Pandas for dataset handling, and Matplotlib for visualizing class distributions and model performance.",
       results: "Full write-up with model performance metrics and a demo coming soon — check back or follow the GitHub repo for progress.",
-      challenges: "Detailed write-up coming soon.",
+      challenges:
+        "Handling code-switched Swahili–English text and local slang that standard English tokenizers mangle, and correcting for a heavily imbalanced dataset where neutral and offensive examples vastly outnumbered genuine hate speech — which skewed naive accuracy and forced a focus on precision and recall.",
     },
   },
   {
@@ -357,7 +359,8 @@ export const projects: Project[] = [
       techDetails:
         "Python with TensorFlow/Keras for model definition and training, OpenCV for image preprocessing, and a head-to-head comparison across the three architectures.",
       results: "Full write-up with accuracy comparisons across architectures coming soon — check back or follow the GitHub repo for progress.",
-      challenges: "Detailed write-up coming soon.",
+      challenges:
+        "Avoiding overfitting when fine-tuning large ImageNet backbones on a small target dataset — tuning how many layers to unfreeze and how low to drop the learning rate so the pretrained features survived, and keeping the comparison fair when MobileNetV2, ResNet, and VGG16 have very different parameter counts and memory footprints.",
     },
   },
   {
@@ -382,7 +385,8 @@ export const projects: Project[] = [
         "A full redesign of this site — new design system, command palette, live GitHub stats, and detailed project case studies like the one you're reading now.",
       techDetails: "Next.js App Router, TypeScript, Tailwind CSS v4, Framer Motion, shadcn/ui, and cmdk.",
       results: "Full write-up coming soon — check back or follow the GitHub repo for progress.",
-      challenges: "Detailed write-up coming soon.",
+      challenges:
+        "Balancing heavy Framer Motion animation, a command palette, and a live GitHub stats integration against fast load times and strong Lighthouse scores — while keeping every section accessible, keyboard-navigable, and free of layout shift.",
     },
   },
   {
@@ -409,7 +413,8 @@ export const projects: Project[] = [
       techDetails:
         "Next.js 16 with Prisma and PostgreSQL; JWT sessions with OTP and three-role RBAC (Admin/Ops/Guide); Twilio WhatsApp integration across 14 message types with real-time delivery receipts; PDF/DOCX document generation via PDFKit and an AI content studio generating marketing copy in 5 languages across 6 channels; Vercel Cron for scheduled jobs.",
       results: "In active development for a real safari operator — full write-up and demo coming once the platform is live.",
-      challenges: "Detailed write-up coming soon.",
+      challenges:
+        "Keeping the costing engine accurate across multi-currency quotes, seasonal supplier rates, and per-person markups while modeling over 30 interrelated Prisma entities; and making sure the AI conversion-scoring and anomaly-detection layer degraded gracefully to the Mistral fallback so a slow or unavailable model could never block a booking or a WhatsApp reply.",
     },
   },
   {
@@ -436,7 +441,8 @@ export const projects: Project[] = [
       techDetails:
         "Turborepo + pnpm workspaces across 5 Next.js 14 apps; Supabase RLS for tenant isolation; Deno Edge Functions for cron-triggered automation; AI chat via Anthropic Claude with Mistral fallback through the Vercel AI SDK; @react-pdf/renderer for report generation; Apache Superset for analytics dashboards.",
       results: "Running across multiple internal apps in active development — full write-up and demo coming soon.",
-      challenges: "Detailed write-up coming soon.",
+      challenges:
+        "Enforcing strict tenant isolation across 5 apps sharing one Supabase instance — getting row-level security policies right so no query could ever leak data between tenants — while keeping shared Turborepo packages, types, and Supabase migrations in sync so a change in one app didn't silently break the others.",
     },
   },
   {
@@ -462,7 +468,8 @@ export const projects: Project[] = [
       techDetails:
         "NestJS 11 + Next.js 16 monorepo (Turborepo) with Prisma across 22 migrations covering telemetry, labour, spray logs, pack house, procurement, export docs, and CRM; MQTT v5 via EMQX ingests cold-room sensor data into TimescaleDB for time-series compliance reporting; Socket.io gateway streams live operational events; AI assistant (Claude + OpenAI) via Vercel AI SDK; M-Pesa B2C for payroll disbursements; Redis, AWS S3, Prometheus + Sentry observability.",
       results: "Core platform and 22 migrations built — full write-up and demo coming soon.",
-      challenges: "Detailed write-up coming soon.",
+      challenges:
+        "Ingesting high-frequency MQTT cold-room sensor data into TimescaleDB without dropping readings during connectivity gaps at remote high-altitude field sites — buffering and backfilling on reconnect — while keeping the Socket.io live dashboard responsive and the 22-migration schema coherent across telemetry, labour, spray logs, and export docs.",
     },
   },
   {
@@ -488,7 +495,8 @@ export const projects: Project[] = [
       techDetails:
         "All inter-service communication via RabbitMQ AMQP with dead-letter queues and configurable retry logic; circuit breaker (opossum) on every downstream call with open/half-open/closed states; correlation ID injection at the gateway for full distributed tracing; Firebase Admin (FCM) for push; Prometheus + Grafana monitoring stack deployed from checked-in config; Swagger API docs.",
       results: "Shipped a working 5-service platform with dead-letter retry, circuit breaking, and a live Grafana monitoring stack.",
-      challenges: "Detailed write-up coming soon.",
+      challenges:
+        "Guaranteeing at-least-once delivery without double-sending when a downstream email or push provider fails mid-flight — tuning dead-letter retry, circuit-breaker open/half-open thresholds, and idempotency keys so retries never notified a user twice — and threading correlation IDs through every service to make failures traceable in Grafana.",
     },
   },
   {
@@ -514,7 +522,8 @@ export const projects: Project[] = [
       techDetails:
         "Custom SQL parser and AST-driven query executor; hash-indexed JSON-backed persistent storage; supports CREATE TABLE, INSERT, SELECT (with JOIN and WHERE), UPDATE, and DELETE with type coercion and constraint checking; interactive REPL plus a Flask web demo.",
       results: "Shipped a working SQL engine with JOINs, indexing, and a REPL — built entirely on the Python standard library.",
-      challenges: "Detailed write-up coming soon.",
+      challenges:
+        "Implementing JOINs, WHERE filtering, and type coercion on top of a hand-rolled hash index using only the Python standard library — no parser generator, no ORM — and keeping the JSON-backed storage consistent across crashes without a real write-ahead log.",
     },
   },
   {
@@ -540,7 +549,8 @@ export const projects: Project[] = [
       techDetails:
         "Next.js 16 with TypeScript, chess.js for game state and move validation, Stockfish.js (WASM) in a Web Worker for analysis, Zustand for app state, and opening book lookups for move classification and correction.",
       results: "Shipped a working trainer with instant move feedback and opening book analysis, containerized with Docker.",
-      challenges: "Detailed write-up coming soon.",
+      challenges:
+        "Marshalling positions to and from the Stockfish WASM engine in a Web Worker without blocking the main thread or leaking workers between games, and classifying moves meaningfully by reconciling raw engine evaluations against opening-book theory so feedback explained the 'why', not just a centipawn score.",
     },
   },
   {
@@ -566,7 +576,8 @@ export const projects: Project[] = [
       techDetails:
         "React 18 with Vite, Supabase for auth, product data, and media storage, TanStack Query for server state, and Zod + React Hook Form for validated checkout, with Framer Motion transitions throughout.",
       results: "Shipped a full storefront with cart, wishlist, 360° product views, and an admin dashboard.",
-      challenges: "Detailed write-up coming soon.",
+      challenges:
+        "Building a smooth 360° product viewer that preloads its frame sequence without janking or blowing up data usage on mobile, while keeping cart, wishlist, and auth state consistent across TanStack Query caches and Supabase real-time updates.",
     },
   },
   {
@@ -592,7 +603,8 @@ export const projects: Project[] = [
       techDetails:
         "React Native with Expo and TypeScript, Supabase for auth, database, and file storage, and EAS for the production build and distribution pipeline.",
       results: "Shipped a working social app with image-upload posts and profile feeds, built for EAS production distribution.",
-      challenges: "Detailed write-up coming soon.",
+      challenges:
+        "Handling image uploads reliably on flaky mobile networks — compressing files and recovering from interrupted uploads to Supabase storage — while keeping the feed in sync and the UI consistent across both the iOS and Android Expo builds.",
     },
   },
   {
@@ -618,7 +630,8 @@ export const projects: Project[] = [
       techDetails:
         "TensorFlow 2 / Keras with a tf.data input pipeline, categorical encoding via feature columns, and engineered features including age groups, fare brackets, and a family-size composite.",
       results: "Trained a working survival-prediction model with engineered features and categorical encoding.",
-      challenges: "Detailed write-up coming soon.",
+      challenges:
+        "Preventing the network from overfitting such a small, noisy dataset, handling missing age and cabin values, and correctly wiring mixed categorical and numeric features through the tf.data pipeline without leaking information between the train and validation splits.",
     },
   },
 ]
