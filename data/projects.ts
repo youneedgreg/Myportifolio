@@ -1,4 +1,4 @@
-export type ProjectStatus = "live" | "coming-soon"
+export type ProjectStatus = "live" | "source-available" | "private" | "coming-soon"
 
 export type ProjectSize = "small" | "medium" | "large"
 
@@ -42,7 +42,7 @@ export const projects: Project[] = [
     size: "large",
     year: "2026",
     role: "Full-Stack Developer (Solo)",
-    status: "coming-soon",
+    status: "source-available",
     gallery: [],
     openSource: true,
     caseStudy: {
@@ -55,116 +55,6 @@ export const projects: Project[] = [
       results: "Core platform and 22 migrations built — full write-up and demo coming soon.",
       challenges:
         "Ingesting high-frequency MQTT cold-room sensor data into TimescaleDB without dropping readings during connectivity gaps at remote high-altitude field sites — buffering and backfilling on reconnect — while keeping the Socket.io live dashboard responsive and the 22-migration schema coherent across telemetry, labour, spray logs, and export docs.",
-    },
-  },
-  {
-    slug: "pesapal-rdbms",
-    title: "Pesapal RDBMS",
-    description:
-      "A relational database engine built entirely from scratch in Python with zero external dependencies — custom SQL parser, query executor, hash-based indexing, and an interactive REPL with a web demo.",
-    image: "/placeholder.svg?height=400&width=600&text=Pesapal+RDBMS",
-    tags: ["Python", "SQL", "Systems Programming"],
-    href: "https://tobeadded.com/",
-    github: "https://github.com/youneedgreg/pesapal",
-    size: "small",
-    year: "2026",
-    role: "Backend Developer (Solo)",
-    status: "coming-soon",
-    gallery: [],
-    openSource: true,
-    caseStudy: {
-      problem:
-        "Understanding how relational databases work under the hood means building the pieces most developers never touch: the parser, planner, and storage engine.",
-      approach:
-        "Built a relational database engine from scratch in Python using only the standard library, for the Pesapal JDEV26 Developer Challenge.",
-      techDetails:
-        "Custom SQL parser and AST-driven query executor; hash-indexed JSON-backed persistent storage; supports CREATE TABLE, INSERT, SELECT (with JOIN and WHERE), UPDATE, and DELETE with type coercion and constraint checking; interactive REPL plus a Flask web demo.",
-      results: "Shipped a working SQL engine with JOINs, indexing, and a REPL — built entirely on the Python standard library.",
-      challenges:
-        "Implementing JOINs, WHERE filtering, and type coercion on top of a hand-rolled hash index using only the Python standard library — no parser generator, no ORM — and keeping the JSON-backed storage consistent across crashes without a real write-ahead log.",
-    },
-  },
-  {
-    slug: "notification-system",
-    title: "Notification System",
-    description:
-      "5-service microservices monorepo for email and push notifications — an API Gateway routes to User, Email, Push, and Template services via RabbitMQ with dead-letter queues, circuit breakers, and full observability.",
-    image: "/placeholder.svg?height=400&width=600&text=Notification+System",
-    tags: ["NestJS", "RabbitMQ", "PostgreSQL", "Redis", "Docker", "Prometheus", "Grafana"],
-    href: "https://tobeadded.com/",
-    github: "https://github.com/youneedgreg/notification-system",
-    size: "medium",
-    year: "2026",
-    role: "Backend Developer (Solo)",
-    status: "coming-soon",
-    gallery: [],
-    openSource: true,
-    caseStudy: {
-      problem:
-        "Notification delivery across email and push channels needs to be reliable and observable even when downstream providers fail or degrade.",
-      approach:
-        "Built a NestJS monorepo of 5 independently deployable services — API Gateway, User, Email, Push, and Template — orchestrated via Docker Compose and reverse-proxied through Nginx.",
-      techDetails:
-        "All inter-service communication via RabbitMQ AMQP with dead-letter queues and configurable retry logic; circuit breaker (opossum) on every downstream call with open/half-open/closed states; correlation ID injection at the gateway for full distributed tracing; Firebase Admin (FCM) for push; Prometheus + Grafana monitoring stack deployed from checked-in config; Swagger API docs.",
-      results: "Shipped a working 5-service platform with dead-letter retry, circuit breaking, and a live Grafana monitoring stack.",
-      challenges:
-        "Guaranteeing at-least-once delivery without double-sending when a downstream email or push provider fails mid-flight — tuning dead-letter retry, circuit-breaker open/half-open thresholds, and idempotency keys so retries never notified a user twice — and threading correlation IDs through every service to make failures traceable in Grafana.",
-    },
-  },
-  {
-    slug: "safari-os",
-    title: "Safari OS",
-    description:
-      "End-to-end SaaS for a real safari operator: bookings, costing engine, CRM, itinerary builder, invoicing, supplier management, and an AI intelligence layer for conversion scoring and anomaly detection.",
-    image: "/placeholder.svg?height=400&width=600&text=Safari+OS",
-    tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Anthropic Claude", "Twilio"],
-    href: "https://tobeadded.com/",
-    github: "",
-    size: "large",
-    year: "2025–Present",
-    role: "Full-Stack Developer (Solo)",
-    status: "coming-soon",
-    gallery: [],
-    openSource: false,
-    private: true,
-    caseStudy: {
-      problem:
-        "Safari operators run bookings, pricing, supplier coordination, and client communication across spreadsheets, WhatsApp, and email, with no single system tying it together.",
-      approach:
-        "Building an end-to-end ERP for a real safari company covering bookings, a costing engine, CRM, itinerary builder, invoicing, and supplier management — over 30 Prisma models — with an AI layer (Claude, with Mistral fallback) for conversion scoring and anomaly detection.",
-      techDetails:
-        "Next.js 16 with Prisma and PostgreSQL; JWT sessions with OTP and three-role RBAC (Admin/Ops/Guide); Twilio WhatsApp integration across 14 message types with real-time delivery receipts; PDF/DOCX document generation via PDFKit and an AI content studio generating marketing copy in 5 languages across 6 channels; Vercel Cron for scheduled jobs.",
-      results: "In active development for a real safari operator — full write-up and demo coming once the platform is live.",
-      challenges:
-        "Keeping the costing engine accurate across multi-currency quotes, seasonal supplier rates, and per-person markups while modeling over 30 interrelated Prisma entities; and making sure the AI conversion-scoring and anomaly-detection layer degraded gracefully to the Mistral fallback so a slow or unavailable model could never block a booking or a WhatsApp reply.",
-    },
-  },
-  {
-    slug: "spine-platform",
-    title: "Spine — Property & Business SaaS",
-    description:
-      "Multi-tenant property and business management SaaS — 5 Next.js apps (mall, farm, biz, super-dashboard, tenant portal) in a Turborepo monorepo with AI chat, PDF reporting, and tenant-isolated data.",
-    image: "/placeholder.svg?height=400&width=600&text=Spine+Platform",
-    tags: ["Next.js", "TypeScript", "Supabase", "Turborepo", "Vercel AI SDK"],
-    href: "https://tobeadded.com/",
-    github: "",
-    size: "large",
-    year: "2025–Present",
-    role: "Full-Stack Developer (Solo)",
-    status: "coming-soon",
-    gallery: [],
-    openSource: false,
-    private: true,
-    caseStudy: {
-      problem:
-        "Property and business operators (malls, farms, and multi-location businesses) need tenant-isolated dashboards, reporting, and AI assistance without standing up separate infrastructure per client.",
-      approach:
-        "Built a multi-tenant SaaS as 5 Next.js apps (mall, farm, biz, super-dashboard, and tenant portal) in a Turborepo monorepo, with Supabase row-level security isolating each tenant's data.",
-      techDetails:
-        "Turborepo + pnpm workspaces across 5 Next.js 14 apps; Supabase RLS for tenant isolation; Deno Edge Functions for cron-triggered automation; AI chat via Anthropic Claude with Mistral fallback through the Vercel AI SDK; @react-pdf/renderer for report generation; Apache Superset for analytics dashboards.",
-      results: "Running across multiple internal apps in active development — full write-up and demo coming soon.",
-      challenges:
-        "Enforcing strict tenant isolation across 5 apps sharing one Supabase instance — getting row-level security policies right so no query could ever leak data between tenants — while keeping shared Turborepo packages, types, and Supabase migrations in sync so a change in one app didn't silently break the others.",
     },
   },
   {
@@ -197,6 +87,33 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "pesapal-rdbms",
+    title: "Pesapal RDBMS",
+    description:
+      "A relational database engine built entirely from scratch in Python with zero external dependencies — custom SQL parser, query executor, hash-based indexing, and an interactive REPL with a web demo.",
+    image: "/placeholder.svg?height=400&width=600&text=Pesapal+RDBMS",
+    tags: ["Python", "SQL", "Systems Programming"],
+    href: "https://tobeadded.com/",
+    github: "https://github.com/youneedgreg/pesapal",
+    size: "small",
+    year: "2026",
+    role: "Backend Developer (Solo)",
+    status: "source-available",
+    gallery: [],
+    openSource: true,
+    caseStudy: {
+      problem:
+        "Understanding how relational databases work under the hood means building the pieces most developers never touch: the parser, planner, and storage engine.",
+      approach:
+        "Built a relational database engine from scratch in Python using only the standard library, for the Pesapal JDEV26 Developer Challenge.",
+      techDetails:
+        "Custom SQL parser and AST-driven query executor; hash-indexed JSON-backed persistent storage; supports CREATE TABLE, INSERT, SELECT (with JOIN and WHERE), UPDATE, and DELETE with type coercion and constraint checking; interactive REPL plus a Flask web demo.",
+      results: "Shipped a working SQL engine with JOINs, indexing, and a REPL — built entirely on the Python standard library.",
+      challenges:
+        "Implementing JOINs, WHERE filtering, and type coercion on top of a hand-rolled hash index using only the Python standard library — no parser generator, no ORM — and keeping the JSON-backed storage consistent across crashes without a real write-ahead log.",
+    },
+  },
+  {
     slug: "chati-ai",
     title: "Chati AI",
     description:
@@ -223,6 +140,89 @@ export const projects: Project[] = [
         "Shipped a working chatbot with mood tracking and journaling, deployed and free for users to access.",
       challenges:
         "Coordinating fallback between OpenAI and Mistral so conversations stay supportive and consistent even if one provider is unavailable, while keeping latency low enough for natural back-and-forth chat.",
+    },
+  },
+  {
+    slug: "notification-system",
+    title: "Notification System",
+    description:
+      "5-service microservices monorepo for email and push notifications — an API Gateway routes to User, Email, Push, and Template services via RabbitMQ with dead-letter queues, circuit breakers, and full observability.",
+    image: "/placeholder.svg?height=400&width=600&text=Notification+System",
+    tags: ["NestJS", "RabbitMQ", "PostgreSQL", "Redis", "Docker", "Prometheus", "Grafana"],
+    href: "https://tobeadded.com/",
+    github: "https://github.com/youneedgreg/notification-system",
+    size: "medium",
+    year: "2026",
+    role: "Backend Developer (Solo)",
+    status: "source-available",
+    gallery: [],
+    openSource: true,
+    caseStudy: {
+      problem:
+        "Notification delivery across email and push channels needs to be reliable and observable even when downstream providers fail or degrade.",
+      approach:
+        "Built a NestJS monorepo of 5 independently deployable services — API Gateway, User, Email, Push, and Template — orchestrated via Docker Compose and reverse-proxied through Nginx.",
+      techDetails:
+        "All inter-service communication via RabbitMQ AMQP with dead-letter queues and configurable retry logic; circuit breaker (opossum) on every downstream call with open/half-open/closed states; correlation ID injection at the gateway for full distributed tracing; Firebase Admin (FCM) for push; Prometheus + Grafana monitoring stack deployed from checked-in config; Swagger API docs.",
+      results: "Shipped a working 5-service platform with dead-letter retry, circuit breaking, and a live Grafana monitoring stack.",
+      challenges:
+        "Guaranteeing at-least-once delivery without double-sending when a downstream email or push provider fails mid-flight — tuning dead-letter retry, circuit-breaker open/half-open thresholds, and idempotency keys so retries never notified a user twice — and threading correlation IDs through every service to make failures traceable in Grafana.",
+    },
+  },
+  {
+    slug: "safari-os",
+    title: "Safari OS",
+    description:
+      "End-to-end SaaS for a real safari operator: bookings, costing engine, CRM, itinerary builder, invoicing, supplier management, and an AI intelligence layer for conversion scoring and anomaly detection.",
+    image: "/placeholder.svg?height=400&width=600&text=Safari+OS",
+    tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Anthropic Claude", "Twilio"],
+    href: "https://tobeadded.com/",
+    github: "",
+    size: "large",
+    year: "2025–Present",
+    role: "Full-Stack Developer (Solo)",
+    status: "private",
+    gallery: [],
+    openSource: false,
+    private: true,
+    caseStudy: {
+      problem:
+        "Safari operators run bookings, pricing, supplier coordination, and client communication across spreadsheets, WhatsApp, and email, with no single system tying it together.",
+      approach:
+        "Building an end-to-end ERP for a real safari company covering bookings, a costing engine, CRM, itinerary builder, invoicing, and supplier management — over 30 Prisma models — with an AI layer (Claude, with Mistral fallback) for conversion scoring and anomaly detection.",
+      techDetails:
+        "Next.js 16 with Prisma and PostgreSQL; JWT sessions with OTP and three-role RBAC (Admin/Ops/Guide); Twilio WhatsApp integration across 14 message types with real-time delivery receipts; PDF/DOCX document generation via PDFKit and an AI content studio generating marketing copy in 5 languages across 6 channels; Vercel Cron for scheduled jobs.",
+      results: "In active development for a real safari operator — full write-up and demo coming once the platform is live.",
+      challenges:
+        "Keeping the costing engine accurate across multi-currency quotes, seasonal supplier rates, and per-person markups while modeling over 30 interrelated Prisma entities; and making sure the AI conversion-scoring and anomaly-detection layer degraded gracefully to the Mistral fallback so a slow or unavailable model could never block a booking or a WhatsApp reply.",
+    },
+  },
+  {
+    slug: "spine-platform",
+    title: "Spine — Property & Business SaaS",
+    description:
+      "Multi-tenant property and business management SaaS — 5 Next.js apps (mall, farm, biz, super-dashboard, tenant portal) in a Turborepo monorepo with AI chat, PDF reporting, and tenant-isolated data.",
+    image: "/placeholder.svg?height=400&width=600&text=Spine+Platform",
+    tags: ["Next.js", "TypeScript", "Supabase", "Turborepo", "Vercel AI SDK"],
+    href: "https://tobeadded.com/",
+    github: "",
+    size: "large",
+    year: "2025–Present",
+    role: "Full-Stack Developer (Solo)",
+    status: "private",
+    gallery: [],
+    openSource: false,
+    private: true,
+    caseStudy: {
+      problem:
+        "Property and business operators (malls, farms, and multi-location businesses) need tenant-isolated dashboards, reporting, and AI assistance without standing up separate infrastructure per client.",
+      approach:
+        "Built a multi-tenant SaaS as 5 Next.js apps (mall, farm, biz, super-dashboard, and tenant portal) in a Turborepo monorepo, with Supabase row-level security isolating each tenant's data.",
+      techDetails:
+        "Turborepo + pnpm workspaces across 5 Next.js 14 apps; Supabase RLS for tenant isolation; Deno Edge Functions for cron-triggered automation; AI chat via Anthropic Claude with Mistral fallback through the Vercel AI SDK; @react-pdf/renderer for report generation; Apache Superset for analytics dashboards.",
+      results: "Running across multiple internal apps in active development — full write-up and demo coming soon.",
+      challenges:
+        "Enforcing strict tenant isolation across 5 apps sharing one Supabase instance — getting row-level security policies right so no query could ever leak data between tenants — while keeping shared Turborepo packages, types, and Supabase migrations in sync so a change in one app didn't silently break the others.",
     },
   },
   {

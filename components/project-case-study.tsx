@@ -25,6 +25,8 @@ function CaseSection({ label, content }: { label: string; content: string }) {
 }
 
 export default function ProjectCaseStudy({ project, prev, next }: ProjectCaseStudyProps) {
+  const isSourceAvailable = project.status === "source-available"
+  const isPrivate = project.status === "private"
   const isComingSoon = project.status === "coming-soon"
   const { caseStudy } = project
 
@@ -51,7 +53,8 @@ export default function ProjectCaseStudy({ project, prev, next }: ProjectCaseStu
                 {project.role} · {project.year}
               </p>
               {project.openSource && <Badge variant="outline">Open Source</Badge>}
-              {project.private && <Badge variant="outline">Private repository</Badge>}
+              {isSourceAvailable && <Badge variant="outline">Source-available</Badge>}
+              {isPrivate && <Badge variant="outline">Private</Badge>}
               {isComingSoon && <Badge variant="secondary">Coming soon</Badge>}
             </div>
             <h1 className="text-balance text-5xl font-semibold tracking-tighter sm:text-6xl md:text-7xl">
@@ -68,10 +71,17 @@ export default function ProjectCaseStudy({ project, prev, next }: ProjectCaseStu
               ))}
             </div>
             <div className="flex flex-wrap gap-3 pt-2">
-              {project.private ? (
+              {isPrivate ? (
                 <Button disabled variant="outline">
                   <Lock className="size-4" />
-                  Private repository
+                  Private — client work
+                </Button>
+              ) : isSourceAvailable ? (
+                <Button asChild variant="outline">
+                  <a href={project.github} target="_blank" rel="noreferrer">
+                    <Github className="size-4" />
+                    View source on GitHub
+                  </a>
                 </Button>
               ) : isComingSoon ? (
                 <Button asChild variant="outline">
@@ -118,7 +128,12 @@ export default function ProjectCaseStudy({ project, prev, next }: ProjectCaseStu
               />
             </div>
           ) : (
-            <ProjectCoverPlaceholder title={project.title} tags={project.tags} className="rounded-2xl border border-border aspect-[16/10]" />
+            <ProjectCoverPlaceholder
+              title={project.title}
+              tags={project.tags}
+              label={isSourceAvailable ? "Source-available" : isPrivate ? "Private" : "Coming soon"}
+              className="rounded-2xl border border-border aspect-[16/10]"
+            />
           )}
         </motion.div>
 

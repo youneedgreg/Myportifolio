@@ -22,7 +22,13 @@ export default function ProjectCard({ project }: Props) {
   const router = useRouter()
   const [isExpanded, setIsExpanded] = useState(false)
   const shouldShowReadMore = description.length > 100 // Adjust threshold as needed
-  const isComingSoon = status === "coming-soon"
+
+  const isLive = status === "live"
+  const isSourceAvailable = status === "source-available"
+  const isPrivate = status === "private"
+  const hasRealImage = !image.startsWith("/placeholder")
+  const statusBadge = isSourceAvailable ? "Source-available" : isPrivate ? "Private" : null
+  const coverLabel = isSourceAvailable ? "Source-available" : isPrivate ? "Private" : "Coming soon"
 
   return (
     <MotionDiv whileHover={{ y: -8, scale: 1.02 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
@@ -31,9 +37,7 @@ export default function ProjectCard({ project }: Props) {
         className="surface flex h-[500px] cursor-pointer flex-col overflow-hidden p-0 shadow-sm transition-colors hover:border-primary/50"
       >
         <div className="group relative overflow-hidden">
-          {isComingSoon ? (
-            <ProjectCoverPlaceholder title={title} tags={tags} />
-          ) : (
+          {hasRealImage ? (
             <MotionDiv
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -52,37 +56,47 @@ export default function ProjectCard({ project }: Props) {
                 initial={false}
               />
             </MotionDiv>
+          ) : (
+            <ProjectCoverPlaceholder title={title} tags={tags} label={coverLabel} />
           )}
-          {openSource && (
-            <Badge
-              variant="outline"
-              className="absolute top-4 left-4 z-10 border-border bg-background/70 backdrop-blur-sm"
-            >
-              Open Source
-            </Badge>
-          )}
-          {!isComingSoon && (
+          <div className="absolute top-4 left-4 z-10 flex gap-2">
+            {statusBadge && (
+              <Badge variant="outline" className="border-border bg-background/70 backdrop-blur-sm">
+                {statusBadge}
+              </Badge>
+            )}
+            {openSource && (
+              <Badge variant="outline" className="border-border bg-background/70 backdrop-blur-sm">
+                Open Source
+              </Badge>
+            )}
+          </div>
+          {(github || isLive) && (
             <div className="absolute top-4 right-4 z-10 flex gap-2">
-              <a
-                href={github}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                aria-label={`${title} source on GitHub`}
-                className="rounded-full border border-border bg-background/70 p-2 backdrop-blur-sm transition-colors hover:text-primary"
-              >
-                <Github className="h-4 w-4" />
-              </a>
-              <a
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                aria-label={`${title} live site`}
-                className="rounded-full border border-border bg-background/70 p-2 backdrop-blur-sm transition-colors hover:text-primary"
-              >
-                <Globe className="h-4 w-4" />
-              </a>
+              {github && (
+                <a
+                  href={github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  aria-label={`${title} source on GitHub`}
+                  className="rounded-full border border-border bg-background/70 p-2 backdrop-blur-sm transition-colors hover:text-primary"
+                >
+                  <Github className="h-4 w-4" />
+                </a>
+              )}
+              {isLive && (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  aria-label={`${title} live site`}
+                  className="rounded-full border border-border bg-background/70 p-2 backdrop-blur-sm transition-colors hover:text-primary"
+                >
+                  <Globe className="h-4 w-4" />
+                </a>
+              )}
             </div>
           )}
         </div>
@@ -110,6 +124,16 @@ export default function ProjectCard({ project }: Props) {
               >
                 {isExpanded ? "Read less" : "Read more"}
               </button>
+            )}
+            {isSourceAvailable && (
+              <p className="mt-2 font-mono text-xs text-muted-foreground">
+                No hosted demo — explore the source on GitHub
+              </p>
+            )}
+            {isPrivate && (
+              <p className="mt-2 font-mono text-xs text-muted-foreground">
+                Private client work — case study only
+              </p>
             )}
           </div>
           <div className="flex flex-wrap gap-2">

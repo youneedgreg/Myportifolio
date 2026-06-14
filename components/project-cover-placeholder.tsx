@@ -4,9 +4,15 @@ type ProjectCoverPlaceholderProps = {
   title: string
   tags?: string[]
   className?: string
+  label?: string
 }
 
-export default function ProjectCoverPlaceholder({ title, tags = [], className }: ProjectCoverPlaceholderProps) {
+export default function ProjectCoverPlaceholder({
+  title,
+  tags = [],
+  className,
+  label = "Coming soon",
+}: ProjectCoverPlaceholderProps) {
   return (
     <div
       className={cn(
@@ -23,7 +29,7 @@ export default function ProjectCoverPlaceholder({ title, tags = [], className }:
         }}
         aria-hidden="true"
       />
-      <p className="relative font-mono text-xs uppercase tracking-widest text-primary">Coming soon</p>
+      <p className="relative font-mono text-xs uppercase tracking-widest text-primary">{label}</p>
       <h3 className="relative text-balance text-xl font-semibold tracking-tight text-gradient md:text-2xl">{title}</h3>
       {tags.length > 0 && (
         <div className="relative flex flex-wrap justify-center gap-1.5">
