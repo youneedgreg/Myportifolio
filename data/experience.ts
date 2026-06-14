@@ -41,4 +41,25 @@ export const experience: ExperienceEntry[] = [
     description:
       "Built responsive, accessible UI components for donor-management dashboards, improving transparency and analytics for community programs.",
   },
+  {
+    role: "Junior Software Engineer Intern",
+    company: "Mtaamall Startup",
+    period: "Feb 2024 – Apr 2024",
+    description:
+      "Developed marketplace dashboards and real-time interfaces for the MVP, integrating scalable databases and auth systems.",
+  },
+  {
+    role: "STEM & Coding Instructor",
+    company: "Somo Africa",
+    period: "Jun 2023 – Dec 2023",
+    description:
+      "Taught students (8–18) coding, robotics, AI & VR; designed interactive lessons that foster creativity and problem-solving.",
+  },
+  {
+    role: "Freelance Software Developer",
+    company: "Independent",
+    period: "2023 – Present",
+    description:
+      "Delivered full-stack client projects — consulting, prototyping, implementation, and deployment — across websites, e-commerce, and AI-driven apps.",
+  },
 ]
