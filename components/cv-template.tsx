@@ -18,7 +18,7 @@ export function CVTemplate() {
 
       <div className="overflow-hidden rounded-2xl border border-border bg-white p-12 shadow-sm print:rounded-none print:border-none print:shadow-none">
         {/* Header Section */}
-        <header className="text-center mb-6">
+        <div className="text-center mb-6">
           <h1 className="text-4xl font-bold text-blue-700 mb-1 tracking-wide">
             GREGORY TEMWA ODETE
           </h1>
@@ -26,7 +26,7 @@ export function CVTemplate() {
           <div className="text-sm text-gray-700">
             gregorytemwa1212@gmail.com | linkedin.com/in/youneedgreg | gregorytemwa.vercel.app | github.com/youneedgreg
           </div>
-        </header>
+        </div>
 
         <hr className="border-blue-600 border-t-2 mb-6" />
 
