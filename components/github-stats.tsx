@@ -2,6 +2,7 @@ import { BookMarked, Code2, Flame, Star, Users } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import AnimatedCounter from "@/components/animated-counter"
+import { openSourceContributions } from "@/data/open-source"
 
 const GITHUB_USERNAME = "youneedgreg"
 
@@ -14,6 +15,7 @@ type GithubUser = {
 type GithubRepo = {
   id: number
   name: string
+  full_name: string
   html_url: string
   description: string | null
   stargazers_count: number
@@ -57,6 +59,24 @@ async function getGithubRepos(): Promise<GithubRepo[]> {
   } catch {
     return []
   }
+}
+
+async function getOpenSourceContributions(): Promise<GithubRepo[]> {
+  const results = await Promise.all(
+    openSourceContributions.map(async ({ owner, repo }) => {
+      try {
+        const res = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
+          headers: { Accept: "application/vnd.github+json" },
+          next: { revalidate: 3600 },
+        })
+        if (!res.ok) return null
+        return (await res.json()) as GithubRepo
+      } catch {
+        return null
+      }
+    })
+  )
+  return results.filter((repo): repo is GithubRepo => repo !== null)
 }
 
 async function getContributions(): Promise<ContributionsResponse | null> {
@@ -120,7 +140,7 @@ function RepoCard({ repo }: { repo: GithubRepo }) {
       className="surface flex flex-col gap-2 p-5 transition-colors hover:border-primary/50"
     >
       <div className="flex items-center justify-between gap-3">
-        <span className="font-semibold tracking-tight">{repo.name}</span>
+        <span className="font-semibold tracking-tight">{repo.full_name}</span>
         <span className="inline-flex shrink-0 items-center gap-1 font-mono text-xs text-muted-foreground">
           <Star className="size-3.5" />
           {repo.stargazers_count}
@@ -146,7 +166,7 @@ export function GithubStatsSkeleton() {
       </div>
       <div className="surface shimmer h-28" />
       <div className="grid gap-4 sm:grid-cols-2">
-        {Array.from({ length: 4 }).map((_, i) => (
+        {Array.from({ length: 8 }).map((_, i) => (
           <div key={i} className="surface shimmer h-28" />
         ))}
       </div>
@@ -155,10 +175,11 @@ export function GithubStatsSkeleton() {
 }
 
 export default async function GithubStats() {
-  const [user, repos, contributions] = await Promise.all([
+  const [user, repos, contributions, contributedRepos] = await Promise.all([
     getGithubUser(),
     getGithubRepos(),
     getContributions(),
+    getOpenSourceContributions(),
   ])
 
   if (!user) {
@@ -167,13 +188,6 @@ export default async function GithubStats() {
 
   const ownRepos = repos.filter((repo) => !repo.fork)
   const totalStars = ownRepos.reduce((sum, repo) => sum + repo.stargazers_count, 0)
-  const topRepos = [...ownRepos]
-    .sort(
-      (a, b) =>
-        b.stargazers_count - a.stargazers_count ||
-        new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
-    )
-    .slice(0, 4)
   const yearlyContributions = contributions?.total?.lastYear ?? null
 
   return (
@@ -189,14 +203,14 @@ export default async function GithubStats() {
 
       {contributions && <ContributionHeatmap data={contributions.contributions} />}
 
-      {topRepos.length > 0 && (
+      {contributedRepos.length > 0 && (
         <div className="space-y-4">
           <p className="inline-flex items-center gap-2 font-mono text-sm uppercase tracking-widest text-primary">
             <BookMarked className="size-4" />
-            Open source
+            Open source contributions
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
-            {topRepos.map((repo) => (
+            {contributedRepos.map((repo) => (
               <RepoCard key={repo.id} repo={repo} />
             ))}
           </div>

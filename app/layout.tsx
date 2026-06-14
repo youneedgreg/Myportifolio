@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s | Gregory Temwa",
   },
   description:
-    "Software Engineer specializing in full-stack development, AI/ML, and web technologies. Award-winning hackathon participant with 3 years of experience.",
+    "Software Engineer specializing in full-stack development, AI/ML, and web technologies. Award-winning hackathon participant with 3+ years of experience.",
   keywords: [
     "Gregory Temwa",
     "Software Engineer",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     url: "https://gregorytemwa.vercel.app",
     title: "Gregory Temwa – Software Engineer",
     description:
-      "Software Engineer specializing in full-stack development, AI/ML, and web technologies. Award-winning hackathon participant with 3 years of experience.",
+      "Software Engineer specializing in full-stack development, AI/ML, and web technologies. Award-winning hackathon participant with 3+ years of experience.",
     siteName: "Gregory Temwa Portfolio",
     images: [
       {
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Gregory Temwa – Software Engineer",
     description:
-      "Software Engineer specializing in full-stack development, AI/ML, and web technologies. Award-winning hackathon participant with 3 years of experience.",
+      "Software Engineer specializing in full-stack development, AI/ML, and web technologies. Award-winning hackathon participant with 3+ years of experience.",
     site: "@youneedgreg",
     creator: "@youneedgreg",
     images: ["/placeholder.svg?height=630&width=1200&text=Gregory+Temwa+Portfolio"],
@@ -89,7 +89,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <head />
       <body className="font-sans antialiased">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <CommandPaletteProvider>
             <div className="noise-overlay" aria-hidden="true" />
             <ScrollProgress />

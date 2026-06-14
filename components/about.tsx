@@ -34,14 +34,14 @@ export default function About() {
           </div>
           <p className="leading-relaxed text-muted-foreground">
             I&apos;m Gregory Temwa, a motivated Software Engineering student at United States International University
-            (USIU) with 3 years of working experience. I&apos;m an award-winning participant in multiple hackathons with a
+            (USIU) with 3+ years of working experience. I&apos;m an award-winning participant in multiple hackathons with a
             strong foundation in software development, artificial intelligence, machine learning, and web
             technologies.
           </p>
           <p className="leading-relaxed text-muted-foreground">
-            Currently based in Nairobi, Kenya, I&apos;ve worked as a Software Developer at Webtech Solutions Limited and as
-            a Full Stack Developer at Mtaamall startup, where I developed MVPs and enhanced user engagement through
-            innovative web solutions.
+            Currently based in Nairobi, Kenya, I lead technical strategy as Chief Software Engineer at WebTech
+            Solutions Limited, building production SaaS platforms, AI-powered tools, and developer infrastructure
+            end to end.
           </p>
           <div className="space-y-3 pt-2">
             <div className="space-y-2">

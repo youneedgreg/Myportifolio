@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { ArrowLeft, ArrowRight, Github, Globe } from "lucide-react"
+import { ArrowLeft, ArrowRight, Github, Globe, Lock } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import ProjectCoverPlaceholder from "@/components/project-cover-placeholder"
@@ -51,6 +51,7 @@ export default function ProjectCaseStudy({ project, prev, next }: ProjectCaseStu
                 {project.role} · {project.year}
               </p>
               {project.openSource && <Badge variant="outline">Open Source</Badge>}
+              {project.private && <Badge variant="outline">Private repository</Badge>}
               {isComingSoon && <Badge variant="secondary">Coming soon</Badge>}
             </div>
             <h1 className="text-balance text-5xl font-semibold tracking-tighter sm:text-6xl md:text-7xl">
@@ -67,7 +68,12 @@ export default function ProjectCaseStudy({ project, prev, next }: ProjectCaseStu
               ))}
             </div>
             <div className="flex flex-wrap gap-3 pt-2">
-              {isComingSoon ? (
+              {project.private ? (
+                <Button disabled variant="outline">
+                  <Lock className="size-4" />
+                  Private repository
+                </Button>
+              ) : isComingSoon ? (
                 <Button asChild variant="outline">
                   <a href={project.github} target="_blank" rel="noreferrer">
                     <Github className="size-4" />

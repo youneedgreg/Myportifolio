@@ -63,7 +63,7 @@ export default function Hero() {
           </div>
 
           <p className="max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Award-winning Software Engineering student at USIU with 3 years of experience building responsive
+            Award-winning Software Engineering student at USIU with 3+ years of experience building responsive
             websites, AI chatbots, and full-stack applications using React, Python, and modern web technologies.
           </p>
 

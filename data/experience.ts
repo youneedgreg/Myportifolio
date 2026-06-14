@@ -7,52 +7,38 @@ export type ExperienceEntry = {
 
 export const experience: ExperienceEntry[] = [
   {
-    role: "Full Stack Developer Intern",
-    company: "HNG Internship",
-    period: "Sep 2025 – Nov 2025",
+    role: "Chief Software Engineer",
+    company: "WebTech Solutions Limited, Nairobi, Kenya",
+    period: "Feb 2026 – Present",
     description:
-      "Built a multi-framework ticket management system using React, Vue.js, and Twig; implemented auth, CRUD, dashboards, and responsive design while collaborating via Agile workflows.",
+      "Lead technical strategy and architecture across client projects, owning CI/CD pipelines, code quality standards, and mentoring engineers while delivering production SaaS platforms and AI-powered tools.",
   },
   {
-    role: "Junior Software Engineer Intern",
-    company: "Momentum Labs",
+    role: "Full Stack Software Developer",
+    company: "WebTech Solutions Limited, Nairobi, Kenya",
+    period: "Dec 2024 – Jan 2026",
+    description:
+      "Built client-facing applications with React, Next.js, TypeScript, and Node.js, designing databases and REST APIs end-to-end and shipping production deployments on Vercel and Railway.",
+  },
+  {
+    role: "Intern (Frontend & Backend)",
+    company: "HNG Tech, Remote",
+    period: "Oct 2025 – Dec 2025",
+    description:
+      "Built a multi-framework ticket management system across React, Vue.js, and Twig frontends with a Node/Express backend, implementing auth, CRUD, dashboards, and responsive design in an Agile team.",
+  },
+  {
+    role: "Software Engineer Intern",
+    company: "Ivy Community, Nairobi, Kenya · Hybrid",
+    period: "Jul 2025 – Sep 2025",
+    description:
+      "Built and shipped React features for an early-stage startup product, collaborating closely with founders and designers to iterate quickly on user-facing functionality.",
+  },
+  {
+    role: "Software Engineer Intern (Frontend)",
+    company: "Girwa Foundation, Nairobi, Kenya · Remote",
     period: "May 2025 – Aug 2025",
     description:
-      "Contributed to client-facing and internal apps with modular code, API integrations, and DevOps involvement ensuring production-ready deployments.",
-  },
-  {
-    role: "Junior Software Engineer Intern",
-    company: "Girwa Foundation",
-    period: "Feb 2025 – Apr 2025",
-    description:
-      "Built mobile-friendly donor-management dashboards, improving transparency and analytics for community programs.",
-  },
-  {
-    role: "Junior Software Developer",
-    company: "WebTech Solutions Limited",
-    period: "May 2024 – Jan 2025",
-    description:
-      "Collaborated on UI/UX, backend integration, and deployments with Vercel/Railway; optimized SEO and client performance.",
-  },
-  {
-    role: "Junior Software Engineer Intern",
-    company: "Mtaamall Startup",
-    period: "Feb 2024 – Apr 2024",
-    description:
-      "Developed marketplace dashboards and real-time interfaces for the MVP, integrating scalable databases and auth systems.",
-  },
-  {
-    role: "STEM & Coding Instructor",
-    company: "Somo Africa",
-    period: "Jun 2023 – Dec 2023",
-    description:
-      "Taught students (8–18) coding, robotics, AI & VR; designed interactive lessons that foster creativity and problem-solving.",
-  },
-  {
-    role: "Freelance Software Developer",
-    company: "Independent",
-    period: "2023 – Present",
-    description:
-      "Delivered full-stack client projects — consulting, prototyping, implementation, and deployment — across websites, e-commerce, and AI-driven apps.",
+      "Built responsive, accessible UI components for donor-management dashboards, improving transparency and analytics for community programs.",
   },
 ]

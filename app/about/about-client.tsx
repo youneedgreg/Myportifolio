@@ -92,9 +92,9 @@ export default function AboutClientPage({ githubStats }: AboutClientPageProps) {
           <div className="space-y-4 text-balance leading-relaxed text-muted-foreground">
             <p>
               I&apos;m currently pursuing my BSc. in Software Engineering at United States International University
-              (USIU) while gaining hands-on experience in the tech industry. Over the past 3 years, I&apos;ve worked with
-              companies like Webtech Solutions Limited and Mtaamall startup, developing everything from responsive
-              websites to AI chatbots.
+              (USIU) while gaining hands-on experience in the tech industry. Over the past 3+ years, I&apos;ve worked with
+              companies like WebTech Solutions Limited, Ivy Community, Girwa Foundation, and HNG Tech, developing
+              everything from production SaaS platforms to AI-powered applications.
             </p>
             <p>
               As an award-winning hackathon participant, I thrive in collaborative environments where I can solve
