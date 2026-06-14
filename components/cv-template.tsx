@@ -34,9 +34,10 @@ export function CVTemplate() {
         <section className="mb-6">
           <h2 className="text-xl font-bold text-blue-700 mb-2 uppercase">Profile</h2>
           <p className="text-gray-700 text-sm leading-relaxed">
-            Full Stack & AI Engineer skilled in React, Next.js, Node.js, and Python. Experienced in building full-stack
-            systems, integrating AI models, and developing scalable APIs. Combines analytical precision with creative
-            design, crafting seamless user experiences while delivering efficient, data-driven solutions.
+            Full Stack & AI Engineer with 3+ years of experience building production SaaS platforms, AI-powered
+            applications, and scalable backend systems with React, Next.js, Node.js, NestJS, and Python. Leads
+            technical strategy as Chief Software Engineer at WebTech Solutions, combining analytical precision with
+            creative design to deliver efficient, AI-integrated, data-driven solutions.
           </p>
         </section>
 
@@ -45,10 +46,11 @@ export function CVTemplate() {
           <h2 className="text-xl font-bold text-blue-700 mb-2 uppercase">Technical Skills</h2>
           <div className="text-sm text-gray-700 space-y-1">
             <p><strong>Languages:</strong> JavaScript (ES6+), TypeScript, Python, SQL, C++, Java</p>
-            <p><strong>Frameworks:</strong> React, Next.js, Node.js, Express.js, TensorFlow, scikit-learn</p>
-            <p><strong>Databases:</strong> MySQL, MongoDB, Supabase, PostgreSQL</p>
-            <p><strong>Tools:</strong> Git, Docker, Postman, Figma, VS Code, Vercel</p>
-            <p><strong>Core Competencies:</strong> Full Stack Development, API Engineering, Machine Learning, Debugging, Data Pipelines, Agile Collaboration, UI/UX Design</p>
+            <p><strong>Frameworks:</strong> React, Next.js, NestJS, Node.js, Express.js, React Native, TensorFlow, scikit-learn</p>
+            <p><strong>Databases:</strong> PostgreSQL, MySQL, MongoDB, Supabase, NeonDB, TimescaleDB, Redis</p>
+            <p><strong>AI/ML:</strong> OpenAI, Anthropic Claude, Mistral, Vercel AI SDK, HuggingFace, TensorFlow/Keras</p>
+            <p><strong>Tools & Infra:</strong> Git, Docker, Prisma, RabbitMQ, Turborepo, Postman, Figma, Vercel</p>
+            <p><strong>Core Competencies:</strong> Full Stack Development, Multi-Tenant SaaS Architecture, Microservices, API Engineering, Machine Learning, Agile Collaboration, UI/UX Design</p>
           </div>
         </section>
 
@@ -59,48 +61,61 @@ export function CVTemplate() {
             {/* Job 1 */}
             <div>
               <div className="flex justify-between items-baseline mb-1">
-                <h3 className="text-sm font-bold text-gray-800">Full Stack / ML Engineer Intern — HNG Internship</h3>
-                <span className="text-xs text-gray-600">(Sep 2025 – Nov 2025)</span>
+                <h3 className="text-sm font-bold text-gray-800">Chief Software Engineer — WebTech Solutions Limited, Nairobi, Kenya</h3>
+                <span className="text-xs text-gray-600">(Feb 2026 – Present)</span>
               </div>
               <p className="text-sm text-gray-700 leading-relaxed">
-                Developed multi-framework systems integrating AI-based debugging and analytics. Designed React, Vue,
-                and Twig frontends with consistent architecture and optimized Node.js APIs.
+                Lead technical strategy and architecture across client projects, owning CI/CD pipelines and code
+                quality standards while mentoring engineers and delivering production SaaS platforms and AI-powered
+                tools.
               </p>
             </div>
 
             {/* Job 2 */}
             <div>
               <div className="flex justify-between items-baseline mb-1">
-                <h3 className="text-sm font-bold text-gray-800">Junior Software Engineer — Momentum Labs</h3>
-                <span className="text-xs text-gray-600">(May 2025 – Aug 2025)</span>
+                <h3 className="text-sm font-bold text-gray-800">Full Stack Software Developer — WebTech Solutions Limited, Nairobi, Kenya</h3>
+                <span className="text-xs text-gray-600">(Dec 2024 – Jan 2026)</span>
               </div>
               <p className="text-sm text-gray-700 leading-relaxed">
-                Built and deployed full-stack web apps integrating TensorFlow analytics. Improved performance and added
-                RESTful APIs with real-time visualization features.
+                Built client-facing applications with React, Next.js, TypeScript, and Node.js, designing databases and
+                REST APIs end-to-end and shipping production deployments on Vercel and Railway.
               </p>
             </div>
 
             {/* Job 3 */}
             <div>
               <div className="flex justify-between items-baseline mb-1">
-                <h3 className="text-sm font-bold text-gray-800">Junior Software Engineer — WebTech Solutions</h3>
-                <span className="text-xs text-gray-600">(May 2024 – Jan 2025)</span>
+                <h3 className="text-sm font-bold text-gray-800">Intern (Frontend & Backend) — HNG Tech, Remote</h3>
+                <span className="text-xs text-gray-600">(Oct 2025 – Dec 2025)</span>
               </div>
               <p className="text-sm text-gray-700 leading-relaxed">
-                Delivered full-stack web applications in React, Node.js, and MySQL. Collaborated with designers to
-                enhance UI/UX for enterprise clients.
+                Built a multi-framework ticket management system across React, Vue.js, and Twig frontends with a
+                Node/Express backend, implementing auth, CRUD, dashboards, and responsive design in an Agile team.
               </p>
             </div>
 
             {/* Job 4 */}
             <div>
               <div className="flex justify-between items-baseline mb-1">
-                <h3 className="text-sm font-bold text-gray-800">Freelance Developer & Designer — Self-Employed</h3>
-                <span className="text-xs text-gray-600">(2023 – Present)</span>
+                <h3 className="text-sm font-bold text-gray-800">Software Engineer Intern — Ivy Community, Nairobi, Kenya · Hybrid</h3>
+                <span className="text-xs text-gray-600">(Jul 2025 – Sep 2025)</span>
               </div>
               <p className="text-sm text-gray-700 leading-relaxed">
-                Delivered scalable full-stack solutions integrating machine learning and modern web technologies for
-                diverse global clients.
+                Built and shipped React features for an early-stage startup product, collaborating closely with
+                founders and designers to iterate quickly on user-facing functionality.
+              </p>
+            </div>
+
+            {/* Job 5 */}
+            <div>
+              <div className="flex justify-between items-baseline mb-1">
+                <h3 className="text-sm font-bold text-gray-800">Software Engineer Intern (Frontend) — Girwa Foundation, Nairobi, Kenya · Remote</h3>
+                <span className="text-xs text-gray-600">(May 2025 – Aug 2025)</span>
+              </div>
+              <p className="text-sm text-gray-700 leading-relaxed">
+                Built responsive, accessible UI components for donor-management dashboards, improving transparency and
+                analytics for community programs.
               </p>
             </div>
           </div>
@@ -111,32 +126,33 @@ export function CVTemplate() {
           <h2 className="text-xl font-bold text-blue-700 mb-3 uppercase">Projects</h2>
           <div className="space-y-2 text-sm text-gray-700">
             <p>
-              <strong>• Save-It</strong> – Personal finance web app built with Next.js, featuring dashboards, analytics, and goal tracking
-              via Supabase backend.
+              <strong>• Safari OS</strong> – End-to-end SaaS for a real safari operator covering bookings, a costing engine, CRM,
+              itinerary builder, invoicing, and an AI layer (Claude + Mistral) for conversion scoring, built with Next.js,
+              Prisma, and PostgreSQL.
             </p>
             <p>
-              <strong>• Chati AI</strong> – AI mental health chatbot integrating sentiment analysis, journaling, and gamified wellness tools
-              using HuggingFace APIs.
+              <strong>• Flori-Core Enterprise OS</strong> – Multi-tenant Agri-ERP connecting IoT field sensors with logistics and
+              market operations via a NestJS + Next.js monorepo, Prisma, TimescaleDB, and an AI assistant.
             </p>
             <p>
-              <strong>• Country Currency API</strong> – RESTful API combining real-time currency data and GDP analytics using
-              Node.js and MySQL.
+              <strong>• Save-It</strong> – 11-module personal finance suite (transactions, budgets, debts, loans, habits) with an
+              analytics dashboard, built with Next.js, Supabase, and Recharts.
             </p>
             <p>
-              <strong>• TicketFlow Multi-Framework</strong> – Identical ticket systems built in React, Vue, and Twig to ensure
-              cross-framework parity and scalability.
+              <strong>• Chati AI</strong> – AI-powered mental health chatbot with multi-LLM support (OpenAI + Mistral), mood
+              tracking, and journaling, using Next.js, Prisma, and NeonDB.
             </p>
             <p>
-              <strong>• Compono UI Builder</strong> – Real-time UI component builder for Shadcn design system with code export
-              functionality.
+              <strong>• Notification System</strong> – 5-service microservices monorepo for email/push notifications with RabbitMQ,
+              circuit breakers, and Grafana monitoring, built with NestJS and Docker.
             </p>
             <p>
-              <strong>• Fine-Tuned Image Classifier</strong> – Transfer learning project using TensorFlow and Keras to improve
-              classification accuracy through pre-trained models.
+              <strong>• Spine</strong> – Multi-tenant property & business SaaS across 5 Next.js apps in a Turborepo monorepo with
+              Supabase row-level security and AI chat via the Vercel AI SDK.
             </p>
             <p>
-              <strong>• Hate Speech Classifier</strong> – NLP model detecting hate speech and offensive language trained using
-              scikit-learn and NLTK.
+              <strong>• Compono UI Builder</strong> – Visual drag-and-drop builder for shadcn/ui with real-time WYSIWYG editing,
+              device previews, and live TypeScript + Tailwind code export.
             </p>
           </div>
         </section>
@@ -167,8 +183,8 @@ export function CVTemplate() {
         <section>
           <h2 className="text-xl font-bold text-blue-700 mb-2 uppercase">Strengths</h2>
           <div className="text-sm text-gray-700 space-y-1">
-            <p>Exceptional problem-solving and debugging ability.</p>
-            <p>Bridges AI and web development to create integrated solutions.</p>
+            <p>Leads technical strategy, architecture decisions, and engineering mentorship.</p>
+            <p>Bridges AI/LLM integration and full-stack web development to ship production SaaS.</p>
             <p>Collaborative communicator and agile team contributor.</p>
             <p>Committed to clean code, scalability, and continuous learning.</p>
           </div>
