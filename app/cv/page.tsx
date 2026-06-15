@@ -1,4 +1,17 @@
+import type { Metadata } from "next"
 import { CVTemplate } from "@/components/cv-template";
+
+export const metadata: Metadata = {
+  title: "CV",
+  description: "Downloadable CV / resume for Gregory Temwa, Full Stack & AI Engineer.",
+  alternates: {
+    canonical: "/cv",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
+}
 
 export default function CVPage() {
   return (
