@@ -20,6 +20,8 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     locale: "en_US",
     type: "profile",
+    firstName: "Gregory",
+    lastName: "Temwa",
   },
 }
 
