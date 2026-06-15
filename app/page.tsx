@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import dynamic from "next/dynamic"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+import { SITE_URL } from "@/lib/seo"
 
 const Hero = dynamic(() => import("@/components/hero"))
 const About = dynamic(() => import("@/components/about"))
@@ -11,45 +12,12 @@ const ContactForm = dynamic(() => import("@/components/contact-form"))
 const RandomFact = dynamic(() => import("@/components/micro/random-fact"))
 
 export const metadata: Metadata = {
-  title: "Gregory Temwa – Software Engineer",
-  description:
-    "Software Engineer specializing in full-stack development, AI/ML, and web technologies. Award-winning hackathon participant with 3+ years of experience.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Gregory Temwa – Software Engineer",
-    description:
-      "Software Engineer specializing in full-stack development, AI/ML, and web technologies. Award-winning hackathon participant with 3+ years of experience.",
-    url: "https://gregorytemwa.vercel.app",
-    siteName: "Gregory Temwa Portfolio",
-    images: [
-      {
-        url: "/placeholder.svg?height=630&width=1200&text=Gregory+Temwa+Portfolio",
-        width: 1200,
-        height: 630,
-        alt: "Gregory Temwa Portfolio",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
+    url: SITE_URL,
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Gregory Temwa – Software Engineer",
-    description: "Software Engineer specializing in full-stack development, AI/ML, and web technologies.",
-    images: ["/placeholder.svg?height=630&width=1200&text=Gregory+Temwa+Portfolio"],
-  },
-  keywords: [
-    "Gregory Temwa",
-    "Software Engineer",
-    "Full Stack Developer",
-    "React",
-    "JavaScript",
-    "Python",
-    "Machine Learning",
-    "AI",
-    "MERN Stack",
-    "Nairobi",
-    "Kenya",
-  ],
 }
 
 export default function Page() {

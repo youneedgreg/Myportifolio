@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import "./globals.css"
@@ -9,15 +9,15 @@ import { Toaster } from "@/components/ui/toaster"
 import SiteHeader from "@/components/site-header"
 import ScrollProgress from "@/components/scroll-progress"
 import { CommandPaletteProvider } from "@/components/command-palette"
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/seo"
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://gregorytemwa.vercel.app'),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Gregory Temwa – Software Engineer",
+    default: SITE_TITLE,
     template: "%s | Gregory Temwa",
   },
-  description:
-    "Software Engineer specializing in full-stack development, AI/ML, and web technologies. Award-winning hackathon participant with 3+ years of experience.",
+  description: SITE_DESCRIPTION,
   keywords: [
     "Gregory Temwa",
     "Software Engineer",
@@ -34,35 +34,27 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Gregory Temwa",
-      url: "https://gregorytemwa.vercel.app",
+      url: SITE_URL,
     },
   ],
   creator: "Gregory Temwa",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://gregorytemwa.vercel.app",
-    title: "Gregory Temwa – Software Engineer",
-    description:
-      "Software Engineer specializing in full-stack development, AI/ML, and web technologies. Award-winning hackathon participant with 3+ years of experience.",
-    siteName: "Gregory Temwa Portfolio",
-    images: [
-      {
-        url: "/placeholder.svg?height=630&width=1200&text=Gregory+Temwa+Portfolio",
-        width: 1200,
-        height: 630,
-        alt: "Gregory Temwa Portfolio",
-      },
-    ],
+    url: SITE_URL,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    siteName: SITE_NAME,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gregory Temwa – Software Engineer",
-    description:
-      "Software Engineer specializing in full-stack development, AI/ML, and web technologies. Award-winning hackathon participant with 3+ years of experience.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     site: "@youneedgreg",
     creator: "@youneedgreg",
-    images: ["/placeholder.svg?height=630&width=1200&text=Gregory+Temwa+Portfolio"],
   },
   robots: {
     index: true,
@@ -75,9 +67,54 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-verification-code",
-  },
+}
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#08080b" },
+    { media: "(prefers-color-scheme: light)", color: "#fcfcfc" },
+  ],
+  colorScheme: "dark light",
+}
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#person`,
+      name: "Gregory Temwa",
+      alternateName: "Gregory Temwa Odete",
+      url: SITE_URL,
+      image: `${SITE_URL}/potrait.jpg`,
+      jobTitle: "Software Engineer",
+      description: SITE_DESCRIPTION,
+      worksFor: {
+        "@type": "Organization",
+        name: "WebTech Solutions Limited",
+      },
+      alumniOf: {
+        "@type": "CollegeOrUniversity",
+        name: "United States International University",
+      },
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Nairobi",
+        addressCountry: "KE",
+      },
+      sameAs: [
+        "https://github.com/youneedgreg",
+        "https://www.linkedin.com/in/gregory-temwa-718339245/",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: SITE_NAME,
+      publisher: { "@id": `${SITE_URL}/#person` },
+    },
+  ],
 }
 
 export default function RootLayout({
@@ -87,9 +124,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <head />
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+      </head>
       <body className="font-sans antialiased">
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <CommandPaletteProvider>
             <div className="noise-overlay" aria-hidden="true" />
             <ScrollProgress />
