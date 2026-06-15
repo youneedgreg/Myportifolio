@@ -2,18 +2,24 @@ import type { Metadata } from "next"
 import ClickCounter from "@/components/micro/click-counter"
 import ReactionToggle from "@/components/micro/reaction-toggle"
 import DraggableCard from "@/components/micro/draggable-card"
+import { SITE_NAME } from "@/lib/seo"
+
+const description = "Interactive widgets and micro-interactions by Gregory Temwa."
 
 export const metadata: Metadata = {
-  title: "Fun — Gregory Temwa",
-  description: "Interactive widgets and micro-interactions by Gregory Temwa.",
+  title: "Fun",
+  description,
+  alternates: {
+    canonical: "/fun",
+  },
   openGraph: {
     title: "Fun — Gregory Temwa",
-    description: "Interactive widgets and micro-interactions by Gregory Temwa.",
-    images: [
-      { url: "/placeholder.svg?height=630&width=1200&text=Gregory+Temwa+Interactive", width: 1200, height: 630 },
-    ],
+    description,
+    url: "/fun",
+    siteName: SITE_NAME,
+    locale: "en_US",
+    type: "website",
   },
-  twitter: { card: "summary_large_image" },
 }
 
 export default function FunPage() {
