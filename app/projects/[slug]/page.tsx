@@ -25,9 +25,15 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   return {
     title: project.title,
     description: project.description,
+    alternates: {
+      canonical: `/projects/${slug}`,
+    },
     openGraph: {
       title,
       description: project.description,
+      url: `/projects/${slug}`,
+      siteName: SITE_NAME,
+      locale: "en_US",
       type: "article",
       ...(project.gallery[0] && {
         images: [{ url: project.gallery[0], width: 1200, height: 630, alt: project.title }],
