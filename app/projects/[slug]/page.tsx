@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { getAllProjectSlugs, getProjectBySlug, projects } from "@/data/projects"
 import ProjectCaseStudy from "@/components/project-case-study"
+import { SITE_NAME } from "@/lib/seo"
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>
