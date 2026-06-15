@@ -3,17 +3,20 @@ import { Suspense } from "react"
 import AboutClientPage from "./about-client"
 import GithubStats, { GithubStatsSkeleton } from "@/components/github-stats"
 
+const description =
+  "More about Gregory Temwa: Software Engineering student at USIU with 3+ years of experience in full-stack development, AI/ML, and web technologies."
+
 export const metadata: Metadata = {
-  title: "About — Gregory Temwa",
-  description:
-    "More about Gregory Temwa: Software Engineering student at USIU with 3+ years of experience in full-stack development, AI/ML, and web technologies.",
+  title: "About",
+  description,
+  alternates: {
+    canonical: "/about",
+  },
   openGraph: {
     title: "About — Gregory Temwa",
-    description:
-      "More about Gregory Temwa: Software Engineering student at USIU with 3+ years of experience in full-stack development, AI/ML, and web technologies.",
-    images: [{ url: "/placeholder.svg?height=630&width=1200&text=About+Gregory+Temwa", width: 1200, height: 630 }],
+    description,
+    url: "/about",
   },
-  twitter: { card: "summary_large_image" },
 }
 
 export default function AboutPage() {

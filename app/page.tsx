@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import dynamic from "next/dynamic"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import { SITE_URL } from "@/lib/seo"
 
 const Hero = dynamic(() => import("@/components/hero"))
 const About = dynamic(() => import("@/components/about"))
@@ -14,9 +13,6 @@ const RandomFact = dynamic(() => import("@/components/micro/random-fact"))
 export const metadata: Metadata = {
   alternates: {
     canonical: "/",
-  },
-  openGraph: {
-    url: SITE_URL,
   },
 }
 
