@@ -30,7 +30,7 @@ import { projects } from "@/data/projects"
 
 const EMAIL = "gregorytemwa1212@gmail.com"
 const GITHUB_URL = "https://github.com/youneedgreg"
-const LINKEDIN_URL = "https://www.linkedin.com/in/gregory-temwa-718339245/"
+const LINKEDIN_URL = "https://www.linkedin.com/in/youneedgreg/"
 
 type CommandPaletteContextValue = {
   open: boolean

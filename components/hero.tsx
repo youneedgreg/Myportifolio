@@ -81,7 +81,7 @@ export default function Hero() {
               </a>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <a href="https://www.linkedin.com/in/gregory-temwa-718339245/" target="_blank" rel="noreferrer">
+              <a href="https://www.linkedin.com/in/youneedgreg/" target="_blank" rel="noreferrer">
                 <Linkedin className="size-4" />
                 LinkedIn
               </a>

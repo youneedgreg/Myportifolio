@@ -104,7 +104,7 @@ const personJsonLd = {
       },
       sameAs: [
         "https://github.com/youneedgreg",
-        "https://www.linkedin.com/in/gregory-temwa-718339245/",
+        "https://www.linkedin.com/in/youneedgreg/",
       ],
     },
     {
