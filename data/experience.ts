@@ -14,6 +14,13 @@ export const experience: ExperienceEntry[] = [
       "Lead technical strategy and architecture across client projects, owning CI/CD pipelines, code quality standards, and mentoring engineers while delivering production SaaS platforms and AI-powered tools.",
   },
   {
+    role: "Open Source Developer",
+    company: "Independent — Canonical, Google, Apache",
+    period: "Jun 2025 – Present",
+    description:
+      "Contribute Python fixes and features to Canonical's Observability Stack — charm operators tempo-operators and cos-alerter — alongside contributions to Google's sbsim and Apache RocketMQ-Rust, working through code review with upstream maintainers.",
+  },
+  {
     role: "Full Stack Software Developer",
     company: "WebTech Solutions Limited, Nairobi, Kenya",
     period: "Dec 2024 – Jan 2026",

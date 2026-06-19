@@ -6,6 +6,8 @@ export type OpenSourceContribution = {
 export const openSourceContributions: OpenSourceContribution[] = [
   // PR #95 open (in review): https://github.com/canonical/cos-alerter/pull/95
   { owner: "canonical", repo: "cos-alerter" },
+  // PR #350 open (in review): https://github.com/canonical/tempo-operators/pull/350
+  { owner: "canonical", repo: "tempo-operators" },
   { owner: "google", repo: "sbsim" },
   { owner: "google", repo: "go-github" },
   { owner: "mxsm", repo: "rocketmq-rust" },

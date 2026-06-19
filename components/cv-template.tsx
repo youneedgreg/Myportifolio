@@ -71,6 +71,19 @@ export function CVTemplate() {
               </p>
             </div>
 
+            {/* Open Source */}
+            <div>
+              <div className="flex justify-between items-baseline mb-1">
+                <h3 className="text-sm font-bold text-gray-800">Open Source Developer — Independent (Canonical, Google, Apache)</h3>
+                <span className="text-xs text-gray-600">(Jun 2025 – Present)</span>
+              </div>
+              <p className="text-sm text-gray-700 leading-relaxed">
+                Contribute Python fixes and features to Canonical&apos;s Observability Stack — charm operators
+                tempo-operators and cos-alerter — alongside contributions to Google&apos;s sbsim and Apache
+                RocketMQ-Rust, working through code review with upstream maintainers.
+              </p>
+            </div>
+
             {/* Job 2 */}
             <div>
               <div className="flex justify-between items-baseline mb-1">
