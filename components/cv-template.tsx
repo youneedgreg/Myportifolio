@@ -45,11 +45,11 @@ export function CVTemplate() {
         <section className="mb-6">
           <h2 className="text-xl font-bold text-blue-700 mb-2 uppercase">Technical Skills</h2>
           <div className="text-sm text-gray-700 space-y-1">
-            <p><strong>Languages:</strong> JavaScript (ES6+), TypeScript, Python, SQL, C++, Java</p>
+            <p><strong>Languages:</strong> JavaScript (ES6+), TypeScript, Python, Go, Rust, SQL, C++, Java</p>
             <p><strong>Frameworks:</strong> React, Next.js, NestJS, Node.js, Express.js, React Native, TensorFlow, scikit-learn</p>
             <p><strong>Databases:</strong> PostgreSQL, MySQL, MongoDB, Supabase, NeonDB, TimescaleDB, Redis</p>
             <p><strong>AI/ML:</strong> OpenAI, Anthropic Claude, Mistral, Vercel AI SDK, HuggingFace, TensorFlow/Keras</p>
-            <p><strong>Tools & Infra:</strong> Git, Docker, Prisma, RabbitMQ, Turborepo, Postman, Figma, Vercel</p>
+            <p><strong>Infra & Observability:</strong> Linux, Docker, Kubernetes, RabbitMQ, Nginx, Prometheus, Grafana, Prisma, Turborepo, Git, Postman, Figma, Vercel</p>
             <p><strong>Core Competencies:</strong> Full Stack Development, Multi-Tenant SaaS Architecture, Microservices, API Engineering, Machine Learning, Agile Collaboration, UI/UX Design</p>
           </div>
         </section>
