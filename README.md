@@ -2,18 +2,26 @@
 
 ## About Me
 
-I am a passionate and results-oriented Software Engineer with 3 years of experience specializing in full-stack development, AI/ML, and modern web technologies. I am an award-winning hackathon participant with a proven ability to build responsive websites, AI chatbots, and full-stack applications.
+I am a results-oriented Software Engineer with 3+ years of experience across full-stack development, distributed systems, and open source. I'm an award-winning hackathon participant with a track record of shipping production microservices, custom data systems, and developer tooling — and an active open source contributor at Canonical and Google.
 
 I am based in Nairobi, Kenya, and I am always open to new opportunities and collaborations.
 
 ## Skills
 
-*   **Languages:** JavaScript, Python, TypeScript, Java
+*   **Languages:** JavaScript, TypeScript, Python, Go, Rust, C/C++, Java
 *   **Frontend:** React, Next.js, HTML, CSS, Tailwind CSS
-*   **Backend:** Node.js, Express.js, Python, Flask
-*   **Databases:** MongoDB, PostgreSQL, MySQL
+*   **Backend:** Node.js, NestJS, Express.js, Python, Flask
+*   **Databases:** PostgreSQL, TimescaleDB, MongoDB, MySQL, Redis
+*   **Systems & Infrastructure:** Linux, Docker, Kubernetes, RabbitMQ, Microservices Architecture, Nginx
+*   **Observability:** Prometheus, Grafana
 *   **AI/ML:** TensorFlow, PyTorch, scikit-learn
-*   **Tools:** Git, Docker, Vercel
+*   **Tools:** Git, Vercel
+
+## Open Source
+
+*   Contributions to Canonical's Charmed Observability Stack (`tempo-operators`, `cos-alerter`)
+*   Contributions to Google's `sbsim` simulation project
+*   Merged PR to `mxsm/rocketmq-rust`
 
 ## Get in Touch
 
