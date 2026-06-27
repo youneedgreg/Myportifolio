@@ -41,15 +41,18 @@ export default function About() {
           <p className="leading-relaxed text-muted-foreground">
             Currently based in Nairobi, Kenya, I lead technical strategy as Chief Software Engineer at WebTech
             Solutions Limited, building production SaaS platforms, AI-powered tools, and developer infrastructure
-            end to end.
+            end to end. I also contribute to open source projects at Canonical and Google.
           </p>
           <div className="space-y-3 pt-2">
             <div className="space-y-2">
               <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Languages</p>
               <div className="flex flex-wrap gap-2">
                 <Badge>JavaScript</Badge>
-                <Badge>Python</Badge>
                 <Badge>TypeScript</Badge>
+                <Badge>Python</Badge>
+                <Badge>Go</Badge>
+                <Badge>Rust</Badge>
+                <Badge>C / C++</Badge>
                 <Badge>Java</Badge>
               </div>
             </div>
@@ -57,11 +60,26 @@ export default function About() {
               <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Frameworks &amp; tools</p>
               <div className="flex flex-wrap gap-2">
                 <Badge variant="secondary">React</Badge>
+                <Badge variant="secondary">Next.js</Badge>
                 <Badge variant="secondary">Node.js</Badge>
+                <Badge variant="secondary">NestJS</Badge>
+                <Badge variant="secondary">PostgreSQL</Badge>
                 <Badge variant="secondary">MySQL</Badge>
-                <Badge variant="secondary">PWA</Badge>
+                <Badge variant="secondary">Docker</Badge>
                 <Badge variant="secondary">Vercel</Badge>
-                <Badge variant="secondary">MERN Stack</Badge>
+              </div>
+            </div>
+            <div className="space-y-2">
+              <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Systems &amp; infrastructure</p>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="outline">Linux</Badge>
+                <Badge variant="outline">Kubernetes</Badge>
+                <Badge variant="outline">Microservices Architecture</Badge>
+                <Badge variant="outline">RabbitMQ</Badge>
+                <Badge variant="outline">Redis</Badge>
+                <Badge variant="outline">Prometheus</Badge>
+                <Badge variant="outline">Grafana</Badge>
+                <Badge variant="outline">Observability</Badge>
               </div>
             </div>
           </div>
