@@ -11,6 +11,7 @@ const ThemeToggle = dynamic(() => import("@/components/theme-toggle"), { ssr: fa
 const navLinks = [
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
+  { href: "/blog", label: "Blog" },
   { href: "/#contact", label: "Contact" },
   { href: "/cv", label: "CV" },
 ]

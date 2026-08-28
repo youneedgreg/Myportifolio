@@ -18,7 +18,7 @@ type Props = {
 }
 
 export default function ProjectCard({ project }: Props) {
-  const { slug, title, description, image, tags, href, github, status, openSource } = project
+  const { slug, title, description, image, tags, href, github, status, openSource, sourceAvailable } = project
   const router = useRouter()
   const [isExpanded, setIsExpanded] = useState(false)
   const shouldShowReadMore = description.length > 100 // Adjust threshold as needed
@@ -27,7 +27,7 @@ export default function ProjectCard({ project }: Props) {
   const isSourceAvailable = status === "source-available"
   const isPrivate = status === "private"
   const hasRealImage = !image.startsWith("/placeholder")
-  const statusBadge = isSourceAvailable ? "Source-available" : isPrivate ? "Private" : null
+  const statusBadge = isSourceAvailable || sourceAvailable ? "Source-available" : isPrivate ? "Private" : null
   const coverLabel = isSourceAvailable ? "Source-available" : isPrivate ? "Private" : "Coming soon"
 
   return (
