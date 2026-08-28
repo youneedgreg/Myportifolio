@@ -25,11 +25,47 @@ export type Project = {
   status: ProjectStatus
   gallery: string[]
   openSource?: boolean
+  sourceAvailable?: boolean
   private?: boolean
   caseStudy: CaseStudy
 }
 
 export const projects: Project[] = [
+  {
+    slug: "oklaw-law-firm-management",
+    title: "OKLaw Practice Management",
+    description:
+      "A practice management system for a Kenyan law firm — matters, court diary, trust accounting, billing, documents, and a client portal — with the domain modelled from actual Kenyan statute and its architecture enforced by the linter.",
+    image: "/assets/oklaw-dashboard.jpg",
+    tags: ["Next.js", "React 19", "TypeScript", "Effect", "Neon Postgres", "Better Auth", "Playwright", "Vitest"],
+    href: "https://law-firmmanagementsystem.vercel.app/sign-in",
+    github: "https://github.com/youneedgreg/law-firm_management_system",
+    featured: true,
+    size: "large",
+    year: "2026",
+    role: "Full-Stack Developer (Solo)",
+    status: "live",
+    gallery: [
+      "/assets/oklaw-dashboard.jpg",
+      "/assets/oklaw-case-detail.jpg",
+      "/assets/oklaw-billing.jpg",
+      "/assets/oklaw-client-portal.jpg",
+      "/assets/oklaw-reports-dark.jpg",
+    ],
+    sourceAvailable: true,
+    caseStudy: {
+      problem:
+        "Small and mid-sized firms in Nairobi run on a patchwork of spreadsheets, WhatsApp, and paper diaries, and the failures that follow are not cosmetic: a missed court date can mean a matter dismissed for want of prosecution, commingling client money held in trust is a disciplinary matter under the Advocates (Accounts) Rules rather than a bookkeeping error, and a conflict of interest has to be checked before a matter is opened, against every client the firm has ever acted for or against.",
+      approach:
+        "Built a twenty-module practice management system — matters, clients, billing, trust, time, court diary, documents, tasks, correspondence, client portal, reports, search, appointments and the dashboard — around rules with hard edges, encoded so that violating one fails to compile or fails loudly at a boundary rather than producing a quietly wrong number. A live demo signs you in as any of six roles, each able to do strictly less than the one above it.",
+      techDetails:
+        "Next.js 16 and React 19 on Effect 3.22 end to end: errors are values in the type signature, dependencies are injected as Layers so there is no mocking framework in the repository, and TestClock makes statutory deadline computation instant and deterministic. effect/Schema is the single source for parsing, types, DB mapping and form constraints; Neon Postgres via @effect/sql-pg holds invariants as constraints including one trigger; Better Auth keeps sessions as rows we own; documents live in private Vercel Blob. Every service requires a CurrentUser in its type, so an unauthorized read does not compile. Architecture boundaries are declared in eslint.boundaries.mjs and turned into no-restricted-imports rules, so a service reaching into infra/ fails CI — and a test reads the linter's own boundary table and fails if the architecture diagram claims a dependency the linter forbids.",
+      results:
+        "Live demo with one-click sign-in across six roles, backed by 1,147 unit tests, 49 integration tests against real Postgres, 29 end-to-end browser specs, 14 architecture decision records, and WCAG 2.2 AA contrast measured from the stylesheet rather than sampled from a screenshot. Source-available: readable and licensable, with commercial use by written permission.",
+      challenges:
+        "A rule enforced in one place is not enforced. Rule 10 on client money lives in the domain, in a database trigger, in a repository translation, and in the ordering of two writes inside one transaction — remove any one and the system is correct in testing and wrong on a busy afternoon. The costliest failures were the silent ones: an undefined CSS custom property is not an error, so two chart bars drew in nothing on a page whose figures had already been verified in a browser, and both were only ever found by parsing the stylesheet in a test. Deciding which way a flag should fail took longer than making it conditional — DEMO_DEPLOYMENT defaults to off so an unset variable, a misspelt one, and a deployment made by somebody who never read the README all mean a real installation with the demo affordances absent, because the reverse publishes a one-click administrator login.",
+    },
+  },
   {
     slug: "flori-core-enterprise-os",
     title: "Flori-Core Enterprise OS",
