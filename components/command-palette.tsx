@@ -12,6 +12,7 @@ import {
   Linkedin,
   Mail,
   Moon,
+  PenLine,
   Sparkles,
   Sun,
   User,
@@ -26,6 +27,7 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from "@/components/ui/command"
+import { getSortedPosts } from "@/data/blog"
 import { projects } from "@/data/projects"
 
 const EMAIL = "gregorytemwa1212@gmail.com"
@@ -36,6 +38,8 @@ type CommandPaletteContextValue = {
   open: boolean
   setOpen: (open: boolean) => void
 }
+
+const posts = getSortedPosts()
 
 const CommandPaletteContext = React.createContext<CommandPaletteContextValue | null>(null)
 
@@ -93,6 +97,10 @@ export function CommandPaletteProvider({ children }: { children: React.ReactNode
               <FolderKanban />
               Projects
             </CommandItem>
+            <CommandItem onSelect={() => runCommand(() => router.push("/blog"))}>
+              <PenLine />
+              Blog
+            </CommandItem>
             <CommandItem onSelect={() => runCommand(() => router.push("/fun"))}>
               <Sparkles />
               Fun
@@ -117,6 +125,20 @@ export function CommandPaletteProvider({ children }: { children: React.ReactNode
                 <FolderKanban />
                 {project.title}
                 <CommandShortcut>{project.year}</CommandShortcut>
+              </CommandItem>
+            ))}
+          </CommandGroup>
+          <CommandSeparator />
+          <CommandGroup heading="Blog">
+            {posts.map((post) => (
+              <CommandItem
+                key={post.slug}
+                value={`${post.title} ${post.tags.join(" ")}`}
+                onSelect={() => runCommand(() => router.push(`/blog/${post.slug}`))}
+              >
+                <PenLine />
+                {post.title}
+                <CommandShortcut>{post.date.slice(0, 4)}</CommandShortcut>
               </CommandItem>
             ))}
           </CommandGroup>
