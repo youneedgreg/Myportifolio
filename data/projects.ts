@@ -71,15 +71,21 @@ export const projects: Project[] = [
     title: "Flori-Core Enterprise OS",
     description:
       "Production-grade, multi-tenant Agri-ERP for high-altitude floriculture, connecting IoT field sensors with logistics and market operations through a unified backend with an AI assistant and real-time monitoring.",
-    image: "/placeholder.svg?height=400&width=600&text=Flori-Core+Enterprise+OS",
+    image: "/assets/flori-dashboard.jpg",
     tags: ["NestJS", "Next.js", "TypeScript", "Prisma", "TimescaleDB", "MQTT", "Socket.io"],
-    href: "https://tobeadded.com/",
+    href: "https://flori-core-web.vercel.app/dashboard",
     github: "https://github.com/youneedgreg/Flori-Core-Enterprise-OS",
     size: "large",
     year: "2026",
     role: "Full-Stack Developer (Solo)",
-    status: "source-available",
-    gallery: [],
+    status: "live",
+    gallery: [
+      "/assets/flori-dashboard.jpg",
+      "/assets/flori-cold-room.jpg",
+      "/assets/flori-pack-house.jpg",
+      "/assets/flori-logistics.jpg",
+      "/assets/flori-sales.jpg",
+    ],
     openSource: true,
     caseStudy: {
       problem:
@@ -88,9 +94,38 @@ export const projects: Project[] = [
         "Built a multi-tenant 'Farm Operating System' connecting IoT field sensors to logistics and market operations through a unified backend, with real-time WebSocket gateways and an AI assistant.",
       techDetails:
         "NestJS 11 + Next.js 16 monorepo (Turborepo) with Prisma across 22 migrations covering telemetry, labour, spray logs, pack house, procurement, export docs, and CRM; MQTT v5 via EMQX ingests cold-room sensor data into TimescaleDB for time-series compliance reporting; Socket.io gateway streams live operational events; AI assistant (Claude + OpenAI) via Vercel AI SDK; M-Pesa B2C for payroll disbursements; Redis, AWS S3, Prometheus + Sentry observability.",
-      results: "Core platform and 22 migrations built — full write-up and demo coming soon.",
+      results:
+        "Live demo with one-click sign-in across eight roles — managing director, HR manager, financial controller, head of production, QC lead, stores manager, export sales lead and lead driver — over sixteen modules spanning farm zones, production, operations, pack house, cold room, team, HR and training, logistics, inventory, stores, procurement, sales and CRM, compliance and financials, backed by 22 Prisma migrations.",
       challenges:
         "Ingesting high-frequency MQTT cold-room sensor data into TimescaleDB without dropping readings during connectivity gaps at remote high-altitude field sites — buffering and backfilling on reconnect — while keeping the Socket.io live dashboard responsive and the 22-migration schema coherent across telemetry, labour, spray logs, and export docs.",
+    },
+  },
+  {
+    slug: "terry-masila-portfolio",
+    title: "Terry Masila Portfolio",
+    description:
+      "An editorial portfolio site for a fashion model — hero, gallery archive, client list, measurements and representation — where the owner signs in and edits every line of copy and swaps every photograph in place on the live page.",
+    image: "/assets/terry-portfolio-hero.jpg",
+    tags: ["TanStack Start", "React 19", "TypeScript", "Appwrite", "Tailwind CSS v4", "Radix UI", "Zod"],
+    href: "https://terry-portifolio-chi.vercel.app",
+    github: "https://github.com/youneedgreg/terry-portifolio",
+    size: "medium",
+    year: "2026",
+    role: "Full-Stack Developer (Solo)",
+    status: "live",
+    gallery: ["/assets/terry-portfolio-hero.jpg", "/assets/terry-portfolio-measurements.jpg"],
+    openSource: true,
+    caseStudy: {
+      problem:
+        "A model's book changes faster than a developer can be booked to change it — a new campaign, a dropped client, a revised set of measurements — and a portfolio that needs a redeploy for each edit is out of date the week it ships.",
+      approach:
+        "Built the site so its owner maintains it. Every heading, paragraph and measurement is an editable text node and every photograph is an image slot; signing in at the owner route turns the live page itself into the editor, so there is no separate admin dashboard to design, learn or keep in sync with the front end. Content, clients, social links and photographs live in Appwrite collections with a storage bucket behind them, and the page falls back to a typed set of defaults for any key the database has not been given yet — so the site renders complete before a single record exists.",
+      techDetails:
+        "TanStack Start with server-side rendering on React 19, TanStack Router for file-based routes and TanStack Query for data, built by Vite 8 and styled with Tailwind CSS v4 over Radix UI primitives; Appwrite supplies database, authentication and file storage through a single typed client; Zod and TypeScript carry types end to end; a server route proxies storage files behind the site's own origin — rejecting any path containing '..' before redirecting — so image URLs never leak bucket structure, and sitemap.xml is generated as a route rather than a build artefact.",
+      results:
+        "Live and deployed, with the editorial front end, gallery and client pages, owner authentication and in-place editing all working against Appwrite; the photograph archive is awaiting the model's content upload.",
+      challenges:
+        "Deciding where 'editable' stops. Making text editable in place is straightforward; making it editable only for the owner, without shipping edit affordances or a second render path to every visitor, meant the owner check had to resolve before the page committed to a layout — and a session probe that fails is the normal case, not an error, since almost every visitor is not signed in.",
     },
   },
   {
