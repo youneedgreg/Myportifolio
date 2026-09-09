@@ -71,15 +71,21 @@ export const projects: Project[] = [
     title: "Flori-Core Enterprise OS",
     description:
       "Production-grade, multi-tenant Agri-ERP for high-altitude floriculture, connecting IoT field sensors with logistics and market operations through a unified backend with an AI assistant and real-time monitoring.",
-    image: "/placeholder.svg?height=400&width=600&text=Flori-Core+Enterprise+OS",
+    image: "/assets/flori-dashboard.jpg",
     tags: ["NestJS", "Next.js", "TypeScript", "Prisma", "TimescaleDB", "MQTT", "Socket.io"],
-    href: "https://tobeadded.com/",
+    href: "https://flori-core-web.vercel.app/dashboard",
     github: "https://github.com/youneedgreg/Flori-Core-Enterprise-OS",
     size: "large",
     year: "2026",
     role: "Full-Stack Developer (Solo)",
-    status: "source-available",
-    gallery: [],
+    status: "live",
+    gallery: [
+      "/assets/flori-dashboard.jpg",
+      "/assets/flori-cold-room.jpg",
+      "/assets/flori-pack-house.jpg",
+      "/assets/flori-logistics.jpg",
+      "/assets/flori-sales.jpg",
+    ],
     openSource: true,
     caseStudy: {
       problem:
@@ -88,7 +94,8 @@ export const projects: Project[] = [
         "Built a multi-tenant 'Farm Operating System' connecting IoT field sensors to logistics and market operations through a unified backend, with real-time WebSocket gateways and an AI assistant.",
       techDetails:
         "NestJS 11 + Next.js 16 monorepo (Turborepo) with Prisma across 22 migrations covering telemetry, labour, spray logs, pack house, procurement, export docs, and CRM; MQTT v5 via EMQX ingests cold-room sensor data into TimescaleDB for time-series compliance reporting; Socket.io gateway streams live operational events; AI assistant (Claude + OpenAI) via Vercel AI SDK; M-Pesa B2C for payroll disbursements; Redis, AWS S3, Prometheus + Sentry observability.",
-      results: "Core platform and 22 migrations built — full write-up and demo coming soon.",
+      results:
+        "Live demo with one-click sign-in across eight roles — managing director, HR manager, financial controller, head of production, QC lead, stores manager, export sales lead and lead driver — over sixteen modules spanning farm zones, production, operations, pack house, cold room, team, HR and training, logistics, inventory, stores, procurement, sales and CRM, compliance and financials, backed by 22 Prisma migrations.",
       challenges:
         "Ingesting high-frequency MQTT cold-room sensor data into TimescaleDB without dropping readings during connectivity gaps at remote high-altitude field sites — buffering and backfilling on reconnect — while keeping the Socket.io live dashboard responsive and the 22-migration schema coherent across telemetry, labour, spray logs, and export docs.",
     },
