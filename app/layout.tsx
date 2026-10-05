@@ -4,6 +4,7 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import "./globals.css"
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
 import SiteHeader from "@/components/site-header"
@@ -139,6 +140,7 @@ export default function RootLayout({
             {children}
             <Toaster />
             <Analytics/>
+            <SpeedInsights />
           </CommandPaletteProvider>
         </ThemeProvider>
       </body>
