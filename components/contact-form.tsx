@@ -12,7 +12,7 @@ import { motion } from "framer-motion"
 export default function ContactForm() {
   const { toast } = useToast()
   const [loading, setLoading] = useState(false)
-  const [form, setForm] = useState({ name: "", email: "", message: "" })
+  const [form, setForm] = useState({ name: "", email: "", message: "", company: "" })
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -30,7 +30,7 @@ export default function ContactForm() {
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || "Failed to send")
       toast("Message sent", { description: "Thanks for reaching out! I’ll get back to you soon." })
-      setForm({ name: "", email: "", message: "" })
+      setForm({ name: "", email: "", message: "", company: "" })
     } catch (err: unknown) {
       let message = "Please try again.";
       if (err instanceof Error) {
@@ -58,7 +58,19 @@ export default function ContactForm() {
         <p className="mt-2 text-muted-foreground">
           Based in Nairobi, Kenya. Tell me about your project, and I&apos;ll get back to you soon!
         </p>
-        <form onSubmit={onSubmit} className="mt-8 space-y-6">
+        <form onSubmit={onSubmit} className="relative mt-8 space-y-6">
+          <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+            <label htmlFor="company">Company</label>
+            <input
+              id="company"
+              name="company"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={form.company}
+              onChange={(e) => setForm((f) => ({ ...f, company: e.target.value }))}
+            />
+          </div>
           <div className="grid gap-6 sm:grid-cols-2">
             <div className="grid gap-2">
               <label htmlFor="name" className="text-sm font-medium text-foreground/80">

@@ -92,12 +92,14 @@ export default function ProjectCaseStudy({ project, prev, next }: ProjectCaseStu
                 </Button>
               ) : (
                 <>
-                  <Button asChild>
-                    <a href={project.href} target="_blank" rel="noreferrer">
-                      <Globe className="size-4" />
-                      Live site
-                    </a>
-                  </Button>
+                  {project.href && (
+                    <Button asChild>
+                      <a href={project.href} target="_blank" rel="noreferrer">
+                        <Globe className="size-4" />
+                        Live site
+                      </a>
+                    </Button>
+                  )}
                   <Button asChild variant="outline">
                     <a href={project.github} target="_blank" rel="noreferrer">
                       <Github className="size-4" />
@@ -123,6 +125,7 @@ export default function ProjectCaseStudy({ project, prev, next }: ProjectCaseStu
                 alt={`${project.title} preview`}
                 width={1200}
                 height={800}
+                sizes="(min-width: 896px) 896px, 100vw"
                 className="aspect-[16/10] w-full rounded-xl object-cover"
                 priority
               />
@@ -146,6 +149,7 @@ export default function ProjectCaseStudy({ project, prev, next }: ProjectCaseStu
                   alt={`${project.title} screenshot`}
                   width={800}
                   height={600}
+                  sizes="(min-width: 640px) 50vw, 100vw"
                   className="aspect-[4/3] w-full rounded-xl object-cover"
                 />
               </div>

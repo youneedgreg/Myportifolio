@@ -16,7 +16,8 @@ export type Project = {
   description: string
   image: string
   tags: string[]
-  href: string
+  /** Live URL — only set for projects with status "live". */
+  href?: string
   github: string
   featured?: boolean
   size: ProjectSize
@@ -38,7 +39,6 @@ export const projects: Project[] = [
       "An offline-first point of sale for a Kenyan liquor store — an Android app that keeps selling with no connection and syncs every sale exactly once, plus an owner dashboard for profit, stock, till shortages, debts and supplier balances.",
     image: "/assets/liquor-pos-app-screens.jpg",
     tags: ["React Native", "Expo", "SQLite", "Next.js", "TypeScript", "Neon Postgres", "Drizzle", "Auth.js", "Zod"],
-    href: "https://tobeadded.com/",
     github: "https://github.com/youneedgreg/lightweight-mobile-POS",
     featured: true,
     size: "large",
@@ -193,7 +193,6 @@ export const projects: Project[] = [
       "A relational database engine built entirely from scratch in Python with zero external dependencies — custom SQL parser, query executor, hash-based indexing, and an interactive REPL with a web demo.",
     image: "/placeholder.svg?height=400&width=600&text=Pesapal+RDBMS",
     tags: ["Python", "SQL", "Systems Programming"],
-    href: "https://tobeadded.com/",
     github: "https://github.com/youneedgreg/pesapal",
     size: "small",
     year: "2026",
@@ -249,7 +248,6 @@ export const projects: Project[] = [
       "5-service microservices monorepo for email and push notifications — an API Gateway routes to User, Email, Push, and Template services via RabbitMQ with dead-letter queues, circuit breakers, and full observability.",
     image: "/placeholder.svg?height=400&width=600&text=Notification+System",
     tags: ["NestJS", "RabbitMQ", "PostgreSQL", "Redis", "Docker", "Prometheus", "Grafana"],
-    href: "https://tobeadded.com/",
     github: "https://github.com/youneedgreg/notification-system",
     size: "medium",
     year: "2026",
@@ -276,7 +274,6 @@ export const projects: Project[] = [
       "End-to-end SaaS for a real safari operator: bookings, costing engine, CRM, itinerary builder, invoicing, supplier management, and an AI intelligence layer for conversion scoring and anomaly detection.",
     image: "/placeholder.svg?height=400&width=600&text=Safari+OS",
     tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Anthropic Claude", "Twilio"],
-    href: "https://tobeadded.com/",
     github: "",
     size: "large",
     year: "2025–Present",
@@ -304,7 +301,6 @@ export const projects: Project[] = [
       "Multi-tenant property and business management SaaS — 5 Next.js apps (mall, farm, biz, super-dashboard, tenant portal) in a Turborepo monorepo with AI chat, PDF reporting, and tenant-isolated data.",
     image: "/placeholder.svg?height=400&width=600&text=Spine+Platform",
     tags: ["Next.js", "TypeScript", "Supabase", "Turborepo", "Vercel AI SDK"],
-    href: "https://tobeadded.com/",
     github: "",
     size: "large",
     year: "2025–Present",
@@ -359,7 +355,6 @@ export const projects: Project[] = [
       "A chess training platform that runs Stockfish (WASM) in a Web Worker for instant move analysis, opening book review, move classification, and principled correction.",
     image: "/placeholder.svg?height=400&width=600&text=Chessy",
     tags: ["Next.js", "TypeScript", "chess.js", "Stockfish.js", "Zustand"],
-    href: "https://tobeadded.com/",
     github: "https://github.com/youneedgreg/chessy",
     size: "medium",
     year: "2026",
@@ -414,7 +409,6 @@ export const projects: Project[] = [
       "A luxury streetwear e-commerce platform with full authentication, shopping cart, wishlist, admin dashboard, and 360° product views.",
     image: "/placeholder.svg?height=400&width=600&text=Dapper+Saint+Streets",
     tags: ["React", "Vite", "Supabase", "TanStack Query", "Zod", "Framer Motion"],
-    href: "https://tobeadded.com/",
     github: "https://github.com/youneedgreg/dapper-saint-streets",
     size: "medium",
     year: "2026",
@@ -441,7 +435,6 @@ export const projects: Project[] = [
       "A cross-platform React Native social app with a feed, post creation with image uploads, profiles, search, and settings, built with Expo and Supabase.",
     image: "/placeholder.svg?height=400&width=600&text=Framez",
     tags: ["React Native", "Expo", "TypeScript", "Supabase"],
-    href: "https://tobeadded.com/",
     github: "https://github.com/youneedgreg/framez_app",
     size: "medium",
     year: "2025",
@@ -608,7 +601,6 @@ export const projects: Project[] = [
       "A machine learning project detecting hate speech and offensive language using a Kenyan dataset, trained with scikit-learn and NLTK.",
     image: "/placeholder.svg?height=400&width=600&text=Hate+Speech+Classifier",
     tags: ["Python", "scikit-learn", "NLTK", "Pandas", "Matplotlib"],
-    href: "https://tobeadded.com/",
     github: "https://github.com/youneedgreg/hate_speech",
     size: "small",
     year: "2024",
@@ -635,7 +627,6 @@ export const projects: Project[] = [
       "Transfer learning project using MobileNetV2, ResNet, and VGG16 for image classification, improving accuracy through model fine-tuning.",
     image: "/placeholder.svg?height=400&width=600&text=Fine+Tuned+Image+Classifier",
     tags: ["Python", "TensorFlow", "Keras", "OpenCV"],
-    href: "https://tobeadded.com/",
     github: "https://github.com/youneedgreg/fine_tuned",
     size: "small",
     year: "2024",
@@ -662,7 +653,6 @@ export const projects: Project[] = [
       "A neural network predicting Titanic passenger survival, with a tf.data pipeline, feature engineering, and categorical encoding.",
     image: "/placeholder.svg?height=400&width=600&text=Titanic+Survival+NN",
     tags: ["Python", "TensorFlow", "Keras", "Jupyter Notebook"],
-    href: "https://tobeadded.com/",
     github: "https://github.com/youneedgreg/survived_unsurvived_ML",
     size: "small",
     year: "2025",
@@ -689,7 +679,6 @@ export const projects: Project[] = [
       "A TypeScript-based motel management app handling bookings, occupancy tracking, and automated daily summaries with Prisma ORM.",
     image: "/placeholder.svg?height=400&width=600&text=Motel+Management+System",
     tags: ["Next.js", "TypeScript", "Prisma", "Tailwind CSS"],
-    href: "https://tobeadded.com/",
     github: "https://github.com/youneedgreg/Motel_management",
     size: "medium",
     year: "2025",
@@ -715,7 +704,6 @@ export const projects: Project[] = [
       "A Next.js portfolio website showcasing Gregory Temwa's projects, education, and experience with smooth animations and dynamic sections.",
     image: "/placeholder.svg?height=400&width=600&text=My+Portfolio",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    href: "https://tobeadded.com/",
     github: "https://github.com/youneedgreg/myportifolio",
     size: "medium",
     year: "2026",

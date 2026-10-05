@@ -23,7 +23,7 @@ export default function ProjectCard({ project }: Props) {
   const [isExpanded, setIsExpanded] = useState(false)
   const shouldShowReadMore = description.length > 100 // Adjust threshold as needed
 
-  const isLive = status === "live"
+  const isLive = status === "live" && Boolean(href)
   const isSourceAvailable = status === "source-available"
   const isPrivate = status === "private"
   const hasRealImage = !image.startsWith("/placeholder")
@@ -48,6 +48,7 @@ export default function ProjectCard({ project }: Props) {
                 alt={`${title} preview`}
                 width={600}
                 height={400}
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                 className="aspect-[4/3] w-full object-cover"
                 loading="lazy"
               />

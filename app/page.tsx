@@ -3,8 +3,8 @@ import dynamic from "next/dynamic"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { formatPostDate, getSortedPosts } from "@/data/blog"
+import Hero from "@/components/hero"
 
-const Hero = dynamic(() => import("@/components/hero"))
 const About = dynamic(() => import("@/components/about"))
 const ExperienceTimeline = dynamic(() => import("@/components/experience-timeline"))
 const Projects = dynamic(() => import("@/components/projects"))

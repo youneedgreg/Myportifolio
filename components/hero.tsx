@@ -63,8 +63,8 @@ export default function Hero() {
           </div>
 
           <p className="max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Award-winning Software Engineering student at USIU with 3+ years of experience building responsive
-            websites, AI chatbots, and full-stack applications using React, Python, and modern web technologies.
+            Award-winning Software Engineer in Nairobi with 3+ years of experience building production SaaS platforms,
+            AI-powered products, and offline-first apps with TypeScript, React, Python, and Postgres.
           </p>
 
           <div className="flex flex-wrap gap-3 pt-2">
@@ -98,10 +98,11 @@ export default function Hero() {
         >
           <motion.div style={{ y }} className="surface relative overflow-hidden p-2 shadow-2xl">
             <Image
-              src="/hero picture.png"
+              src="/hero-picture.png"
               alt="Gregory Temwa's development workspace with multiple monitors showing code"
               width={800}
               height={600}
+              sizes="(min-width: 1024px) 45vw, 100vw"
               className="aspect-[4/3] w-full rounded-xl object-cover"
               priority
             />
