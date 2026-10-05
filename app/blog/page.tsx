@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowLeft, ArrowRight } from "lucide-react"
+import { ArrowLeft, ArrowRight, Rss } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { formatPostDate, getSortedPosts } from "@/data/blog"
 import { SITE_NAME } from "@/lib/seo"
@@ -49,6 +49,13 @@ export default function BlogPage() {
             real systems: domain modelling, testing what fails silently, and picking defaults that
             fail in the direction you can live with.
           </p>
+          <a
+            href="/feed.xml"
+            className="inline-flex items-center gap-2 font-mono text-sm text-primary transition-colors hover:text-foreground"
+          >
+            <Rss className="size-4" />
+            Subscribe via RSS
+          </a>
         </div>
 
         <div className="space-y-4">

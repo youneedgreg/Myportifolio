@@ -100,8 +100,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     description: post.summary,
     datePublished: post.date,
     dateModified: post.date,
+    url: `${SITE_URL}/blog/${post.slug}`,
+    image: `${SITE_URL}/opengraph-image`,
     keywords: post.tags.join(", "),
-    author: { "@type": "Person", name: "Gregory Temwa Odete", url: SITE_URL },
+    inLanguage: "en",
+    author: { "@type": "Person", "@id": `${SITE_URL}/#person`, name: "Gregory Temwa Odete", url: SITE_URL },
+    publisher: { "@id": `${SITE_URL}/#person` },
+    isPartOf: { "@id": `${SITE_URL}/#website` },
     mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/blog/${post.slug}` },
   }
 
