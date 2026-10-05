@@ -8,6 +8,9 @@ type ProjectPageProps = {
   params: Promise<{ slug: string }>
 }
 
+// Only the projects in data/projects.ts exist; anything else is a 404 without rendering.
+export const dynamicParams = false
+
 export function generateStaticParams() {
   return getAllProjectSlugs().map((slug) => ({ slug }))
 }
