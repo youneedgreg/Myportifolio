@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { TypeAnimation } from "react-type-animation"
 import { GraduationCap, Award } from "lucide-react"
 import ExperienceTimeline from "@/components/experience-timeline"
+import { Marquee } from "@/components/ui/marquee"
 
 const skills = [
   "React",
@@ -34,6 +35,7 @@ const skills = [
   "AWS",
   "Git",
 ]
+const half = Math.ceil(skills.length / 2)
 
 const certificates = [
   {
@@ -114,15 +116,40 @@ export default function AboutClientPage({ githubStats }: AboutClientPageProps) {
               particular interests in artificial intelligence, machine learning, and creating delightful user
               experiences.
             </p>
-            <div className="flex flex-wrap gap-2 pt-2">
-              {skills.map((skill) => (
-                <Badge key={skill} variant="secondary">
+          </div>
+        </motion.section>
+
+        <section aria-labelledby="stack-heading" className="space-y-4">
+          <p id="stack-heading" className="font-mono text-sm uppercase tracking-widest text-primary">
+            Tools I build with
+          </p>
+          <div className="relative motion-reduce:hidden">
+            <Marquee pauseOnHover className="[--duration:45s]">
+              {skills.slice(0, half).map((skill) => (
+                <Badge key={skill} variant="secondary" className="px-3 py-1 font-mono text-xs">
                   {skill}
                 </Badge>
               ))}
-            </div>
+            </Marquee>
+            <Marquee reverse pauseOnHover className="[--duration:45s]">
+              {skills.slice(half).map((skill) => (
+                <Badge key={skill} variant="outline" className="px-3 py-1 font-mono text-xs">
+                  {skill}
+                </Badge>
+              ))}
+            </Marquee>
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-background" />
           </div>
-        </motion.section>
+          {/* Reduced motion: the same list, static. */}
+          <div className="hidden flex-wrap gap-2 motion-reduce:flex">
+            {skills.map((skill) => (
+              <Badge key={skill} variant="secondary">
+                {skill}
+              </Badge>
+            ))}
+          </div>
+        </section>
 
         <section id="experience" className="space-y-8">
           <div className="space-y-2">
