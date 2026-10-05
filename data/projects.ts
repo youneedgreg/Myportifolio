@@ -32,6 +32,35 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "liquor-store-pos",
+    title: "Liquor Store POS",
+    description:
+      "An offline-first point of sale for a Kenyan liquor store — an Android app that keeps selling with no connection and syncs every sale exactly once, plus an owner dashboard for profit, stock, till shortages, debts and supplier balances.",
+    image: "/assets/liquor-pos-app-screens.jpg",
+    tags: ["React Native", "Expo", "SQLite", "Next.js", "TypeScript", "Neon Postgres", "Drizzle", "Auth.js", "Zod"],
+    href: "https://tobeadded.com/",
+    github: "https://github.com/youneedgreg/lightweight-mobile-POS",
+    featured: true,
+    size: "large",
+    year: "2026",
+    role: "Full-Stack & Mobile Developer (Solo)",
+    status: "source-available",
+    gallery: ["/assets/liquor-pos-dashboard.jpg", "/assets/liquor-pos-app-screens.jpg"],
+    openSource: true,
+    caseStudy: {
+      problem:
+        "A small liquor store in Kenya loses its internet connection several times a day, and a POS that stops selling when the network drops is not a POS. The shop also runs on details that generic tills ignore: beer is bought by the crate and sold by the bottle, returnable bottles carry a deposit unless the customer brings an empty, regulars buy on credit, a customer pays part cash and part M-Pesa, and the owner needs to know at the end of each shift whether the till came up short.",
+      approach:
+        "Built two apps over one shared TypeScript contract. Cashiers sell on Android phones that hold the whole catalog locally and work with no connection: camera or Bluetooth barcode scanning, split payments across cash, M-Pesa and credit, bottle deposits and empties, crate and carton pack prices, retail and wholesale tiers, and shift open and close with a counted float. The owner gets a web dashboard with revenue and gross profit by date range, payment mix, negative-stock alerts, tills that did not balance, customer debts, supplier balances, and stock intake that breaks crates into bottles.",
+      techDetails:
+        "pnpm monorepo: Expo SDK 57 with Expo Router and expo-sqlite on the phone, Next.js 16 on Vercel with Drizzle ORM over Neon Postgres, Auth.js for owners, and a shared package of Zod 4 wire schemas and money helpers used by both sides. Every change on the phone is applied locally and written to a SQLite outbox in the same transaction, then pushed in dependency order — customers, shift opens, stock intakes, sales, money movements, shift closes — so a sale never reaches the server before its shift or its customer. Each record carries a client-generated UUID, so the server's handlers are idempotent and a retry comes back as a duplicate rather than a second sale. Stock is an append-only ledger with a cached on-hand figure, and the server recomputes each shift's expected cash from the synced records rather than trusting the phone. Cashiers sign in with phone and PIN to device-bound tokens; a token version bumped on PIN reset or disable signs a user out of every phone at once, and five wrong PINs lock the account.",
+      results:
+        "Built for a client, with an installable Android build and the owner dashboard deployed on Vercel, and demonstrated against two weeks of seeded trading: 251 sales, 14 shifts and a restock. In testing, 50 sales made offline uploaded as exactly 50, and re-sending all of them created no duplicates. M-Pesa STK Push through Safaricom's Daraja API is the next phase.",
+      challenges:
+        "Deciding what the server should do when the phone was right and the database disagreed. Two phones selling offline can both sell the last bottle on the shelf, and rejecting the second sale would erase money that really changed hands — so stock is allowed to go negative and the dashboard flags it for a recount instead. The same rule shaped failure handling: a record the server can never store is kept on the phone under Needs attention, rather than retried forever or silently dropped.",
+    },
+  },
+  {
     slug: "oklaw-law-firm-management",
     title: "OKLaw Practice Management",
     description:
