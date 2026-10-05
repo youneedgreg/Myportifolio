@@ -1,0 +1,21 @@
+An undefined CSS custom property is not an error. The browser invalidates the one declaration that used it and moves on, rendering the rest of the page exactly as you intended. No console warning, no red squiggle, no failing build. That is a reasonable decision for the web and a genuinely dangerous one for a reports page.
+
+On OKLaw's reports screen, two chart bars were drawing in nothing — transparent, on a background, at a size where a missing bar reads as a zero rather than as a bug. The figures on that page had already been verified in a browser by somebody who was checking the numbers, which is the whole problem: the numbers were right. The rendering was wrong in a way that looked like a number.
+
+## The same failure, in a second costume
+
+A class name that does not exist is not an error either. The sign-in refusal — the message telling you your password was wrong — was rendering as ordinary body text, because the class carrying its colour and weight had been renamed elsewhere and this one call site was missed. It said the right words. It said them in the voice of a paragraph rather than a warning, which for an error message is most of the message.
+
+Both bugs share a shape. Nothing throws. Nothing logs. Nothing looks broken unless you already know what the correct output is — and in both cases the incorrect output was plausible.
+
+## Parsing the stylesheet in a test
+
+You cannot catch these by looking harder, and a screenshot diff only helps once you already have a correct screenshot. What worked was treating the stylesheet as data and asserting against it: every custom property a declaration references must be defined somewhere, and every class name the components use must exist in the sheet. Both bugs failed that test immediately, and both would have been caught the day they were introduced.
+
+The same trick extends to things I had been checking by eye. WCAG 2.2 AA contrast ratios are computed from the token values in the stylesheet rather than sampled from a screenshot, so they are checked for every token pair on every run, in both themes, instead of for the four combinations somebody remembered to look at.
+
+## The general rule
+
+Any part of your stack that fails by silently doing nothing needs a test that reads it as data. CSS is the obvious one. So is any config format that ignores unknown keys — a typo in a key name is the same bug wearing a different hat, and it is why this project's environment variables are read once at startup through a validated schema that refuses a malformed value instead of quietly falling back to a default.
+
+> Both were found by parsing the stylesheet in a test, and neither was visible any other way.

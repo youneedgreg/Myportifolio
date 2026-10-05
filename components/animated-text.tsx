@@ -25,12 +25,14 @@ export default function AnimatedText({ phrases = ["Software Engineer"], typingSp
       const t = setTimeout(() => setDeleting(true), pauseMs)
       return () => clearTimeout(t)
     }
-    if (deleting && subIndex === 0) {
-      setDeleting(false)
-      setIndex((i) => (i + 1) % phrases.length)
-      return
-    }
     const delta = deleting ? typingSpeed / 2 : typingSpeed
+    if (deleting && subIndex === 0) {
+      const t = setTimeout(() => {
+        setDeleting(false)
+        setIndex((i) => (i + 1) % phrases.length)
+      }, delta)
+      return () => clearTimeout(t)
+    }
     const t = setTimeout(() => setSubIndex((s) => s + (deleting ? -1 : 1)), delta)
     return () => clearTimeout(t)
   }, [subIndex, deleting, current, typingSpeed, pauseMs, phrases.length])

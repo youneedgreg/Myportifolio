@@ -3,8 +3,7 @@ import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import AnimatedCounter from "@/components/animated-counter"
 import { openSourceContributions } from "@/data/open-source"
-
-const GITHUB_USERNAME = "youneedgreg"
+import { GITHUB_USERNAME, githubHeaders } from "@/lib/github"
 
 type GithubUser = {
   public_repos: number
@@ -38,7 +37,7 @@ type ContributionsResponse = {
 async function getGithubUser(): Promise<GithubUser | null> {
   try {
     const res = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`, {
-      headers: { Accept: "application/vnd.github+json" },
+      headers: githubHeaders(),
       next: { revalidate: 3600 },
     })
     if (!res.ok) return null
@@ -51,7 +50,7 @@ async function getGithubUser(): Promise<GithubUser | null> {
 async function getGithubRepos(): Promise<GithubRepo[]> {
   try {
     const res = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=stars&per_page=100`, {
-      headers: { Accept: "application/vnd.github+json" },
+      headers: githubHeaders(),
       next: { revalidate: 3600 },
     })
     if (!res.ok) return []
@@ -66,7 +65,7 @@ async function getOpenSourceContributions(): Promise<GithubRepo[]> {
     openSourceContributions.map(async ({ owner, repo }) => {
       try {
         const res = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
-          headers: { Accept: "application/vnd.github+json" },
+          headers: githubHeaders(),
           next: { revalidate: 3600 },
         })
         if (!res.ok) return null
