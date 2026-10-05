@@ -213,3 +213,14 @@
     background: #fff;
   }
 }
+
+/* Code blocks in MDX posts (rehype-pretty-code emits both themes as CSS variables). */
+[data-rehype-pretty-code-figure] code span {
+  color: var(--shiki-light);
+}
+.dark [data-rehype-pretty-code-figure] code span {
+  color: var(--shiki-dark);
+}
+[data-rehype-pretty-code-figure] pre {
+  background-color: var(--muted);
+}

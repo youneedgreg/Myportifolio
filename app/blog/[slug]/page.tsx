@@ -8,13 +8,15 @@ import {
   getAllPostSlugs,
   getPostBySlug,
   getSortedPosts,
-  type PostBlock,
 } from "@/data/blog"
 import { SITE_NAME, SITE_URL } from "@/lib/seo"
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>
 }
+
+// Only the posts in data/blog.ts exist; anything else is a 404 without rendering.
+export const dynamicParams = false
 
 export function generateStaticParams() {
   return getAllPostSlugs().map((slug) => ({ slug }))
@@ -55,31 +57,6 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   }
 }
 
-function Block({ block }: { block: PostBlock }) {
-  switch (block.type) {
-    case "heading":
-      return <h2 className="pt-4 text-2xl font-semibold tracking-tight sm:text-3xl">{block.text}</h2>
-    case "list":
-      return (
-        <ul className="space-y-3 pl-5">
-          {block.items.map((item) => (
-            <li key={item} className="list-disc leading-relaxed text-muted-foreground marker:text-primary">
-              {item}
-            </li>
-          ))}
-        </ul>
-      )
-    case "quote":
-      return (
-        <blockquote className="border-l-2 border-primary pl-5 text-lg leading-relaxed text-foreground italic">
-          {block.text}
-        </blockquote>
-      )
-    default:
-      return <p className="leading-relaxed text-muted-foreground">{block.text}</p>
-  }
-}
-
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params
   const post = getPostBySlug(slug)
@@ -87,6 +64,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   if (!post) {
     notFound()
   }
+
+  const { default: Content } = await import(`@/content/blog/${slug}.mdx`)
 
   const sorted = getSortedPosts()
   const index = sorted.findIndex((p) => p.slug === slug)
@@ -154,9 +133,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </header>
 
         <div className="space-y-6">
-          {post.blocks.map((block, i) => (
-            <Block key={i} block={block} />
-          ))}
+          <Content />
         </div>
 
         <nav className="grid gap-4 border-t border-border pt-10 sm:grid-cols-2">

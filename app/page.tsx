@@ -4,12 +4,12 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { formatPostDate, getSortedPosts } from "@/data/blog"
 import Hero from "@/components/hero"
+import NowBuilding from "@/components/now-building"
 
 const About = dynamic(() => import("@/components/about"))
 const ExperienceTimeline = dynamic(() => import("@/components/experience-timeline"))
 const Projects = dynamic(() => import("@/components/projects"))
 const ContactForm = dynamic(() => import("@/components/contact-form"))
-const RandomFact = dynamic(() => import("@/components/micro/random-fact"))
 
 export const metadata: Metadata = {
   alternates: {
@@ -83,16 +83,13 @@ export default function Page() {
             </div>
           </div>
         </section>
-        <section id="fun" className="px-4 md:px-6">
-          <div className="surface mx-auto max-w-4xl p-6 md:p-8">
-            <h2 className="text-2xl font-semibold tracking-tight">Random fact generator</h2>
-            <p className="mt-1 text-muted-foreground">
-              Click the button to get a random fact from a public API. It&apos;s the little moments that make
-              interfaces memorable.
-            </p>
-            <div className="mt-6">
-              <RandomFact />
+        <section id="now" className="px-4 md:px-6">
+          <div className="mx-auto max-w-4xl space-y-8">
+            <div className="space-y-2">
+              <p className="font-mono text-sm uppercase tracking-widest text-primary">Now</p>
+              <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">What I&apos;m working on</h2>
             </div>
+            <NowBuilding />
           </div>
         </section>
         <ContactForm />

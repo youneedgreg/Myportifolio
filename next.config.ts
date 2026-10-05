@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import createMDX from "@next/mdx";
 
 const isDev = process.env.NODE_ENV !== "production";
 
@@ -11,7 +12,7 @@ const contentSecurityPolicy = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https://vercel.live https://vercel.com",
   "font-src 'self' data: https://vercel.live",
-  `connect-src 'self' https://uselessfacts.jsph.pl https://vercel.live wss://ws-us3.pusher.com${isDev ? " ws: https://va.vercel-scripts.com" : ""}`,
+  `connect-src 'self' https://vercel.live wss://ws-us3.pusher.com${isDev ? " ws: https://va.vercel-scripts.com" : ""}`,
   "frame-src https://vercel.live",
   "frame-ancestors 'none'",
   "object-src 'none'",
@@ -30,6 +31,7 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  pageExtensions: ["ts", "tsx", "md", "mdx"],
   images: {
     formats: ["image/avif", "image/webp"],
   },
@@ -38,4 +40,12 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+// Plugins are passed by name so the config stays serializable for Turbopack.
+const withMDX = createMDX({
+  options: {
+    remarkPlugins: ["remark-gfm"],
+    rehypePlugins: [["rehype-pretty-code", { theme: { dark: "github-dark-dimmed", light: "github-light" }, keepBackground: false }]],
+  },
+});
+
+export default withMDX(nextConfig);
