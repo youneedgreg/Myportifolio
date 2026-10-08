@@ -44,7 +44,8 @@ Geist Sans for UI and body, Geist Mono (`font-mono`) for labels, dates, stats, c
 
 - Page shell: `<main className="px-4 py-16 md:px-6 md:py-24">`.
 - Content width: `mx-auto max-w-4xl` for most sections, `max-w-3xl` for reading (blog posts, 404), `max-w-5xl` for project grids.
-- Home page sections are separated with `gap-24 md:gap-32`; sub-pages use `space-y-12` to `space-y-20`.
+- Home page sections are separated with `gap-24 md:gap-32` and set their own width with `mx-auto w-full max-w-*`; `main` alone owns the side padding — sections must not add `px-*` again.
+- Sub-pages use `space-y-12` to `space-y-20`. The footer is global (`components/site-footer.tsx`); pages don't render their own.
 - Grids: `grid gap-4 sm:grid-cols-2` for cards, `sm:grid-cols-2 lg:grid-cols-3` for project cards.
 - Must work at 375px with no horizontal scroll.
 
@@ -71,6 +72,12 @@ Geist Sans for UI and body, Geist Mono (`font-mono`) for labels, dates, stats, c
 **Buttons** (`components/ui/button.tsx`) — one `default` primary action per view; everything else `outline`. Icons from `lucide-react` at `size-4`.
 
 **Terminal motifs** — mono text, `greg@portfolio:~$` prompts in `text-primary`, three muted dots for a window bar (see `app/not-found.tsx`). Use for playful moments, not for core content.
+
+**Page intro prompt** — explore pages open with a one-line shell command above the h1 (`greg@portfolio:~$ date && cat now.md`). Keep the command plausible for what the page shows.
+
+**Navigation data** — every nav surface (header, mobile menu, footer, ⌘K palette, `g`-key shortcuts, home "Places to get lost") reads from `data/navigation.ts`. Add a page there, not in each component.
+
+**Personality layer** — keyboard shortcuts (`components/keyboard-shortcuts.tsx`), the away-tab title (`components/tab-title.tsx`) and the devtools console note. Easter eggs stay discoverable but never block content.
 
 ## Motion
 

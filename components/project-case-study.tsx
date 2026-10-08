@@ -3,16 +3,19 @@
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { ArrowLeft, ArrowRight, Github, Globe, Lock } from "lucide-react"
+import { ArrowLeft, ArrowRight, ArrowUpRight, Github, Globe, Lock, PenLine } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import ProjectCoverPlaceholder from "@/components/project-cover-placeholder"
 import type { Project } from "@/data/projects"
+import type { Post } from "@/data/blog"
 
 type ProjectCaseStudyProps = {
   project: Project
   prev: Project | null
   next: Project | null
+  relatedPosts: Post[]
+  similar: Project[]
 }
 
 function CaseSection({ label, content }: { label: string; content: string }) {
@@ -24,7 +27,7 @@ function CaseSection({ label, content }: { label: string; content: string }) {
   )
 }
 
-export default function ProjectCaseStudy({ project, prev, next }: ProjectCaseStudyProps) {
+export default function ProjectCaseStudy({ project, prev, next, relatedPosts, similar }: ProjectCaseStudyProps) {
   const isSourceAvailable = project.status === "source-available"
   const isPrivate = project.status === "private"
   const isComingSoon = project.status === "coming-soon"
@@ -164,6 +167,52 @@ export default function ProjectCaseStudy({ project, prev, next }: ProjectCaseStu
           <CaseSection label="Results" content={caseStudy.results} />
           {caseStudy.challenges && <CaseSection label="Challenges" content={caseStudy.challenges} />}
         </div>
+
+        {relatedPosts.length > 0 && (
+          <section className="space-y-4">
+            <p className="font-mono text-sm uppercase tracking-widest text-primary">Written about this build</p>
+            <div className="grid gap-4">
+              {relatedPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="surface group flex items-start gap-4 p-5 transition-colors hover:border-primary/50"
+                >
+                  <PenLine className="mt-1 size-4 shrink-0 text-primary" />
+                  <span className="space-y-1">
+                    <span className="block font-semibold tracking-tight transition-colors group-hover:text-primary">
+                      {post.title}
+                    </span>
+                    <span className="line-clamp-2 block text-sm text-muted-foreground">{post.summary}</span>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {similar.length > 0 && (
+          <section className="space-y-4">
+            <p className="font-mono text-sm uppercase tracking-widest text-primary">More like this</p>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {similar.map((p) => (
+                <Link
+                  key={p.slug}
+                  href={`/projects/${p.slug}`}
+                  className="surface group flex flex-col gap-2 p-5 transition-colors hover:border-primary/50"
+                >
+                  <span className="flex items-start justify-between gap-2">
+                    <span className="font-semibold tracking-tight transition-colors group-hover:text-primary">{p.title}</span>
+                    <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
+                  </span>
+                  <span className="font-mono text-xs text-muted-foreground">
+                    {p.year} · {p.tags.filter((tag) => project.tags.includes(tag)).slice(0, 3).join(", ")}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         <nav className="grid gap-4 border-t border-border pt-10 sm:grid-cols-2">
           {prev ? (

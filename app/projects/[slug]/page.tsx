@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { getAllProjectSlugs, getProjectBySlug, projects } from "@/data/projects"
 import ProjectCaseStudy from "@/components/project-case-study"
+import { getSortedPosts } from "@/data/blog"
 import { SITE_NAME } from "@/lib/seo"
 
 type ProjectPageProps = {
@@ -63,5 +64,17 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const prev = index > 0 ? projects[index - 1] : null
   const next = index < projects.length - 1 ? projects[index + 1] : null
 
-  return <ProjectCaseStudy project={project} prev={prev} next={next} />
+  const relatedPosts = getSortedPosts().filter((post) => post.project?.slug === slug)
+  // Projects sharing the most tags with this one, for "more like this".
+  const similar = projects
+    .filter((p) => p.slug !== slug && p.status !== "coming-soon")
+    .map((p) => ({ project: p, shared: p.tags.filter((tag) => project.tags.includes(tag)).length }))
+    .filter(({ shared }) => shared > 0)
+    .sort((a, b) => b.shared - a.shared)
+    .slice(0, 3)
+    .map(({ project }) => project)
+
+  return (
+    <ProjectCaseStudy project={project} prev={prev} next={next} relatedPosts={relatedPosts} similar={similar} />
+  )
 }

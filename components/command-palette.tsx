@@ -13,7 +13,11 @@ import {
   Mail,
   Moon,
   PenLine,
-  Sparkles,
+  Route,
+  Clock,
+  Wrench,
+  FlaskConical,
+  Compass,
   Sun,
   User,
 } from "lucide-react"
@@ -29,6 +33,14 @@ import {
 } from "@/components/ui/command"
 import { getSortedPosts } from "@/data/blog"
 import { projects } from "@/data/projects"
+import { exploreNav } from "@/data/navigation"
+
+const exploreIcons: Record<string, React.ComponentType> = {
+  "/journey": Route,
+  "/now": Clock,
+  "/uses": Wrench,
+  "/lab": FlaskConical,
+}
 
 const EMAIL = "gregorytemwa1212@gmail.com"
 const GITHUB_URL = "https://github.com/youneedgreg"
@@ -101,10 +113,23 @@ export function CommandPaletteProvider({ children }: { children: React.ReactNode
               <PenLine />
               Blog
             </CommandItem>
-            <CommandItem onSelect={() => runCommand(() => router.push("/fun"))}>
-              <Sparkles />
-              Fun
-            </CommandItem>
+          </CommandGroup>
+          <CommandSeparator />
+          <CommandGroup heading="Get lost">
+            {exploreNav.map((link) => {
+              const Icon = exploreIcons[link.href] ?? Compass
+              return (
+                <CommandItem
+                  key={link.href}
+                  value={`${link.label} ${link.teaser ?? ""}`}
+                  onSelect={() => runCommand(() => router.push(link.href))}
+                >
+                  <Icon />
+                  {link.label}
+                  <CommandShortcut>g {link.shortcut}</CommandShortcut>
+                </CommandItem>
+              )
+            })}
             <CommandItem onSelect={() => runCommand(() => router.push("/cv"))}>
               <FileText />
               CV

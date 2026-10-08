@@ -9,6 +9,9 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
 import SiteHeader from "@/components/site-header"
 import ScrollProgress from "@/components/scroll-progress"
+import SiteFooter from "@/components/site-footer"
+import TabTitle from "@/components/tab-title"
+import KeyboardShortcuts from "@/components/keyboard-shortcuts"
 import { CommandPaletteProvider } from "@/components/command-palette"
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/seo"
 
@@ -140,7 +143,10 @@ export default function RootLayout({
             <ScrollProgress />
             <SiteHeader />
             {children}
+            <SiteFooter />
             <Toaster />
+            <TabTitle />
+            <KeyboardShortcuts />
             <Analytics/>
             <SpeedInsights />
           </CommandPaletteProvider>
