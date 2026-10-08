@@ -1,12 +1,11 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { GeistSans } from "geist/font/sans"
-import { GeistMono } from "geist/font/mono"
+import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { ThemeProvider } from "@/components/theme-provider"
-import { Toaster } from "@/components/ui/toaster"
+import LazyToaster from "@/components/lazy-toaster"
 import SiteHeader from "@/components/site-header"
 import ScrollProgress from "@/components/scroll-progress"
 import SiteFooter from "@/components/site-footer"
@@ -14,6 +13,11 @@ import TabTitle from "@/components/tab-title"
 import KeyboardShortcuts from "@/components/keyboard-shortcuts"
 import { CommandPaletteProvider } from "@/components/command-palette"
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/seo"
+
+// Self-hosted at build time, Latin subset only (~50KB for both faces). Both are
+// preloaded: a late mono swap re-wraps the labels above headings and shifts the page.
+const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans", display: "swap" })
+const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" })
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -127,7 +131,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable}`}>
       <head>
         {/* In <head> directly: page-level `alternates` metadata would otherwise replace it. */}
         <link rel="alternate" type="application/rss+xml" title="Gregory Temwa — Blog" href="/feed.xml" />
@@ -139,12 +143,11 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <CommandPaletteProvider>
-            <div className="noise-overlay" aria-hidden="true" />
             <ScrollProgress />
             <SiteHeader />
             {children}
             <SiteFooter />
-            <Toaster />
+            <LazyToaster />
             <TabTitle />
             <KeyboardShortcuts />
             <Analytics/>

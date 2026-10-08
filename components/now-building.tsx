@@ -2,6 +2,7 @@ import Link from "next/link"
 import { ArrowRight, GitCommitHorizontal, Hammer } from "lucide-react"
 import { projects } from "@/data/projects"
 import { GITHUB_USERNAME, githubHeaders } from "@/lib/github"
+import { currentlyBuilding } from "@/data/now"
 
 type GithubRepo = {
   name: string
@@ -10,6 +11,8 @@ type GithubRepo = {
   language: string | null
   pushed_at: string
   fork: boolean
+  private: boolean
+  default_branch: string
 }
 
 type GithubCommit = {
@@ -23,35 +26,49 @@ type LatestActivity = {
   commit: { message: string; url: string; date: string; repo: string } | null
 }
 
+type GithubBranch = { name: string }
+
+const github = (path: string) =>
+  fetch(`https://api.github.com${path}`, { headers: githubHeaders(), next: { revalidate: 3600 } })
+
+/**
+ * Newest real commit in a public repo across its branches (up to 8), so work
+ * on a feature branch shows before it is merged. Merge commits are skipped.
+ */
+async function getLatestCommit(repo: GithubRepo): Promise<LatestActivity["commit"]> {
+  const branchesRes = await github(`/repos/${repo.full_name}/branches?per_page=8`)
+  const branches = branchesRes.ok ? ((await branchesRes.json()) as GithubBranch[]).map((b) => b.name) : []
+  if (!branches.includes(repo.default_branch)) branches.unshift(repo.default_branch)
+
+  const heads = await Promise.all(
+    branches.map(async (branch) => {
+      const res = await github(`/repos/${repo.full_name}/commits?sha=${encodeURIComponent(branch)}&per_page=5`)
+      if (!res.ok) return null
+      const commit = ((await res.json()) as GithubCommit[]).find((c) => c.parents.length === 1)
+      return commit ? { branch, commit } : null
+    }),
+  )
+  const latest = heads
+    .filter((head) => head !== null)
+    .sort((a, b) => b.commit.commit.author.date.localeCompare(a.commit.commit.author.date))[0]
+  if (!latest) return null
+
+  return {
+    message: latest.commit.commit.message.split("\n")[0],
+    url: latest.commit.html_url,
+    date: latest.commit.commit.author.date,
+    repo: latest.branch === repo.default_branch ? repo.name : `${repo.name} @ ${latest.branch}`,
+  }
+}
+
 async function getLatestActivity(): Promise<LatestActivity> {
   try {
-    const res = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=pushed&per_page=10`, {
-      headers: githubHeaders(),
-      next: { revalidate: 3600 },
-    })
+    // Public repos only: private client work never leaks into the page.
+    const res = await github(`/users/${GITHUB_USERNAME}/repos?sort=pushed&per_page=10&type=owner`)
     if (!res.ok) return { repos: [], commit: null }
-    const repos = ((await res.json()) as GithubRepo[]).filter((repo) => !repo.fork).slice(0, 3)
+    const repos = ((await res.json()) as GithubRepo[]).filter((repo) => !repo.fork && !repo.private).slice(0, 3)
     if (repos.length === 0) return { repos, commit: null }
-
-    const latest = repos[0]
-    const commitsRes = await fetch(`https://api.github.com/repos/${latest.full_name}/commits?per_page=10`, {
-      headers: githubHeaders(),
-      next: { revalidate: 3600 },
-    })
-    if (!commitsRes.ok) return { repos, commit: null }
-    // Skip merge commits — "Merge pull request #n" says nothing about the work.
-    const commit = ((await commitsRes.json()) as GithubCommit[]).find((c) => c.parents.length === 1)
-    return {
-      repos,
-      commit: commit
-        ? {
-            message: commit.commit.message.split("\n")[0],
-            url: commit.html_url,
-            date: commit.commit.author.date,
-            repo: latest.name,
-          }
-        : null,
-    }
+    return { repos, commit: await getLatestCommit(repos[0]) }
   } catch {
     return { repos: [], commit: null }
   }
@@ -76,7 +93,9 @@ function timeAgo(date: string) {
 }
 
 export default async function NowBuilding() {
-  const current = projects.find((project) => project.featured)
+  const current = currentlyBuilding
+    .map((slug) => projects.find((project) => project.slug === slug))
+    .find((project) => project !== undefined)
   const { repos, commit } = await getLatestActivity()
 
   return (

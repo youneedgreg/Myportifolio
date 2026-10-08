@@ -14,6 +14,7 @@ Not changing: the bio says you're a USIU student, which is correct — you haven
 ## Keep fresh
 
 - [ ] **`/now`** — bump `NOW_UPDATED` in `data/now.ts` whenever you change what it says.
+- [ ] **"Currently building"** — set `currentlyBuilding` in `data/now.ts` to the project slug(s) you're focused on (now: `safari-os`).
 - [ ] **`/uses`** — add your hardware, editor, terminal and fonts if you want them listed; I only included tools proven by your projects.
 
 ## UI improvements

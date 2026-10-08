@@ -1,8 +1,5 @@
-"use client"
-
 import Image from "next/image"
 import Link from "next/link"
-import { motion } from "framer-motion"
 import { ArrowLeft, ArrowRight, ArrowUpRight, Github, Globe, Lock, PenLine } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -45,12 +42,7 @@ export default function ProjectCaseStudy({ project, prev, next, relatedPosts, si
             All projects
           </Link>
 
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="space-y-4"
-          >
+          <div className="space-y-4">
             <div className="flex flex-wrap items-center gap-3">
               <p className="font-mono text-sm uppercase tracking-widest text-primary">
                 {project.role} · {project.year}
@@ -112,15 +104,10 @@ export default function ProjectCaseStudy({ project, prev, next, relatedPosts, si
                 </>
               )}
             </div>
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        >
+        <div>
           {project.gallery.length > 0 ? (
             <div className="surface overflow-hidden p-2">
               <Image
@@ -141,7 +128,7 @@ export default function ProjectCaseStudy({ project, prev, next, relatedPosts, si
               className="rounded-2xl border border-border aspect-[16/10]"
             />
           )}
-        </motion.div>
+        </div>
 
         {project.gallery.length > 1 && (
           <div className="grid gap-4 sm:grid-cols-2">

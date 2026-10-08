@@ -6,12 +6,12 @@ import { usePathname } from "next/navigation"
 import dynamic from "next/dynamic"
 import { Github, Linkedin, Menu, Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog"
 import { useCommandPalette } from "@/components/command-palette"
-import { exploreNav, mainNav, SOCIAL } from "@/data/navigation"
-import { cn } from "@/lib/utils"
+import { mainNav, SOCIAL } from "@/data/navigation"
 
 const ThemeToggle = dynamic(() => import("@/components/theme-toggle"), { ssr: false })
+// The menu (and Radix Dialog) only downloads when someone first opens it.
+const MobileMenu = dynamic(() => import("@/components/mobile-menu"), { ssr: false })
 
 function isActive(pathname: string, href: string) {
   if (href.includes("#")) return false
@@ -22,6 +22,7 @@ export default function SiteHeader() {
   const pathname = usePathname()
   const { setOpen } = useCommandPalette()
   const [menuOpen, setMenuOpen] = useState(false)
+  const [menuLoaded, setMenuLoaded] = useState(false)
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/80 backdrop-blur-lg">
@@ -90,66 +91,17 @@ export default function SiteHeader() {
             size="icon"
             aria-label="Open menu"
             className="text-muted-foreground hover:text-foreground md:hidden"
-            onClick={() => setMenuOpen(true)}
+            onClick={() => {
+              setMenuLoaded(true)
+              setMenuOpen(true)
+            }}
           >
             <Menu className="size-5" />
           </Button>
         </div>
       </div>
 
-      <Dialog open={menuOpen} onOpenChange={setMenuOpen}>
-        <DialogContent className="top-4 max-h-[calc(100dvh-2rem)] translate-y-0 overflow-y-auto sm:max-w-md">
-          <DialogTitle className="font-mono text-sm uppercase tracking-widest text-primary">Menu</DialogTitle>
-          <DialogDescription className="sr-only">Site navigation</DialogDescription>
-          <nav className="grid gap-6">
-            <ul className="grid">
-              {[{ href: "/", label: "Home" }, ...mainNav, { href: "/cv", label: "CV" }].map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    onClick={() => setMenuOpen(false)}
-                    aria-current={isActive(pathname, link.href) ? "page" : undefined}
-                    className="flex min-h-11 items-center text-2xl font-semibold tracking-tight transition-colors hover:text-primary aria-[current=page]:text-primary"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <div className="space-y-2 border-t border-border pt-5">
-              <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Get lost</p>
-              <ul className="grid grid-cols-2 gap-2">
-                {exploreNav.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      onClick={() => setMenuOpen(false)}
-                      className={cn(
-                        "surface flex min-h-11 flex-col justify-center px-4 py-3 transition-colors hover:border-primary/50",
-                        isActive(pathname, link.href) && "border-primary/50",
-                      )}
-                    >
-                      <span className="font-semibold">{link.label}</span>
-                      <span className="line-clamp-2 text-xs text-muted-foreground">{link.teaser}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="flex items-center gap-4 border-t border-border pt-5 font-mono text-sm">
-              <a href={SOCIAL.github} target="_blank" rel="noreferrer" className="min-h-11 content-center hover:text-primary">
-                GitHub
-              </a>
-              <a href={SOCIAL.linkedin} target="_blank" rel="noreferrer" className="min-h-11 content-center hover:text-primary">
-                LinkedIn
-              </a>
-              <a href={`mailto:${SOCIAL.email}`} className="min-h-11 content-center hover:text-primary">
-                Email
-              </a>
-            </div>
-          </nav>
-        </DialogContent>
-      </Dialog>
+      {menuLoaded && <MobileMenu open={menuOpen} setOpen={setMenuOpen} pathname={pathname} />}
     </header>
   )
 }

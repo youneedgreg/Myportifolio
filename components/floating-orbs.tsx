@@ -1,20 +1,13 @@
-"use client"
-
-import { motion } from "framer-motion"
-
+/** Soft cyan glow behind the hero. Static gradients: nothing repaints per frame. */
 export default function FloatingOrbs() {
   return (
-    <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-      <motion.div
-        className="absolute -top-1/4 right-0 h-[36rem] w-[36rem] rounded-full bg-primary/20 blur-[120px]"
-        animate={{ x: [0, 40, 0], y: [0, -30, 0] }}
-        transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute top-1/3 -left-1/4 h-[30rem] w-[30rem] rounded-full bg-primary/10 blur-[140px]"
-        animate={{ x: [0, -30, 0], y: [0, 40, 0] }}
-        transition={{ duration: 28, repeat: Infinity, ease: "easeInOut", delay: 4 }}
-      />
-    </div>
+    <div
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+      style={{
+        background:
+          "radial-gradient(40rem 28rem at 85% 0%, color-mix(in oklch, var(--primary) 18%, transparent), transparent 70%), radial-gradient(34rem 26rem at 0% 55%, color-mix(in oklch, var(--primary) 9%, transparent), transparent 70%)",
+      }}
+    />
   )
 }
