@@ -41,7 +41,7 @@ export default function About() {
           <p className="leading-relaxed text-muted-foreground">
             Currently based in Nairobi, Kenya, I lead technical strategy as Chief Software Engineer at WebTech
             Solutions Limited, building production SaaS platforms, AI-powered tools, and developer infrastructure
-            end to end. I also contribute to open source projects at Canonical and Google.
+            end to end. I also contribute to open source, with merged changes in Canonical&apos;s observability stack and open pull requests to Google&apos;s sbsim.
           </p>
           <div className="space-y-3 pt-2">
             <div className="space-y-2">

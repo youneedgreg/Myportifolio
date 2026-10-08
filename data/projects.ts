@@ -122,7 +122,7 @@ export const projects: Project[] = [
       approach:
         "Built a multi-tenant 'Farm Operating System' connecting IoT field sensors to logistics and market operations through a unified backend, with real-time WebSocket gateways and an AI assistant.",
       techDetails:
-        "NestJS 11 + Next.js 16 monorepo (Turborepo) with Prisma across 22 migrations covering telemetry, labour, spray logs, pack house, procurement, export docs, and CRM; MQTT v5 via EMQX ingests cold-room sensor data into TimescaleDB for time-series compliance reporting; Socket.io gateway streams live operational events; AI assistant (Claude + OpenAI) via Vercel AI SDK; M-Pesa B2C for payroll disbursements; Redis, AWS S3, Prometheus + Sentry observability.",
+        "NestJS 11 + Next.js 16 monorepo (Turborepo) with Prisma across 22 migrations covering telemetry, labour, spray logs, pack house, procurement, export docs, and CRM; MQTT v5 via EMQX ingests cold-room sensor data into TimescaleDB for time-series compliance reporting; Socket.io gateway streams live operational events; a Claude tool-use assistant over tenant-scoped data tools with Mistral fallback, a per-tenant token budget and a bounded tool loop; M-Pesa B2C for payroll disbursements; Redis, AWS S3, and Sentry error monitoring.",
       results:
         "Live demo with one-click sign-in across eight roles — managing director, HR manager, financial controller, head of production, QC lead, stores manager, export sales lead and lead driver — over sixteen modules spanning farm zones, production, operations, pack house, cold room, team, HR and training, logistics, inventory, stores, procurement, sales and CRM, compliance and financials, backed by 22 Prisma migrations.",
       challenges:
@@ -216,9 +216,9 @@ export const projects: Project[] = [
     slug: "chati-ai",
     title: "Chati AI",
     description:
-      "AI-powered mental health chatbot with multi-LLM support (OpenAI + Mistral), mood tracking, journaling, and mini-games. NextAuth authentication with NeonDB serverless Postgres and Prisma ORM.",
+      "AI-powered mental health chatbot built on a Mistral-based model through OpenRouter, with mood tracking, journaling, and mini-games. NextAuth authentication with NeonDB serverless Postgres and Prisma ORM.",
     image: "/assets/chatiphoto.png",
-    tags: ["Next.js", "OpenAI", "Mistral", "Prisma", "NeonDB", "NextAuth"],
+    tags: ["Next.js", "OpenRouter", "Mistral", "Prisma", "NeonDB", "NextAuth"],
     href: "https://chati-ai.vercel.app/",
     github: "https://github.com/youneedgreg/chati",
     featured: true,
@@ -232,13 +232,13 @@ export const projects: Project[] = [
       problem:
         "Access to mental health support is limited, and stigma or cost keeps many people from seeking help early.",
       approach:
-        "Built an AI-powered chatbot with multi-LLM support (OpenAI + Mistral) for supportive conversations, paired with mood tracking, journaling, and mini-games to encourage healthy daily habits.",
+        "Built an AI-powered chatbot for supportive conversations, paired with mood tracking, journaling, and mini-games to encourage healthy daily habits.",
       techDetails:
-        "Next.js 15 with multi-LLM support (OpenAI + Mistral) for conversational responses, NextAuth for authentication, NeonDB serverless Postgres with Prisma ORM for conversation history and mood logs, and Framer Motion for transitions across a calm, accessible UI.",
+        "Next.js 15 with a Mistral-based model (DeepHermes 3) through OpenRouter for conversational responses and Hugging Face Inference for search, NextAuth for authentication, NeonDB serverless Postgres with Prisma ORM for conversation history and mood logs, and Framer Motion for transitions across a calm, accessible UI.",
       results:
         "Shipped a working chatbot with mood tracking and journaling, deployed and free for users to access.",
       challenges:
-        "Coordinating fallback between OpenAI and Mistral so conversations stay supportive and consistent even if one provider is unavailable, while keeping latency low enough for natural back-and-forth chat.",
+        "Keeping conversations supportive and on-topic with a free-tier hosted model, while keeping latency low enough for natural back-and-forth chat.",
     },
   },
   {
@@ -271,7 +271,7 @@ export const projects: Project[] = [
     slug: "safari-os",
     title: "Safari OS",
     description:
-      "End-to-end SaaS for a real safari operator: bookings, costing engine, CRM, itinerary builder, invoicing, supplier management, and an AI intelligence layer for conversion scoring and anomaly detection.",
+      "End-to-end SaaS for a real safari operator: bookings, costing engine, CRM, itinerary builder, invoicing and supplier management, with AI-driven automation — WhatsApp concierge replies, document OCR, itinerary drafting — and ten scheduled jobs.",
     image: "/placeholder.svg?height=400&width=600&text=Safari+OS",
     tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Anthropic Claude", "Twilio"],
     github: "",
@@ -286,12 +286,12 @@ export const projects: Project[] = [
       problem:
         "Safari operators run bookings, pricing, supplier coordination, and client communication across spreadsheets, WhatsApp, and email, with no single system tying it together.",
       approach:
-        "Building an end-to-end ERP for a real safari company covering bookings, a costing engine, CRM, itinerary builder, invoicing, and supplier management — over 30 Prisma models — with an AI layer (Claude, with Mistral fallback) for conversion scoring and anomaly detection.",
+        "Building an end-to-end ERP for a real safari company covering bookings, a costing engine, CRM, itinerary builder, invoicing, and supplier management — over 30 Prisma models — with Claude (Mistral fallback) automating the text-heavy work: itinerary drafting, OCR and PDF extraction, translation, marketing copy and WhatsApp replies. Conversion scoring and anomaly detection are rule-based so they stay explainable, with Claude writing the summary.",
       techDetails:
         "Next.js 16 with Prisma and PostgreSQL; JWT sessions with OTP and three-role RBAC (Admin/Ops/Guide); Twilio WhatsApp integration across 14 message types with real-time delivery receipts; PDF/DOCX document generation via PDFKit and an AI content studio generating marketing copy in 5 languages across 6 channels; Vercel Cron for scheduled jobs.",
       results: "In active development for a real safari operator — full write-up and demo coming once the platform is live.",
       challenges:
-        "Keeping the costing engine accurate across multi-currency quotes, seasonal supplier rates, and per-person markups while modeling over 30 interrelated Prisma entities; and making sure the AI conversion-scoring and anomaly-detection layer degraded gracefully to the Mistral fallback so a slow or unavailable model could never block a booking or a WhatsApp reply.",
+        "Keeping the costing engine accurate across multi-currency quotes, seasonal supplier rates, and per-person markups while modeling over 30 interrelated Prisma entities; and keeping AI at the edge of the workflow — rule-based scores the model only explains, provider failover so a slow or unavailable model never blocks a booking, and signed Twilio webhooks plus fail-closed cron auth so the automations cannot be triggered by anyone else.",
     },
   },
   {
@@ -300,7 +300,7 @@ export const projects: Project[] = [
     description:
       "Multi-tenant property and business management SaaS — 5 Next.js apps (mall, farm, biz, super-dashboard, tenant portal) in a Turborepo monorepo with AI chat, PDF reporting, and tenant-isolated data.",
     image: "/placeholder.svg?height=400&width=600&text=Spine+Platform",
-    tags: ["Next.js", "TypeScript", "Supabase", "Turborepo", "Vercel AI SDK"],
+    tags: ["Next.js", "TypeScript", "Supabase", "Turborepo", "Mistral"],
     github: "",
     size: "large",
     year: "2025–Present",
@@ -315,7 +315,7 @@ export const projects: Project[] = [
       approach:
         "Built a multi-tenant SaaS as 5 Next.js apps (mall, farm, biz, super-dashboard, and tenant portal) in a Turborepo monorepo, with Supabase row-level security isolating each tenant's data.",
       techDetails:
-        "Turborepo + pnpm workspaces across 5 Next.js 14 apps; Supabase RLS for tenant isolation; Deno Edge Functions for cron-triggered automation; AI chat via Anthropic Claude with Mistral fallback through the Vercel AI SDK; @react-pdf/renderer for report generation; Apache Superset for analytics dashboards.",
+        "Turborepo + npm workspaces across 5 Next.js 14 apps; Supabase RLS for tenant isolation; Deno Edge Functions and pg_cron for scheduled automation (invoicing, rent reminders, penalties, lease expiry); a Mistral tool-calling assistant over live mall data with role-scoped tools, user confirmation and server-side re-authorisation for write actions, and AI_ACTION audit logging; payments recorded through an atomic, idempotent Postgres RPC; @react-pdf/renderer for report generation; Apache Superset for analytics dashboards.",
       results: "Running across multiple internal apps in active development — full write-up and demo coming soon.",
       challenges:
         "Enforcing strict tenant isolation across 5 apps sharing one Supabase instance — getting row-level security policies right so no query could ever leak data between tenants — while keeping shared Turborepo packages, types, and Supabase migrations in sync so a change in one app didn't silently break the others.",
