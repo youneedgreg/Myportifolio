@@ -48,7 +48,7 @@ export function CVTemplate() {
             <p><strong>Languages:</strong> JavaScript (ES6+), TypeScript, Python, Go, Rust, SQL, C++, Java</p>
             <p><strong>Frameworks:</strong> React, Next.js, NestJS, Node.js, Express.js, React Native, TensorFlow, scikit-learn</p>
             <p><strong>Databases:</strong> PostgreSQL, MySQL, MongoDB, Supabase, NeonDB, TimescaleDB, Redis</p>
-            <p><strong>AI/ML:</strong> OpenAI, Anthropic Claude, Mistral, Vercel AI SDK, HuggingFace, TensorFlow/Keras</p>
+            <p><strong>AI/ML:</strong> Anthropic Claude (tool use), Mistral, OpenRouter, Hugging Face, TensorFlow/Keras, scikit-learn</p>
             <p><strong>Infra & Observability:</strong> Linux, Docker, Kubernetes, RabbitMQ, Nginx, Prometheus, Grafana, Prisma, Turborepo, Git, Postman, Figma, Vercel</p>
             <p><strong>Core Competencies:</strong> Full Stack Development, Multi-Tenant SaaS Architecture, Microservices, API Engineering, Machine Learning, Agile Collaboration, UI/UX Design</p>
           </div>
@@ -74,13 +74,13 @@ export function CVTemplate() {
             {/* Open Source */}
             <div>
               <div className="flex justify-between items-baseline mb-1">
-                <h3 className="text-sm font-bold text-gray-800">Open Source Developer — Independent (Canonical, Google, Apache)</h3>
+                <h3 className="text-sm font-bold text-gray-800">Open Source Developer — Independent (Canonical, RocketMQ-Rust and others)</h3>
                 <span className="text-xs text-gray-600">(Jun 2025 – Present)</span>
               </div>
               <p className="text-sm text-gray-700 leading-relaxed">
-                Contribute Python fixes and features to Canonical&apos;s Observability Stack — charm operators
-                tempo-operators and cos-alerter — alongside contributions to Google&apos;s sbsim and Apache
-                RocketMQ-Rust, working through code review with upstream maintainers.
+                Contribute Python fixes and features to Canonical&apos;s Observability Stack — merged changes to
+                tempo-operators and alertmanager-k8s-operator, with open pull requests to cos-alerter and
+                hardware-api — plus a merged change to RocketMQ-Rust and open pull requests to Google&apos;s sbsim.
               </p>
             </div>
 
@@ -152,7 +152,7 @@ export function CVTemplate() {
               analytics dashboard, built with Next.js, Supabase, and Recharts.
             </p>
             <p>
-              <strong>• Chati AI</strong> – AI-powered mental health chatbot with multi-LLM support (OpenAI + Mistral), mood
+              <strong>• Chati AI</strong> – AI-powered mental health chatbot on a Mistral-based model via OpenRouter, with mood
               tracking, and journaling, using Next.js, Prisma, and NeonDB.
             </p>
             <p>
@@ -161,7 +161,7 @@ export function CVTemplate() {
             </p>
             <p>
               <strong>• Spine</strong> – Multi-tenant property & business SaaS across 5 Next.js apps in a Turborepo monorepo with
-              Supabase row-level security and AI chat via the Vercel AI SDK.
+              Supabase row-level security and a Mistral tool-calling assistant with role-scoped tools and user-confirmed writes.
             </p>
             <p>
               <strong>• Compono UI Builder</strong> – Visual drag-and-drop builder for shadcn/ui with real-time WYSIWYG editing,
