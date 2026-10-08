@@ -271,7 +271,7 @@ export const projects: Project[] = [
     slug: "safari-os",
     title: "Safari OS",
     description:
-      "End-to-end SaaS for a real safari operator: bookings, costing engine, CRM, itinerary builder, invoicing and supplier management, with AI-driven automation — WhatsApp concierge replies, document OCR, itinerary drafting — and ten scheduled jobs.",
+      "End-to-end SaaS for a real safari operator: bookings, costing engine, CRM, itinerary builder, invoicing and supplier management, with AI-driven automation — WhatsApp concierge replies, passport and receipt OCR, itinerary drafting — and nine scheduled jobs.",
     image: "/placeholder.svg?height=400&width=600&text=Safari+OS",
     tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Anthropic Claude", "Twilio"],
     github: "",
