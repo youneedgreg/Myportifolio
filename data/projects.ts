@@ -343,6 +343,7 @@ export const projects: Project[] = [
     tags: ["Next.js", "TypeScript", "Playwright", "FFmpeg", "Python", "Claude Code"],
     href: "https://motionstudio-web.vercel.app",
     github: "https://github.com/youneedgreg/motion-studio",
+    featured: true,
     size: "medium",
     year: "2026",
     role: "Developer (Solo)",

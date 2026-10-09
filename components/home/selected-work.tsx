@@ -8,7 +8,7 @@ import { getFeaturedProjects, projects } from "@/data/projects"
 import { cn } from "@/lib/utils"
 
 export default function SelectedWork() {
-  const featured = getFeaturedProjects().slice(0, 4)
+  const featured = getFeaturedProjects().slice(0, 5)
   const posts = getSortedPosts()
 
   return (
