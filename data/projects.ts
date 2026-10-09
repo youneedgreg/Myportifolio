@@ -335,6 +335,40 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "motion-studio",
+    title: "motion-studio",
+    description:
+      "A studio for making motion graphics with Claude, where every video is a program: a frame-accurate renderer, synthesized scores, automated checks on every film, a Claude Code skill that runs the whole pipeline, and an eight-lesson course with a companion website.",
+    image: "/assets/motion-studio-home.jpg",
+    tags: ["Next.js", "TypeScript", "Playwright", "FFmpeg", "Python", "Claude Code"],
+    href: "https://motionstudio-web.vercel.app",
+    github: "https://github.com/youneedgreg/motion-studio",
+    size: "medium",
+    year: "2026",
+    role: "Developer (Solo)",
+    status: "live",
+    gallery: [
+      "/assets/motion-studio-home.jpg",
+      "/assets/motion-studio-film.jpg",
+      "/assets/motion-studio-tests.jpg",
+      "/assets/motion-studio-lesson.jpg",
+    ],
+    openSource: true,
+    categories: ["frontend", "ai-ml"],
+    caseStudy: {
+      problem:
+        "Motion videos made with Claude were all over my feed, but the guides behind them mixed real technique with claims nobody had checked, and a model that can't watch video or hear audio has no way to tell whether its own film is in sync or readable on a phone.",
+      approach:
+        "Built a small studio where each film is a web page with one pure function, seek(t), that paints the exact frame for time t. Playwright's Chromium renders every frame and FFmpeg encodes them, scores are synthesized on the film's own beat grid, and every claim from the article I learned from was checked against primary sources across eight lessons.",
+      techDetails:
+        "A renderer with parallel workers, a network sandbox and explicit BT.709 color, streaming frames straight into FFmpeg; tools/check.py measures determinism, per-cue audio and visual sync, loudness, text clipping and minimum text size on phones; closed-form springs tested against the ODE; a determinism hook and a /motion-film skill for Claude Code. The companion site is a static Next.js export generated from the repo: films with their check reports, lessons with quizzes, and a page on what each test proves and what it doesn't.",
+      results:
+        "Four films, the latest a 32 s Safari OS launch film rendered at 16:9, 9:16 and 1:1 from one timeline with all 51 sound cues landing within one frame of the picture. The code, course and films are open source, and the site is live.",
+      challenges:
+        "A check only proves what it measures: several bugs passed every automated check until a person looked or a new check was written, from text clipped inside passing shapes to a render that only failed in a fresh clone.",
+    },
+  },
+  {
     slug: "spine-platform",
     title: "Spine: Property & Business SaaS",
     description:
