@@ -4,7 +4,7 @@ What's left after the October 2026 upgrade (PRs #5–#8). The first section need
 
 ## Needs you
 
-- [ ] **Add `GITHUB_TOKEN` in Vercel.** GitHub → Settings → Developer settings → Fine-grained tokens → Generate: resource owner *youneedgreg*, repository access *Public repositories (read-only)*, no extra permissions. Then Vercel → gregorytemwa → Settings → Environment Variables → add `GITHUB_TOKEN` for Production and Preview, mark it **Sensitive**, and redeploy. Without it the Now section and GitHub stats share GitHub's 60 requests/hour limit.
+- [x] **`GITHUB_TOKEN` in Vercel.** _Done: fine-grained, public repositories read-only, Sensitive, Production and Preview._
 - [ ] **Turn on Speed Insights.** Vercel dashboard → project → Speed Insights → Enable. The code is already in place (`@vercel/speed-insights` in `app/layout.tsx`); it starts reporting Core Web Vitals once enabled.
 - [x] **Custom domain.** _Done: temwa.dev, with `SITE_URL` in `lib/seo.ts` updated so canonicals, sitemap, RSS and share images use it._
 - [x] **"My Portfolio" project.** _Done: live at temwa.dev with a real case study and screenshots._
@@ -13,10 +13,10 @@ Not changing: the bio says you're a USIU student, which is correct — you haven
 
 ## Needs you (round 1)
 
-- [ ] **Verify temwa.dev in Resend** (free plan includes one domain). Resend → Domains → Add domain `temwa.dev` → copy the DNS records it shows (an MX and TXT record for `send.temwa.dev`, and a DKIM TXT record). temwa.dev's DNS is at **name.com** (its nameservers are `ns*.name.com`), so add them there: name.com → My Domains → temwa.dev → Manage DNS Records. When Resend shows *Verified*, add `CONTACT_FROM` = `Gregory Temwa <hello@temwa.dev>` in Vercel and redeploy. Until then the form uses Resend's test sender, which only delivers to the address your Resend account was created with.
-- [ ] **Mark `RESEND_API_KEY` as Sensitive in Vercel** (Settings → Environment Variables → edit). Vercel flags it as readable today.
-- [ ] **Redirect www.temwa.dev to temwa.dev.** It currently serves the site on both hosts. Vercel → gregorytemwa → Settings → Domains → www.temwa.dev → Edit → redirect to `temwa.dev` (308).
-- [ ] **temwa.com doesn't resolve.** It's added to the Vercel team but has no DNS pointing at Vercel. Either point it at Vercel and redirect it to temwa.dev, or remove it from the project.
+- [x] **Verify temwa.dev in Resend.** _Done: DKIM and SPF verified (receiving off, so name.com mail forwarding is untouched); `CONTACT_FROM` = `Gregory Temwa <hello@temwa.dev>` set for Production and Preview; a test message through the preview returned 200._
+- [x] **`RESEND_API_KEY` marked Sensitive.** _Done._
+- [x] **www.temwa.dev redirects to temwa.dev.** _Done (307 today; 308 would mark it permanent for search engines)._
+- [ ] **temwa.com** is not owned: it's listed for sale at HugeDomains. Remove it from the Vercel team's domains unless you buy it.
 - [ ] **Booking link.** Create a free Cal.com (or Calendly) event and put the URL in `SOCIAL.booking` in `data/navigation.ts`; the "Book a call" button appears automatically.
 - [ ] **Hackathon specifics.** The site says "award-winning hackathon participant". Naming the hackathon(s), the year and the placing would make it concrete (and would be a natural journey entry).
 
