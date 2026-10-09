@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     return {}
   }
 
-  const title = `${post.title} — Gregory Temwa`
+  const title = `${post.title} | Gregory Temwa`
 
   return {
     title: { absolute: `${post.title} | Gregory Temwa` },

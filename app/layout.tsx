@@ -135,7 +135,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable}`}>
       <head>
         {/* In <head> directly: page-level `alternates` metadata would otherwise replace it. */}
-        <link rel="alternate" type="application/rss+xml" title="Gregory Temwa — Blog" href="/feed.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Gregory Temwa | Blog" href="/feed.xml" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}

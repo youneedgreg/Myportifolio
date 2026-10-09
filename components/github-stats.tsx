@@ -62,14 +62,15 @@ async function getGithubRepos(): Promise<GithubRepo[]> {
 
 async function getOpenSourceContributions(): Promise<GithubRepo[]> {
   const results = await Promise.all(
-    openSourceContributions.map(async ({ owner, repo }) => {
+    openSourceContributions.map(async ({ owner, repo, about }): Promise<GithubRepo | null> => {
       try {
         const res = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
           headers: githubHeaders(),
           next: { revalidate: 3600 },
         })
         if (!res.ok) return null
-        return (await res.json()) as GithubRepo
+        // Our own one-line summary, not the upstream repo's marketing copy.
+        return { ...((await res.json()) as GithubRepo), description: about }
       } catch {
         return null
       }

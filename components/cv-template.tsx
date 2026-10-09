@@ -61,7 +61,7 @@ export function CVTemplate() {
             {/* Job 1 */}
             <div>
               <div className="flex justify-between items-baseline mb-1">
-                <h3 className="text-sm font-bold text-gray-800">Chief Software Engineer — WebTech Solutions Limited, Nairobi, Kenya</h3>
+                <h3 className="text-sm font-bold text-gray-800">Chief Software Engineer, WebTech Solutions Limited, Nairobi, Kenya</h3>
                 <span className="text-xs text-gray-600">(Feb 2026 – Present)</span>
               </div>
               <p className="text-sm text-gray-700 leading-relaxed">
@@ -74,20 +74,20 @@ export function CVTemplate() {
             {/* Open Source */}
             <div>
               <div className="flex justify-between items-baseline mb-1">
-                <h3 className="text-sm font-bold text-gray-800">Open Source Developer — Independent (Canonical, RocketMQ-Rust and others)</h3>
+                <h3 className="text-sm font-bold text-gray-800">Open Source Developer, Independent (Canonical, RocketMQ-Rust and others)</h3>
                 <span className="text-xs text-gray-600">(Jun 2025 – Present)</span>
               </div>
               <p className="text-sm text-gray-700 leading-relaxed">
-                Contribute Python fixes and features to Canonical&apos;s Observability Stack — merged changes to
+                Contribute Python fixes and features to Canonical&apos;s Observability Stack: merged changes to
                 tempo-operators and alertmanager-k8s-operator, with open pull requests to cos-alerter and
-                hardware-api — plus a merged change to RocketMQ-Rust and open pull requests to Google&apos;s sbsim.
+                hardware-api, plus a merged change to RocketMQ-Rust and open pull requests to Google&apos;s sbsim.
               </p>
             </div>
 
             {/* Job 2 */}
             <div>
               <div className="flex justify-between items-baseline mb-1">
-                <h3 className="text-sm font-bold text-gray-800">Full Stack Software Developer — WebTech Solutions Limited, Nairobi, Kenya</h3>
+                <h3 className="text-sm font-bold text-gray-800">Full Stack Software Developer, WebTech Solutions Limited, Nairobi, Kenya</h3>
                 <span className="text-xs text-gray-600">(Dec 2024 – Jan 2026)</span>
               </div>
               <p className="text-sm text-gray-700 leading-relaxed">
@@ -99,7 +99,7 @@ export function CVTemplate() {
             {/* Job 3 */}
             <div>
               <div className="flex justify-between items-baseline mb-1">
-                <h3 className="text-sm font-bold text-gray-800">Intern (Frontend & Backend) — HNG Tech, Remote</h3>
+                <h3 className="text-sm font-bold text-gray-800">Intern (Frontend & Backend), HNG Tech, Remote</h3>
                 <span className="text-xs text-gray-600">(Oct 2025 – Dec 2025)</span>
               </div>
               <p className="text-sm text-gray-700 leading-relaxed">
@@ -111,7 +111,7 @@ export function CVTemplate() {
             {/* Job 4 */}
             <div>
               <div className="flex justify-between items-baseline mb-1">
-                <h3 className="text-sm font-bold text-gray-800">Software Engineer Intern — Ivy Community, Nairobi, Kenya · Hybrid</h3>
+                <h3 className="text-sm font-bold text-gray-800">Software Engineer Intern, Ivy Community, Nairobi, Kenya · Hybrid</h3>
                 <span className="text-xs text-gray-600">(Jul 2025 – Sep 2025)</span>
               </div>
               <p className="text-sm text-gray-700 leading-relaxed">
@@ -123,7 +123,7 @@ export function CVTemplate() {
             {/* Job 5 */}
             <div>
               <div className="flex justify-between items-baseline mb-1">
-                <h3 className="text-sm font-bold text-gray-800">Software Engineer Intern (Frontend) — Girwa Foundation, Nairobi, Kenya · Remote</h3>
+                <h3 className="text-sm font-bold text-gray-800">Software Engineer Intern (Frontend), Girwa Foundation, Nairobi, Kenya · Remote</h3>
                 <span className="text-xs text-gray-600">(May 2025 – Aug 2025)</span>
               </div>
               <p className="text-sm text-gray-700 leading-relaxed">

@@ -5,7 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { ArrowUpRight, Dices, LayoutGrid, Search, SquareTerminal, X } from "lucide-react"
-import type { ProjectStatus } from "@/data/projects"
+import { projectCategories, type ProjectCategory, type ProjectStatus } from "@/data/projects"
 import { cn } from "@/lib/utils"
 
 export type WorkItem = {
@@ -18,6 +18,8 @@ export type WorkItem = {
   status: ProjectStatus
   featured: boolean
   openSource: boolean
+  client: boolean
+  categories: ProjectCategory[]
 }
 
 const STATUS: Record<ProjectStatus, { label: string; perms: string; dot: string }> = {
@@ -27,13 +29,22 @@ const STATUS: Record<ProjectStatus, { label: string; perms: string; dot: string 
   "coming-soon": { label: "In progress", perms: "-rw-------", dot: "bg-muted-foreground" },
 }
 
-const FILTERS: { id: "all" | ProjectStatus; label: string }[] = [
+type StatusFilter = "all" | "client" | ProjectStatus
+
+const FILTERS: { id: StatusFilter; label: string; dot?: string }[] = [
   { id: "all", label: "Everything" },
-  { id: "live", label: "Live" },
-  { id: "private", label: "Client work" },
-  { id: "source-available", label: "Source-available" },
-  { id: "coming-soon", label: "In progress" },
+  { id: "live", label: "Live", dot: STATUS.live.dot },
+  { id: "client", label: "Client work", dot: "bg-chart-5" },
+  { id: "source-available", label: "Source-available", dot: STATUS["source-available"].dot },
+  { id: "coming-soon", label: "In progress", dot: STATUS["coming-soon"].dot },
+  { id: "private", label: "Private", dot: STATUS.private.dot },
 ]
+
+function matchesStatus(item: WorkItem, filter: StatusFilter) {
+  if (filter === "all") return true
+  if (filter === "client") return item.client
+  return item.status === filter
+}
 
 /** Tags that name the same tool. */
 const ALIASES: Record<string, string> = { "React 19": "React", "Tailwind CSS v4": "Tailwind CSS", "Neon Postgres": "PostgreSQL", NeonDB: "PostgreSQL" }
@@ -64,6 +75,7 @@ function Cover({ item, big }: { item: WorkItem; big: boolean }) {
   // No screenshot yet: a generated cover, so the grid never shows a grey box.
   const initials = item.title
     .split(/[\s-]+/)
+    .filter((word) => /^[a-z0-9]/i.test(word))
     .map((word) => word[0])
     .join("")
     .slice(0, 2)
@@ -163,7 +175,8 @@ function TerminalView({ items }: { items: WorkItem[] }) {
 
 export default function WorkExplorer({ items }: { items: WorkItem[] }) {
   const router = useRouter()
-  const [status, setStatus] = useState<"all" | ProjectStatus>("all")
+  const [status, setStatus] = useState<StatusFilter>("all")
+  const [category, setCategory] = useState<ProjectCategory | null>(null)
   const [tech, setTech] = useState<string | null>(null)
   const [query, setQuery] = useState("")
   const [view, setView] = useState<"gallery" | "terminal">("gallery")
@@ -175,23 +188,31 @@ export default function WorkExplorer({ items }: { items: WorkItem[] }) {
     return [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10).map(([tag]) => tag)
   }, [items])
 
-  const statusCounts = useMemo(() => {
-    const counts: Record<string, number> = { all: items.length }
-    for (const item of items) counts[item.status] = (counts[item.status] ?? 0) + 1
-    return counts
-  }, [items])
+  const statusCounts = useMemo(
+    () => Object.fromEntries(FILTERS.map(({ id }) => [id, items.filter((item) => matchesStatus(item, id)).length])),
+    [items],
+  )
+
+  const categoryCounts = useMemo(
+    () =>
+      Object.fromEntries(
+        projectCategories.map(({ id }) => [id, items.filter((item) => item.categories.includes(id)).length]),
+      ),
+    [items],
+  )
 
   const visible = useMemo(() => {
     const q = deferredQuery.trim().toLowerCase()
     return items.filter(
       (item) =>
-        (status === "all" || item.status === status) &&
+        matchesStatus(item, status) &&
+        (!category || item.categories.includes(category)) &&
         (!tech || item.tags.map(norm).includes(tech)) &&
         (!q || `${item.title} ${item.description} ${item.tags.join(" ")}`.toLowerCase().includes(q)),
     )
-  }, [items, status, tech, deferredQuery])
+  }, [items, status, category, tech, deferredQuery])
 
-  const filtered = status !== "all" || tech !== null || query !== ""
+  const filtered = status !== "all" || category !== null || tech !== null || query !== ""
 
   function surprise() {
     const pool = visible.length > 0 ? visible : items
@@ -200,6 +221,7 @@ export default function WorkExplorer({ items }: { items: WorkItem[] }) {
 
   function clear() {
     setStatus("all")
+    setCategory(null)
     setTech(null)
     setQuery("")
   }
@@ -260,10 +282,26 @@ export default function WorkExplorer({ items }: { items: WorkItem[] }) {
               disabled={!statusCounts[filter.id]}
               className="inline-flex min-h-9 shrink-0 items-center gap-2 rounded-full border border-border px-3.5 text-muted-foreground transition-colors hover:text-foreground disabled:opacity-40 aria-pressed:border-primary aria-pressed:text-primary"
             >
-              {filter.id !== "all" && <span className={cn("size-1.5 rounded-full", STATUS[filter.id].dot)} />}
+              {filter.dot && <span className={cn("size-1.5 rounded-full", filter.dot)} />}
               {filter.label} · {statusCounts[filter.id] ?? 0}
             </button>
           ))}
+        </div>
+
+        <div role="group" aria-label="Filter by kind of work" className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 font-mono text-xs [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
+          {projectCategories
+            .filter(({ id }) => categoryCounts[id] > 0)
+            .map(({ id, label }) => (
+              <button
+                key={id}
+                type="button"
+                onClick={() => setCategory(category === id ? null : id)}
+                aria-pressed={category === id}
+                className="inline-flex min-h-9 shrink-0 items-center gap-2 rounded-full border border-dashed border-border px-3.5 text-muted-foreground transition-colors hover:text-foreground aria-pressed:border-solid aria-pressed:border-primary aria-pressed:text-primary"
+              >
+                {label} · {categoryCounts[id]}
+              </button>
+            ))}
         </div>
 
         <div role="group" aria-label="Filter by technology" className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 font-mono text-xs [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
@@ -296,7 +334,7 @@ export default function WorkExplorer({ items }: { items: WorkItem[] }) {
       {visible.length === 0 ? (
         <div className="surface space-y-3 p-8 text-center font-mono text-sm">
           <p className="text-muted-foreground">
-            grep: no projects match <span className="text-foreground">&ldquo;{query || tech || status}&rdquo;</span>
+            grep: no projects match <span className="text-foreground">&ldquo;{query || tech || category || status}&rdquo;</span>
           </p>
           <button type="button" onClick={clear} className="text-primary hover:text-foreground">
             reset and show everything

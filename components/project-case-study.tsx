@@ -69,7 +69,7 @@ export default function ProjectCaseStudy({ project, prev, next, relatedPosts, si
               {isPrivate ? (
                 <Button disabled variant="outline">
                   <Lock className="size-4" />
-                  Private — client work
+                  Private client work
                 </Button>
               ) : isSourceAvailable ? (
                 <Button asChild variant="outline">

@@ -21,7 +21,7 @@ export default function SyncSimulator() {
   const [outbox, setOutbox] = useState<Sale[]>([])
   const [server, setServer] = useState<string[]>([])
   const [duplicates, setDuplicates] = useState(0)
-  const [log, setLog] = useState<LogLine[]>([{ text: "phone offline — sales will queue locally", tone: "info" }])
+  const [log, setLog] = useState<LogLine[]>([{ text: "phone offline: sales will queue locally", tone: "info" }])
   const serverRef = useRef(new Set<string>())
   const logRef = useRef<HTMLOListElement>(null)
 
@@ -71,7 +71,7 @@ export default function SyncSimulator() {
 
   function toggleNetwork() {
     setOnline((value) => !value)
-    say(online ? "network dropped — still selling" : "network back — draining outbox in order", online ? "warn" : "info")
+    say(online ? "network dropped, still selling" : "network back, draining outbox in order", online ? "warn" : "info")
   }
 
   function reset() {
@@ -80,7 +80,7 @@ export default function SyncSimulator() {
     setServer([])
     setDuplicates(0)
     setOnline(false)
-    setLog([{ text: "reset — phone offline", tone: "info" }])
+    setLog([{ text: "reset, phone offline", tone: "info" }])
   }
 
   const queued = outbox.filter((sale) => sale.status === "queued").length

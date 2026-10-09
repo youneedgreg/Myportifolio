@@ -7,13 +7,13 @@ import ReactionToggle from "@/components/micro/reaction-toggle"
 import DraggableCard from "@/components/micro/draggable-card"
 import { SITE_NAME } from "@/lib/seo"
 
-const description = "Interactive experiments by Gregory Temwa — including a toy offline-first sync queue you can break."
+const description = "Interactive experiments by Gregory Temwa, including a toy offline-first sync queue you can break."
 
 export const metadata: Metadata = {
   title: "Lab",
   description,
   alternates: { canonical: "/lab" },
-  openGraph: { title: "Lab — Gregory Temwa", description, url: "/lab", siteName: SITE_NAME, type: "website" },
+  openGraph: { title: "Lab | Gregory Temwa", description, url: "/lab", siteName: SITE_NAME, type: "website" },
 }
 
 export default function LabPage() {
@@ -39,7 +39,7 @@ export default function LabPage() {
             <h2 className="text-2xl font-semibold tracking-tight">Sell offline, sync exactly once</h2>
             <p className="max-w-3xl leading-relaxed text-muted-foreground">
               Go offline and make a few sales, then come back online with the flaky network on. Some responses get
-              lost, so the phone retries — and because every sale carries an id the phone generated, the server
+              lost, so the phone retries, and because every sale carries an id the phone generated, the server
               answers &ldquo;duplicate&rdquo; instead of recording it twice. The counters should always agree.
             </p>
           </div>

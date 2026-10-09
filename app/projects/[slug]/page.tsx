@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     return {}
   }
 
-  const title = `${project.title} — Gregory Temwa`
+  const title = `${project.title} | Gregory Temwa`
 
   return {
     title: { absolute: `${project.title} | Gregory Temwa` },

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "Now",
   description,
   alternates: { canonical: "/now" },
-  openGraph: { title: "Now — Gregory Temwa", description, url: "/now", siteName: SITE_NAME, type: "website" },
+  openGraph: { title: "Now | Gregory Temwa", description, url: "/now", siteName: SITE_NAME, type: "website" },
 }
 
 function Block({ icon, label, children }: { icon: React.ReactNode; label: string; children: React.ReactNode }) {
@@ -68,7 +68,7 @@ export default function NowPage() {
         <Block icon={<GraduationCap className="size-4" />} label="Studying">
           <p className="leading-relaxed text-muted-foreground">
             <span className="font-semibold text-foreground">BSc Software Engineering</span> at United States
-            International University–Africa, graduating in 2027 — doing the coursework alongside everything above.
+            International University–Africa, graduating in 2027, doing the coursework alongside everything above.
           </p>
         </Block>
 
