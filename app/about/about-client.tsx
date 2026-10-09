@@ -2,7 +2,6 @@
 
 import type { ReactNode } from "react"
 import Image from "next/image"
-import { motion } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
 import { TypeAnimation } from "react-type-animation"
 import { GraduationCap, Award } from "lucide-react"
@@ -64,12 +63,7 @@ export default function AboutClientPage({ githubStats }: AboutClientPageProps) {
   return (
     <main className="px-4 py-16 md:px-6 md:py-24">
       <div className="mx-auto max-w-4xl space-y-20 md:space-y-28">
-        <motion.header
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="space-y-4"
-        >
+        <header className="space-y-4">
           <p className="font-mono text-sm uppercase tracking-widest text-primary">Get to know me</p>
           <h1 className="text-balance text-5xl font-semibold tracking-tighter sm:text-6xl md:text-7xl">
             <span className="text-gradient">About me</span>
@@ -84,13 +78,9 @@ export default function AboutClientPage({ githubStats }: AboutClientPageProps) {
             repeat={Infinity}
             className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
           />
-        </motion.header>
+        </header>
 
-        <motion.section
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-10% 0px" }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        <section
           className="surface grid items-start gap-8 p-8 md:grid-cols-[200px_1fr] md:p-10"
         >
           <div className="flex justify-center md:justify-start">
@@ -117,7 +107,7 @@ export default function AboutClientPage({ githubStats }: AboutClientPageProps) {
               experiences.
             </p>
           </div>
-        </motion.section>
+        </section>
 
         <section aria-labelledby="stack-heading" className="space-y-4">
           <p id="stack-heading" className="font-mono text-sm uppercase tracking-widest text-primary">

@@ -1,23 +1,28 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { usePathname } from "next/navigation"
 import dynamic from "next/dynamic"
-import { Github, Linkedin, Search } from "lucide-react"
+import { Github, Linkedin, Menu, Search } from "lucide-react"
+import { Button } from "@/components/ui/button"
 import { useCommandPalette } from "@/components/command-palette"
+import { mainNav, SOCIAL } from "@/data/navigation"
 
 const ThemeToggle = dynamic(() => import("@/components/theme-toggle"), { ssr: false })
+// The menu (and Radix Dialog) only downloads when someone first opens it.
+const MobileMenu = dynamic(() => import("@/components/mobile-menu"), { ssr: false })
 
-const navLinks = [
-  { href: "/about", label: "About" },
-  { href: "/projects", label: "Projects" },
-  { href: "/blog", label: "Blog" },
-  { href: "/#contact", label: "Contact" },
-  { href: "/cv", label: "CV" },
-]
+function isActive(pathname: string, href: string) {
+  if (href.includes("#")) return false
+  return pathname === href || pathname.startsWith(`${href}/`)
+}
 
 export default function SiteHeader() {
+  const pathname = usePathname()
   const { setOpen } = useCommandPalette()
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [menuLoaded, setMenuLoaded] = useState(false)
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/80 backdrop-blur-lg">
@@ -33,8 +38,13 @@ export default function SiteHeader() {
           <span className="hidden sm:inline">Gregory Temwa</span>
         </Link>
         <nav className="hidden items-center gap-8 font-mono text-xs uppercase tracking-widest text-muted-foreground md:flex">
-          {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="transition-colors hover:text-foreground">
+          {[...mainNav, { href: "/cv", label: "CV" }].map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              aria-current={isActive(pathname, link.href) ? "page" : undefined}
+              className="transition-colors hover:text-foreground aria-[current=page]:text-primary"
+            >
               {link.label}
             </Link>
           ))}
@@ -58,9 +68,9 @@ export default function SiteHeader() {
             variant="ghost"
             size="icon"
             aria-label="GitHub"
-            className="text-muted-foreground hover:text-foreground"
+            className="hidden text-muted-foreground hover:text-foreground sm:inline-flex"
           >
-            <a href="https://github.com/youneedgreg" target="_blank" rel="noreferrer">
+            <a href={SOCIAL.github} target="_blank" rel="noreferrer">
               <Github className="size-4" />
             </a>
           </Button>
@@ -69,15 +79,29 @@ export default function SiteHeader() {
             variant="ghost"
             size="icon"
             aria-label="LinkedIn"
-            className="text-muted-foreground hover:text-foreground"
+            className="hidden text-muted-foreground hover:text-foreground sm:inline-flex"
           >
-            <a href="https://linkedin.com/in/youneedgreg" target="_blank" rel="noreferrer">
+            <a href={SOCIAL.linkedin} target="_blank" rel="noreferrer">
               <Linkedin className="size-4" />
             </a>
           </Button>
           <ThemeToggle />
+          <Button
+            variant="ghost"
+            size="icon"
+            aria-label="Open menu"
+            className="text-muted-foreground hover:text-foreground md:hidden"
+            onClick={() => {
+              setMenuLoaded(true)
+              setMenuOpen(true)
+            }}
+          >
+            <Menu className="size-5" />
+          </Button>
         </div>
       </div>
+
+      {menuLoaded && <MobileMenu open={menuOpen} setOpen={setMenuOpen} pathname={pathname} />}
     </header>
   )
 }

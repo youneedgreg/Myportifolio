@@ -1,45 +1,15 @@
 "use client"
 
 import * as React from "react"
-import { useRouter } from "next/navigation"
-import { useTheme } from "next-themes"
-import { toast } from "sonner"
-import {
-  FileText,
-  FolderKanban,
-  Github,
-  Home,
-  Linkedin,
-  Mail,
-  Moon,
-  PenLine,
-  Sparkles,
-  Sun,
-  User,
-} from "lucide-react"
-import {
-  CommandDialog,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSeparator,
-  CommandShortcut,
-} from "@/components/ui/command"
-import { getSortedPosts } from "@/data/blog"
-import { projects } from "@/data/projects"
+import dynamic from "next/dynamic"
 
-const EMAIL = "gregorytemwa1212@gmail.com"
-const GITHUB_URL = "https://github.com/youneedgreg"
-const LINKEDIN_URL = "https://www.linkedin.com/in/youneedgreg/"
+// The palette (cmdk, every project and post) is only downloaded the first time it opens.
+const CommandPaletteDialog = dynamic(() => import("@/components/command-palette-dialog"), { ssr: false })
 
 type CommandPaletteContextValue = {
   open: boolean
   setOpen: (open: boolean) => void
 }
-
-const posts = getSortedPosts()
 
 const CommandPaletteContext = React.createContext<CommandPaletteContextValue | null>(null)
 
@@ -53,13 +23,18 @@ export function useCommandPalette() {
 
 export function CommandPaletteProvider({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = React.useState(false)
-  const router = useRouter()
-  const { resolvedTheme, setTheme } = useTheme()
+  const [loaded, setLoaded] = React.useState(false)
+
+  const setOpenAndLoad = React.useCallback((value: boolean) => {
+    if (value) setLoaded(true)
+    setOpen(value)
+  }, [])
 
   React.useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "k" && (event.metaKey || event.ctrlKey)) {
         event.preventDefault()
+        setLoaded(true)
         setOpen((value) => !value)
       }
     }
@@ -67,121 +42,10 @@ export function CommandPaletteProvider({ children }: { children: React.ReactNode
     return () => document.removeEventListener("keydown", onKeyDown)
   }, [])
 
-  const runCommand = React.useCallback((command: () => void) => {
-    setOpen(false)
-    command()
-  }, [])
-
   return (
-    <CommandPaletteContext.Provider value={{ open, setOpen }}>
+    <CommandPaletteContext.Provider value={{ open, setOpen: setOpenAndLoad }}>
       {children}
-      <CommandDialog
-        open={open}
-        onOpenChange={setOpen}
-        title="Command palette"
-        description="Search pages, projects, and quick actions"
-      >
-        <CommandInput placeholder="Type a command or search..." />
-        <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading="Navigation">
-            <CommandItem onSelect={() => runCommand(() => router.push("/"))}>
-              <Home />
-              Home
-            </CommandItem>
-            <CommandItem onSelect={() => runCommand(() => router.push("/about"))}>
-              <User />
-              About
-            </CommandItem>
-            <CommandItem onSelect={() => runCommand(() => router.push("/projects"))}>
-              <FolderKanban />
-              Projects
-            </CommandItem>
-            <CommandItem onSelect={() => runCommand(() => router.push("/blog"))}>
-              <PenLine />
-              Blog
-            </CommandItem>
-            <CommandItem onSelect={() => runCommand(() => router.push("/fun"))}>
-              <Sparkles />
-              Fun
-            </CommandItem>
-            <CommandItem onSelect={() => runCommand(() => router.push("/cv"))}>
-              <FileText />
-              CV
-            </CommandItem>
-            <CommandItem onSelect={() => runCommand(() => router.push("/#contact"))}>
-              <Mail />
-              Contact
-            </CommandItem>
-          </CommandGroup>
-          <CommandSeparator />
-          <CommandGroup heading="Projects">
-            {projects.map((project) => (
-              <CommandItem
-                key={project.slug}
-                value={`${project.title} ${project.tags.join(" ")}`}
-                onSelect={() => runCommand(() => router.push(`/projects/${project.slug}`))}
-              >
-                <FolderKanban />
-                {project.title}
-                <CommandShortcut>{project.year}</CommandShortcut>
-              </CommandItem>
-            ))}
-          </CommandGroup>
-          <CommandSeparator />
-          <CommandGroup heading="Blog">
-            {posts.map((post) => (
-              <CommandItem
-                key={post.slug}
-                value={`${post.title} ${post.tags.join(" ")}`}
-                onSelect={() => runCommand(() => router.push(`/blog/${post.slug}`))}
-              >
-                <PenLine />
-                {post.title}
-                <CommandShortcut>{post.date.slice(0, 4)}</CommandShortcut>
-              </CommandItem>
-            ))}
-          </CommandGroup>
-          <CommandSeparator />
-          <CommandGroup heading="Actions">
-            <CommandItem
-              onSelect={() =>
-                runCommand(() => setTheme(resolvedTheme === "dark" ? "light" : "dark"))
-              }
-            >
-              {resolvedTheme === "dark" ? <Sun /> : <Moon />}
-              Toggle theme
-            </CommandItem>
-            <CommandItem
-              onSelect={() =>
-                runCommand(() => {
-                  navigator.clipboard.writeText(EMAIL)
-                  toast.success("Email copied to clipboard")
-                })
-              }
-            >
-              <Mail />
-              Copy email address
-            </CommandItem>
-            <CommandItem
-              onSelect={() => runCommand(() => window.open(GITHUB_URL, "_blank", "noopener,noreferrer"))}
-            >
-              <Github />
-              Open GitHub profile
-            </CommandItem>
-            <CommandItem
-              onSelect={() => runCommand(() => window.open(LINKEDIN_URL, "_blank", "noopener,noreferrer"))}
-            >
-              <Linkedin />
-              Open LinkedIn profile
-            </CommandItem>
-            <CommandItem onSelect={() => runCommand(() => router.push("/cv"))}>
-              <FileText />
-              View CV
-            </CommandItem>
-          </CommandGroup>
-        </CommandList>
-      </CommandDialog>
+      {loaded && <CommandPaletteDialog open={open} setOpen={setOpenAndLoad} />}
     </CommandPaletteContext.Provider>
   )
 }

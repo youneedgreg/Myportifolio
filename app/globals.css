@@ -158,27 +158,50 @@
     @apply bg-card border border-border rounded-2xl;
   }
 
-  /* Fixed full-viewport grain texture, sits above content via blend mode */
-  .noise-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 100;
-    pointer-events: none;
-    opacity: 0.035;
-    mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  /* Reading progress bar, driven by the page's scroll timeline (no JS). */
+  .scroll-progress {
+    display: none;
+  }
+  @supports (animation-timeline: scroll()) {
+    .scroll-progress {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--primary);
+      transform-origin: 0% 50%;
+      z-index: 100;
+      animation: scroll-progress linear both;
+      animation-timeline: scroll(root);
+    }
   }
 
-  /* Scroll progress bar — width/scaleX driven by framer-motion useScroll */
-  .scroll-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--primary);
-    transform-origin: 0% 50%;
-    z-index: 100;
+  /* Experience timeline line (components/experience-timeline.tsx). */
+  .timeline-progress {
+    transform: scaleY(1);
+  }
+  @supports (animation-timeline: view()) {
+    .timeline {
+      view-timeline-name: --timeline;
+    }
+    .timeline-progress {
+      animation: grow-y linear both;
+      animation-timeline: --timeline;
+      animation-range: cover 10% cover 70%;
+    }
+  }
+
+  /* Word-by-word reveal (components/scroll-reveal.tsx), on a view timeline. */
+  @supports (animation-timeline: view()) {
+    .scroll-reveal {
+      view-timeline-name: --reveal;
+    }
+    .scroll-reveal > span {
+      animation: reveal-word linear both;
+      animation-timeline: --reveal;
+    }
   }
 
   /* Skeleton loading shimmer (e.g. GitHub stats while fetching) */
@@ -202,6 +225,40 @@
   }
 }
 
+@keyframes scroll-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes grow-y {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes reveal-word {
+  from {
+    opacity: 0.18;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal > span,
+  .timeline-progress {
+    animation: none !important;
+  }
+}
+
 @keyframes shimmer {
   0% {
     background-position: 200% 0;
@@ -217,7 +274,6 @@
 
 @media print {
   .no-print,
-  .noise-overlay,
   .scroll-progress,
   header {
     display: none !important;

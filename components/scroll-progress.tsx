@@ -1,14 +1,7 @@
-"use client"
-
-import { motion, useScroll, useSpring } from "framer-motion"
-
+/**
+ * Reading progress bar driven by a CSS scroll timeline — no JavaScript runs on
+ * scroll. Browsers without scroll-driven animations simply don't show it.
+ */
 export default function ScrollProgress() {
-  const { scrollYProgress } = useScroll()
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 300,
-    damping: 30,
-    restDelta: 0.001,
-  })
-
-  return <motion.div className="scroll-progress" style={{ scaleX }} />
+  return <div className="scroll-progress" aria-hidden="true" />
 }

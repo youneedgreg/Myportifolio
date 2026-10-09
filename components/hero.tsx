@@ -1,113 +1,72 @@
-"use client"
-
 import Link from "next/link"
-import Image from "next/image"
-import { useRef } from "react"
+import { ArrowDown, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import dynamic from "next/dynamic"
-import { motion, useScroll, useTransform } from "framer-motion"
-import { Github, Linkedin } from "lucide-react"
-import FloatingOrbs from "./floating-orbs"
-
-const AnimatedText = dynamic(() => import("./animated-text"), { ssr: false })
+import FloatingOrbs from "@/components/floating-orbs"
+import { experience } from "@/data/experience"
+import { getSortedPosts } from "@/data/blog"
+import { projects } from "@/data/projects"
 
 export default function Hero() {
-  const imageRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: imageRef,
-    offset: ["start start", "end start"],
-  })
-  const y = useTransform(scrollYProgress, [0, 1], [0, 80])
+  const stats = [
+    { value: projects.length, label: "projects" },
+    { value: experience.length, label: "roles" },
+    { value: getSortedPosts().length, label: "essays" },
+    { value: 1, label: "degree in progress" },
+  ]
 
   return (
-    <section className="relative px-4 pt-16 md:px-6 md:pt-24">
+    <section className="relative pt-10 md:pt-16">
       <FloatingOrbs />
-      <div className="relative z-10 grid items-center gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="space-y-6"
-        >
-          <motion.div
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm text-muted-foreground"
-            whileHover={{ scale: 1.03 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
-          >
+      <div className="relative z-10 mx-auto max-w-5xl space-y-6 md:space-y-7">
+        <div className="flex flex-wrap items-center gap-3">
+          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm text-muted-foreground">
             <span className="relative flex size-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/60" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/60 motion-reduce:animate-none" />
               <span className="relative inline-flex size-2 rounded-full bg-primary" />
             </span>
             Available for freelance &amp; full-time
-          </motion.div>
+          </span>
+          <span className="font-mono text-xs text-muted-foreground">~/gregory $ whoami</span>
+        </div>
 
-          <div className="space-y-2">
-            <p className="font-mono text-sm uppercase tracking-widest text-muted-foreground">Hi, I&apos;m</p>
-            <h1 className="text-balance text-5xl font-semibold tracking-tighter sm:text-6xl lg:text-7xl">
-              <span className="text-gradient">Gregory Temwa</span>
-            </h1>
-          </div>
+        <h1 className="text-balance text-5xl font-semibold tracking-tighter sm:text-7xl lg:text-8xl">
+          <span className="text-gradient">Software that holds up</span>
+          <br />
+          <span className="text-primary">on a busy afternoon.</span>
+        </h1>
 
-          <div className="font-mono text-lg text-primary sm:text-xl">
-            <AnimatedText
-              phrases={[
-                "Software Engineer",
-                "Full Stack Developer",
-                "AI/ML Enthusiast",
-                "Hackathon Winner",
-                "MERN Stack Developer",
-              ]}
-              typingSpeed={50}
-              pauseMs={1500}
-            />
-          </div>
+        <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+          I&apos;m Gregory — Chief Software Engineer at WebTech and a Software Engineering student at USIU, class of
+          2027. I build impactful systems that organisations run their day on — trust accounting for a law firm,
+          operations for a flower farm, bookings for a safari operator, a point of sale that keeps selling offline.
+        </p>
 
-          <p className="max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Award-winning Software Engineer in Nairobi with 3+ years of experience building production SaaS platforms,
-            AI-powered products, and offline-first apps with TypeScript, React, Python, and Postgres.
-          </p>
+        <div className="flex flex-wrap gap-3">
+          <Button asChild size="lg">
+            <Link href="#contact">
+              Let&apos;s work together
+              <ArrowRight className="size-4" />
+            </Link>
+          </Button>
+          <Button asChild size="lg" variant="outline">
+            <Link href="#work">
+              See the work
+              <ArrowDown className="size-4" />
+            </Link>
+          </Button>
+        </div>
 
-          <div className="flex flex-wrap gap-3 pt-2">
-            <Button asChild size="lg">
-              <Link href="#contact">Get in touch</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <Link href="#projects">View projects</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <a href="https://github.com/youneedgreg" target="_blank" rel="noreferrer">
-                <Github className="size-4" />
-                GitHub
-              </a>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <a href="https://www.linkedin.com/in/youneedgreg/" target="_blank" rel="noreferrer">
-                <Linkedin className="size-4" />
-                LinkedIn
-              </a>
-            </Button>
-          </div>
-        </motion.div>
-
-        <motion.div
-          ref={imageRef}
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="relative"
-        >
-          <motion.div style={{ y }} className="surface relative overflow-hidden p-2 shadow-2xl">
-            <Image
-              src="/hero-picture.png"
-              alt="Gregory Temwa's development workspace with multiple monitors showing code"
-              width={800}
-              height={600}
-              sizes="(min-width: 1024px) 45vw, 100vw"
-              className="aspect-[4/3] w-full rounded-xl object-cover"
-              priority
-            />
-          </motion.div>
-        </motion.div>
+        <dl className="flex flex-wrap gap-x-8 gap-y-3 font-mono text-sm">
+          {stats.map((stat) => (
+            <div key={stat.label} className="flex items-baseline gap-2">
+              <dt className="sr-only">{stat.label}</dt>
+              <dd className="text-xl font-semibold text-foreground">{stat.value}</dd>
+              <span aria-hidden className="text-muted-foreground">
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   )

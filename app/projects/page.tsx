@@ -1,64 +1,62 @@
-'use client'
+import WorkExplorer, { type WorkItem } from "@/components/work-explorer"
+import { projects } from "@/data/projects"
 
-import dynamic from 'next/dynamic'
-import Link from 'next/link'
-import { ArrowLeft } from 'lucide-react'
-
-const MotionDiv = dynamic(() => import("framer-motion").then((mod) => mod.motion.div))
-import ProjectCard from '@/components/project-card'
-import { projects } from '@/data/projects'
-import { useState } from 'react'
-import { Button } from '@/components/ui/button'
+/** Newest first; within a year, featured work leads. "2025–Present" sorts as 2025. */
+function byRecency(a: WorkItem, b: WorkItem) {
+  return b.year.slice(0, 4).localeCompare(a.year.slice(0, 4)) || Number(b.featured) - Number(a.featured)
+}
 
 export default function ProjectsPage() {
-  const [visibleProjects, setVisibleProjects] = useState(6)
+  // Only what the cards need crosses to the client — not the case-study text.
+  const items: WorkItem[] = projects
+    .map((p) => ({
+      slug: p.slug,
+      title: p.title,
+      description: p.description,
+      image: p.image.startsWith("/placeholder") ? null : p.image,
+      tags: p.tags,
+      year: p.year,
+      status: p.status,
+      featured: Boolean(p.featured),
+      openSource: Boolean(p.openSource),
+    }))
+    .sort(byRecency)
 
-  const loadMore = () => {
-    setVisibleProjects((prev) => prev + 6)
-  }
+  const count = (status: WorkItem["status"]) => items.filter((item) => item.status === status).length
 
   return (
     <main className="px-4 py-16 md:px-6 md:py-24">
-      <div className="mx-auto max-w-5xl space-y-12">
-        <div className="space-y-4">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 font-mono text-sm text-muted-foreground transition-colors hover:text-foreground"
-          >
-            <ArrowLeft className="size-4" />
-            Back home
-          </Link>
-          <div className="space-y-2">
-            <p className="font-mono text-sm uppercase tracking-widest text-primary">Portfolio</p>
-            <h1 className="text-balance text-5xl font-semibold tracking-tighter sm:text-6xl md:text-7xl">
-              All projects
-            </h1>
-          </div>
-          <p className="max-w-2xl text-base text-muted-foreground sm:text-lg">
-            A collection of my work, from web apps to open-source projects.
+      <div className="mx-auto max-w-6xl space-y-12">
+        <header className="space-y-5">
+          <p className="font-mono text-sm text-muted-foreground">
+            <span className="text-primary">greg@portfolio</span>:~$ ls ~/work | wc -l
           </p>
-        </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.slice(0, visibleProjects).map((p, i) => (
-            <MotionDiv
-              key={p.slug}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: (i % 6) * 0.08 }}
-              className={p.size === "large" ? "sm:col-span-2 lg:col-span-1" : undefined}
-            >
-              <ProjectCard project={p} />
-            </MotionDiv>
-          ))}
-        </div>
-        {visibleProjects < projects.length && (
-          <div className="text-center">
-            <Button onClick={loadMore} variant="outline" size="lg">
-              Load more
-            </Button>
-          </div>
-        )}
+          <h1 className="text-balance text-5xl font-semibold tracking-tighter sm:text-6xl md:text-8xl">
+            <span className="text-gradient">{items.length} things</span>
+            <br />
+            <span className="text-primary">I&apos;ve built.</span>
+          </h1>
+          <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Production systems for real clients, open-source work, and experiments that taught me something. Search
+            it, filter it, switch to the terminal view — or let the dice pick.
+          </p>
+          <dl className="flex flex-wrap gap-x-8 gap-y-2 font-mono text-sm">
+            {(
+              [
+                ["live", "live right now"],
+                ["private", "client systems"],
+                ["source-available", "source-available"],
+                ["coming-soon", "in progress"],
+              ] as const
+            ).map(([status, label]) => (
+              <div key={status} className="flex flex-col-reverse">
+                <dt className="text-muted-foreground">{label}</dt>
+                <dd className="text-2xl font-semibold">{count(status)}</dd>
+              </div>
+            ))}
+          </dl>
+        </header>
+        <WorkExplorer items={items} />
       </div>
     </main>
   )

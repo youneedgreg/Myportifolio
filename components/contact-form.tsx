@@ -7,7 +7,6 @@ import { useToast } from "@/hooks/use-toast"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { motion } from "framer-motion"
 
 export default function ContactForm() {
   const { toast } = useToast()
@@ -43,14 +42,8 @@ export default function ContactForm() {
   }
 
   return (
-    <section id="contact" className="px-4 md:px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="surface mx-auto max-w-2xl p-8 md:p-12"
-      >
+    <section id="contact" className="scroll-mt-24">
+      <div className="surface mx-auto max-w-2xl p-8 md:p-12">
         <div className="space-y-2">
           <p className="font-mono text-sm uppercase tracking-widest text-primary">Get in touch</p>
           <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">Let&apos;s build something amazing</h2>
@@ -118,21 +111,20 @@ export default function ContactForm() {
             />
           </div>
           <div className="flex items-center gap-4">
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            <Button
+              type="submit"
+              disabled={loading}
+              size="lg"
+              className="transition-transform hover:scale-[1.02] active:scale-[0.98] motion-reduce:transform-none"
             >
-              <Button type="submit" disabled={loading} size="lg">
-                {loading ? "Sending..." : "Send message"}
-              </Button>
-            </motion.div>
+              {loading ? "Sending..." : "Send message"}
+            </Button>
             <p className="text-xs text-muted-foreground">
               I usually reply within 24 hours. Available for freelance and full-time opportunities.
             </p>
           </div>
         </form>
-      </motion.div>
+      </div>
     </section>
   )
 }
