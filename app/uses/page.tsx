@@ -4,13 +4,13 @@ import { Badge } from "@/components/ui/badge"
 import { projects } from "@/data/projects"
 import { SITE_NAME } from "@/lib/seo"
 
-const description = "The languages, frameworks, databases and infrastructure Gregory Temwa builds with — counted from real projects."
+const description = "The languages, frameworks, databases and infrastructure Gregory Temwa builds with, counted from real projects."
 
 export const metadata: Metadata = {
   title: "Uses",
   description,
   alternates: { canonical: "/uses" },
-  openGraph: { title: "Uses — Gregory Temwa", description, url: "/uses", siteName: SITE_NAME, type: "website" },
+  openGraph: { title: "Uses | Gregory Temwa", description, url: "/uses", siteName: SITE_NAME, type: "website" },
 }
 
 /** Project tags that name the same tool. */
@@ -63,7 +63,7 @@ export default function UsesPage() {
             <span className="text-gradient">Uses</span>
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Not a wishlist — the chart below is counted from the {projects.length} projects on this site, so it only
+            Not a wishlist. The chart below is counted from the {projects.length} projects on this site, so it only
             shows what has actually shipped.
           </p>
         </header>

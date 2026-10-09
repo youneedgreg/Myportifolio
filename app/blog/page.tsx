@@ -6,7 +6,7 @@ import { formatPostDate, getSortedPosts } from "@/data/blog"
 import { SITE_NAME } from "@/lib/seo"
 
 const description =
-  "Notes from Gregory Temwa on building production software — domain modelling, testing, security defaults, and the failures that only show up once something is real."
+  "Notes from Gregory Temwa on building production software: domain modelling, testing, security defaults, and the failures that only show up once something is real."
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     canonical: "/blog",
   },
   openGraph: {
-    title: "Blog — Gregory Temwa",
+    title: "Blog | Gregory Temwa",
     description,
     url: "/blog",
     siteName: SITE_NAME,

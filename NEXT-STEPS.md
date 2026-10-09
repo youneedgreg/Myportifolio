@@ -7,9 +7,14 @@ What's left after the October 2026 upgrade (PRs #5–#8). The first section need
 - [ ] **Add `GITHUB_TOKEN` in Vercel.** Create a fine-grained GitHub token with read-only access to public repositories and add it to the project as `GITHUB_TOKEN`, then redeploy. Without it, the home page "Now" section and the GitHub stats on `/about` share GitHub's 60 requests/hour unauthenticated limit with everyone else on Vercel's IPs, and fall back to a plain "See recent work on GitHub" link when it runs out.
 - [ ] **Turn on Speed Insights.** Vercel dashboard → project → Speed Insights → Enable. The code is already in place (`@vercel/speed-insights` in `app/layout.tsx`); it starts reporting Core Web Vitals once enabled.
 - [x] **Custom domain.** _Done: temwa.dev, with `SITE_URL` in `lib/seo.ts` updated so canonicals, sitemap, RSS and share images use it._
-- [ ] **Decide the status of the "My Portfolio" project.** `myportfolio-website` in `data/projects.ts` is still `coming-soon` even though the site is live. Switch it to `live` with `href: "https://temwa.dev"`, or remove it.
+- [x] **"My Portfolio" project.** _Done: live at temwa.dev with a real case study and screenshots._
 
 Not changing: the bio says you're a USIU student, which is correct — you haven't graduated yet.
+
+## Needs you (new)
+
+- [ ] **AgroWatch's live API is failing.** agro-watch-weather-ai.vercel.app shows "Weather AI service error"; check its `WEATHER_AI_KEY` and quota in Vercel.
+- [ ] **OKLaw firm site hero photo.** oklaw-new-website.vercel.app still shows the hero image placeholder.
 
 ## Keep fresh
 
@@ -36,5 +41,5 @@ Found in a pass over the live site at desktop and phone (375px) widths, in both 
 
 ### Low
 
-- [ ] **12 of 25 projects use a placeholder cover.** Add real screenshots, or hide `coming-soon` projects from the main grid until they have something to show.
+- [x] **Placeholder covers.** _Mostly done: real screenshots for every project with a UI to capture; the rest (private client systems, ML notebooks, APIs) use generated covers._ ~~12 of 25 projects use a placeholder cover.~~ Add real screenshots, or hide `coming-soon` projects from the main grid until they have something to show.
 - [x] **`/fun` is only reachable through ⌘K.** _Done: replaced by `/lab`, linked everywhere; `/fun` redirects._ Link it from the new footer, or remove it — its random-fact widget is gone and the remaining widgets don't say much about your work.

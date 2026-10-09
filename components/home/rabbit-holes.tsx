@@ -33,7 +33,7 @@ export default function RabbitHoles() {
         <p className="font-mono text-sm uppercase tracking-widest text-primary">Keep going</p>
         <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">Places to get lost</h2>
         <p className="max-w-xl text-muted-foreground">
-          The home page is the trailer. These are the director&apos;s cut — or press{" "}
+          The home page is the trailer. These are the director&apos;s cut. Or press{" "}
           <kbd className="rounded border border-border px-1.5 py-0.5 font-mono text-xs text-foreground">?</kbd> and
           drive with the keyboard.
         </p>

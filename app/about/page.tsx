@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     canonical: "/about",
   },
   openGraph: {
-    title: "About — Gregory Temwa",
+    title: "About | Gregory Temwa",
     description,
     url: "/about",
     siteName: SITE_NAME,

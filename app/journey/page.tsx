@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Journey",
   description,
   alternates: { canonical: "/journey" },
-  openGraph: { title: "Journey — Gregory Temwa", description, url: "/journey", siteName: SITE_NAME, type: "website" },
+  openGraph: { title: "Journey | Gregory Temwa", description, url: "/journey", siteName: SITE_NAME, type: "website" },
 }
 
 export default function JourneyPage() {
@@ -28,7 +28,7 @@ export default function JourneyPage() {
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
             From teaching kids to code in {firstYear} to running engineering at WebTech while finishing a degree.{" "}
-            {entries.length} entries, newest first — filter to follow one thread.
+            {entries.length} entries, newest first. Filter to follow one thread.
           </p>
         </header>
         <JourneyTimeline entries={entries} />

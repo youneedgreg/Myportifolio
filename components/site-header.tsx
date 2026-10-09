@@ -7,6 +7,7 @@ import dynamic from "next/dynamic"
 import { Github, Linkedin, Menu, Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useCommandPalette } from "@/components/command-palette"
+import XLogo from "@/components/icons/x-logo"
 import { mainNav, SOCIAL } from "@/data/navigation"
 
 const ThemeToggle = dynamic(() => import("@/components/theme-toggle"), { ssr: false })
@@ -72,6 +73,17 @@ export default function SiteHeader() {
           >
             <a href={SOCIAL.github} target="_blank" rel="noreferrer">
               <Github className="size-4" />
+            </a>
+          </Button>
+          <Button
+            asChild
+            variant="ghost"
+            size="icon"
+            aria-label="X (Twitter)"
+            className="hidden text-muted-foreground hover:text-foreground sm:inline-flex"
+          >
+            <a href={SOCIAL.x} target="_blank" rel="noreferrer">
+              <XLogo className="size-3.5" />
             </a>
           </Button>
           <Button

@@ -26,4 +26,5 @@ export const SOCIAL = {
   email: "gregorytemwa1212@gmail.com",
   github: "https://github.com/youneedgreg",
   linkedin: "https://www.linkedin.com/in/youneedgreg/",
+  x: "https://x.com/youneedgreg",
 }

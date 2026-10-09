@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 }
 
 const INTRO =
-  "I started out teaching kids to code at Somo Africa in 2023. Since then I've shipped marketplaces, finance apps, a database engine written from scratch, and systems that real businesses open every morning — while still sitting exams at USIU. I care about the unglamorous parts: the rule enforced in four places, the sale that syncs exactly once, the default that fails safe."
+  "I started out teaching kids to code at Somo Africa in 2023. Since then I've shipped marketplaces, finance apps, a database engine written from scratch, and systems that real businesses open every morning, while still sitting exams at USIU. I care about the unglamorous parts: the rule enforced in four places, the sale that syncs exactly once, the default that fails safe."
 
 export default function Page() {
   const latestPosts = getSortedPosts().slice(0, 3)

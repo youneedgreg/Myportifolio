@@ -73,7 +73,7 @@ export default function KeyboardShortcuts() {
   useEffect(() => {
     // A note for the people who open devtools on portfolios.
     console.log(
-      "%cgreg@portfolio:~$ %cwhoami\n%cYou read source code for fun. So do I — say hi: gregorytemwa1212@gmail.com\nPress ? on the page for keyboard shortcuts.",
+      "%cgreg@portfolio:~$ %cwhoami\n%cYou read source code for fun. So do I. Say hi: gregorytemwa1212@gmail.com\nPress ? on the page for keyboard shortcuts.",
       "color:#38bdf8;font-family:monospace",
       "color:inherit;font-family:monospace",
       "color:#9ca3af;font-family:monospace",

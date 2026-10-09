@@ -36,8 +36,8 @@ export default function Hero() {
         </h1>
 
         <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-          I&apos;m Gregory — Chief Software Engineer at WebTech and a Software Engineering student at USIU, class of
-          2027. I build impactful systems that organisations run their day on — trust accounting for a law firm,
+          I&apos;m Gregory, Chief Software Engineer at WebTech and a Software Engineering student at USIU, class of
+          2027. I build impactful systems that organisations run their day on: trust accounting for a law firm,
           operations for a flower farm, bookings for a safari operator, a point of sale that keeps selling offline.
         </p>
 

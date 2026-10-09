@@ -38,19 +38,19 @@ const half = Math.ceil(skills.length / 2)
 
 const certificates = [
   {
-    title: "IBM SkillsBuild — AI Fundamentals",
+    title: "IBM SkillsBuild: AI Fundamentals",
     description: "Core AI concepts, applications, and ethics.",
   },
   {
-    title: "freeCodeCamp — Front End Development Libraries",
+    title: "freeCodeCamp: Front End Development Libraries",
     description: "React, Redux, and UI component best practices.",
   },
   {
-    title: "freeCodeCamp — Machine Learning with Python",
+    title: "freeCodeCamp: Machine Learning with Python",
     description: "ML pipelines with Python, model training & evaluation.",
   },
   {
-    title: "Coursera — Machine Learning (Andrew Ng)",
+    title: "Coursera: Machine Learning (Andrew Ng)",
     description: "Supervised/unsupervised learning, regularization, optimization.",
   },
 ]
