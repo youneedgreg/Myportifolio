@@ -8,7 +8,7 @@ export type ExperienceEntry = {
 export const experience: ExperienceEntry[] = [
   {
     role: "Chief Software Engineer",
-    company: "WebTech Solutions Limited, Nairobi, Kenya",
+    company: "Webtech Solutions Limited, Nairobi, Kenya",
     period: "Feb 2026 – Present",
     description:
       "Lead technical strategy and architecture across client projects, owning CI/CD pipelines, code quality standards, and mentoring engineers while delivering production SaaS platforms and AI-powered tools.",
@@ -22,7 +22,7 @@ export const experience: ExperienceEntry[] = [
   },
   {
     role: "Full Stack Software Developer",
-    company: "WebTech Solutions Limited, Nairobi, Kenya",
+    company: "Webtech Solutions Limited, Nairobi, Kenya",
     period: "Dec 2024 – Jan 2026",
     description:
       "Built client-facing applications with React, Next.js, TypeScript, and Node.js, designing databases and REST APIs end-to-end and shipping production deployments on Vercel and Railway.",

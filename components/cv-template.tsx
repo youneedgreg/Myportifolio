@@ -36,7 +36,7 @@ export function CVTemplate() {
           <p className="text-gray-700 text-sm leading-relaxed">
             Full Stack & AI Engineer with 3+ years of experience building production SaaS platforms, AI-powered
             applications, and scalable backend systems with React, Next.js, Node.js, NestJS, and Python. Leads
-            technical strategy as Chief Software Engineer at WebTech Solutions, combining analytical precision with
+            technical strategy as Chief Software Engineer at Webtech Solutions, combining analytical precision with
             creative design to deliver efficient, AI-integrated, data-driven solutions.
           </p>
         </section>
@@ -61,7 +61,7 @@ export function CVTemplate() {
             {/* Job 1 */}
             <div>
               <div className="flex justify-between items-baseline mb-1">
-                <h3 className="text-sm font-bold text-gray-800">Chief Software Engineer, WebTech Solutions Limited, Nairobi, Kenya</h3>
+                <h3 className="text-sm font-bold text-gray-800">Chief Software Engineer, Webtech Solutions Limited, Nairobi, Kenya</h3>
                 <span className="text-xs text-gray-600">(Feb 2026 – Present)</span>
               </div>
               <p className="text-sm text-gray-700 leading-relaxed">
@@ -87,7 +87,7 @@ export function CVTemplate() {
             {/* Job 2 */}
             <div>
               <div className="flex justify-between items-baseline mb-1">
-                <h3 className="text-sm font-bold text-gray-800">Full Stack Software Developer, WebTech Solutions Limited, Nairobi, Kenya</h3>
+                <h3 className="text-sm font-bold text-gray-800">Full Stack Software Developer, Webtech Solutions Limited, Nairobi, Kenya</h3>
                 <span className="text-xs text-gray-600">(Dec 2024 – Jan 2026)</span>
               </div>
               <p className="text-sm text-gray-700 leading-relaxed">

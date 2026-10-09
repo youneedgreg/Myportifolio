@@ -243,12 +243,13 @@
   }
 }
 
+/* Colour, not opacity: unrevealed words stay at the readable muted-text contrast. */
 @keyframes reveal-word {
   from {
-    opacity: 0.18;
+    color: var(--muted-foreground);
   }
   to {
-    opacity: 1;
+    color: var(--foreground);
   }
 }
 

@@ -99,7 +99,7 @@ const personJsonLd = {
       description: SITE_DESCRIPTION,
       worksFor: {
         "@type": "Organization",
-        name: "WebTech Solutions Limited",
+        name: "Webtech Solutions Limited",
       },
       alumniOf: {
         "@type": "CollegeOrUniversity",
@@ -142,11 +142,19 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <CommandPaletteProvider>
+            <a
+              href="#content"
+              className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
+            >
+              Skip to content
+            </a>
             <ScrollProgress />
             <SiteHeader />
-            {children}
+            <div id="content" tabIndex={-1} className="outline-none">
+              {children}
+            </div>
             <SiteFooter />
             <LazyToaster />
             <TabTitle />

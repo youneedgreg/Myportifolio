@@ -80,7 +80,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     datePublished: post.date,
     dateModified: post.date,
     url: `${SITE_URL}/blog/${post.slug}`,
-    image: `${SITE_URL}/opengraph-image`,
+    image: `${SITE_URL}/blog/${post.slug}/opengraph-image`,
     keywords: post.tags.join(", "),
     inLanguage: "en",
     author: { "@type": "Person", "@id": `${SITE_URL}/#person`, name: "Gregory Temwa Odete", url: SITE_URL },

@@ -1,12 +1,12 @@
 OKLaw has a public demo. The demo needs three things a real installation must never have: a one-click switcher that mints a session for any of six roles without a password, a shared password printed on the sign-in page, and a nightly cron that empties every table so the next visitor finds the firm as the last one did. Each of those, on a system holding a firm's actual matters, is a breach.
 
-So each is conditional on a flag — `DEMO_DEPLOYMENT` — and the demo and an installation are the same build. Writing that took an afternoon. The part that took longer was deciding which way the flag should fail.
+So each is conditional on a flag, `DEMO_DEPLOYMENT`, and the demo and an installation are the same build. Writing that took an afternoon. The part that took longer was deciding which way the flag should fail.
 
 ## Three mistakes that have to mean the same thing
 
 Consider what an unset variable actually represents. It could be a variable somebody forgot to set. It could be one somebody misspelt. It could be a deployment created from this repository by a person who has never read the README and does not know the variable exists. All three are mistakes, and the default has to pick one meaning for all of them.
 
-If the flag defaults to on, all three mistakes publish a one-click administrator login on somebody's real data. If it defaults to off, all three produce an ordinary application with the demo affordances absent — and when somebody does forget, the demo is a dull afternoon until they notice the sign-in switcher is missing.
+If the flag defaults to on, all three mistakes publish a one-click administrator login on somebody's real data. If it defaults to off, all three produce an ordinary application with the demo affordances absent, and when somebody does forget, the demo is a dull afternoon until they notice the sign-in switcher is missing.
 
 The two failures are not comparable, so the choice is not close. Absence cannot mean demo. It has to mean the real thing, with the dangerous affordances off.
 
@@ -14,10 +14,10 @@ The two failures are not comparable, so the choice is not close. Absence cannot 
 
 The nightly reset endpoint is guarded twice: it needs the cron secret and the demo flag, required together rather than either alone. The reason is specific. vercel.json is committed, so a second project built from this repository registers the same nightly cron whether or not anybody meant it to. One variable is too much weight to put on that.
 
-It is worth being precise about why two checks help here, because two checks do not always help. A control consulted instead of another is a second door — more ways in. A control required alongside another is a second lock. Same count, opposite effect, and the whole difference is whether the operator is and or or.
+It is worth being precise about why two checks help here, because two checks do not always help. A control consulted instead of another is a second door: more ways in. A control required alongside another is a second lock. Same count, opposite effect, and the whole difference is whether the operator is and or or.
 
 ## A related trap: the safeguard that is the attack
 
-The same habit — asking what a control does when it is wrong — applies to lockouts. Locking an account after five failed sign-ins sounds like security. It also hands anybody who can read the firm's website a way to lock a partner out on the morning of a hearing, using nothing but their email address. The throttle here is durable and limits the attempt rather than disabling the account, and the one thing that would genuinely raise the floor — a second factor — is written down as absent rather than left as an implication.
+The same habit (asking what a control does when it is wrong) applies to lockouts. Locking an account after five failed sign-ins sounds like security. It also hands anybody who can read the firm's website a way to lock a partner out on the morning of a hearing, using nothing but their email address. The throttle here is durable and limits the attempt rather than disabling the account, and the one thing that would genuinely raise the floor, a second factor, is written down as absent rather than left as an implication.
 
 > Get the default backwards and the flag is worse than no flag at all.

@@ -59,19 +59,26 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Invalid email." }, { status: 400 })
   }
 
+  if (!process.env.RESEND_API_KEY) {
+    console.error("Contact form: RESEND_API_KEY is not set")
+    return NextResponse.json({ error: "The contact form isn't configured yet." }, { status: 503 })
+  }
+
   const resend = new Resend(process.env.RESEND_API_KEY)
   const { error } = await resend.emails.send({
-    from: "onboarding@resend.dev",
-    to: "gregorytemwa1212@gmail.com",
+    // onboarding@resend.dev only delivers to the Resend account's own address;
+    // set CONTACT_FROM (e.g. "Gregory Temwa <hello@temwa.dev>") once temwa.dev is verified in Resend.
+    from: process.env.CONTACT_FROM || "Portfolio contact <onboarding@resend.dev>",
+    to: process.env.CONTACT_TO || "gregorytemwa1212@gmail.com",
     replyTo: email,
-    subject: `New contact form submission from ${name.replace(/[\r\n]+/g, " ")}`,
+    subject: `temwa.dev: message from ${name.replace(/[\r\n]+/g, " ")}`,
     html: `<p><strong>Name:</strong> ${escapeHtml(name)}</p><p><strong>Email:</strong> ${escapeHtml(email)}</p><p><strong>Message:</strong></p><p style="white-space:pre-wrap">${escapeHtml(message)}</p>`,
     text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
   })
 
   if (error) {
     console.error("Resend error:", error)
-    return NextResponse.json({ error: "Couldn't send your message. Please try again later." }, { status: 502 })
+    return NextResponse.json({ error: "Couldn't send your message right now." }, { status: 502 })
   }
 
   return NextResponse.json({ ok: true })

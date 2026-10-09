@@ -4,12 +4,21 @@ What's left after the October 2026 upgrade (PRs #5–#8). The first section need
 
 ## Needs you
 
-- [ ] **Add `GITHUB_TOKEN` in Vercel.** Create a fine-grained GitHub token with read-only access to public repositories and add it to the project as `GITHUB_TOKEN`, then redeploy. Without it, the home page "Now" section and the GitHub stats on `/about` share GitHub's 60 requests/hour unauthenticated limit with everyone else on Vercel's IPs, and fall back to a plain "See recent work on GitHub" link when it runs out.
+- [x] **`GITHUB_TOKEN` in Vercel.** _Done: fine-grained, public repositories read-only, Sensitive, Production and Preview._
 - [ ] **Turn on Speed Insights.** Vercel dashboard → project → Speed Insights → Enable. The code is already in place (`@vercel/speed-insights` in `app/layout.tsx`); it starts reporting Core Web Vitals once enabled.
 - [x] **Custom domain.** _Done: temwa.dev, with `SITE_URL` in `lib/seo.ts` updated so canonicals, sitemap, RSS and share images use it._
 - [x] **"My Portfolio" project.** _Done: live at temwa.dev with a real case study and screenshots._
 
 Not changing: the bio says you're a USIU student, which is correct — you haven't graduated yet.
+
+## Needs you (round 1)
+
+- [x] **Verify temwa.dev in Resend.** _Done: DKIM and SPF verified (receiving off, so name.com mail forwarding is untouched); `CONTACT_FROM` = `Gregory Temwa <hello@temwa.dev>` set for Production and Preview; a test message through the preview returned 200._
+- [x] **`RESEND_API_KEY` marked Sensitive.** _Done._
+- [x] **www.temwa.dev redirects to temwa.dev.** _Done (307 today; 308 would mark it permanent for search engines)._
+- [ ] **temwa.com** is not owned: it's listed for sale at HugeDomains. Remove it from the Vercel team's domains unless you buy it.
+- [ ] **Booking link.** Create a free Cal.com (or Calendly) event and put the URL in `SOCIAL.booking` in `data/navigation.ts`; the "Book a call" button appears automatically.
+- [ ] **Hackathon specifics.** The site says "award-winning hackathon participant". Naming the hackathon(s), the year and the placing would make it concrete (and would be a natural journey entry).
 
 ## Needs you (new)
 

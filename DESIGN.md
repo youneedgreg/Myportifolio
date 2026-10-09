@@ -77,6 +77,8 @@ Geist Sans for UI and body, Geist Mono (`font-mono`) for labels, dates, stats, c
 
 **Navigation data** — every nav surface (header, mobile menu, footer, ⌘K palette, `g`-key shortcuts, home "Places to get lost") reads from `data/navigation.ts`. Add a page there, not in each component.
 
+**Contact** (`components/contact-form.tsx`) — direct channels first (email with copy, WhatsApp, booking when `SOCIAL.booking` is set), the form second. Results are shown inline in an `aria-live` region, never only in a toast, and a failure always offers the email address.
+
 **Personality layer** — keyboard shortcuts (`components/keyboard-shortcuts.tsx`), the away-tab title (`components/tab-title.tsx`) and the devtools console note. Easter eggs stay discoverable but never block content.
 
 ## Motion
@@ -107,11 +109,12 @@ Framer Motion (`framer-motion`) for component motion, Tailwind `animate-*` for C
 
 - **Content Security Policy** (`next.config.ts`) allows scripts, styles, fonts, images and fetches from this origin only (plus Vercel's preview toolbar). Components that load fonts, scripts or images from a CDN will be blocked — vendor the asset or extend the policy deliberately.
 - **No new animation or UI libraries** without a reason; Framer Motion, shadcn/ui and Magic UI (installed via the shadcn CLI into `components/ui/`) cover what exists.
-- **Accessibility:** visible focus (the shared `ring` token), real `<a>`/`<button>` elements, `aria-hidden` on decorative duplicates, alt text on every image.
+- **Accessibility:** a skip link in the root layout targets `#content`; visible focus (the shared `ring` token), real `<a>`/`<button>` elements, `aria-hidden` on decorative duplicates, alt text on every image.
 
 ## Don't
 
 - Add a second accent colour, gradients behind text blocks, or glassmorphism.
 - Use `text-gradient` on body copy or small text.
+- Use em dashes in copy (a test enforces this for projects and posts); reach for a colon, comma or full stop.
 - Put more than one filled (`default`) button in a row.
 - Hard-code colours (`#fff`, `text-blue-500`) instead of tokens.

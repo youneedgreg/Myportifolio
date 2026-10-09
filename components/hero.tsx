@@ -36,7 +36,7 @@ export default function Hero() {
         </h1>
 
         <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-          I&apos;m Gregory, Chief Software Engineer at WebTech and a Software Engineering student at USIU, class of
+          I&apos;m Gregory, Chief Software Engineer at Webtech and a Software Engineering student at USIU, class of
           2027. I build impactful systems that organisations run their day on: trust accounting for a law firm,
           operations for a flower farm, bookings for a safari operator, a point of sale that keeps selling offline.
         </p>
@@ -56,7 +56,7 @@ export default function Hero() {
           </Button>
         </div>
 
-        <dl className="flex flex-wrap gap-x-8 gap-y-3 font-mono text-sm">
+        <dl className="grid grid-cols-2 gap-x-6 gap-y-3 font-mono text-sm sm:flex sm:flex-wrap sm:gap-x-8">
           {stats.map((stat) => (
             <div key={stat.label} className="flex items-baseline gap-2">
               <dt className="sr-only">{stat.label}</dt>

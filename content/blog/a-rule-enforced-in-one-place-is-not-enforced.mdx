@@ -1,19 +1,19 @@
 Money a Kenyan law firm holds for a client is not the firm's money. The Advocates (Accounts) Rules say so, and Rule 10 is the specific one: client funds may not leave trust for anything other than what they were held for, and a client's trust balance may never go negative by covering one client's disbursement out of another's money. Commingling is a disciplinary matter, not a bookkeeping error.
 
-When I started building trust accounting into OKLaw, I did the obvious thing: wrote the rule as a function in the domain layer, tested it, and moved on. It took me a while to understand why that was not enough — and the reason is not that the function was wrong. The function was fine. It was answering one of four questions.
+When I started building trust accounting into OKLaw, I did the obvious thing: wrote the rule as a function in the domain layer, tested it, and moved on. It took me a while to understand why that was not enough, and the reason is not that the function was wrong. The function was fine. It was answering one of four questions.
 
 ## The four places
 
 By the time the feature was actually safe, the rule lived in four places, and each placement answers something the others cannot.
 
-- In the domain, as a pure function over a balance and a proposed withdrawal. This is where the rule is legible — somebody can find it, read the reasoning, and change it deliberately. It is also the only version cheap enough to test exhaustively, because it needs no database at all.
+- In the domain, as a pure function over a balance and a proposed withdrawal. This is where the rule is legible: somebody can find it, read the reasoning, and change it deliberately. It is also the only version cheap enough to test exhaustively, because it needs no database at all.
 - In the database, as a trigger. The domain function protects the paths that go through the domain. A trigger protects the table: from a migration written at midnight, from a repair script run by hand against production, from the second service that does not exist yet but will.
 - In the repository, as a translation. Postgres raises its constraint violation as a driver error with a code and a message. If that reaches the service layer as an opaque failure, the application either crashes or reports something unhelpful. The repository translates it back into the same tagged domain error the pure function returns, so the caller handles one failure type instead of two.
 - In the ordering of two writes inside one transaction. The balance check and the ledger insert have to happen in an order where the check cannot be stale, in a transaction that cannot interleave. Get this wrong and you have a correct rule, correctly enforced, against a number that was true a moment ago.
 
 ## Why the last one is the hard one
 
-The first three are visible. You can point at them in a diff. The fourth is a property of the code's shape rather than any line in it, which is exactly why it survives review and fails in production. Two withdrawals against the same trust account, arriving close enough together, will each read a balance that permits them and each write a ledger row that, together, do not. Nothing in the domain function is wrong. Nothing in the trigger is wrong either — unless the trigger is the thing serialising them, which is the argument for having it.
+The first three are visible. You can point at them in a diff. The fourth is a property of the code's shape rather than any line in it, which is exactly why it survives review and fails in production. Two withdrawals against the same trust account, arriving close enough together, will each read a balance that permits them and each write a ledger row that, together, do not. Nothing in the domain function is wrong. Nothing in the trigger is wrong either, unless the trigger is the thing serialising them, which is the argument for having it.
 
 This is the part I would not have learned from a tutorial, because a tutorial's example has one user. A rule is not defended by its best implementation. It is defended by the weakest of the paths that can reach the data.
 

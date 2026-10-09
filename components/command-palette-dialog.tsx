@@ -11,6 +11,7 @@ import {
   Home,
   Linkedin,
   Mail,
+  MessageCircle,
   Moon,
   PenLine,
   Route,
@@ -33,7 +34,7 @@ import {
 } from "@/components/ui/command"
 import { getSortedPosts } from "@/data/blog"
 import { projects } from "@/data/projects"
-import { exploreNav } from "@/data/navigation"
+import { exploreNav, SOCIAL } from "@/data/navigation"
 import XLogo from "@/components/icons/x-logo"
 
 const exploreIcons: Record<string, React.ComponentType> = {
@@ -187,6 +188,10 @@ export default function CommandPaletteDialog({
           >
             <XLogo />
             Open X (Twitter) profile
+          </CommandItem>
+          <CommandItem onSelect={() => runCommand(() => window.open(SOCIAL.whatsapp, "_blank", "noopener,noreferrer"))}>
+            <MessageCircle />
+            Message on WhatsApp
           </CommandItem>
           <CommandItem onSelect={() => runCommand(() => router.push("/cv"))}>
             <FileText />
