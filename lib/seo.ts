@@ -1,4 +1,4 @@
-export const SITE_URL = "https://gregorytemwa.vercel.app"
+export const SITE_URL = "https://temwa.dev"
 export const SITE_NAME = "Gregory Temwa Portfolio"
 export const SITE_TITLE = "Gregory Temwa – Software Engineer"
 export const SITE_DESCRIPTION =
