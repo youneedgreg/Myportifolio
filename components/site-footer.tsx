@@ -79,6 +79,11 @@ export default function SiteFooter() {
                 </a>
               </li>
               <li>
+                <a href={SOCIAL.whatsapp} target="_blank" rel="noreferrer" className={linkClass}>
+                  WhatsApp
+                </a>
+              </li>
+              <li>
                 <a href={`mailto:${SOCIAL.email}`} className={linkClass}>
                   Email
                 </a>

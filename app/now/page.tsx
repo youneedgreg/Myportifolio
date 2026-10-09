@@ -86,11 +86,11 @@ export default function NowPage() {
 
         <p className="border-t border-border pt-8 font-mono text-xs text-muted-foreground">
           This is a{" "}
-          <a href="https://nownownow.com/about" target="_blank" rel="noreferrer" className="text-primary hover:text-foreground">
+          <a href="https://nownownow.com/about" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-4 hover:text-foreground">
             now page
           </a>
           . See what came before on the{" "}
-          <Link href="/journey" className="inline-flex items-center gap-1 text-primary hover:text-foreground">
+          <Link href="/journey" className="inline-flex items-center gap-1 text-primary underline underline-offset-4 hover:text-foreground">
             journey <ArrowRight className="size-3" />
           </Link>
         </p>

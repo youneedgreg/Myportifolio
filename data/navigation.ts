@@ -27,4 +27,8 @@ export const SOCIAL = {
   github: "https://github.com/youneedgreg",
   linkedin: "https://www.linkedin.com/in/youneedgreg/",
   x: "https://x.com/youneedgreg",
+  /** wa.me link, digits only with country code. */
+  whatsapp: "https://wa.me/254759442583",
+  /** Booking page (Cal.com, Calendly…). Empty hides the "Book a call" button. */
+  booking: "",
 }

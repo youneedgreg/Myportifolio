@@ -113,7 +113,7 @@ export default function UsesPage() {
           </dl>
           <p className="font-mono text-xs text-muted-foreground">
             The design rules live in <code className="text-foreground">DESIGN.md</code> in the repo. Want the long
-            version of any of these? <Link href="/blog" className="text-primary hover:text-foreground">The blog</Link>{" "}
+            version of any of these? <Link href="/blog" className="text-primary underline underline-offset-4 hover:text-foreground">The blog</Link>{" "}
             is where they get argued about.
           </p>
         </section>

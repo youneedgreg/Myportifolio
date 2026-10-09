@@ -27,7 +27,7 @@ export default function JourneyPage() {
             <span className="text-gradient">Journey</span>
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            From teaching kids to code in {firstYear} to running engineering at WebTech while finishing a degree.{" "}
+            From teaching kids to code in {firstYear} to running engineering at Webtech while finishing a degree.{" "}
             {entries.length} entries, newest first. Filter to follow one thread.
           </p>
         </header>

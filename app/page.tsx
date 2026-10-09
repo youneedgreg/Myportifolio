@@ -24,10 +24,7 @@ export default function Page() {
 
   return (
     <>
-      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50">
-        Skip to content
-      </a>
-      <main id="main" className="flex flex-col gap-24 px-4 md:gap-32 md:px-6">
+      <main className="flex flex-col gap-24 px-4 md:gap-32 md:px-6">
         <div className="space-y-10 md:space-y-12">
           <Hero />
           <WorkStrip />
