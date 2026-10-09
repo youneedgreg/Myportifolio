@@ -20,7 +20,7 @@ I am based in Nairobi, Kenya, and I am always open to new opportunities and coll
 ## Open Source
 
 *   Contributions to Canonical's Charmed Observability Stack (`tempo-operators`, `cos-alerter`)
-*   Contributions to Google's `sbsim` simulation project
+*   Open pull requests to Google's `sbsim` simulation project
 *   Merged PR to `mxsm/rocketmq-rust`
 
 ## Get in Touch

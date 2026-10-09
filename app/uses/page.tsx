@@ -29,7 +29,7 @@ const toolbox = [
   { label: "Infrastructure", items: ["Docker", "Kubernetes", "Nginx", "RabbitMQ", "Linux", "AWS", "Vercel", "Railway"] },
   { label: "Observability", items: ["Prometheus", "Grafana", "Grafana Tempo", "Juju charms"] },
   { label: "Testing", items: ["Vitest", "Playwright"] },
-  { label: "AI / ML", items: ["TensorFlow", "Keras", "OpenAI", "Mistral"] },
+  { label: "AI / ML", items: ["TensorFlow", "Keras", "Anthropic Claude", "Mistral", "OpenRouter"] },
 ]
 
 const thisSite = [

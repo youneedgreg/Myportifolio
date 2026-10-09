@@ -15,10 +15,10 @@ export const experience: ExperienceEntry[] = [
   },
   {
     role: "Open Source Developer",
-    company: "Independent — Canonical, Google, Apache",
+    company: "Independent — Canonical, RocketMQ-Rust and others",
     period: "Jun 2025 – Present",
     description:
-      "Contribute Python fixes and features to Canonical's Observability Stack — charm operators tempo-operators and cos-alerter — alongside contributions to Google's sbsim and Apache RocketMQ-Rust, working through code review with upstream maintainers.",
+      "Contribute Python fixes and features to Canonical's Observability Stack — merged changes to tempo-operators and alertmanager-k8s-operator, with open pull requests to cos-alerter and hardware-api — plus a merged change to RocketMQ-Rust and open pull requests to Google's sbsim, working through code review with upstream maintainers.",
   },
   {
     role: "Full Stack Software Developer",
