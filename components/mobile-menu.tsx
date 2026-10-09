@@ -66,6 +66,9 @@ export default function MobileMenu({
             <a href={SOCIAL.linkedin} target="_blank" rel="noreferrer" className="min-h-11 content-center hover:text-primary">
               LinkedIn
             </a>
+            <a href={SOCIAL.x} target="_blank" rel="noreferrer" className="min-h-11 content-center hover:text-primary">
+              X
+            </a>
             <a href={`mailto:${SOCIAL.email}`} className="min-h-11 content-center hover:text-primary">
               Email
             </a>

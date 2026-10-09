@@ -74,6 +74,11 @@ export default function SiteFooter() {
                 </a>
               </li>
               <li>
+                <a href={SOCIAL.x} target="_blank" rel="noreferrer" className={linkClass}>
+                  X / Twitter
+                </a>
+              </li>
+              <li>
                 <a href={`mailto:${SOCIAL.email}`} className={linkClass}>
                   Email
                 </a>

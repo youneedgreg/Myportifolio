@@ -24,7 +24,7 @@ export function CVTemplate() {
           </h1>
           <p className="text-lg text-gray-600 mb-3">Full Stack & AI Engineer</p>
           <div className="text-sm text-gray-700">
-            gregorytemwa1212@gmail.com | linkedin.com/in/youneedgreg | temwa.dev | github.com/youneedgreg
+            gregorytemwa1212@gmail.com | linkedin.com/in/youneedgreg | x.com/youneedgreg | temwa.dev | github.com/youneedgreg
           </div>
         </div>
 

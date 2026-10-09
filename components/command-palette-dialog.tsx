@@ -34,6 +34,7 @@ import {
 import { getSortedPosts } from "@/data/blog"
 import { projects } from "@/data/projects"
 import { exploreNav } from "@/data/navigation"
+import XLogo from "@/components/icons/x-logo"
 
 const exploreIcons: Record<string, React.ComponentType> = {
   "/journey": Route,
@@ -45,6 +46,7 @@ const exploreIcons: Record<string, React.ComponentType> = {
 const EMAIL = "gregorytemwa1212@gmail.com"
 const GITHUB_URL = "https://github.com/youneedgreg"
 const LINKEDIN_URL = "https://www.linkedin.com/in/youneedgreg/"
+const X_URL = "https://x.com/youneedgreg"
 
 const posts = getSortedPosts()
 
@@ -179,6 +181,12 @@ export default function CommandPaletteDialog({
           >
             <Linkedin />
             Open LinkedIn profile
+          </CommandItem>
+          <CommandItem
+            onSelect={() => runCommand(() => window.open(X_URL, "_blank", "noopener,noreferrer"))}
+          >
+            <XLogo />
+            Open X (Twitter) profile
           </CommandItem>
           <CommandItem onSelect={() => runCommand(() => router.push("/cv"))}>
             <FileText />

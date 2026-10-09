@@ -191,14 +191,14 @@ export const projects: Project[] = [
     title: "Pesapal RDBMS",
     description:
       "A relational database engine built entirely from scratch in Python with zero external dependencies — custom SQL parser, query executor, hash-based indexing, and an interactive REPL with a web demo.",
-    image: "/placeholder.svg?height=400&width=600&text=Pesapal+RDBMS",
+    image: "/assets/pesapal-repl.jpg",
     tags: ["Python", "SQL", "Systems Programming"],
     github: "https://github.com/youneedgreg/pesapal",
     size: "small",
     year: "2026",
     role: "Backend Developer (Solo)",
     status: "source-available",
-    gallery: [],
+    gallery: ["/assets/pesapal-repl.jpg", "/assets/pesapal-web.jpg"],
     openSource: true,
     caseStudy: {
       problem:
@@ -246,14 +246,14 @@ export const projects: Project[] = [
     title: "Notification System",
     description:
       "5-service microservices monorepo for email and push notifications — an API Gateway routes to User, Email, Push, and Template services via RabbitMQ with dead-letter queues, circuit breakers, and full observability.",
-    image: "/placeholder.svg?height=400&width=600&text=Notification+System",
+    image: "/assets/notification-architecture.jpg",
     tags: ["NestJS", "RabbitMQ", "PostgreSQL", "Redis", "Docker", "Prometheus", "Grafana"],
     github: "https://github.com/youneedgreg/notification-system",
     size: "medium",
     year: "2026",
     role: "Backend Developer (Solo)",
     status: "source-available",
-    gallery: [],
+    gallery: ["/assets/notification-architecture.jpg", "/assets/notification-message-flow.jpg"],
     openSource: true,
     caseStudy: {
       problem:
@@ -353,14 +353,14 @@ export const projects: Project[] = [
     title: "Chessy",
     description:
       "A chess training platform that runs Stockfish (WASM) in a Web Worker for instant move analysis, opening book review, move classification, and principled correction.",
-    image: "/placeholder.svg?height=400&width=600&text=Chessy",
+    image: "/assets/chessy-home.jpg",
     tags: ["Next.js", "TypeScript", "chess.js", "Stockfish.js", "Zustand"],
     github: "https://github.com/youneedgreg/chessy",
     size: "medium",
     year: "2026",
     role: "Full-Stack Developer (Solo)",
     status: "coming-soon",
-    gallery: [],
+    gallery: ["/assets/chessy-home.jpg"],
     openSource: true,
     caseStudy: {
       problem:
@@ -407,14 +407,14 @@ export const projects: Project[] = [
     title: "Dapper Saint Streets",
     description:
       "A luxury streetwear e-commerce platform with full authentication, shopping cart, wishlist, admin dashboard, and 360° product views.",
-    image: "/placeholder.svg?height=400&width=600&text=Dapper+Saint+Streets",
+    image: "/assets/dapper-saint-landing.jpg",
     tags: ["React", "Vite", "Supabase", "TanStack Query", "Zod", "Framer Motion"],
     github: "https://github.com/youneedgreg/dapper-saint-streets",
     size: "medium",
     year: "2026",
     role: "Full-Stack Developer (Solo)",
     status: "coming-soon",
-    gallery: [],
+    gallery: ["/assets/dapper-saint-landing.jpg"],
     openSource: true,
     caseStudy: {
       problem:
@@ -677,14 +677,14 @@ export const projects: Project[] = [
     title: "Motel Management System",
     description:
       "A TypeScript-based motel management app handling bookings, occupancy tracking, and automated daily summaries with Prisma ORM.",
-    image: "/placeholder.svg?height=400&width=600&text=Motel+Management+System",
+    image: "/assets/motel-login.jpg",
     tags: ["Next.js", "TypeScript", "Prisma", "Tailwind CSS"],
     github: "https://github.com/youneedgreg/Motel_management",
     size: "medium",
     year: "2025",
     role: "Full-Stack Developer (Solo)",
     status: "coming-soon",
-    gallery: [],
+    gallery: ["/assets/motel-login.jpg"],
     openSource: true,
     caseStudy: {
       problem:
@@ -699,27 +699,30 @@ export const projects: Project[] = [
   },
   {
     slug: "myportfolio-website",
-    title: "MyPortfolio Website",
+    title: "temwa.dev — This Portfolio",
     description:
-      "A Next.js portfolio website showcasing Gregory Temwa's projects, education, and experience with smooth animations and dynamic sections.",
-    image: "/placeholder.svg?height=400&width=600&text=My+Portfolio",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    github: "https://github.com/youneedgreg/myportifolio",
+      "The site you're on: a fast, keyboard-driven portfolio with filterable case studies, an MDX blog, a year-by-year journey, and a lab of interactive experiments — scoring 93–97 on mobile Lighthouse.",
+    image: "/assets/portfolio-home.jpg",
+    tags: ["Next.js", "React 19", "TypeScript", "Tailwind CSS", "MDX", "Vercel"],
+    href: "https://temwa.dev",
+    github: "https://github.com/youneedgreg/Myportifolio",
     size: "medium",
     year: "2026",
     role: "Full-Stack Developer (Solo)",
-    status: "coming-soon",
-    gallery: [],
+    status: "live",
+    gallery: ["/assets/portfolio-home.jpg", "/assets/portfolio-projects.jpg", "/assets/portfolio-lab.jpg"],
     openSource: true,
     caseStudy: {
       problem:
-        "Portfolio sites often look templated and don't reflect the engineering quality of the person's actual work.",
+        "Portfolio sites often look templated and say little about how the person actually engineers. Mine had grown animation-heavy too: on a throttled phone the home page scored 38 on Lighthouse, with over two seconds of main-thread blocking.",
       approach:
-        "A full redesign of this site — new design system, command palette, live GitHub stats, and detailed project case studies like the one you're reading now.",
-      techDetails: "Next.js App Router, TypeScript, Tailwind CSS v4, Framer Motion, shadcn/ui, and cmdk.",
-      results: "Full write-up coming soon — check back or follow the GitHub repo for progress.",
+        "Rebuilt it around four ideas — put the work up front, tease what's below, give people places to get lost, and show personality. The home page opens on real project screenshots; a filterable work page, an MDX blog, a journey timeline, /now, /uses and a lab sit behind it, and everything is reachable from ⌘K search or vim-style g-key shortcuts.",
+      techDetails:
+        "Next.js 16 (App Router, Turbopack) on React 19 and Tailwind CSS 4. Pages are server-rendered with small client islands; scroll effects run on CSS scroll timelines instead of JavaScript; the command palette, mobile menu and toasts load on first use; fonts are self-hosted Latin subsets. Blog posts are MDX with rehype-pretty-code, the journey and /uses chart are derived from the same project data, and a strict Content Security Policy, RSS and structured data ship with it.",
+      results:
+        "Mobile Lighthouse performance went from 38 to 93–97 across pages, with total blocking time down from 2.2 s to under 100 ms and layout shift near zero.",
       challenges:
-        "Balancing heavy Framer Motion animation, a command palette, and a live GitHub stats integration against fast load times and strong Lighthouse scores — while keeping every section accessible, keyboard-navigable, and free of layout shift.",
+        "Keeping the personality without paying for it: the motion that made the old site feel alive was the same JavaScript that made it slow, so each effect had to be rebuilt in CSS or loaded only when someone actually reaches for it.",
     },
   },
 ]
