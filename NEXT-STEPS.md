@@ -6,8 +6,8 @@ What's left after the October 2026 upgrade (PRs #5–#8). The first section need
 
 - [ ] **Add `GITHUB_TOKEN` in Vercel.** Create a fine-grained GitHub token with read-only access to public repositories and add it to the project as `GITHUB_TOKEN`, then redeploy. Without it, the home page "Now" section and the GitHub stats on `/about` share GitHub's 60 requests/hour unauthenticated limit with everyone else on Vercel's IPs, and fall back to a plain "See recent work on GitHub" link when it runs out.
 - [ ] **Turn on Speed Insights.** Vercel dashboard → project → Speed Insights → Enable. The code is already in place (`@vercel/speed-insights` in `app/layout.tsx`); it starts reporting Core Web Vitals once enabled.
-- [ ] **Buy a custom domain** (e.g. `gregorytemwa.dev`) and add it to the project in Vercel. After that, change `SITE_URL` in `lib/seo.ts` so canonical URLs, the sitemap, RSS and Open Graph point at it.
-- [ ] **Decide the status of the "My Portfolio" project.** `myportfolio-website` in `data/projects.ts` is still `coming-soon` even though the site is live. Switch it to `live` with `href: "https://gregorytemwa.vercel.app"`, or remove it.
+- [x] **Custom domain.** _Done: temwa.dev, with `SITE_URL` in `lib/seo.ts` updated so canonicals, sitemap, RSS and share images use it._
+- [ ] **Decide the status of the "My Portfolio" project.** `myportfolio-website` in `data/projects.ts` is still `coming-soon` even though the site is live. Switch it to `live` with `href: "https://temwa.dev"`, or remove it.
 
 Not changing: the bio says you're a USIU student, which is correct — you haven't graduated yet.
 
