@@ -91,5 +91,5 @@ Scope agreed with the owner: real write-ups for placeholder case studies, the ho
 
 ### Open questions for the owner
 
-- **Certifications.** The CV lists Google ML Crash Course, Coursera ML, IBM SkillsBuild "AI Engineering Fundamentals", freeCodeCamp Data Analysis with Python and the HNG internship; the About page lists IBM SkillsBuild "AI Fundamentals", freeCodeCamp Front End Development Libraries, freeCodeCamp Machine Learning with Python and Coursera ML. One list should be the truth, kept in one data file.
+- ~~**Certifications.**~~ Resolved: the owner confirmed eight, now in `data/certifications.ts` and read by both pages. Previously the CV listed Google ML Crash Course, Coursera ML, IBM SkillsBuild "AI Engineering Fundamentals", freeCodeCamp Data Analysis with Python and the HNG internship; the About page lists IBM SkillsBuild "AI Fundamentals", freeCodeCamp Front End Development Libraries, freeCodeCamp Machine Learning with Python and Coursera ML. One list should be the truth, kept in one data file.
 - **Hackathons.** "Award-winning" is still unsupported by a named event.

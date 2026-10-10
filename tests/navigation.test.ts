@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest"
 import { exploreNav, mainNav, SOCIAL } from "@/data/navigation"
 import { openSourceContributions } from "@/data/open-source"
+import { certifications } from "@/data/certifications"
 
 describe("navigation", () => {
   it("never reuses a g-key shortcut (h is home)", () => {
@@ -21,5 +22,13 @@ describe("open-source contributions", () => {
         expect(pr.url.toLowerCase()).toMatch(new RegExp(`^https://github\\.com/${owner}/${repo}/pull/\\d+$`, "i"))
       }
     }
+  })
+})
+
+describe("certifications", () => {
+  it("lists each certification once, with no em dashes", () => {
+    const titles = certifications.map((c) => c.title)
+    expect(new Set(titles).size).toBe(titles.length)
+    for (const c of certifications) expect(`${c.title} ${c.description}`).not.toContain("—")
   })
 })

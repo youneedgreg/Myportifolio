@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { GraduationCap, Award } from "lucide-react"
 import ExperienceTimeline from "@/components/experience-timeline"
+import { certifications } from "@/data/certifications"
 import { Marquee } from "@/components/ui/marquee"
 
 const skills = [
@@ -34,24 +35,6 @@ const skills = [
 ]
 const half = Math.ceil(skills.length / 2)
 
-const certificates = [
-  {
-    title: "IBM SkillsBuild: AI Fundamentals",
-    description: "Core AI concepts, applications, and ethics.",
-  },
-  {
-    title: "freeCodeCamp: Front End Development Libraries",
-    description: "React, Redux, and UI component best practices.",
-  },
-  {
-    title: "freeCodeCamp: Machine Learning with Python",
-    description: "ML pipelines with Python, model training & evaluation.",
-  },
-  {
-    title: "Coursera: Machine Learning (Andrew Ng)",
-    description: "Supervised/unsupervised learning, regularization, optimization.",
-  },
-]
 
 type AboutClientPageProps = {
   githubStats?: ReactNode
@@ -185,7 +168,7 @@ export default function AboutClientPage({ githubStats }: AboutClientPageProps) {
             <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">Certificates</h2>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
-            {certificates.map((c) => (
+            {certifications.map((c) => (
               <div key={c.title} className="surface space-y-1.5 p-5">
                 <div className="flex items-center gap-2">
                   <Award className="size-4 text-primary" />

@@ -1,6 +1,7 @@
 import { Printer } from "lucide-react"
 import { experience } from "@/data/experience"
 import { projects } from "@/data/projects"
+import { certifications } from "@/data/certifications"
 import PrintButton from "@/components/print-button"
 
 // The CV reads the same experience data as the rest of the site, so they can't drift apart.
@@ -41,14 +42,6 @@ const SKILLS: [string, string][] = [
   ["AI", "Anthropic Claude (tool use), Mistral, OpenRouter, Hugging Face"],
   ["Infrastructure", "Docker, Kubernetes, RabbitMQ, Nginx, Linux, Vercel, Turborepo; Prometheus and Grafana"],
   ["Testing", "Vitest, Playwright, CI with GitHub Actions"],
-]
-
-const CERTIFICATIONS = [
-  "Google Machine Learning Crash Course",
-  "Coursera: Machine Learning (Andrew Ng)",
-  "IBM SkillsBuild: AI Engineering Fundamentals",
-  "freeCodeCamp: Data Analysis with Python",
-  "HNG Internship: Full Stack Development",
 ]
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
@@ -152,8 +145,8 @@ export function CVTemplate() {
             </Section>
             <Section title="Certifications">
               <ul>
-                {CERTIFICATIONS.map((c) => (
-                  <li key={c}>{c}</li>
+                {certifications.map((c) => (
+                  <li key={c.title}>{c.title}</li>
                 ))}
               </ul>
             </Section>

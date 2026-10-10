@@ -13,7 +13,7 @@ Not changing: the bio says you're a USIU student, which is correct — you haven
 
 ## Needs you (round 2)
 
-- [ ] **Which certifications are real?** The CV and the About page list different ones (see `docs/QUALITY.md`, round 2). Tell me the true list and both will read from one data file.
+- [x] **Certifications.** _Done: one list in `data/certifications.ts` (eight, confirmed by the owner); the CV and the About page both read it._
 
 ## Needs you (round 1)
 
