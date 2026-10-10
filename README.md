@@ -43,6 +43,7 @@ All optional locally; the site degrades gracefully without them.
 | `RESEND_API_KEY` | Contact form | Without it the form returns a clear "not configured" error and shows the email address instead. |
 | `CONTACT_FROM` | Contact form | Sender, e.g. `Gregory Temwa <hello@temwa.dev>`. Defaults to Resend's test sender, which only delivers to the Resend account's own address. |
 | `CONTACT_TO` | Contact form | Recipient. Defaults to `gregorytemwa1212@gmail.com`. |
+| `GOOGLE_SITE_VERIFICATION`, `BING_SITE_VERIFICATION` | Ownership meta tags | Optional; only needed if you verify by HTML tag instead of DNS. |
 | `GITHUB_TOKEN` | Now section, About page GitHub stats | Read-only fine-grained token. Without it GitHub allows 60 requests/hour per IP, shared on Vercel. |
 
 ## Where things live
@@ -57,6 +58,7 @@ All optional locally; the site degrades gracefully without them.
 | Navigation, socials, WhatsApp, booking link | `data/navigation.ts` (every nav surface reads it) |
 | Site URL, title, description | `lib/seo.ts` |
 | Design rules | [`DESIGN.md`](DESIGN.md) |
+| Search engine setup (Search Console, Bing, previews) | [`docs/SEARCH-SETUP.md`](docs/SEARCH-SETUP.md) |
 
 ## Quality
 

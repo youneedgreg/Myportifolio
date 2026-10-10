@@ -9,7 +9,7 @@ import {
   getPostBySlug,
   getSortedPosts,
 } from "@/data/blog"
-import { SITE_NAME, SITE_URL } from "@/lib/seo"
+import { breadcrumbs, pageMetadata, SITE_URL } from "@/lib/seo"
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>
@@ -30,30 +30,10 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     return {}
   }
 
-  const title = `${post.title} | Gregory Temwa`
-
+  const meta = pageMetadata({ title: post.title, description: post.summary, path: `/blog/${slug}`, type: "article" })
   return {
-    title: { absolute: `${post.title} | Gregory Temwa` },
-    description: post.summary,
-    alternates: {
-      canonical: `/blog/${slug}`,
-    },
-    openGraph: {
-      title,
-      description: post.summary,
-      url: `/blog/${slug}`,
-      siteName: SITE_NAME,
-      locale: "en_US",
-      type: "article",
-      publishedTime: post.date,
-      authors: ["Gregory Temwa Odete"],
-      tags: post.tags,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description: post.summary,
-    },
+    ...meta,
+    openGraph: { ...meta.openGraph, type: "article", publishedTime: post.date, authors: ["Gregory Temwa"], tags: post.tags },
   }
 }
 
@@ -72,8 +52,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const newer = index > 0 ? sorted[index - 1] : null
   const older = index < sorted.length - 1 ? sorted[index + 1] : null
 
-  const jsonLd = {
-    "@context": "https://schema.org",
+  const posting = {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.summary,
@@ -87,6 +66,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     publisher: { "@id": `${SITE_URL}/#person` },
     isPartOf: { "@id": `${SITE_URL}/#website` },
     mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/blog/${post.slug}` },
+  }
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [posting, breadcrumbs([{ name: "Writing", path: "/blog" }, { name: post.title, path: `/blog/${post.slug}` }])],
   }
 
   return (

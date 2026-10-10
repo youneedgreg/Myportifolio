@@ -1,20 +1,19 @@
 import type { Metadata } from "next"
+import { pageMetadata } from "@/lib/seo"
 import Link from "next/link"
 import { ArrowRight, Briefcase, GraduationCap, Hammer, PenLine } from "lucide-react"
 import NowBuilding from "@/components/now-building"
 import { formatPostDate, getSortedPosts } from "@/data/blog"
 import { experience } from "@/data/experience"
 import { NOW_UPDATED } from "@/data/now"
-import { SITE_NAME } from "@/lib/seo"
 
-const description = "What Gregory Temwa is building, working on, studying and writing right now."
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Now",
-  description,
-  alternates: { canonical: "/now" },
-  openGraph: { title: "Now | Gregory Temwa", description, url: "/now", siteName: SITE_NAME, type: "website" },
-}
+  description: "What Gregory Temwa is building, working on, studying and writing this month, with live GitHub activity.",
+  path: "/now",
+  type: "website",
+})
 
 function Block({ icon, label, children }: { icon: React.ReactNode; label: string; children: React.ReactNode }) {
   return (

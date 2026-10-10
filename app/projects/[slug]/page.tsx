@@ -3,7 +3,7 @@ import { notFound } from "next/navigation"
 import { getAllProjectSlugs, getProjectBySlug, projects } from "@/data/projects"
 import ProjectCaseStudy from "@/components/project-case-study"
 import { getSortedPosts } from "@/data/blog"
-import { SITE_NAME } from "@/lib/seo"
+import { breadcrumbs, pageMetadata, SITE_URL } from "@/lib/seo"
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>
@@ -24,32 +24,21 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     return {}
   }
 
-  const title = `${project.title} | Gregory Temwa`
-
-  return {
-    title: { absolute: `${project.title} | Gregory Temwa` },
+  const meta = pageMetadata({
+    title: project.title,
     description: project.description,
-    alternates: {
-      canonical: `/projects/${slug}`,
-    },
-    openGraph: {
-      title,
-      description: project.description,
-      url: `/projects/${slug}`,
-      siteName: SITE_NAME,
-      locale: "en_US",
-      type: "article",
-      ...(project.gallery[0] && {
-        images: [{ url: project.gallery[0], width: 1200, height: 630, alt: project.title }],
-      }),
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description: project.description,
-      ...(project.gallery[0] && { images: [project.gallery[0]] }),
-    },
-  }
+    path: `/projects/${slug}`,
+    type: "article",
+  })
+  // A real screenshot makes a better preview than the generated card, when there is one.
+  const shot = project.gallery[0]
+  return shot
+    ? {
+        ...meta,
+        openGraph: { ...meta.openGraph, images: [{ url: shot, alt: `${project.title} screenshot` }] },
+        twitter: { ...meta.twitter, images: [shot] },
+      }
+    : meta
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
@@ -74,7 +63,30 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     .slice(0, 3)
     .map(({ project }) => project)
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CreativeWork",
+        "@id": `${SITE_URL}/projects/${project.slug}#work`,
+        name: project.title,
+        description: project.description,
+        url: `${SITE_URL}/projects/${project.slug}`,
+        dateCreated: project.year.slice(0, 4),
+        keywords: project.tags.join(", "),
+        creator: { "@id": `${SITE_URL}/#person` },
+        ...(project.image.startsWith("/placeholder") ? {} : { image: `${SITE_URL}${project.image}` }),
+        ...(project.href ? { sameAs: project.href } : {}),
+        ...(project.github ? { codeRepository: project.github } : {}),
+      },
+      breadcrumbs([{ name: "Work", path: "/projects" }, { name: project.title, path: `/projects/${project.slug}` }]),
+    ],
+  }
+
   return (
-    <ProjectCaseStudy project={project} prev={prev} next={next} relatedPosts={relatedPosts} similar={similar} />
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <ProjectCaseStudy project={project} prev={prev} next={next} relatedPosts={relatedPosts} similar={similar} />
+    </>
   )
 }

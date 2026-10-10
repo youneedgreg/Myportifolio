@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { SITE_DESCRIPTION, SITE_TITLE } from "@/lib/seo"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { formatPostDate, getSortedPosts } from "@/data/blog"
@@ -11,9 +12,9 @@ import NowBuilding from "@/components/now-building"
 import ContactForm from "@/components/contact-form"
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: "/",
-  },
+  title: { absolute: SITE_TITLE },
+  description: SITE_DESCRIPTION,
+  alternates: { canonical: "/" },
 }
 
 const INTRO =

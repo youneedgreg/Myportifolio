@@ -1,24 +1,15 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { SITE_NAME } from "@/lib/seo"
+import { pageMetadata } from "@/lib/seo"
+import { projects } from "@/data/projects"
 
-const description = "A collection of Gregory Temwa's work, from production SaaS platforms to open-source projects and ML experiments."
 
-export const metadata: Metadata = {
-  title: "All Projects",
-  description,
-  alternates: {
-    canonical: "/projects",
-  },
-  openGraph: {
-    title: "Projects | Gregory Temwa",
-    description,
-    url: "/projects",
-    siteName: SITE_NAME,
-    locale: "en_US",
-    type: "website",
-  },
-}
+export const metadata: Metadata = pageMetadata({
+  title: "Work",
+  description: `${projects.length} projects by Gregory Temwa: production systems for clients, open-source contributions and experiments, each with a case study.`,
+  path: "/projects",
+  type: "website",
+})
 
 export default function ProjectsLayout({ children }: { children: React.ReactNode }) {
   return children

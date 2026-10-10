@@ -93,3 +93,18 @@ Scope agreed with the owner: real write-ups for placeholder case studies, the ho
 
 - ~~**Certifications.**~~ Resolved: the owner confirmed eight, now in `data/certifications.ts` and read by both pages. Previously the CV listed Google ML Crash Course, Coursera ML, IBM SkillsBuild "AI Engineering Fundamentals", freeCodeCamp Data Analysis with Python and the HNG internship; the About page lists IBM SkillsBuild "AI Fundamentals", freeCodeCamp Front End Development Libraries, freeCodeCamp Machine Learning with Python and Coursera ML. One list should be the truth, kept in one data file.
 - **Hackathons.** "Award-winning" is still unsupported by a named event.
+
+## SEO pass (October 2026)
+
+| Finding | Fix |
+| --- | --- |
+| Seven section pages (About, Work, Writing, Journey, Now, Uses, Lab) had no share image, so links to them showed no preview. | Each generates one from a shared renderer (`lib/og-image.tsx`); case studies with a screenshot keep it as the preview. |
+| About 30 descriptions ran past 160 characters and were cut mid-word in results. | `metaDescription()` trims at a word boundary to at most 155; key pages were rewritten to fit without trimming. |
+| One title exceeded 60 characters. | `pageTitle()` drops the name suffix when it would. |
+| Person data said *alumniOf* USIU (still studying), "Software Engineer", and had no topics. | `affiliation`, "Chief Software Engineer", employer URL, `knowsAbout`, email. |
+| Only Person and WebSite structured data. | ProfilePage on /about, BreadcrumbList on case studies and essays, CreativeWork per project, BlogPosting linked to the post's own image. |
+| Stale site title (en dash), description ("Award-winning hackathon participant") and a `keywords` list including "MERN Stack". | New title and description in the site's voice; `keywords` removed (search engines ignore it). |
+| No ownership verification hooks. | Optional `GOOGLE_SITE_VERIFICATION` / `BING_SITE_VERIFICATION`; DNS verification needs no code. |
+| No machine-readable summary for AI answer engines. | `/llms.txt`, generated from the site's data. |
+
+Verified on a production build: all 47 sitemap URLs have a title of at most 60 characters, a description of 50 to 160, no dashes, a share image that loads, and JSON-LD that parses. Lighthouse SEO 100 on home, About, Work, a case study, an essay and Journey. Setup steps for search engines: [`SEARCH-SETUP.md`](SEARCH-SETUP.md).

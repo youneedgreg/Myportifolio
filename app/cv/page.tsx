@@ -1,17 +1,13 @@
 import type { Metadata } from "next"
+import { pageMetadata } from "@/lib/seo"
 import { CVTemplate } from "@/components/cv-template";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "CV",
   description: "CV of Gregory Temwa, Chief Software Engineer (full-stack and AI) in Nairobi.",
-  alternates: {
-    canonical: "/cv",
-  },
-  robots: {
-    index: false,
-    follow: true,
-  },
-}
+  path: "/cv",
+  index: false,
+})
 
 export default function CVPage() {
   return (

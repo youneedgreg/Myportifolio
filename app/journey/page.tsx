@@ -1,16 +1,15 @@
 import type { Metadata } from "next"
+import { pageMetadata } from "@/lib/seo"
 import JourneyTimeline from "@/components/journey-timeline"
 import { getJourney } from "@/data/journey"
-import { SITE_NAME } from "@/lib/seo"
 
-const description = "Every job, project, essay and milestone in Gregory Temwa's path so far, year by year."
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Journey",
-  description,
-  alternates: { canonical: "/journey" },
-  openGraph: { title: "Journey | Gregory Temwa", description, url: "/journey", siteName: SITE_NAME, type: "website" },
-}
+  description: "Every job, project, essay and milestone in Gregory Temwa's path so far, year by year, from teaching kids to code in 2023 to leading engineering at Webtech.",
+  path: "/journey",
+  type: "website",
+})
 
 export default function JourneyPage() {
   const entries = getJourney()

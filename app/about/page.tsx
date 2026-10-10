@@ -1,38 +1,43 @@
 import type { Metadata } from "next"
+import { breadcrumbs, pageMetadata, SITE_URL } from "@/lib/seo"
 import { Suspense } from "react"
 import AboutClientPage from "./about-client"
 import GithubStats, { GithubStatsSkeleton } from "@/components/github-stats"
-import { SITE_NAME } from "@/lib/seo"
 
-const description =
-  "More about Gregory Temwa: Software Engineering student at USIU with 3+ years of experience in full-stack development, AI/ML, and web technologies."
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "About",
-  description,
-  alternates: {
-    canonical: "/about",
-  },
-  openGraph: {
-    title: "About | Gregory Temwa",
-    description,
-    url: "/about",
-    siteName: SITE_NAME,
-    locale: "en_US",
-    type: "profile",
-    firstName: "Gregory",
-    lastName: "Temwa",
-  },
-}
+  description: "Gregory Temwa is Chief Software Engineer at Webtech Solutions in Nairobi and a Software Engineering student at USIU, class of 2027.",
+  path: "/about",
+  type: "profile",
+})
 
 export default function AboutPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfilePage",
+        "@id": `${SITE_URL}/about`,
+        url: `${SITE_URL}/about`,
+        name: "About Gregory Temwa",
+        mainEntity: { "@id": `${SITE_URL}/#person` },
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+      },
+      breadcrumbs([{ name: "About", path: "/about" }]),
+    ],
+  }
+
   return (
-    <AboutClientPage
-      githubStats={
-        <Suspense fallback={<GithubStatsSkeleton />}>
-          <GithubStats />
-        </Suspense>
-      }
-    />
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <AboutClientPage
+        githubStats={
+          <Suspense fallback={<GithubStatsSkeleton />}>
+            <GithubStats />
+          </Suspense>
+        }
+      />
+    </>
   )
 }

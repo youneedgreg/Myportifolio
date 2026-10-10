@@ -11,6 +11,10 @@ What's left after the October 2026 upgrade (PRs #5–#8). The first section need
 
 Not changing: the bio says you're a USIU student, which is correct — you haven't graduated yet.
 
+## Search engines
+
+- [ ] **Follow [`docs/SEARCH-SETUP.md`](docs/SEARCH-SETUP.md)** once the quality PR is merged: Google Search Console (DNS at name.com), Bing Webmaster Tools, rich-result checks, link-preview refresh, profile links, and the www redirect switched to 308.
+
 ## Needs you (round 2)
 
 - [x] **Certifications.** _Done: one list in `data/certifications.ts` (eight, confirmed by the owner); the CV and the About page both read it._
