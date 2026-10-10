@@ -7,6 +7,11 @@ const AWAY_TITLE = "👀 come back… | Gregory Temwa"
 /** Swaps the tab title while the visitor is on another tab, and restores it when they return. */
 export default function TabTitle() {
   useEffect(() => {
+    // Signals that React has hydrated; the browser tests wait for it before interacting.
+    document.documentElement.dataset.hydrated = "true"
+  }, [])
+
+  useEffect(() => {
     let original: string | null = null
 
     function onVisibilityChange() {

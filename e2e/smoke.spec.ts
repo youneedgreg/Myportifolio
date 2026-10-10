@@ -17,6 +17,13 @@ const PAGES = [
 // Vercel Analytics and Speed Insights only exist on Vercel; locally they 404.
 const IGNORED = [/_vercel\//, /Vercel (Web Analytics|Speed Insights)/, /MIME type/]
 
+/** Navigate and wait until React has hydrated, so clicks reach real handlers. */
+async function open(page: Page, path: string) {
+  const res = await page.goto(path)
+  await page.locator("html[data-hydrated]").waitFor({ state: "attached" })
+  return res
+}
+
 function trackConsoleErrors(page: Page) {
   const errors: string[] = []
   page.on("console", (msg) => {
@@ -38,7 +45,9 @@ for (const path of PAGES) {
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)
     expect(overflow, "no horizontal scrolling").toBeLessThanOrEqual(1)
     expect(errors).toEqual([])
-    await info.attach("page", { body: await page.screenshot({ fullPage: true }), contentType: "image/png" })
+    // Full-page shots of very long pages exceed WebKit's 32,767px limit; fall back to the viewport.
+    const height = await page.evaluate(() => document.documentElement.scrollHeight)
+    await info.attach("page", { body: await page.screenshot({ fullPage: height < 16_000 }), contentType: "image/png" })
   })
 }
 
@@ -60,7 +69,7 @@ test.describe("keyboard", () => {
   test.skip(({ isMobile }) => isMobile, "Physical keyboard flows are desktop-only")
 
   test("? opens shortcuts, Escape closes and restores focus", async ({ page }) => {
-    await page.goto("/about")
+    await open(page, "/about")
     await page.keyboard.press("Shift+Slash")
     await expect(page.getByRole("dialog", { name: "Keyboard shortcuts" })).toBeVisible()
     await page.keyboard.press("Escape")
@@ -68,7 +77,7 @@ test.describe("keyboard", () => {
   })
 
   test("search opens from the header and hands focus back", async ({ page }) => {
-    await page.goto("/about")
+    await open(page, "/about")
     const trigger = page.getByRole("button", { name: "Open command palette" })
     // Keyboard users reach the button with Tab and press Enter. (Safari doesn't
     // focus buttons on mouse click, so a click would leave nothing to return to.)
@@ -82,7 +91,7 @@ test.describe("keyboard", () => {
   })
 
   test("g then j goes to the journey", async ({ page }) => {
-    await page.goto("/")
+    await open(page, "/")
     await page.locator("body").click({ position: { x: 5, y: 300 } })
     await page.keyboard.press("g")
     await page.keyboard.press("j")
@@ -92,7 +101,7 @@ test.describe("keyboard", () => {
 
 test("phone menu lists every page", async ({ page, isMobile }) => {
   test.skip(!isMobile, "The menu button only exists on phones")
-  await page.goto("/")
+  await open(page, "/")
   await page.getByRole("button", { name: "Open menu" }).click()
   const menu = page.getByRole("dialog")
   for (const name of ["Work", "Writing", "About", "Journey", "Lab"]) {
@@ -101,7 +110,7 @@ test("phone menu lists every page", async ({ page, isMobile }) => {
 })
 
 test("work filters narrow the list", async ({ page }) => {
-  await page.goto("/projects")
+  await open(page, "/projects")
   const count = page.getByText(/^\d+ of \d+ projects$/)
   const all = await count.textContent()
   await page.getByRole("button", { name: /^Client work/ }).click()
@@ -113,7 +122,7 @@ test("work filters narrow the list", async ({ page }) => {
 test.describe("contact form", () => {
   test("shows success inline", async ({ page }) => {
     await page.route("/api/contact", (route) => route.fulfill({ json: { ok: true } }))
-    await page.goto("/#contact")
+    await open(page, "/#contact")
     await page.getByLabel("Name").fill("Test")
     await page.getByLabel("Email").fill("test@example.com")
     await page.getByLabel("What are you building?").fill("Just checking the form.")
@@ -125,7 +134,7 @@ test.describe("contact form", () => {
     await page.route("/api/contact", (route) =>
       route.fulfill({ status: 502, json: { error: "Couldn't send your message right now." } }),
     )
-    await page.goto("/#contact")
+    await open(page, "/#contact")
     await page.getByLabel("Name").fill("Test")
     await page.getByLabel("Email").fill("test@example.com")
     await page.getByLabel("What are you building?").fill("Just checking the form.")

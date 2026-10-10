@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useState, useSyncExternalStore } from "react"
 import { CalendarDays, Check, Copy, Mail, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -15,7 +15,12 @@ type Status = { kind: "idle" } | { kind: "sent" } | { kind: "error"; message: st
 
 const WHATSAPP_TEXT = encodeURIComponent("Hi Gregory, I found you on temwa.dev and I'd like to talk about a project.")
 
+const noop = () => () => {}
+
 export default function ContactForm() {
+  // False during server render and before hydration: the button stays disabled
+  // until React owns the submit, so a native submit can never fire.
+  const hydrated = useSyncExternalStore(noop, () => true, () => false)
   const [loading, setLoading] = useState(false)
   const [copied, setCopied] = useState(false)
   const [status, setStatus] = useState<Status>({ kind: "idle" })
@@ -102,7 +107,7 @@ export default function ContactForm() {
           </ul>
         </div>
 
-        <form onSubmit={onSubmit} className="surface relative space-y-5 p-6 sm:p-8">
+        <form method="post" onSubmit={onSubmit} className="surface relative space-y-5 p-6 sm:p-8">
           <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
             <label htmlFor="company">Company</label>
             <input
@@ -167,7 +172,7 @@ export default function ContactForm() {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <Button
               type="submit"
-              disabled={loading}
+              disabled={loading || !hydrated}
               size="lg"
               className="transition-transform hover:scale-[1.02] active:scale-[0.98] motion-reduce:transform-none"
             >
