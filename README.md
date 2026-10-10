@@ -13,11 +13,11 @@ It puts the work up front, teases what's below, gives visitors places to get los
 | Content | Typed data in `data/`; blog bodies in `content/blog/*.mdx` (remark-gfm, rehype-pretty-code) |
 | Email | Resend, via `app/api/contact/route.ts` |
 | Hosting | Vercel, with Web Analytics and Speed Insights |
-| Tests | Vitest (`tests/`), run in CI with lint, type-check and build |
+| Tests | Vitest unit tests (`tests/`) and Playwright cross-browser smoke tests (`e2e/`) in Chromium, Firefox and WebKit, all run in CI |
 
 ## Getting started
 
-Requires Node 20.9+ (CI and Vercel use Node 24).
+Requires Node 20.9+ (CI and Vercel use Node 24). For the browser tests, install the engines once with `npx playwright install chromium firefox webkit`; set `PLAYWRIGHT_BROWSERS_PATH` to keep them on another disk.
 
 ```bash
 npm install
@@ -32,6 +32,7 @@ npm run dev        # http://localhost:3000
 | `npm run lint` | ESLint (flat config, `eslint-config-next`) |
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm test` | Vitest: data integrity, journey, navigation and the contact API |
+| `npm run test:browsers` | Playwright after `npm run build`: every page in Chrome, Firefox and Safari (WebKit), desktop and phone, plus keyboard, theme, filters and the contact form (mocked, so no email is sent) |
 
 ## Environment variables
 
@@ -42,6 +43,7 @@ All optional locally; the site degrades gracefully without them.
 | `RESEND_API_KEY` | Contact form | Without it the form returns a clear "not configured" error and shows the email address instead. |
 | `CONTACT_FROM` | Contact form | Sender, e.g. `Gregory Temwa <hello@temwa.dev>`. Defaults to Resend's test sender, which only delivers to the Resend account's own address. |
 | `CONTACT_TO` | Contact form | Recipient. Defaults to `gregorytemwa1212@gmail.com`. |
+| `GOOGLE_SITE_VERIFICATION`, `BING_SITE_VERIFICATION` | Ownership meta tags | Optional; only needed if you verify by HTML tag instead of DNS. |
 | `GITHUB_TOKEN` | Now section, About page GitHub stats | Read-only fine-grained token. Without it GitHub allows 60 requests/hour per IP, shared on Vercel. |
 
 ## Where things live
@@ -56,10 +58,11 @@ All optional locally; the site degrades gracefully without them.
 | Navigation, socials, WhatsApp, booking link | `data/navigation.ts` (every nav surface reads it) |
 | Site URL, title, description | `lib/seo.ts` |
 | Design rules | [`DESIGN.md`](DESIGN.md) |
+| Search engine setup (Search Console, Bing, previews) | [`docs/SEARCH-SETUP.md`](docs/SEARCH-SETUP.md) |
 
 ## Quality
 
-Measured on a production build with Lighthouse (mobile emulation): performance 88–97, accessibility 96–100, best practices 96, SEO 100 on every indexable page. The full audit, what was fixed and what is deliberately left as-is are in [`docs/QUALITY.md`](docs/QUALITY.md). Open items that need the owner are in [`NEXT-STEPS.md`](NEXT-STEPS.md).
+Measured on a production build with Lighthouse (mobile emulation): performance 93–100, accessibility 100, best practices 96 (100 on Vercel), SEO 100 on every indexable page. Every page is smoke-tested in Chrome, Firefox and Safari's engine at desktop and phone sizes on each pull request. The full audit, what was fixed and what is deliberately left as-is are in [`docs/QUALITY.md`](docs/QUALITY.md). Open items that need the owner are in [`NEXT-STEPS.md`](NEXT-STEPS.md).
 
 Security: a strict Content Security Policy and security headers (`next.config.ts`), HTML-escaped and length-limited contact input with a honeypot and per-IP rate limit, and no secrets in the client bundle.
 

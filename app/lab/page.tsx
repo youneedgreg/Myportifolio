@@ -1,20 +1,19 @@
 import type { Metadata } from "next"
+import { pageMetadata } from "@/lib/seo"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import SyncSimulator from "@/components/lab/sync-simulator"
 import ClickCounter from "@/components/micro/click-counter"
 import ReactionToggle from "@/components/micro/reaction-toggle"
 import DraggableCard from "@/components/micro/draggable-card"
-import { SITE_NAME } from "@/lib/seo"
 
-const description = "Interactive experiments by Gregory Temwa, including a toy offline-first sync queue you can break."
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Lab",
-  description,
-  alternates: { canonical: "/lab" },
-  openGraph: { title: "Lab | Gregory Temwa", description, url: "/lab", siteName: SITE_NAME, type: "website" },
-}
+  description: "Interactive experiments by Gregory Temwa, including a toy offline-first sync queue you can break on purpose.",
+  path: "/lab",
+  type: "website",
+})
 
 export default function LabPage() {
   return (

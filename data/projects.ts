@@ -364,7 +364,7 @@ export const projects: Project[] = [
         "Building an end-to-end ERP for a real safari company covering bookings, a costing engine, CRM, itinerary builder, invoicing, and supplier management (over 30 Prisma models), with Claude (Mistral fallback) automating the text-heavy work: itinerary drafting, OCR and PDF extraction, translation, marketing copy and WhatsApp replies. Conversion scoring and anomaly detection are rule-based so they stay explainable, with Claude writing the summary.",
       techDetails:
         "Next.js 16 with Prisma and PostgreSQL; JWT sessions with OTP and three-role RBAC (Admin/Ops/Guide); Twilio WhatsApp integration across 14 message types with real-time delivery receipts; PDF/DOCX document generation via PDFKit and an AI content studio generating marketing copy in 5 languages across 6 channels; Vercel Cron for scheduled jobs.",
-      results: "In active development for a real safari operator. Full write-up and demo coming once the platform is live.",
+      results: "In active development for a real safari operator, with the core modules running: the booking pipeline from enquiry to completion with a kanban view, USD/KES costing with live exchange rates, streamed AI itineraries, branded VAT invoices, supplier payables, a partner and fleet registry that tracks certificate expiry, tokenised no-login portals for drivers and clients, and WhatsApp reminders that fire 30, 14, 7 and 1 days before arrival.",
       challenges:
         "Keeping the costing engine accurate across multi-currency quotes, seasonal supplier rates, and per-person markups while modeling over 30 interrelated Prisma entities; and keeping AI at the edge of the workflow: rule-based scores the model only explains, provider failover so a slow or unavailable model never blocks a booking, and signed Twilio webhooks plus fail-closed cron auth so the automations cannot be triggered by anyone else.",
     },
@@ -392,7 +392,7 @@ export const projects: Project[] = [
         "Built a multi-tenant SaaS as 5 Next.js apps (mall, farm, biz, super-dashboard, and tenant portal) in a Turborepo monorepo, with Supabase row-level security isolating each tenant's data.",
       techDetails:
         "Turborepo + npm workspaces across 5 Next.js 14 apps; Supabase RLS for tenant isolation; Deno Edge Functions and pg_cron for scheduled automation (invoicing, rent reminders, penalties, lease expiry); a Mistral tool-calling assistant over live mall data with role-scoped tools, user confirmation and server-side re-authorisation for write actions, and AI_ACTION audit logging; payments recorded through an atomic, idempotent Postgres RPC; @react-pdf/renderer for report generation; Apache Superset for analytics dashboards.",
-      results: "Running across multiple internal apps in active development. Full write-up and demo coming soon.",
+      results: "Five apps in one Turborepo running on a single Supabase project: 64 versioned SQL migrations (37 of them enforcing row-level security), 8 Edge Functions on schedules, 40+ shared design-system components, and generated invoices, receipts, statements and payslips. Payroll applies Kenyan statutory deductions. Covered by 42 Vitest files and 11 Playwright suites across all five apps in CI.",
       challenges:
         "Enforcing strict tenant isolation across 5 apps sharing one Supabase instance: getting row-level security policies right so no query could ever leak data between tenants, while keeping shared Turborepo packages, types, and Supabase migrations in sync so a change in one app didn't silently break the others.",
     },
@@ -691,7 +691,7 @@ export const projects: Project[] = [
     size: "small",
     year: "2024",
     role: "ML Engineer (Solo)",
-    status: "coming-soon",
+    status: "source-available",
     gallery: [],
     openSource: true,
     categories: ["ai-ml", "data"],
@@ -702,7 +702,7 @@ export const projects: Project[] = [
         "Trained and evaluated text classification models on a Kenyan-focused hate speech dataset using scikit-learn, with NLTK for preprocessing and Pandas/Matplotlib for analysis.",
       techDetails:
         "Python with scikit-learn for model training, NLTK for tokenization and cleaning, Pandas for dataset handling, and Matplotlib for visualizing class distributions and model performance.",
-      results: "Full write-up with model performance metrics and a demo coming soon. Check back or follow the GitHub repo for progress.",
+      results: "Compared four classifiers on 9,614 held-out tweets (of 48,076). Multinomial Naive Bayes scored the highest accuracy, 75.9% (75.9% again after tuning alpha to 0.01), but a macro F1 of only 0.35. Linear SVM, at 69.5% accuracy, had the best macro F1 (0.49). The honest conclusion: accuracy flatters a model that mostly predicts the majority class, so the next step is rebalancing the classes, not more tuning.",
       challenges:
         "Handling code-switched Swahili–English text and local slang that standard English tokenizers mangle, and correcting for a heavily imbalanced dataset where neutral and offensive examples vastly outnumbered genuine hate speech, which skewed naive accuracy and forced a focus on precision and recall.",
     },
@@ -718,7 +718,7 @@ export const projects: Project[] = [
     size: "small",
     year: "2024",
     role: "ML Engineer (Solo)",
-    status: "coming-soon",
+    status: "source-available",
     gallery: [],
     openSource: true,
     categories: ["ai-ml"],
@@ -729,7 +729,7 @@ export const projects: Project[] = [
         "Applied transfer learning with MobileNetV2, ResNet, and VGG16 backbones, fine-tuning each on a target dataset and comparing accuracy and efficiency trade-offs.",
       techDetails:
         "Python with TensorFlow/Keras for model definition and training, OpenCV for image preprocessing, and a head-to-head comparison across the three architectures.",
-      results: "Full write-up with accuracy comparisons across architectures coming soon. Check back or follow the GitHub repo for progress.",
+      results: "MobileNetV2 with a new classification head reached 97.7% validation accuracy, and 99.0% on the held-out test set after unfreezing the top layers and fine-tuning at a lower learning rate. A per-class report in the same notebook reads 48%, which is chance level: predictions and labels were taken in two separate passes over a shuffled dataset, so they no longer lined up. Evaluating batch by batch, with each batch's images and labels kept together, fixes it.",
       challenges:
         "Avoiding overfitting when fine-tuning large ImageNet backbones on a small target dataset: tuning how many layers to unfreeze and how low to drop the learning rate so the pretrained features survived, and keeping the comparison fair when MobileNetV2, ResNet, and VGG16 have very different parameter counts and memory footprints.",
     },
@@ -765,14 +765,15 @@ export const projects: Project[] = [
     slug: "motel-management-system",
     title: "Motel Management System",
     description:
-      "A TypeScript-based motel management app handling bookings, occupancy tracking, and automated daily summaries with Prisma ORM.",
+      "A staff-facing system for running a motel: employee sign-in, rooms, guest registration with ID or passport, payments and receipts, check-in and check-out, and sales reports.",
     image: "/assets/motel-login.jpg",
-    tags: ["Next.js", "TypeScript", "Prisma", "Tailwind CSS"],
+    tags: ["Next.js", "TypeScript", "Prisma", "MongoDB", "Tailwind CSS"],
+    href: "https://sevendaysholidaysinn.vercel.app",
     github: "https://github.com/youneedgreg/Motel_management",
     size: "medium",
     year: "2025",
     role: "Full-Stack Developer (Solo)",
-    status: "coming-soon",
+    status: "live",
     gallery: ["/assets/motel-login.jpg"],
     openSource: true,
     categories: ["full-stack"],
@@ -780,11 +781,11 @@ export const projects: Project[] = [
       problem:
         "Small motels and guesthouses often rely on paper logs or spreadsheets to track room occupancy, bookings, and daily revenue.",
       approach:
-        "A TypeScript app for managing bookings, tracking occupancy in real time, and generating automated daily summary reports, built on Prisma ORM.",
-      techDetails: "Next.js with TypeScript, Prisma ORM for the booking and occupancy schema, and Tailwind CSS for the admin dashboard.",
-      results: "Full write-up and live demo coming soon. Check back or follow the GitHub repo for progress.",
+        "Built a Next.js app around the front-desk routine: staff sign in with an employee ID, register a guest against a room with their ID or passport, record how and how much they paid with a receipt or transaction number, and check them in and out, while the admin and reports pages roll that up into sales.",
+      techDetails: "Next.js and TypeScript with Prisma over MongoDB (users, rooms and guests), REST route handlers for authentication, guests, check-in, check-out, rooms, sales and users, Tailwind CSS with shadcn/ui, and a custom Node server for hosting outside Vercel.",
+      results: "Deployed on Vercel behind a staff login.",
       challenges:
-        "Keeping occupancy state consistent when bookings, check-ins, and check-outs can overlap: modeling room availability so a single Prisma transaction blocks double-booking the same room for overlapping dates, and generating the daily summary correctly across day boundaries.",
+        "Keeping room status honest as guests move through booked, checked in and checked out, so the front desk never sees a room as free while someone is still in it.",
     },
   },
   {
@@ -809,9 +810,9 @@ export const projects: Project[] = [
       approach:
         "Rebuilt it around four ideas: put the work up front, tease what's below, give people places to get lost, and show personality. The home page opens on real project screenshots; a filterable work page, an MDX blog, a journey timeline, /now, /uses and a lab sit behind it, and everything is reachable from ⌘K search or vim-style g-key shortcuts.",
       techDetails:
-        "Next.js 16 (App Router, Turbopack) on React 19 and Tailwind CSS 4. Pages are server-rendered with small client islands; scroll effects run on CSS scroll timelines instead of JavaScript; the command palette, mobile menu and toasts load on first use; fonts are self-hosted Latin subsets. Blog posts are MDX with rehype-pretty-code, the journey and /uses chart are derived from the same project data, and a strict Content Security Policy, RSS and structured data ship with it.",
+        "Next.js 16 (App Router, Turbopack) on React 19 and Tailwind CSS 4. Pages are server-rendered with small client islands; scroll effects run on CSS scroll timelines instead of JavaScript; the command palette, mobile menu and toasts load on first use; fonts are self-hosted Latin subsets. Blog posts are MDX with rehype-pretty-code, the journey and /uses chart are derived from the same project data, and a strict Content Security Policy, RSS and structured data ship with it. Every pull request runs lint, type-checking, 97 Vitest unit tests and Playwright smoke tests in Chromium, Firefox and WebKit (Safari) at desktop and phone sizes, covering keyboard navigation, theme, filters and the contact form.",
       results:
-        "Mobile Lighthouse performance went from 38 to 93–97 across pages, with total blocking time down from 2.2 s to under 100 ms and layout shift near zero.",
+        "Mobile Lighthouse performance went from 38 to 93–100 across pages, with total blocking time down from 2.2 s to under 100 ms, layout shift near zero, and accessibility at 100 on every page.",
       challenges:
         "Keeping the personality without paying for it: the motion that made the old site feel alive was the same JavaScript that made it slow, so each effect had to be rebuilt in CSS or loaded only when someone actually reaches for it.",
     },

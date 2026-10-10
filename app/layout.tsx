@@ -26,19 +26,6 @@ export const metadata: Metadata = {
     template: "%s | Gregory Temwa",
   },
   description: SITE_DESCRIPTION,
-  keywords: [
-    "Gregory Temwa",
-    "Software Engineer",
-    "Full Stack Developer",
-    "React",
-    "JavaScript",
-    "Python",
-    "Machine Learning",
-    "AI",
-    "MERN Stack",
-    "Nairobi",
-    "Kenya",
-  ],
   authors: [
     {
       name: "Gregory Temwa",
@@ -46,6 +33,11 @@ export const metadata: Metadata = {
     },
   ],
   creator: "Gregory Temwa",
+  // Set these in Vercel to verify ownership with an HTML tag instead of DNS.
+  verification: {
+    ...(process.env.GOOGLE_SITE_VERIFICATION ? { google: process.env.GOOGLE_SITE_VERIFICATION } : {}),
+    ...(process.env.BING_SITE_VERIFICATION ? { other: { "msvalidate.01": process.env.BING_SITE_VERIFICATION } } : {}),
+  },
   alternates: {
     canonical: "/",
   },
@@ -95,16 +87,32 @@ const personJsonLd = {
       alternateName: "Gregory Temwa Odete",
       url: SITE_URL,
       image: `${SITE_URL}/potrait.jpg`,
-      jobTitle: "Software Engineer",
+      givenName: "Gregory",
+      familyName: "Temwa",
+      jobTitle: "Chief Software Engineer",
       description: SITE_DESCRIPTION,
       worksFor: {
         "@type": "Organization",
         name: "Webtech Solutions Limited",
+        url: "https://webtechsolutionske.com",
       },
-      alumniOf: {
+      // Still studying (BSc expected 2027), so affiliation rather than alumniOf.
+      affiliation: {
         "@type": "CollegeOrUniversity",
-        name: "United States International University",
+        name: "United States International University–Africa",
+        url: "https://www.usiu.ac.ke",
       },
+      email: "mailto:gregorytemwa1212@gmail.com",
+      knowsAbout: [
+        "Software engineering",
+        "Full-stack web development",
+        "TypeScript",
+        "Next.js",
+        "PostgreSQL",
+        "Offline-first systems",
+        "Multi-tenant SaaS",
+        "Machine learning",
+      ],
       address: {
         "@type": "PostalAddress",
         addressLocality: "Nairobi",
@@ -121,6 +129,7 @@ const personJsonLd = {
       "@id": `${SITE_URL}/#website`,
       url: SITE_URL,
       name: SITE_NAME,
+      inLanguage: "en",
       publisher: { "@id": `${SITE_URL}/#person` },
     },
   ],

@@ -1,17 +1,16 @@
 import type { Metadata } from "next"
+import { pageMetadata } from "@/lib/seo"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { projects } from "@/data/projects"
-import { SITE_NAME } from "@/lib/seo"
 
-const description = "The languages, frameworks, databases and infrastructure Gregory Temwa builds with, counted from real projects."
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Uses",
-  description,
-  alternates: { canonical: "/uses" },
-  openGraph: { title: "Uses | Gregory Temwa", description, url: "/uses", siteName: SITE_NAME, type: "website" },
-}
+  description: "The languages, frameworks, databases and infrastructure Gregory Temwa builds with, ranked by how many of his projects actually use them.",
+  path: "/uses",
+  type: "website",
+})
 
 /** Project tags that name the same tool. */
 const ALIASES: Record<string, string> = {

@@ -1,28 +1,17 @@
 import type { Metadata } from "next"
+import { pageMetadata } from "@/lib/seo"
 import Link from "next/link"
 import { ArrowLeft, ArrowRight, Rss } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { formatPostDate, getSortedPosts } from "@/data/blog"
-import { SITE_NAME } from "@/lib/seo"
 
-const description =
-  "Notes from Gregory Temwa on building production software: domain modelling, testing, security defaults, and the failures that only show up once something is real."
 
-export const metadata: Metadata = {
-  title: "Blog",
-  description,
-  alternates: {
-    canonical: "/blog",
-  },
-  openGraph: {
-    title: "Blog | Gregory Temwa",
-    description,
-    url: "/blog",
-    siteName: SITE_NAME,
-    locale: "en_US",
-    type: "website",
-  },
-}
+export const metadata: Metadata = pageMetadata({
+  title: "Writing",
+  description: "Essays from Gregory Temwa on building production software: domain modelling, failures that never throw, and defaults that fail safe.",
+  path: "/blog",
+  type: "website",
+})
 
 export default function BlogPage() {
   const posts = getSortedPosts()

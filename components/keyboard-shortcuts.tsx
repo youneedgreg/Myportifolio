@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useRouter } from "next/navigation"
 import dynamic from "next/dynamic"
 import { useTheme } from "next-themes"
@@ -26,6 +26,7 @@ export default function KeyboardShortcuts() {
   const { setOpen: setPaletteOpen } = useCommandPalette()
   const [helpOpen, setHelpOpen] = useState(false)
   const [helpLoaded, setHelpLoaded] = useState(false)
+  const returnFocus = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
     let pendingG: ReturnType<typeof setTimeout> | null = null
@@ -50,6 +51,9 @@ export default function KeyboardShortcuts() {
           break
         case "?":
           event.preventDefault()
+          if (!(document.activeElement as HTMLElement | null)?.closest('[role="dialog"]')) {
+            returnFocus.current = document.activeElement as HTMLElement | null
+          }
           setHelpLoaded(true)
           setHelpOpen((open) => !open)
           break
@@ -80,5 +84,5 @@ export default function KeyboardShortcuts() {
     )
   }, [])
 
-  return helpLoaded ? <ShortcutsHelp open={helpOpen} setOpen={setHelpOpen} goTo={goTo} /> : null
+  return helpLoaded ? <ShortcutsHelp open={helpOpen} setOpen={setHelpOpen} goTo={goTo} returnFocus={returnFocus} /> : null
 }
