@@ -13,6 +13,8 @@ export default defineConfig({
   timeout: 45_000,
   fullyParallel: true,
   retries: process.env.CI ? 1 : 0,
+  // Five browser projects at full parallelism overload a standard CI runner.
+  workers: process.env.CI ? 2 : undefined,
   reporter: process.env.CI ? [["github"], ["html", { open: "never" }]] : [["list"]],
   use: {
     baseURL: `http://localhost:${PORT}`,

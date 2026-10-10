@@ -109,13 +109,20 @@ test("phone menu lists every page", async ({ page, isMobile }) => {
   }
 })
 
-test("work filters narrow the list", async ({ page }) => {
+test("work filters narrow the list, by keyboard", async ({ page }) => {
   await open(page, "/projects")
   const count = page.getByText(/^\d+ of \d+ projects$/)
   const all = await count.textContent()
-  await page.getByRole("button", { name: /^Client work/ }).click()
+  // Keyboard rather than click: it proves the chips are keyboard-operable, and
+  // sidesteps Linux WebKit never reporting the chip row as "stable" for a click.
+  const press = async (name: RegExp) => {
+    await page.getByRole("button", { name }).focus()
+    await page.keyboard.press("Enter")
+  }
+  await press(/^Client work/)
   await expect(count).not.toHaveText(all!)
-  await page.getByRole("button", { name: /^Clear filters/ }).click()
+  await expect(page.getByRole("button", { name: /^Client work/ })).toHaveAttribute("aria-pressed", "true")
+  await press(/^Clear filters/)
   await expect(count).toHaveText(all!)
 })
 
