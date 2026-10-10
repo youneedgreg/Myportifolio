@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useRef, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import dynamic from "next/dynamic"
@@ -24,9 +24,10 @@ export default function SiteHeader() {
   const { setOpen } = useCommandPalette()
   const [menuOpen, setMenuOpen] = useState(false)
   const [menuLoaded, setMenuLoaded] = useState(false)
+  const menuButton = useRef<HTMLButtonElement>(null)
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/80 backdrop-blur-lg">
+    <header className="no-print sticky top-0 z-40 w-full border-b border-border/60 bg-background/80 backdrop-blur-lg">
       <div className="flex h-16 items-center justify-between px-4 md:px-6">
         <Link
           href="/"
@@ -101,6 +102,7 @@ export default function SiteHeader() {
           <Button
             variant="ghost"
             size="icon"
+            ref={menuButton}
             aria-label="Open menu"
             className="text-muted-foreground hover:text-foreground md:hidden"
             onClick={() => {
@@ -113,7 +115,7 @@ export default function SiteHeader() {
         </div>
       </div>
 
-      {menuLoaded && <MobileMenu open={menuOpen} setOpen={setMenuOpen} pathname={pathname} />}
+      {menuLoaded && <MobileMenu open={menuOpen} setOpen={setMenuOpen} pathname={pathname} returnFocus={menuButton} />}
     </header>
   )
 }

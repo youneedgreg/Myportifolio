@@ -24,9 +24,18 @@ export function useCommandPalette() {
 export function CommandPaletteProvider({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = React.useState(false)
   const [loaded, setLoaded] = React.useState(false)
+  // The palette is opened from code (button, ⌘K, "/"), not a Radix trigger, so
+  // remember what had focus and hand it back on close.
+  const returnFocus = React.useRef<HTMLElement | null>(null)
 
   const setOpenAndLoad = React.useCallback((value: boolean) => {
-    if (value) setLoaded(true)
+    if (value) {
+      returnFocus.current = document.activeElement instanceof HTMLElement ? document.activeElement : null
+      setLoaded(true)
+    } else {
+      const target = returnFocus.current
+      requestAnimationFrame(() => target?.isConnected && target.focus())
+    }
     setOpen(value)
   }, [])
 
@@ -34,8 +43,13 @@ export function CommandPaletteProvider({ children }: { children: React.ReactNode
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "k" && (event.metaKey || event.ctrlKey)) {
         event.preventDefault()
-        setLoaded(true)
-        setOpen((value) => !value)
+        setOpen((value) => {
+          if (!value) {
+            returnFocus.current = document.activeElement instanceof HTMLElement ? document.activeElement : null
+            setLoaded(true)
+          }
+          return !value
+        })
       }
     }
     document.addEventListener("keydown", onKeyDown)

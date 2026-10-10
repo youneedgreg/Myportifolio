@@ -27,3 +27,28 @@ jobs:
         env:
           # Read-only access for the Now section and GitHub stats during prerender.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  browsers:
+    # Smoke tests in Chromium, Firefox and WebKit (Safari), desktop and phone.
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium firefox webkit
+      - run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: npm run test:browsers
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: playwright-report
+          retention-days: 7

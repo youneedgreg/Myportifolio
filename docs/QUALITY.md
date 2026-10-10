@@ -61,3 +61,35 @@ Total blocking time is 10–50 ms on every page and layout shift is at most 0.00
 ### Needs the owner
 
 See [`NEXT-STEPS.md`](../NEXT-STEPS.md): verify `temwa.dev` in Resend, add `GITHUB_TOKEN`, add a booking link, and the two issues on other sites (AgroWatch API errors, OKLaw hero photo).
+
+## Round 2 (October 2026)
+
+Scope agreed with the owner: real write-ups for placeholder case studies, the home page's footer call to action, a keyboard and screen-reader pass, the CV, and Firefox and Safari. ("Latest commit" stays as it is, by choice.)
+
+### Found and fixed
+
+| Area | Finding | Fix |
+| --- | --- | --- |
+| Content | Five case studies ended in "Full write-up coming soon". | Written from the code: Safari OS and Spine from their repositories (Spine: 64 migrations, 37 enforcing row-level security, 42 unit and 11 end-to-end suites); the hate-speech and image classifiers from their notebooks' own outputs. |
+| Content | The image classifier's notebook reports 99.0% test accuracy and, separately, a 48% per-class report. | Investigated: the 48% came from predictions and labels drawn in two passes over a shuffled dataset. The write-up says so and gives the real figures. |
+| Content | The hate-speech write-up implied a strong model. | It now reports both accuracy (75.9%) and macro F1 (0.35), and why the gap matters. |
+| Content | The motel system claimed "automated daily summaries" and transactional double-booking protection that the code does not have, and was listed as "coming soon" while deployed. | Rewritten to what the code does; marked live with its URL. |
+| UX | On the home page the footer's "Let's build something." sat directly under the contact form. | The footer's call to action is path-aware: on the home page it reads "Still scrolling? Go deeper." and links to the journey. |
+| Accessibility | Keyboard focus on plain links was the browser's 1 px outline at 50% opacity. | A global 2 px `:focus-visible` ring in the accent colour, offset 3 px. |
+| Accessibility | The screenshot marquee kept moving while a card inside it had keyboard focus. | Pauses on `:focus-within` as well as hover. |
+| Accessibility | Closing the command palette, mobile menu or shortcut help dropped focus to the page body. | Each restores focus to whatever opened it. |
+| CV | Printing included the site footer (two extra pages, one with near-invisible gradient text). | Site header and footer are `no-print`; print styles set page margins and keep each role and project on one page. The CV prints on two pages. |
+| CV | Experience was hand-copied, the two featured projects were missing, "Strengths" was filler, en dashes were used as separators, and "Download PDF" opened the print dialog. | Experience is read from `data/experience.ts`; projects updated; filler removed; colons as separators; the button says "Print or save as PDF". |
+| Cross-browser | No tests in Firefox or Safari. | Playwright smoke tests (`e2e/`) in Chromium, Firefox and WebKit at desktop and phone sizes: every page renders with one `h1`, no console errors and no horizontal scroll; theme follows the device; keyboard shortcuts, dialogs and focus return; work filters; contact form success and failure (API mocked). Runs in CI on every pull request. |
+| Security / testing | `upgrade-insecure-requests` made WebKit rewrite every asset on a local `http://` production build to `https://`, so nothing loaded. Production (HTTPS only) was never affected. | The directive is only sent on Vercel. |
+
+### Verified
+
+- Keyboard: one `h1` and no skipped heading levels on every page, no duplicate ids, alt text on every image, no focusable element inside `aria-hidden`, visible focus everywhere, dialogs trap focus, close on Escape and restore focus.
+- Chrome and WebKit (Safari 27.2 engine), desktop and phone: 76 of 76 smoke tests pass locally. Firefox runs in CI; locally it cannot create a profile inside this machine's sandbox.
+- CV: prints on two pages with no site chrome.
+
+### Open questions for the owner
+
+- **Certifications.** The CV lists Google ML Crash Course, Coursera ML, IBM SkillsBuild "AI Engineering Fundamentals", freeCodeCamp Data Analysis with Python and the HNG internship; the About page lists IBM SkillsBuild "AI Fundamentals", freeCodeCamp Front End Development Libraries, freeCodeCamp Machine Learning with Python and Coursera ML. One list should be the truth, kept in one data file.
+- **Hackathons.** "Award-winning" is still unsupported by a named event.

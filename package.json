@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint .",
     "test": "vitest run",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test:browsers": "playwright test"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "^1.4.0",
@@ -37,6 +38,7 @@
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.0",
     "@tailwindcss/postcss": "^4",
     "@types/mdx": "^2.0.14",
     "@types/node": "^24.19.1",

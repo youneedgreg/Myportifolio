@@ -142,6 +142,11 @@
   * {
     @apply border-border outline-ring/50;
   }
+  /* One clearly visible keyboard focus ring everywhere (WCAG 2.4.7 / 2.4.13). */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+  }
   body {
     @apply bg-background text-foreground;
   }
@@ -274,14 +279,37 @@
 }
 
 @media print {
+  @page {
+    margin: 14mm 16mm;
+  }
+
+  /* Site chrome never prints: only the page's own content does. */
   .no-print,
   .scroll-progress,
-  header {
+  [href="#content"] {
     display: none !important;
   }
 
+  html,
   body {
-    background: #fff;
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  main {
+    padding: 0 !important;
+  }
+
+  /* Keep a role or project on one page instead of splitting it. */
+  .cv-item,
+  .cv-section h2 {
+    break-inside: avoid;
+    break-after: avoid-page;
+  }
+
+  .cv a {
+    color: inherit;
+    text-decoration: none;
   }
 }
 

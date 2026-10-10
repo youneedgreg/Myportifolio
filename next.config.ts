@@ -18,7 +18,9 @@ const contentSecurityPolicy = [
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
-  ...(isDev ? [] : ["upgrade-insecure-requests"]),
+  // Only on Vercel (always HTTPS). Safari applies it to http://localhost too,
+  // which breaks every asset when testing a production build locally.
+  ...(process.env.VERCEL ? ["upgrade-insecure-requests"] : []),
 ].join("; ");
 
 const securityHeaders = [

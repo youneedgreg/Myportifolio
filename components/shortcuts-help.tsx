@@ -15,14 +15,22 @@ export default function ShortcutsHelp({
   open: helpOpen,
   setOpen: setHelpOpen,
   goTo,
+  returnFocus,
 }: {
   open: boolean
   setOpen: (open: boolean) => void
   goTo: NavLink[]
+  returnFocus?: React.RefObject<HTMLElement | null>
 }) {
   return (
     <Dialog open={helpOpen} onOpenChange={setHelpOpen}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent
+        className="sm:max-w-md"
+        onCloseAutoFocus={(event) => {
+          event.preventDefault()
+          if (returnFocus?.current?.isConnected) returnFocus.current.focus()
+        }}
+      >
         <DialogHeader>
           <DialogTitle className="font-mono">Keyboard shortcuts</DialogTitle>
           <DialogDescription>For people who would rather not reach for the mouse.</DialogDescription>

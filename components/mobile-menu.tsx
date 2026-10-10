@@ -14,14 +14,21 @@ export default function MobileMenu({
   open: menuOpen,
   setOpen: setMenuOpen,
   pathname,
+  returnFocus,
 }: {
   open: boolean
   setOpen: (open: boolean) => void
   pathname: string
+  returnFocus?: React.RefObject<HTMLElement | null>
 }) {
   return (
     <Dialog open={menuOpen} onOpenChange={setMenuOpen}>
-      <DialogContent className="top-4 max-h-[calc(100dvh-2rem)] translate-y-0 overflow-y-auto sm:max-w-md">
+      <DialogContent
+        onCloseAutoFocus={(event) => {
+          event.preventDefault()
+          returnFocus?.current?.focus()
+        }}
+        className="top-4 max-h-[calc(100dvh-2rem)] translate-y-0 overflow-y-auto sm:max-w-md">
         <DialogTitle className="font-mono text-sm uppercase tracking-widest text-primary">Menu</DialogTitle>
         <DialogDescription className="sr-only">Site navigation</DialogDescription>
         <nav className="grid gap-6">

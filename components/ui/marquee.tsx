@@ -66,7 +66,8 @@ export function Marquee({
             className={cn("flex shrink-0 justify-around gap-(--gap)", {
               "animate-marquee flex-row": !vertical,
               "animate-marquee-vertical flex-col": vertical,
-              "group-hover:[animation-play-state:paused]": pauseOnHover,
+              // Keyboard users get the same pause, so a focused card doesn't slide away.
+              "group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused]": pauseOnHover,
               "[animation-direction:reverse]": reverse,
             })}
           >

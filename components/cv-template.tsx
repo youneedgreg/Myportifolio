@@ -1,208 +1,165 @@
-"use client"
-import { Button } from "@/components/ui/button"
-import { Download } from "lucide-react"
+import { Printer } from "lucide-react"
+import { experience } from "@/data/experience"
+import { projects } from "@/data/projects"
+import PrintButton from "@/components/print-button"
+
+// The CV reads the same experience data as the rest of the site, so they can't drift apart.
+const ROLES = experience.filter((job) => !/Freelance|Instructor|Mtaamall/i.test(`${job.role} ${job.company}`)).slice(0, 6)
+const EARLIER = experience.filter((job) => !ROLES.includes(job))
+
+const PROJECTS = [
+  {
+    name: "Liquor Store POS",
+    line: "Offline-first Android point of sale and owner dashboard for a liquor store: SQLite outbox that syncs every sale exactly once, split cash/M-Pesa/credit payments, shift reconciliation. Expo, Next.js, Neon Postgres, Drizzle.",
+  },
+  {
+    name: "OKLaw Practice Management",
+    line: "Twenty-module system for a Kenyan law firm (matters, court diary, trust accounting, billing, client portal) with the domain modelled from statute and architecture rules enforced in CI. Next.js, Effect, Neon Postgres.",
+  },
+  {
+    name: "Flori-Core Enterprise OS",
+    line: "Multi-tenant Agri-ERP for flower farms connecting cold-room IoT sensors with production, logistics and sales. NestJS and Next.js monorepo, Prisma, TimescaleDB, MQTT, a Claude tool-use assistant.",
+  },
+  {
+    name: "Safari OS",
+    line: "Booking-to-invoice platform for a safari operator: costing engine (USD/KES), AI itineraries, WhatsApp reminders, tokenised driver and client portals. Next.js, Prisma, PostgreSQL, Claude with Mistral fallback.",
+  },
+  {
+    name: "Spine",
+    line: "Five-app multi-tenant SaaS for a mall, a farm and SMEs on one Supabase project: 64 migrations with row-level security, payroll with Kenyan statutory deductions, 42 unit and 11 end-to-end test suites.",
+  },
+  {
+    name: "Notification System",
+    line: "Five-service NestJS monorepo for email and push: RabbitMQ with dead-letter retries, circuit breakers, idempotency keys and Grafana monitoring.",
+  },
+]
+
+const SKILLS: [string, string][] = [
+  ["Languages", "TypeScript, JavaScript, Python, SQL, Go, Rust, Java, C++"],
+  ["Frameworks", "Next.js, React, React Native (Expo), Node.js, NestJS, Express, Effect, TensorFlow, scikit-learn"],
+  ["Data", "PostgreSQL (Neon, Supabase), TimescaleDB, MySQL, MongoDB, SQLite, Redis; Prisma and Drizzle"],
+  ["AI", "Anthropic Claude (tool use), Mistral, OpenRouter, Hugging Face"],
+  ["Infrastructure", "Docker, Kubernetes, RabbitMQ, Nginx, Linux, Vercel, Turborepo; Prometheus and Grafana"],
+  ["Testing", "Vitest, Playwright, CI with GitHub Actions"],
+]
+
+const CERTIFICATIONS = [
+  "Google Machine Learning Crash Course",
+  "Coursera: Machine Learning (Andrew Ng)",
+  "IBM SkillsBuild: AI Engineering Fundamentals",
+  "freeCodeCamp: Data Analysis with Python",
+  "HNG Internship: Full Stack Development",
+]
+
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <section className="cv-section space-y-2.5">
+      <h2 className="border-b border-gray-200 pb-1 text-sm font-bold uppercase tracking-[0.15em] text-blue-700">
+        {title}
+      </h2>
+      {children}
+    </section>
+  )
+}
 
 export function CVTemplate() {
-  const downloadPDF = () => {
-    window.print();
-  };
-
   return (
     <div className="mx-auto max-w-4xl">
-      <div className="no-print mb-6 flex justify-end">
-        <Button onClick={downloadPDF}>
-          <Download className="size-4" />
-          Download PDF
-        </Button>
+      <div className="no-print mb-6 flex flex-wrap items-center justify-between gap-3">
+        <p className="font-mono text-sm text-muted-foreground">
+          <span className="text-primary">greg@portfolio</span>:~$ lp cv.pdf
+        </p>
+        <PrintButton>
+          <Printer className="size-4" />
+          Print or save as PDF
+        </PrintButton>
       </div>
 
-      <div className="overflow-hidden rounded-2xl border border-border bg-white p-12 shadow-sm print:rounded-none print:border-none print:shadow-none">
-        {/* Header Section */}
-        <div className="text-center mb-6">
-          <h1 className="text-4xl font-bold text-blue-700 mb-1 tracking-wide">
-            GREGORY TEMWA ODETE
-          </h1>
-          <p className="text-lg text-gray-600 mb-3">Full Stack & AI Engineer</p>
-          <div className="text-sm text-gray-700">
-            gregorytemwa1212@gmail.com | linkedin.com/in/youneedgreg | x.com/youneedgreg | temwa.dev | github.com/youneedgreg
+      <article className="cv rounded-2xl border border-border bg-white p-8 text-[13px] leading-relaxed text-gray-800 shadow-sm sm:p-12 print:rounded-none print:border-none print:p-0 print:shadow-none">
+        <header className="space-y-1.5 text-center">
+          <h1 className="text-3xl font-bold tracking-tight text-gray-950">Gregory Temwa Odete</h1>
+          <p className="text-base text-gray-600">Chief Software Engineer · Full-Stack and AI · Nairobi, Kenya</p>
+          <p className="text-xs text-gray-600">
+            <a href="mailto:gregorytemwa1212@gmail.com">gregorytemwa1212@gmail.com</a> ·{" "}
+            <a href="https://temwa.dev">temwa.dev</a> · <a href="https://github.com/youneedgreg">github.com/youneedgreg</a> ·{" "}
+            <a href="https://www.linkedin.com/in/youneedgreg/">linkedin.com/in/youneedgreg</a> ·{" "}
+            <a href="https://x.com/youneedgreg">x.com/youneedgreg</a>
+          </p>
+        </header>
+
+        <div className="mt-6 space-y-5">
+          <Section title="Profile">
+            <p>
+              Software engineer with 3+ years building production systems that businesses run their day on: offline-first
+              point of sale, trust accounting for a law firm, ERPs for flower farms and safari operators. Chief Software
+              Engineer at Webtech Solutions, owning architecture, CI/CD and code standards across client projects, while
+              finishing a BSc in Software Engineering at USIU (2027). Open-source contributor to Canonical&apos;s
+              observability charms.
+            </p>
+          </Section>
+
+          <Section title="Experience">
+            <div className="space-y-3">
+              {ROLES.map((job) => (
+                <div key={`${job.role}-${job.period}`} className="cv-item">
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-4">
+                    <h3 className="font-semibold text-gray-950">
+                      {job.role}, <span className="font-normal text-gray-700">{job.company}</span>
+                    </h3>
+                    <span className="whitespace-nowrap text-xs text-gray-500">{job.period}</span>
+                  </div>
+                  <p>{job.description}</p>
+                </div>
+              ))}
+              {EARLIER.length > 0 && (
+                <p className="text-gray-600">
+                  <span className="font-semibold text-gray-800">Earlier:</span>{" "}
+                  {EARLIER.map((job) => `${job.role}, ${job.company.split(",")[0]} (${job.period})`).join("; ")}.
+                </p>
+              )}
+            </div>
+          </Section>
+
+          <Section title="Selected projects">
+            <ul className="space-y-1.5">
+              {PROJECTS.map((p) => (
+                <li key={p.name} className="cv-item">
+                  <span className="font-semibold text-gray-950">{p.name}:</span> {p.line}
+                </li>
+              ))}
+            </ul>
+            <p className="text-xs text-gray-500">Case studies for these and {projects.length - PROJECTS.length} more at temwa.dev/projects.</p>
+          </Section>
+
+          <Section title="Skills">
+            <dl className="space-y-1">
+              {SKILLS.map(([label, value]) => (
+                <div key={label}>
+                  <dt className="inline font-semibold text-gray-950">{label}: </dt>
+                  <dd className="inline">{value}</dd>
+                </div>
+              ))}
+            </dl>
+          </Section>
+
+          <div className="grid gap-5 sm:grid-cols-2 print:grid-cols-2">
+            <Section title="Education">
+              <p>
+                <span className="font-semibold text-gray-950">BSc Software Engineering</span>, expected 2027
+                <br />
+                United States International University–Africa (USIU–A)
+              </p>
+            </Section>
+            <Section title="Certifications">
+              <ul>
+                {CERTIFICATIONS.map((c) => (
+                  <li key={c}>{c}</li>
+                ))}
+              </ul>
+            </Section>
           </div>
         </div>
-
-        <hr className="border-blue-600 border-t-2 mb-6" />
-
-        {/* Profile Section */}
-        <section className="mb-6">
-          <h2 className="text-xl font-bold text-blue-700 mb-2 uppercase">Profile</h2>
-          <p className="text-gray-700 text-sm leading-relaxed">
-            Full Stack & AI Engineer with 3+ years of experience building production SaaS platforms, AI-powered
-            applications, and scalable backend systems with React, Next.js, Node.js, NestJS, and Python. Leads
-            technical strategy as Chief Software Engineer at Webtech Solutions, combining analytical precision with
-            creative design to deliver efficient, AI-integrated, data-driven solutions.
-          </p>
-        </section>
-
-        {/* Technical Skills Section */}
-        <section className="mb-6">
-          <h2 className="text-xl font-bold text-blue-700 mb-2 uppercase">Technical Skills</h2>
-          <div className="text-sm text-gray-700 space-y-1">
-            <p><strong>Languages:</strong> JavaScript (ES6+), TypeScript, Python, Go, Rust, SQL, C++, Java</p>
-            <p><strong>Frameworks:</strong> React, Next.js, NestJS, Node.js, Express.js, React Native, TensorFlow, scikit-learn</p>
-            <p><strong>Databases:</strong> PostgreSQL, MySQL, MongoDB, Supabase, NeonDB, TimescaleDB, Redis</p>
-            <p><strong>AI/ML:</strong> Anthropic Claude (tool use), Mistral, OpenRouter, Hugging Face, TensorFlow/Keras, scikit-learn</p>
-            <p><strong>Infra & Observability:</strong> Linux, Docker, Kubernetes, RabbitMQ, Nginx, Prometheus, Grafana, Prisma, Turborepo, Git, Postman, Figma, Vercel</p>
-            <p><strong>Core Competencies:</strong> Full Stack Development, Multi-Tenant SaaS Architecture, Microservices, API Engineering, Machine Learning, Agile Collaboration, UI/UX Design</p>
-          </div>
-        </section>
-
-        {/* Experience Section */}
-        <section className="mb-6">
-          <h2 className="text-xl font-bold text-blue-700 mb-3 uppercase">Experience</h2>
-          <div className="space-y-4">
-            {/* Job 1 */}
-            <div>
-              <div className="flex justify-between items-baseline mb-1">
-                <h3 className="text-sm font-bold text-gray-800">Chief Software Engineer, Webtech Solutions Limited, Nairobi, Kenya</h3>
-                <span className="text-xs text-gray-600">(Feb 2026 – Present)</span>
-              </div>
-              <p className="text-sm text-gray-700 leading-relaxed">
-                Lead technical strategy and architecture across client projects, owning CI/CD pipelines and code
-                quality standards while mentoring engineers and delivering production SaaS platforms and AI-powered
-                tools.
-              </p>
-            </div>
-
-            {/* Open Source */}
-            <div>
-              <div className="flex justify-between items-baseline mb-1">
-                <h3 className="text-sm font-bold text-gray-800">Open Source Developer, Independent (Canonical, RocketMQ-Rust and others)</h3>
-                <span className="text-xs text-gray-600">(Jun 2025 – Present)</span>
-              </div>
-              <p className="text-sm text-gray-700 leading-relaxed">
-                Contribute Python fixes and features to Canonical&apos;s Observability Stack: merged changes to
-                tempo-operators and alertmanager-k8s-operator, with open pull requests to cos-alerter and
-                hardware-api, plus a merged change to RocketMQ-Rust and open pull requests to Google&apos;s sbsim.
-              </p>
-            </div>
-
-            {/* Job 2 */}
-            <div>
-              <div className="flex justify-between items-baseline mb-1">
-                <h3 className="text-sm font-bold text-gray-800">Full Stack Software Developer, Webtech Solutions Limited, Nairobi, Kenya</h3>
-                <span className="text-xs text-gray-600">(Dec 2024 – Jan 2026)</span>
-              </div>
-              <p className="text-sm text-gray-700 leading-relaxed">
-                Built client-facing applications with React, Next.js, TypeScript, and Node.js, designing databases and
-                REST APIs end-to-end and shipping production deployments on Vercel and Railway.
-              </p>
-            </div>
-
-            {/* Job 3 */}
-            <div>
-              <div className="flex justify-between items-baseline mb-1">
-                <h3 className="text-sm font-bold text-gray-800">Intern (Frontend & Backend), HNG Tech, Remote</h3>
-                <span className="text-xs text-gray-600">(Oct 2025 – Dec 2025)</span>
-              </div>
-              <p className="text-sm text-gray-700 leading-relaxed">
-                Built a multi-framework ticket management system across React, Vue.js, and Twig frontends with a
-                Node/Express backend, implementing auth, CRUD, dashboards, and responsive design in an Agile team.
-              </p>
-            </div>
-
-            {/* Job 4 */}
-            <div>
-              <div className="flex justify-between items-baseline mb-1">
-                <h3 className="text-sm font-bold text-gray-800">Software Engineer Intern, Ivy Community, Nairobi, Kenya · Hybrid</h3>
-                <span className="text-xs text-gray-600">(Jul 2025 – Sep 2025)</span>
-              </div>
-              <p className="text-sm text-gray-700 leading-relaxed">
-                Built and shipped React features for an early-stage startup product, collaborating closely with
-                founders and designers to iterate quickly on user-facing functionality.
-              </p>
-            </div>
-
-            {/* Job 5 */}
-            <div>
-              <div className="flex justify-between items-baseline mb-1">
-                <h3 className="text-sm font-bold text-gray-800">Software Engineer Intern (Frontend), Girwa Foundation, Nairobi, Kenya · Remote</h3>
-                <span className="text-xs text-gray-600">(May 2025 – Aug 2025)</span>
-              </div>
-              <p className="text-sm text-gray-700 leading-relaxed">
-                Built responsive, accessible UI components for donor-management dashboards, improving transparency and
-                analytics for community programs.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Projects Section */}
-        <section className="mb-6">
-          <h2 className="text-xl font-bold text-blue-700 mb-3 uppercase">Projects</h2>
-          <div className="space-y-2 text-sm text-gray-700">
-            <p>
-              <strong>• Safari OS</strong> – End-to-end SaaS for a real safari operator covering bookings, a costing engine, CRM,
-              itinerary builder, invoicing, and an AI layer (Claude + Mistral) for conversion scoring, built with Next.js,
-              Prisma, and PostgreSQL.
-            </p>
-            <p>
-              <strong>• Flori-Core Enterprise OS</strong> – Multi-tenant Agri-ERP connecting IoT field sensors with logistics and
-              market operations via a NestJS + Next.js monorepo, Prisma, TimescaleDB, and an AI assistant.
-            </p>
-            <p>
-              <strong>• Save-It</strong> – 11-module personal finance suite (transactions, budgets, debts, loans, habits) with an
-              analytics dashboard, built with Next.js, Supabase, and Recharts.
-            </p>
-            <p>
-              <strong>• Chati AI</strong> – AI-powered mental health chatbot on a Mistral-based model via OpenRouter, with mood
-              tracking, and journaling, using Next.js, Prisma, and NeonDB.
-            </p>
-            <p>
-              <strong>• Notification System</strong> – 5-service microservices monorepo for email/push notifications with RabbitMQ,
-              circuit breakers, and Grafana monitoring, built with NestJS and Docker.
-            </p>
-            <p>
-              <strong>• Spine</strong> – Multi-tenant property & business SaaS across 5 Next.js apps in a Turborepo monorepo with
-              Supabase row-level security and a Mistral tool-calling assistant with role-scoped tools and user-confirmed writes.
-            </p>
-            <p>
-              <strong>• Compono UI Builder</strong> – Visual drag-and-drop builder for shadcn/ui with real-time WYSIWYG editing,
-              device previews, and live TypeScript + Tailwind code export.
-            </p>
-          </div>
-        </section>
-
-        {/* Certifications Section */}
-        <section className="mb-6">
-          <h2 className="text-xl font-bold text-blue-700 mb-2 uppercase">Certifications</h2>
-          <div className="text-sm text-gray-700 space-y-1">
-            <p>Google Machine Learning Crash Course</p>
-            <p>Coursera – Machine Learning (Andrew Ng)</p>
-            <p>IBM SkillsBuild – AI Engineering Fundamentals</p>
-            <p>FreeCodeCamp – Data Analysis with Python</p>
-            <p>HNG Internship – Full Stack Development</p>
-          </div>
-        </section>
-
-        {/* Education Section */}
-        <section className="mb-6">
-          <h2 className="text-xl font-bold text-blue-700 mb-2 uppercase">Education</h2>
-          <div className="text-sm text-gray-700">
-            <p className="font-bold">Bachelor of Science in Software Engineering <span className="font-normal">(Expected 2027)</span></p>
-            <p>United States International University–Africa (USIU–A)</p>
-            <p className="italic">Focus: Artificial Intelligence, Software Systems, and Full Stack Engineering</p>
-          </div>
-        </section>
-
-        {/* Strengths Section */}
-        <section>
-          <h2 className="text-xl font-bold text-blue-700 mb-2 uppercase">Strengths</h2>
-          <div className="text-sm text-gray-700 space-y-1">
-            <p>Leads technical strategy, architecture decisions, and engineering mentorship.</p>
-            <p>Bridges AI/LLM integration and full-stack web development to ship production SaaS.</p>
-            <p>Collaborative communicator and agile team contributor.</p>
-            <p>Committed to clean code, scalability, and continuous learning.</p>
-          </div>
-        </section>
-      </div>
+      </article>
     </div>
   )
 }
