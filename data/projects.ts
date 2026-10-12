@@ -1081,6 +1081,56 @@ export const projects: Project[] = [
       results: "Source on GitHub.",
     },
   },
+  {
+    slug: "switchboard",
+    title: "Switchboard",
+    description:
+      "An LLM gateway: an OpenAI-compatible streaming proxy built to survive a provider failing mid-answer, with a mock provider that breaks on command. Fallbacks, semantic caching, per-key cost tracking and tracing are next.",
+    image: "/placeholder.svg?height=400&width=600&text=Switchboard",
+    tags: ["TypeScript", "Hono", "Node.js", "Zod", "Turborepo", "Docker", "Vitest"],
+    github: "https://github.com/youneedgreg/switchboard",
+    size: "medium",
+    year: "2026",
+    role: "Backend Developer (Solo)",
+    status: "coming-soon",
+    gallery: [],
+    categories: ["backend", "ai-ml"],
+    caseStudy: {
+      problem:
+        "Apps that call LLMs each re-implement retries, provider failover, caching and spend tracking, usually badly. The hardest case, a provider dying after it has already streamed part of an answer, is rarely handled at all.",
+      approach:
+        "Building a gateway that speaks the OpenAI Chat Completions API, so any OpenAI SDK can use it by changing the base URL. Models are addressed as provider/model and each provider adapter streams through the gateway as OpenAI-format server-sent events. A mock provider fails on command through a request header (errors before streaming, dropped or stalled connections, malformed chunks, in-stream errors), so every failure mode can be tested on purpose.",
+      techDetails:
+        "pnpm workspaces and Turborepo; a Hono gateway on Node with API-key auth and Zod validation; a shared core package with the SSE parser, OpenAI wire types and provider errors; Vitest tests, including one that drives the gateway with the official OpenAI SDK; Docker Compose with Postgres and pgvector, Redis and a Grafana OpenTelemetry stack; GitHub Actions running Biome, type-checks, tests and Docker builds.",
+      results:
+        "In progress, week 1 of a 6-week plan: the streaming gateway, the chaos mock provider, tests, Docker and CI are built, and the gateway is deployed on Vercel behind an API key. Retries and fallbacks with mid-stream resume, a circuit breaker, per-key budgets, a tenant-safe semantic cache and a Python evals service come next. Follow the build on GitHub.",
+    },
+  },
+  {
+    slug: "ledger",
+    title: "Ledger",
+    description:
+      "A double-entry payments ledger with a Stripe-style API (accounts, transfers, holds, refunds and signed webhooks), designed so money is never created, lost or double-spent under concurrency, retries or crashes.",
+    image: "/placeholder.svg?height=400&width=600&text=Ledger",
+    tags: ["Python", "FastAPI", "PostgreSQL", "TypeScript"],
+    github: "https://github.com/youneedgreg/ledger",
+    size: "medium",
+    year: "2026",
+    role: "Backend Developer (Solo)",
+    status: "coming-soon",
+    gallery: [],
+    categories: ["backend", "microservices"],
+    caseStudy: {
+      problem:
+        "Most products that move money start with a balance column and an UPDATE. Then two concurrent requests spend the same balance, a retried request runs a transfer twice, a crash after the commit means a webhook is never sent, and nobody can explain why a balance is what it is.",
+      approach:
+        "Designing before writing code: a PRD listing the invariants Ledger must never break, a design doc, eight architecture decision records, a STRIDE threat model, and C4, ERD, sequence and state diagrams. The rules: money as integers in minor units, immutable entries with refunds as reversing transactions, every transaction summing to zero as enforced by the database, SERIALIZABLE isolation with bounded retries, idempotency keys written in the same transaction as the money movement, a transactional outbox for webhooks, and holds as an explicit state machine.",
+      techDetails:
+        "Planned: a Python FastAPI core on Postgres, a TypeScript Fastify gateway for auth, rate limits and versioning, a Next.js merchant dashboard, a typed TypeScript SDK, and Helm charts with Chaos Mesh to kill pods mid-transfer.",
+      results:
+        "In progress: week 0 of a 10-week plan, the design, is done. The double-entry core and its property-based tests are next. Follow the build on GitHub.",
+    },
+  },
 ]
 
 export function getProjectBySlug(slug: string): Project | undefined {
