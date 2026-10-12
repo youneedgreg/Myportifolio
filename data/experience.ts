@@ -9,9 +9,9 @@ export const experience: ExperienceEntry[] = [
   {
     role: "Chief Software Engineer",
     company: "Webtech Solutions Limited, Nairobi, Kenya",
-    period: "Feb 2026 – Present",
+    period: "Feb 2026 – Oct 2026",
     description:
-      "Lead technical strategy and architecture across client projects, owning CI/CD pipelines, code quality standards, and mentoring engineers while delivering production SaaS platforms and AI-powered tools.",
+      "Led technical strategy and architecture across client projects, owning CI/CD pipelines and code quality standards and mentoring engineers while delivering production SaaS platforms and AI-powered tools.",
   },
   {
     role: "Open Source Developer",

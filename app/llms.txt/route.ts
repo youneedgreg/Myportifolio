@@ -16,7 +16,7 @@ export function GET() {
     "",
     `> ${SITE_DESCRIPTION}`,
     "",
-    `Chief Software Engineer at Webtech Solutions in Nairobi, Kenya, and a BSc Software Engineering student at USIU–Africa (expected 2027). ${experience.length} roles and ${projects.length} projects since 2023. Contact: gregorytemwa1212@gmail.com.`,
+    `Software engineer in Nairobi, Kenya (Chief Software Engineer at Webtech Solutions, February to October 2026), and a BSc Software Engineering student at USIU–Africa (expected 2027). ${experience.length} roles and ${projects.length} projects since 2023. Contact: gregorytemwa1212@gmail.com.`,
     "",
     "## Pages",
     "",

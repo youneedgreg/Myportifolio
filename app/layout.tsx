@@ -89,13 +89,8 @@ const personJsonLd = {
       image: `${SITE_URL}/potrait.jpg`,
       givenName: "Gregory",
       familyName: "Temwa",
-      jobTitle: "Chief Software Engineer",
+      jobTitle: "Software Engineer",
       description: SITE_DESCRIPTION,
-      worksFor: {
-        "@type": "Organization",
-        name: "Webtech Solutions Limited",
-        url: "https://webtechsolutionske.com",
-      },
       // Still studying (BSc expected 2027), so affiliation rather than alumniOf.
       affiliation: {
         "@type": "CollegeOrUniversity",

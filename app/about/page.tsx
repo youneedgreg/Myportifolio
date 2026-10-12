@@ -7,7 +7,7 @@ import GithubStats, { GithubStatsSkeleton } from "@/components/github-stats"
 
 export const metadata: Metadata = pageMetadata({
   title: "About",
-  description: "Gregory Temwa is Chief Software Engineer at Webtech Solutions in Nairobi and a Software Engineering student at USIU, class of 2027.",
+  description: "Gregory Temwa is a software engineer in Nairobi, Chief Software Engineer at Webtech Solutions until October 2026, and a Software Engineering student at USIU, class of 2027.",
   path: "/about",
   type: "profile",
 })
