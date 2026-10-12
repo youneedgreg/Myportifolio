@@ -98,6 +98,24 @@ export default function SelectedWork() {
           )
         })}
       </div>
+
+      <Link
+        href="/projects"
+        className="surface group flex flex-col gap-2 border-dashed p-6 transition-colors hover:border-primary/50 sm:flex-row sm:items-center sm:justify-between md:p-8"
+      >
+        <span className="space-y-1">
+          <span className="block text-xl font-semibold tracking-tight transition-colors group-hover:text-primary">
+            {projects.length - featured.length} more projects
+          </span>
+          <span className="block text-sm text-muted-foreground">
+            Client systems, open source and experiments. Filter by stack, or let the dice pick one.
+          </span>
+        </span>
+        <span className="inline-flex min-h-10 shrink-0 items-center gap-1.5 font-mono text-sm text-primary">
+          See all {projects.length}
+          <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+        </span>
+      </Link>
     </section>
   )
 }

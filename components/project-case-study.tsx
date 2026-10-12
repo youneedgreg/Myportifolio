@@ -186,13 +186,27 @@ export default function ProjectCaseStudy({ project, prev, next, relatedPosts, si
                 <Link
                   key={p.slug}
                   href={`/projects/${p.slug}`}
-                  className="surface group flex flex-col gap-2 p-5 transition-colors hover:border-primary/50"
+                  className="surface group flex flex-col gap-2 overflow-hidden transition-colors hover:border-primary/50"
                 >
-                  <span className="flex items-start justify-between gap-2">
+                  <span className="block overflow-hidden bg-muted">
+                    {p.image.startsWith("/placeholder") ? (
+                      <ProjectCoverPlaceholder title={p.title} tags={p.tags} label="Case study" className="aspect-[16/10]" />
+                    ) : (
+                      <Image
+                        src={p.image}
+                        alt=""
+                        width={480}
+                        height={300}
+                        sizes="(min-width: 640px) 300px, 100vw"
+                        className="aspect-[16/10] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none"
+                      />
+                    )}
+                  </span>
+                  <span className="flex items-start justify-between gap-2 px-5">
                     <span className="font-semibold tracking-tight transition-colors group-hover:text-primary">{p.title}</span>
                     <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
                   </span>
-                  <span className="font-mono text-xs text-muted-foreground">
+                  <span className="px-5 pb-5 font-mono text-xs text-muted-foreground">
                     {p.year} · {p.tags.filter((tag) => project.tags.includes(tag)).slice(0, 3).join(", ")}
                   </span>
                 </Link>
