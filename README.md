@@ -51,6 +51,7 @@ All optional locally; the site degrades gracefully without them.
 | To change | Edit |
 | --- | --- |
 | Projects and case studies | `data/projects.ts` (screenshots in `public/assets/`) |
+| Work page order | Newest commit first: `lastActive` in `data/projects.ts`, overridden hourly by GitHub's last push for public repos (`lib/work-order.ts`) |
 | Blog posts | Metadata in `data/blog.ts`, body in `content/blog/<slug>.mdx` |
 | Experience, journey | `data/experience.ts` (the journey is derived from experience, projects and posts) |
 | "Currently building", `/now` date | `data/now.ts` |

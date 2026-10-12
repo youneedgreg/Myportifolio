@@ -20,6 +20,8 @@ export type WorkItem = {
   openSource: boolean
   client: boolean
   categories: ProjectCategory[]
+  /** ISO timestamp of the last commit; the list is sorted by it. */
+  lastActive: string
 }
 
 const STATUS: Record<ProjectStatus, { label: string; perms: string; dot: string }> = {
@@ -133,6 +135,8 @@ function GalleryCard({ item }: { item: WorkItem }) {
   )
 }
 
+const monthYear = new Intl.DateTimeFormat("en", { month: "short", year: "numeric", timeZone: "UTC" })
+
 function TerminalView({ items }: { items: WorkItem[] }) {
   return (
     <div className="surface overflow-hidden font-mono text-sm">
@@ -152,10 +156,12 @@ function TerminalView({ items }: { items: WorkItem[] }) {
             <li key={item.slug}>
               <Link
                 href={`/projects/${item.slug}`}
-                className="group grid min-h-10 grid-cols-[3rem_1fr] items-center gap-x-4 rounded-md px-2 py-1.5 transition-colors hover:bg-muted sm:grid-cols-[6.5rem_3rem_1fr_minmax(0,16rem)]"
+                className="group grid min-h-10 grid-cols-[4.5rem_1fr] items-center gap-x-4 rounded-md px-2 py-1.5 transition-colors hover:bg-muted sm:grid-cols-[6.5rem_4.5rem_1fr_minmax(0,16rem)]"
               >
                 <span className="hidden text-muted-foreground sm:inline">{STATUS[item.status].perms}</span>
-                <span className="text-muted-foreground">{item.year.slice(0, 4)}</span>
+                <time dateTime={item.lastActive} className="text-muted-foreground">
+                  {monthYear.format(new Date(item.lastActive))}
+                </time>
                 <span className="truncate transition-colors group-hover:text-primary">
                   {item.title}
                   {item.status === "live" && <span className="text-primary">*</span>}

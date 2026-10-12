@@ -2,6 +2,7 @@ import { existsSync } from "node:fs"
 import { join } from "node:path"
 import { describe, expect, it } from "vitest"
 import { projectCategories, projects } from "@/data/projects"
+import { lastActiveAt } from "@/lib/work-order"
 
 const publicFile = (src: string) => join(process.cwd(), "public", src.split("?")[0])
 const isPlaceholder = (src: string) => src.startsWith("/placeholder")
@@ -38,5 +39,27 @@ describe("projects data", () => {
 
   it("uses a year (or year range) the journey can parse", () => {
     for (const p of projects) expect(p.year, p.slug).toMatch(/^\d{4}/)
+  })
+})
+
+describe("work page order", () => {
+  it("records lastActive as a YYYY-MM-DD date", () => {
+    for (const p of projects.filter((p) => p.lastActive)) expect(p.lastActive, p.slug).toMatch(/^\d{4}-\d{2}-\d{2}$/)
+  })
+
+  it("prefers a newer GitHub push over the recorded date, matching the repo case-insensitively", () => {
+    const project = { github: "https://github.com/youneedgreg/Save-it", lastActive: "2025-12-22", year: "2025" }
+    const pushes = new Map([["youneedgreg/save-it", "2026-10-01T09:00:00Z"]])
+    expect(lastActiveAt(project, pushes)).toBe(Date.parse("2026-10-01T09:00:00Z"))
+  })
+
+  it("keeps the recorded date when GitHub has nothing newer or is unreachable", () => {
+    const project = { github: "https://github.com/youneedgreg/chessy", lastActive: "2026-10-11", year: "2026" }
+    expect(lastActiveAt(project, new Map([["youneedgreg/chessy", "2026-01-01T00:00:00Z"]]))).toBe(Date.parse("2026-10-11"))
+    expect(lastActiveAt(project, new Map())).toBe(Date.parse("2026-10-11"))
+  })
+
+  it("falls back to the start of the year for a private project with no date", () => {
+    expect(lastActiveAt({ github: "", year: "2025–Present" }, new Map())).toBe(Date.parse("2025"))
   })
 })

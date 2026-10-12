@@ -2,13 +2,16 @@ import WorkExplorer, { type WorkItem } from "@/components/work-explorer"
 import OpenSourceList from "@/components/open-source-list"
 import { openSourceContributions } from "@/data/open-source"
 import { projects } from "@/data/projects"
+import { getRepoPushDates } from "@/lib/github"
+import { lastActiveAt } from "@/lib/work-order"
 
-/** Newest first; within a year, featured work leads. "2025–Present" sorts as 2025. */
-function byRecency(a: WorkItem, b: WorkItem) {
-  return b.year.slice(0, 4).localeCompare(a.year.slice(0, 4)) || Number(b.featured) - Number(a.featured)
+/** Most recently worked on first; on the same day, featured work leads. */
+function byLastActive(a: WorkItem, b: WorkItem) {
+  return b.lastActive.localeCompare(a.lastActive) || Number(b.featured) - Number(a.featured)
 }
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const pushes = await getRepoPushDates()
   // Only what the cards need crosses to the client — not the case-study text.
   const items: WorkItem[] = projects
     .map((p) => ({
@@ -23,8 +26,9 @@ export default function ProjectsPage() {
       openSource: Boolean(p.openSource),
       client: Boolean(p.client),
       categories: p.categories,
+      lastActive: new Date(lastActiveAt(p, pushes)).toISOString(),
     }))
-    .sort(byRecency)
+    .sort(byLastActive)
 
   const count = (status: WorkItem["status"]) => items.filter((item) => item.status === status).length
   const mergedCount = openSourceContributions.flatMap((p) => p.pullRequests).filter((pr) => pr.status === "merged").length
