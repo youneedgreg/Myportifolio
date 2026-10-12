@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 
 export const SITE_URL = "https://temwa.dev"
 export const SITE_NAME = "Gregory Temwa"
-export const SITE_TITLE = "Gregory Temwa | Chief Software Engineer in Nairobi"
+export const SITE_TITLE = "Gregory Temwa | Software Engineer in Nairobi"
 export const SITE_DESCRIPTION =
   "Gregory Temwa builds production systems businesses run on: offline-first point of sale, legal trust accounting, ERPs. Case studies, writing and a lab."
 

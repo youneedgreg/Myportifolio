@@ -46,7 +46,7 @@ Bing's index also feeds DuckDuckGo, Yahoo, Ecosia and ChatGPT's web search, so t
 ## 3. Check what search engines see (about 5 minutes)
 
 1. **Rich Results Test:** <https://search.google.com/test/rich-results>, test `https://temwa.dev/about` (Profile page, Breadcrumbs) and one case study (Breadcrumbs). Both should say *valid items detected*.
-2. **Schema validator:** <https://validator.schema.org>, test `https://temwa.dev/`. The Person entry should show Chief Software Engineer, Webtech Solutions, USIU–Africa and your four profiles, with no errors.
+2. **Schema validator:** <https://validator.schema.org>, test `https://temwa.dev/`. The Person entry should show Software Engineer, USIU–Africa and your four profiles, with no errors.
 
 ## 4. Refresh link previews (about 5 minutes)
 

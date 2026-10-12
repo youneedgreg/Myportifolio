@@ -71,7 +71,7 @@ export function CVTemplate() {
       <article className="cv rounded-2xl border border-border bg-white p-8 text-[13px] leading-relaxed text-gray-800 shadow-sm sm:p-12 print:rounded-none print:border-none print:p-0 print:shadow-none">
         <header className="space-y-1.5 text-center">
           <h1 className="text-3xl font-bold tracking-tight text-gray-950">Gregory Temwa Odete</h1>
-          <p className="text-base text-gray-600">Chief Software Engineer · Full-Stack and AI · Nairobi, Kenya</p>
+          <p className="text-base text-gray-600">Software Engineer · Full-Stack and AI · Nairobi, Kenya</p>
           <p className="text-xs text-gray-600">
             <a href="mailto:gregorytemwa1212@gmail.com">gregorytemwa1212@gmail.com</a> ·{" "}
             <a href="https://temwa.dev">temwa.dev</a> · <a href="https://github.com/youneedgreg">github.com/youneedgreg</a> ·{" "}
@@ -85,8 +85,8 @@ export function CVTemplate() {
             <p>
               Software engineer with 3+ years building production systems that businesses run their day on: offline-first
               point of sale, trust accounting for a law firm, ERPs for flower farms and safari operators. Chief Software
-              Engineer at Webtech Solutions, owning architecture, CI/CD and code standards across client projects, while
-              finishing a BSc in Software Engineering at USIU (2027). Open-source contributor to Canonical&apos;s
+              Engineer at Webtech Solutions from February to October 2026, owning architecture, CI/CD and code standards
+              across client projects. Finishing a BSc in Software Engineering at USIU (2027). Open-source contributor to Canonical&apos;s
               observability charms.
             </p>
           </Section>

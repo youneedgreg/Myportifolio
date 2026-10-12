@@ -4,7 +4,7 @@ import { CVTemplate } from "@/components/cv-template";
 
 export const metadata: Metadata = pageMetadata({
   title: "CV",
-  description: "CV of Gregory Temwa, Chief Software Engineer (full-stack and AI) in Nairobi.",
+  description: "CV of Gregory Temwa, software engineer (full-stack and AI) in Nairobi.",
   path: "/cv",
   index: false,
 })

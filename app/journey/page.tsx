@@ -6,7 +6,7 @@ import { getJourney } from "@/data/journey"
 
 export const metadata: Metadata = pageMetadata({
   title: "Journey",
-  description: "Every job, project, essay and milestone in Gregory Temwa's path so far, year by year, from teaching kids to code in 2023 to leading engineering at Webtech.",
+  description: "Every job, project, essay and milestone in Gregory Temwa's path so far, year by year, from teaching kids to code in 2023 to leading engineering at Webtech in 2026.",
   path: "/journey",
   type: "website",
 })
@@ -26,7 +26,7 @@ export default function JourneyPage() {
             <span className="text-gradient">Journey</span>
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            From teaching kids to code in {firstYear} to running engineering at Webtech while finishing a degree.{" "}
+            From teaching kids to code in {firstYear} to running engineering at Webtech, all while finishing a degree.{" "}
             {entries.length} entries, newest first. Filter to follow one thread.
           </p>
         </header>

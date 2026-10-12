@@ -1,6 +1,6 @@
 # temwa.dev
 
-The portfolio of **Gregory Temwa**, Chief Software Engineer at Webtech Solutions in Nairobi and a Software Engineering student at USIU (class of 2027). Live at **[temwa.dev](https://temwa.dev)**.
+The portfolio of **Gregory Temwa**, a software engineer in Nairobi (Chief Software Engineer at Webtech Solutions until October 2026) and a Software Engineering student at USIU (class of 2027). Live at **[temwa.dev](https://temwa.dev)**.
 
 It puts the work up front, teases what's below, gives visitors places to get lost (case studies, an MDX blog, a journey timeline, `/now`, `/uses`, a lab), and is keyboard-driven throughout: press <kbd>?</kbd> on the site.
 

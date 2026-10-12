@@ -52,8 +52,8 @@ export default function AboutClientPage({ githubStats }: AboutClientPageProps) {
             <span className="text-gradient">About me</span>
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            I&apos;m Gregory Temwa. I lead engineering at Webtech Solutions in Nairobi and I&apos;m finishing a BSc in
-            Software Engineering at USIU, class of 2027. Most of what I build is software other people run their day on,
+            I&apos;m Gregory Temwa, a software engineer in Nairobi. Until October 2026 I led engineering at Webtech
+            Solutions, and I&apos;m finishing a BSc in Software Engineering at USIU, class of 2027. Most of what I build is software other people run their day on,
             and most of what I care about is making it hold up.
           </p>
         </header>
@@ -77,8 +77,8 @@ export default function AboutClientPage({ githubStats }: AboutClientPageProps) {
               joined Webtech Solutions as a full-stack developer in December 2024.
             </p>
             <p>
-              Since February 2026 I&apos;ve been its Chief Software Engineer: I own architecture, CI/CD and code
-              standards across client projects, and mentor the engineers who ship them. The work ranges from trust
+              From February to October 2026 I was its Chief Software Engineer: I owned architecture, CI/CD and code
+              standards across client projects, and mentored the engineers who shipped them. The work ranges from trust
               accounting for a law firm to an offline-first point of sale, and it is almost always the unglamorous
               part, the rule that has to hold on a busy afternoon, that takes the longest.
             </p>
