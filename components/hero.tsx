@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowDown, ArrowRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import FloatingOrbs from "@/components/floating-orbs"
 import { experience } from "@/data/experience"
@@ -50,9 +50,9 @@ export default function Hero() {
             </Link>
           </Button>
           <Button asChild size="lg" variant="outline">
-            <Link href="#work">
-              See the work
-              <ArrowDown className="size-4" />
+            <Link href="/projects">
+              Browse all {projects.length} projects
+              <ArrowRight className="size-4" />
             </Link>
           </Button>
         </div>
