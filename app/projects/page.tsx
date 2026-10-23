@@ -22,6 +22,7 @@ export default function ProjectsPage() {
       featured: Boolean(p.featured),
       openSource: Boolean(p.openSource),
       client: Boolean(p.client),
+      hackathon: Boolean(p.hackathon),
       categories: p.categories,
     }))
     .sort(byRecency)

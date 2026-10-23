@@ -55,6 +55,8 @@ export type Project = {
   categories: ProjectCategory[]
   /** Built for a client or employer, whatever its visibility. */
   client?: boolean
+  /** The hackathon it was built for, by name; drives the Hackathons filter on /projects. */
+  hackathon?: string
   caseStudy: CaseStudy
 }
 
