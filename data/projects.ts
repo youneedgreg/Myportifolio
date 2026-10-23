@@ -99,6 +99,32 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "ring-routine-sim",
+    title: "ring-routine-sim",
+    description:
+      "An npm package that generates weeks of realistic, Ring-shaped household events with drift you can inject, and replays them signed exactly like Ring signs its webhooks, because the Ring Developer Playground emits none.",
+    image: "/assets/ring-routine-sim-npm.jpg",
+    tags: ["TypeScript", "Node.js", "npm", "HMAC-SHA256"],
+    href: "https://www.npmjs.com/package/ring-routine-sim",
+    github: "https://github.com/youneedgreg/ring-routine-sim",
+    size: "small",
+    year: "2026",
+    role: "Developer (Solo)",
+    status: "live",
+    gallery: ["/assets/ring-routine-sim-npm.jpg"],
+    openSource: true,
+    categories: ["backend", "data"],
+    hackathon: "Amazon Developer Hackathon 2026",
+    caseStudy: {
+      problem:
+        "Event-driven Ring apps need weeks of realistic events to test against, and the Ring Developer Playground has no sensors, no event history and no webhook delivery.",
+      approach:
+        "A deterministic generator of one household's routine with presets (normal, drift, away, missed morning, offline, demo), and a replayer that signs each payload with HMAC-SHA256 the way Ring does.",
+      results:
+        "Published as ring-routine-sim 0.1.0 on npm with zero runtime dependencies and CI on Node 20, 22 and 24; it drives every Jirani test and demo.",
+    },
+  },
+  {
     slug: "motion-studio",
     title: "motion-studio",
     description:
