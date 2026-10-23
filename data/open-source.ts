@@ -118,4 +118,16 @@ export const openSourceContributions: OpenSourceContribution[] = [
       },
     ],
   },
+  {
+    owner: "josepha-mayo",
+    repo: "ring-sandbox",
+    about: "A typed Python client and offline emulator for the Ring Partner API.",
+    pullRequests: [
+      {
+        title: "Add week_routine_drift example scenario: a week of one person's routine with slow drift",
+        url: "https://github.com/josepha-mayo/ring-sandbox/pull/18",
+        status: "open",
+      },
+    ],
+  },
 ]

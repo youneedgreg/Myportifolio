@@ -37,6 +37,10 @@ describe("projects data", () => {
     for (const p of projects) expect(copy(p), p.slug).not.toContain("—")
   })
 
+  it("names the event on every hackathon project", () => {
+    for (const p of projects.filter((p) => p.hackathon !== undefined)) expect(p.hackathon?.trim(), p.slug).toBeTruthy()
+  })
+
   it("uses a year (or year range) the journey can parse", () => {
     for (const p of projects) expect(p.year, p.slug).toMatch(/^\d{4}/)
   })

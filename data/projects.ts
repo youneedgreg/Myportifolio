@@ -61,10 +61,75 @@ export type Project = {
   categories: ProjectCategory[]
   /** Built for a client or employer, whatever its visibility. */
   client?: boolean
+  /** The hackathon it was built for, by name; drives the Hackathons filter on /projects. */
+  hackathon?: string
   caseStudy: CaseStudy
 }
 
 export const projects: Project[] = [
+  {
+    slug: "jirani",
+    title: "Jirani",
+    description:
+      "A privacy-first caregiving agent for older adults who live alone: it learns a daily rhythm from Ring sensors, never the camera, asks her first when a day breaks pattern, then a neighbour, then family with the evidence, and reports slow drift in plain words.",
+    image: "/assets/jirani-ladder.jpg",
+    tags: ["TypeScript", "AWS Lambda", "DynamoDB", "Amazon Bedrock", "Amazon Nova", "MCP", "AWS CDK", "Next.js", "React Native"],
+    github: "https://github.com/youneedgreg/Jirani",
+    featured: true,
+    size: "large",
+    year: "2026",
+    role: "Developer (Solo)",
+    status: "source-available",
+    gallery: [
+      "/assets/jirani-ladder.jpg",
+      "/assets/jirani-tv-checkin.jpg",
+      "/assets/jirani-no-false-alarm.jpg",
+      "/assets/jirani-all-clear.jpg",
+      "/assets/jirani-drift-voice.jpg",
+      "/assets/jirani-mcp-inspector.jpg",
+    ],
+    openSource: true,
+    categories: ["full-stack", "ai-ml", "backend"],
+    hackathon: "Amazon Developer Hackathon 2026",
+    caseStudy: {
+      problem:
+        "Sixty-three million Americans are family caregivers, and Amazon's caregiving subscription, Alexa Together, ended in 2025. What's left is calling every day, which feels like checking up, or a camera, which feels like spying, and timer alerts can't tell a lie-in or a weekend away from an emergency.",
+      approach:
+        "Statistics decide and the LLM only explains. A pure TypeScript rhythm engine learns robust baselines per Ring signal and detects deviations and slow drift; remembered context (\"I'm at my sister's this weekend\") suppresses false alarms; an escalation ladder asks her first by voice and on her Fire TV, then the neighbour, then family with the evidence, and only with her prior consent offers a look at the front door.",
+      techDetails:
+        "An MCP server (spec 2025-11-25, stateless Streamable HTTP) with 10 tools filtered per speaker; a Strands agent on Amazon Bedrock running Amazon Nova that reaches Jirani only through MCP; six Lambda functions behind Function URLs and EventBridge Scheduler, one DynamoDB table with Streams, SES and Secrets Manager, all in AWS CDK; HMAC-verified Ring webhook v1.1 parsing; a Next.js dashboard with a voice client on Vercel behind Clerk; a React Native check-in card running on the Vega Virtual Device; 113 automated tests in CI.",
+      results:
+        "Submitted to the Amazon Developer Hackathon with a 2:30 demo. On 40 simulated households the drift test caught a three-week rise in night-time trips in 31 and falsely flagged 0 steady routines, and 1,024 signed events in Ring's documented v1.1 payload were accepted on AWS with 0 rejected. The event simulator built for it, ring-routine-sim, is published on npm.",
+      challenges:
+        "The Ring Developer Playground has no sensors and records no events, so every event-driven feature needed realistic data; the first webhook parser followed an older payload shape and was rewritten against Ring's documented examples; and an every-minute evaluator could race a replay and leave a stale alert open, so alerts now close themselves when late events show activity.",
+    },
+  },
+  {
+    slug: "ring-routine-sim",
+    title: "ring-routine-sim",
+    description:
+      "An npm package that generates weeks of realistic, Ring-shaped household events with drift you can inject, and replays them signed exactly like Ring signs its webhooks, because the Ring Developer Playground emits none.",
+    image: "/assets/ring-routine-sim-npm.jpg",
+    tags: ["TypeScript", "Node.js", "npm", "HMAC-SHA256"],
+    href: "https://www.npmjs.com/package/ring-routine-sim",
+    github: "https://github.com/youneedgreg/ring-routine-sim",
+    size: "small",
+    year: "2026",
+    role: "Developer (Solo)",
+    status: "live",
+    gallery: ["/assets/ring-routine-sim-npm.jpg"],
+    openSource: true,
+    categories: ["backend", "data"],
+    hackathon: "Amazon Developer Hackathon 2026",
+    caseStudy: {
+      problem:
+        "Event-driven Ring apps need weeks of realistic events to test against, and the Ring Developer Playground has no sensors, no event history and no webhook delivery.",
+      approach:
+        "A deterministic generator of one household's routine with presets (normal, drift, away, missed morning, offline, demo), and a replayer that signs each payload with HMAC-SHA256 the way Ring does.",
+      results:
+        "Published as ring-routine-sim 0.1.0 on npm with zero runtime dependencies and CI on Node 20, 22 and 24; it drives every Jirani test and demo.",
+    },
+  },
   {
     slug: "motion-studio",
     title: "motion-studio",

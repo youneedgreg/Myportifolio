@@ -19,6 +19,7 @@ export type WorkItem = {
   featured: boolean
   openSource: boolean
   client: boolean
+  hackathon: boolean
   categories: ProjectCategory[]
   /** ISO timestamp of the last commit; the list is sorted by it. */
   lastActive: string
@@ -31,12 +32,13 @@ const STATUS: Record<ProjectStatus, { label: string; perms: string; dot: string 
   "coming-soon": { label: "In progress", perms: "-rw-------", dot: "bg-muted-foreground" },
 }
 
-type StatusFilter = "all" | "client" | ProjectStatus
+type StatusFilter = "all" | "client" | "hackathon" | ProjectStatus
 
 const FILTERS: { id: StatusFilter; label: string; dot?: string }[] = [
   { id: "all", label: "Everything" },
   { id: "live", label: "Live", dot: STATUS.live.dot },
   { id: "client", label: "Client work", dot: "bg-chart-5" },
+  { id: "hackathon", label: "Hackathons", dot: "bg-chart-2" },
   { id: "source-available", label: "Source-available", dot: STATUS["source-available"].dot },
   { id: "coming-soon", label: "In progress", dot: STATUS["coming-soon"].dot },
   { id: "private", label: "Private", dot: STATUS.private.dot },
@@ -45,6 +47,7 @@ const FILTERS: { id: StatusFilter; label: string; dot?: string }[] = [
 function matchesStatus(item: WorkItem, filter: StatusFilter) {
   if (filter === "all") return true
   if (filter === "client") return item.client
+  if (filter === "hackathon") return item.hackathon
   return item.status === filter
 }
 

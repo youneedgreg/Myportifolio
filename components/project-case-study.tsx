@@ -48,6 +48,7 @@ export default function ProjectCaseStudy({ project, prev, next, relatedPosts, si
                 {project.role} · {project.year}
               </p>
               {project.openSource && <Badge variant="outline">Open Source</Badge>}
+              {project.hackathon && <Badge variant="outline">{project.hackathon}</Badge>}
               {(isSourceAvailable || project.sourceAvailable) && <Badge variant="outline">Source-available</Badge>}
               {isPrivate && <Badge variant="outline">Private</Badge>}
               {isComingSoon && <Badge variant="secondary">Coming soon</Badge>}
