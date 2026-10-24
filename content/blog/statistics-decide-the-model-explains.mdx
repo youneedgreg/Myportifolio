@@ -1,0 +1,29 @@
+Jirani watches the daily rhythm of an older adult who lives alone, using Ring door and contact sensors instead of a camera. When a morning looks wrong, it asks her first, then the neighbour, then her daughter. That makes the question "is something wrong?" the most consequential one in the system, and I decided early that a language model would never be the thing that answers it.
+
+## Two jobs that look like one
+
+"Notice that Margaret is not up yet" and "tell her daughter why that matters" sound like one task for an agent. They are two tasks with different failure costs.
+
+The first is a comparison: is today outside what this person usually does? That has a right answer, it has to be the same answer every time it is asked, and a wrong answer either wakes a family at 7am or stays quiet on the morning it mattered. The second is language: say what happened, plainly, to a worried person. A wrong answer there is a clumsy sentence.
+
+So the rhythm engine is plain TypeScript with no I/O and no model in it. It learns robust baselines per signal and flags a morning only when first activity is later than her median plus the larger of 2.5 robust standard deviations or 45 minutes. Robust matters: one late Sunday should not drag the baseline, so medians and spread measures that shrug off outliers do the work. The thresholds are numbers in code, reviewed in a pull request, and covered by tests that replay weeks of simulated life.
+
+## Drift is where a model would quietly fail
+
+Slow change is the case I most wanted to get right, and the one most likely to fool anything that learns as it goes. If night-time bathroom trips rise a little every week, a baseline that keeps updating will absorb the rise and call it normal.
+
+The weekly report compares the last seven lived-in days with up to 21 earlier ones, with a guard week between them so the recent rise cannot leak into what counts as usual. Days she was away do not count as lived-in, so a weekend at her sister's does not look like a collapse in activity. On 40 simulated households, it caught a three-week rise in night trips in 31 and falsely flagged none of 40 steady routines. Missing nine is a real limit, and I would rather publish that number than a prompt that sounds confident.
+
+## What the model does get to do
+
+The agent is a Strands agent on Amazon Bedrock running Amazon Nova, at temperature 0, and it can only reach Jirani through an MCP server. It reads the state, the open alert and the weekly report through tools, and the rules it runs under are short: cite what the tools returned, say "I don't know" otherwise, and never treat silence as evidence. That last rule was added after a real test round with Nova, not imagined in advance.
+
+Inside those rules it is good at its job. Asked "why did you alert me?", it walks through which expectation broke, by how much, which of Margaret's plans it checked, and who it asked before reaching the family. It never decides whether to ask anyone. The ladder does that.
+
+## Keeping the reasons
+
+One decision made the split pay off more than I expected: every alert the engine suppresses keeps its reason. "No morning activity, but she said she is at her sister's until Sunday 7pm" is stored next to the deviation it explained away. The model never has to guess why Jirani stayed quiet. It reads the reason and says it.
+
+The same goes for alerts that turn out to be wrong. If late events show she was up all along, say an every-minute check ran in the middle of a replay, the alert closes itself and says so, instead of leaving a family to wonder.
+
+> A model can explain a decision beautifully. That is exactly why it should not be the one making it.

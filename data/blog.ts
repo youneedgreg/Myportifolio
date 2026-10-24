@@ -14,6 +14,16 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "statistics-decide-the-model-explains",
+    title: "Statistics decide, the model explains",
+    summary:
+      "In a caregiving agent, \"is something wrong?\" is the question that wakes a family at 7am, so a language model never answers it. Robust baselines and a drift test with a guard week decide; Amazon Nova only explains what the tools returned, and every quiet morning keeps its reason.",
+    date: "2026-10-24",
+    readingTime: "4 min read",
+    tags: ["TypeScript", "Statistics", "LLMs", "Amazon Bedrock"],
+    project: { title: "Jirani", slug: "jirani" },
+  },
+  {
     slug: "a-rule-enforced-in-one-place-is-not-enforced",
     title: "A rule enforced in one place is not enforced",
     summary:
