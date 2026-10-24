@@ -14,6 +14,26 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "statistics-decide-the-model-explains",
+    title: "Statistics decide, the model explains",
+    summary:
+      "In a caregiving agent, \"is something wrong?\" is the question that wakes a family at 7am, so a language model never answers it. Robust baselines and a drift test with a guard week decide; Amazon Nova only explains what the tools returned, and every quiet morning keeps its reason.",
+    date: "2026-10-24",
+    readingTime: "4 min read",
+    tags: ["TypeScript", "Statistics", "LLMs", "Amazon Bedrock"],
+    project: { title: "Jirani", slug: "jirani" },
+  },
+  {
+    slug: "a-test-that-shares-your-assumption-cannot-catch-it",
+    title: "A test that shares your assumption cannot catch it",
+    summary:
+      "My webhook parser and my event simulator were written from the same wrong reading of Ring's payload, so a thousand replayed events were accepted and every test passed. The fix was not more tests but a source of truth neither of them wrote: Ring's documented examples, pasted in verbatim.",
+    date: "2026-10-23",
+    readingTime: "3 min read",
+    tags: ["Testing", "Webhooks", "TypeScript", "Ring API"],
+    project: { title: "Jirani", slug: "jirani" },
+  },
+  {
     slug: "a-rule-enforced-in-one-place-is-not-enforced",
     title: "A rule enforced in one place is not enforced",
     summary:
