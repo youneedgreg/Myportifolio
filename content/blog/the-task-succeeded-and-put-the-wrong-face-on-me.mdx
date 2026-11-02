@@ -1,0 +1,40 @@
+I was testing Jaribu, my wig try-on app, with a wig I'd added as a seller. The photo looked like a typical listing: close up, head tilted and looking down, a hand in the frame. I uploaded a selfie and waited.
+
+The result was my body and my background with someone else's face on it: the model's lashes, nose ring, earring, lips and top. I ran it again and got the same thing.
+
+The task had succeeded both times, and I'd been charged for both.
+
+## Finding the cause without guessing
+
+There were four suspects: my selfie, the wig photo, the API and my code.
+
+The code sends the two photos in the right order, along the same path as demo wigs that had kept their faces in my earlier test. So I changed one thing. Same selfie, a new wig listed from a calm, front-facing mannequin photo. My face stayed.
+
+That's one comparison, so I treat it as strong evidence and not proof. It points at the wig photo. It doesn't say whether the trigger was the real person, the pose or the hand. YouCam's docs do ask for a single face in a full frontal view with limits on head angle, and that photo was well outside what they describe. I judged the pose by eye and didn't measure it.
+
+## The user who broke it wasn't the one who saw it
+
+This is the part that changed how I think about the product. In a single-user app, a bad input hurts the person who gave it, and they can try again. Here a seller's photo decides what the shopper sees, and the shopper has no idea why a stranger's face just appeared on their selfie. All they learn is that the app doesn't work, or that it's creepy.
+
+And nothing in the system flags it. The API reports success, the task is paid for, the result is stored and the before-and-after slider draws it perfectly. Every check I had was asking whether the work finished. None of them could ask whether it was still you.
+
+## What I changed, and what I didn't
+
+The add-a-wig form now says what a good photo is before you upload one:
+
+- The wig on a person or a mannequin with a face, looking at the camera with the head straight.
+- One person only, with no hands near the face.
+- All the hair in the frame, with calm styling.
+- Then try it on yourself before you share the link.
+
+That last line does the most work, because it puts the seller in the shopper's position while they can still fix it. Later, two people ran the app on their own phones, and every try-on and colour kept their own face.
+
+But it's guidance. Nothing stops a seller from uploading a bad photo anyway, and the app's How well it works page says exactly that. Real enforcement would mean checking the photo's pose before accepting it, or comparing the result against the selfie. I didn't build either in a hackathon's time, so I published the flaw instead of implying it was solved.
+
+## Success is the API's word
+
+The same lesson turned up twice more on this project. Hair Color results looked like timeouts because they were PNGs labelled `binary/octet-stream`, and my storage step rejected anything not labelled as an image: the API had succeeded, and my code threw the result away. And a hair type reading can come back successfully and be wrong about box braids.
+
+"Succeeded" tells you the provider finished its job. Whether the job was the one your user needed is still your question, and it's worth deciding early who is responsible for asking it.
+
+> The API can tell you the task finished. It can't tell you it's still the shopper's face.
