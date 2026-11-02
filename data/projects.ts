@@ -68,6 +68,46 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "jaribu",
+    title: "Jaribu",
+    description:
+      "A phone-first app that lets you see a seller's wig on your own face before you pay, built for the YouCam API Hackathon. A seller shares one link, and the shopper gets a preview, the seller's colours, a blend check, a lace match and a precise order on WhatsApp, with the app's flaws published beside its results.",
+    image: "/assets/jaribu-preview.jpg",
+    tags: ["TypeScript", "Next.js", "YouCam API", "PostgreSQL", "Neon", "Vercel Blob", "Better Auth", "GitHub Actions", "Vitest"],
+    href: "https://tryjaribu.vercel.app",
+    github: "https://github.com/youneedgreg/Jaribu",
+    featured: true,
+    size: "large",
+    year: "2026",
+    lastActive: "2026-11-02",
+    role: "Developer (Solo)",
+    status: "live",
+    gallery: [
+      "/assets/jaribu-preview.jpg",
+      "/assets/jaribu-styles.jpg",
+      "/assets/jaribu-blend-check.jpg",
+      "/assets/jaribu-order.jpg",
+      "/assets/jaribu-architecture.jpg",
+      "/assets/jaribu-eval.jpg",
+      "/assets/jaribu-flaws.jpg",
+    ],
+    openSource: true,
+    categories: ["full-stack", "ai-ml"],
+    hackathon: "YouCam API Hackathon 2026",
+    caseStudy: {
+      problem:
+        "Wigs are often bought from one photo of someone else, and they can be hard to send back. In Kenya much of that buying happens in chats, so the seller and the shopper end up going back and forth over specs, and the shopper still can't see how the wig may look on them.",
+      approach:
+        "A link a seller can share where they already sell, with no account for shoppers. YouCam's JS Camera Kit guides the photos, Hair Style Try-On and Hair Color Try-On make the preview, Hair Type Detection checks whether each way of building the wig may blend with the shopper's hair, and Facial Color Tones finds the seller's nearest lace shade. The shopper sends the order on WhatsApp with their choices and a private link to the preview. Every result is labelled a preview, not a fit guarantee, and both checks say they're provisional.",
+      techDetails:
+        "Next.js on Vercel with the API key kept on the server, Neon Postgres and Better Auth for sellers, and five YouCam APIs behind asynchronous task routes the browser polls. YouCam's result links last two hours, so each result is copied to a private Vercel Blob store. Vercel Hobby cron only runs daily, so GitHub Actions calls a secret sweep route, a daily cron backs it up, and the app refuses to serve anything older than 24 hours. The browser crops and shrinks each photo for the API it's going to, the server checks again before spending units, and 321 automated tests run in CI.",
+      results:
+        "Submitted to the YouCam API Hackathon with a 2:40 demo. In a live test on AI-generated faces, 22 of 22 tasks ran, which shows the app works and how fast, not how good a preview looks. Two people then ran it on their own phones: every try-on and colour kept their face, the lace match gave one of them a result, and the blend check asked both for new photos. The blend result in the demo ran on an AI-generated test face, and the video says so. The findings are on a public How well it works page.",
+      challenges:
+        "A task can succeed and still be wrong: a tilted, close-up wig photo put the model's face on my body, and the API reported success and charged for it. Add-a-wig now asks for calm, front-facing photos, though nothing yet blocks a bad one. Hair Color results looked like timeouts because they were PNGs labelled binary/octet-stream, so results are now identified by their bytes. Colours still come out too bright, and hair type misreads box braids; both are published as flaws.",
+    },
+  },
+  {
     slug: "jirani",
     title: "Jirani",
     description:
