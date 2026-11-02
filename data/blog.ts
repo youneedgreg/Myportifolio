@@ -14,6 +14,16 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "all-22-ran-and-that-proves-less-than-it-sounds",
+    title: "All 22 ran, and that proves less than it sounds",
+    summary:
+      "My wig try-on app passed every task in a live test on AI-generated faces. Then two people used it on their own phones and the blend check gave neither of them a result. What each test could actually say, and how I wrote that down.",
+    date: "2026-11-02",
+    readingTime: "4 min read",
+    tags: ["Testing", "AI APIs", "Evaluation", "Next.js"],
+    project: { title: "Jaribu", slug: "jaribu" },
+  },
+  {
     slug: "statistics-decide-the-model-explains",
     title: "Statistics decide, the model explains",
     summary:
