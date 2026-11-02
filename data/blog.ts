@@ -14,6 +14,26 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "all-22-ran-and-that-proves-less-than-it-sounds",
+    title: "All 22 ran, and that proves less than it sounds",
+    summary:
+      "My wig try-on app passed every task in a live test on AI-generated faces. Then two people used it on their own phones and the blend check gave neither of them a result. What each test could actually say, and how I wrote that down.",
+    date: "2026-11-02",
+    readingTime: "4 min read",
+    tags: ["Testing", "AI APIs", "Evaluation", "Next.js"],
+    project: { title: "Jaribu", slug: "jaribu" },
+  },
+  {
+    slug: "the-task-succeeded-and-put-the-wrong-face-on-me",
+    title: "The task succeeded and put the wrong face on me",
+    summary:
+      "A try-on API reported success, charged for the work, and returned a stranger's face on my body. The cause looks like the seller's photo, not the code, which changes where a marketplace has to do its checking.",
+    date: "2026-11-02",
+    readingTime: "3 min read",
+    tags: ["AI APIs", "Product", "TypeScript", "YouCam API"],
+    project: { title: "Jaribu", slug: "jaribu" },
+  },
+  {
     slug: "statistics-decide-the-model-explains",
     title: "Statistics decide, the model explains",
     summary:

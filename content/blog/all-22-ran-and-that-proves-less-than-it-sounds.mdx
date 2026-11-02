@@ -1,0 +1,41 @@
+Jaribu lets you see a seller's wig on your own face before you pay. Before anyone filmed it, I ran 22 tasks through the live app: 12 try-ons, 6 colours, 3 hair type readings and 1 skin tone reading. All 22 ran. The typical try-on took 9.9 seconds and the slowest 20.1.
+
+It's a satisfying table, and it's easy to say more with it than it can bear.
+
+## What the table could not see
+
+The faces in that test were three AI-generated images. No outside testers took part. I had planned on real testers and didn't get them in time, so that claim was never available to me, and "22 of 22" had to stand on its own.
+
+Read closely, the same run shows how narrow "ran" is. One face with box braids came back as type 2A to 2B, wavy. That counts as a success in the table, because the API finished and returned a reading. It was also wrong, as it had been four days earlier. Colours did the same thing: every task succeeded, and burgundy came out vivid magenta and platinum came out olive gold. A status code can't tell you any of that. I only found it by looking at the pictures.
+
+The test also skipped a step. The photos were prepared ahead and sent straight to the app's routes, so it never touched the guided camera or the browser's own shrinking. For a tool people use on their phones, that's a large part of the path.
+
+## Two phones
+
+On 1 November, two people ran the whole flow on their own phones and screen-recorded it. Every try-on and colour came back with their own face kept, which mattered a great deal. The lace match gave one of them a result and asked the other for a straighter close-up.
+
+The blend check asked both of them for new photos, so it gave no result in either run:
+
+> Look straight ahead for the first photo, then turn your head clearly to each side. Take the photos again.
+
+So the check that went 3 for 3 on prepared photos went 0 for 2 on real phones. Two runs can't tell you a rate, and they don't tell me on their own which part of the capture caused it. They do show that the earlier number didn't cover this.
+
+The failure was at least a good one. The app said what it needed and didn't guess at someone's hair type from a photo it couldn't read. I'd still rather have had a result.
+
+## Writing down what it means
+
+The demo video had to show the blend check doing its job. The result in it ran on 2 November through real YouCam calls, on one of the AI-generated test faces, with the photos handed straight to the check. The reading was type 4B to 4C, against a straight wig: a glueless build covers your hair, and a U-part may not blend, so it suggests the glueless one instead.
+
+That's a real result, and it's also not a real person's. So one card in the video says where it came from, and another says both real runs asked for new photos. I've kept three wordings apart on the app's How well it works page, the README and the submission:
+
+- **It runs:** 22 of 22 tasks, on AI-generated faces, with timings.
+- **It was tried:** two people, not a study, and their runs aren't in the table.
+- **It's good:** not shown yet. The blend and lace rules stay provisional until wig wearers have checked them.
+
+The temptation is to let the first line imply the third. Nobody has to lie for that to happen. You just leave out the sentence after the number.
+
+## What I'd do first next time
+
+I'd run one real phone through the whole path before building an evaluation at all. It would have cost a few minutes and moved the blend check's problem from the last day of the project to the first week. A scripted run is still worth having, because it's repeatable and it told me about speed and about bad-photo handling. But it can only grade the path it takes.
+
+> A test tells you about the path it took. Everything else is a guess until someone walks the other one.
